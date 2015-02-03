@@ -49,9 +49,10 @@ abstract class WskAngularComponent {
 
             final html.HtmlElement component = _component.querySelector(".${mainconfig.cssClass}");
             if (component == null) {
-                throw "Component not ready";
+                throw "Component for .${mainconfig.cssClass} not ready yet, try it again...";
             }
             return component;
+
         }).then((final html.HtmlElement component) {
             _logger.info("Found $component with class '${mainconfig.cssClass}'");
 
@@ -61,7 +62,7 @@ abstract class WskAngularComponent {
             upgraded();
 
         }).catchError((_) {
-            _upgrade(inMilliSeconds: inMilliSeconds * 2);
+            _upgrade(inMilliSeconds: inMilliSeconds < 100 ? inMilliSeconds + 5 : inMilliSeconds * 2);
         });
     }
 }
