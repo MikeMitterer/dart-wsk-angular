@@ -42,7 +42,7 @@ import 'package:validate/validate.dart';
 //   __ services
 //   __ component
 import 'package:wsk_material/wskcomponets.dart';
-
+import 'package:wsk_angular/wsk_angular.dart';
 
 /**
  * Button Module.
@@ -58,22 +58,14 @@ class WskButtonModule extends Module {
     }
 }
 
-// @formatter:off    
 /// ButtonComponent-Componente
-@Component(
-    selector: 'wsk-button',
-    useShadowDom: true,
-    templateUrl: 'wsk_button.html',
-    cssUrl: "wsk_button.css")
-// @formatter:on    
-class WskButtonComponent implements AttachAware , ShadowRootAware  {
+@Component(selector: 'wsk-button', useShadowDom: false, templateUrl: 'packages/wsk_angular/wsk_button/wsk_button.html')
+class WskButtonComponent extends WskAngularComponent {
     final _logger = new Logger('wsk_angular.wsk_button.WskButtonComponent');
 
-    final html.Element _component;
-    final VmTurnZone _zone;
-
-    WskButtonComponent(this._component,this._zone) {
-        Validate.notNull(_component);
+    WskButtonComponent(final html.Element component)
+        : super(component,materialButtonConfig(),[ materialRippleConfig() ]) {
+        Validate.notNull(component);
     }
 
     // - EventHandler -----------------------------------------------------------------------------
@@ -85,45 +77,6 @@ class WskButtonComponent implements AttachAware , ShadowRootAware  {
     void handleEvent(final html.Event e) {
         _logger.info("Event: handleEvent");
     }
-
-    void attach() {
-//   1.)
-//        _zone.run(() {
-//            componenthandler.upgradeElement(_component.querySelector("button"), () {
-//                return [ materialButtonConfig(), materialRippleConfig() ];
-//            });
-//        });
-
-//   2.)
-//        new Future(() {
-//            componenthandler.upgradeElement(_component.querySelector("button"), () {
-//                return [ materialButtonConfig(), materialRippleConfig() ];
-//            });
-//        });
-
-//   3.)
-//        new Timer(new Duration(milliseconds: 50),() {
-//            componenthandler.upgradeElement(_component.querySelector("button"), () {
-//                return [ materialButtonConfig(), materialRippleConfig() ];
-//            });
-//        });
-
-//   4.)
-//        new Future.delayed(new Duration(milliseconds: 50), () {
-//            componenthandler.upgradeElement(_component.querySelector("button"), () {
-//                return [ materialButtonConfig(), materialRippleConfig() ];
-//            });
-//        });
-
-    }
-
-    // 5.)
-    void onShadowRoot(final html.ShadowRoot shadowRoot) {
-        componenthandler.upgradeElement(shadowRoot.querySelector("button"), () {
-            return [ materialButtonConfig(), materialRippleConfig() ];
-        });
-    }
-
 
     // - private ----------------------------------------------------------------------------------
 }

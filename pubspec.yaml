@@ -16,8 +16,8 @@ dependencies:
 
   logging: any
   logging_handlers: any
-  console_log_handler: #any
-    path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
+  console_log_handler: any
+  #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
 dev_dependencies:
   unittest: any
@@ -33,5 +33,5 @@ transformers:
 #    dart_sdk:   "/Developer/dart-1.8.5/dart-sdk"
     html_files:
 #      - test/mm_uia_apikey/index.html
-#      - web/index.html
+#      - web/wsk_button/index.html
 
