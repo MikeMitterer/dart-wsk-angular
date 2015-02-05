@@ -1,0 +1,127 @@
+@import "packages/wsk_material/sass/styleguide_demo_bp";
+@import "colors"; // Theming
+
+// Make the layout work
+@import "packages/wsk_material/sass/layout/layout";
+
+// needed for button
+@import "packages/wsk_material/sass/shadow/shadow";
+@import "packages/wsk_material/sass/button/button";
+
+$padding: 24px;
+
+.button-block {
+  display: inline-block;
+  margin: 20px 20px 20px 0;
+}
+
+
+html, body {
+    margin     : 0;
+    padding    : 0;
+    height     : 100%;
+    min-height : 100%;
+}
+
+body {
+    display : flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    min-height: 100vh;
+
+    &.debug {
+        border: 2px solid red;
+    }
+
+    > header, > footer, > main {
+        width: 100%;
+    }
+
+    > header, > footer {
+        height: 50px;
+        border: 2px solid blue;
+        flex-grow: 0;
+    }
+
+    > main {
+        flex-grow: 1;
+        flex-basis: 0;
+        overflow: scroll;
+
+        #content {
+            padding: 0 $padding;
+        }
+    }
+
+    .wsk-layout {
+        height: 100vh;
+    }
+}
+
+//-------------------------------------------------------------------------------------------------
+//
+
+html {
+    color: $text-color-primary;
+}
+
+.styleguide-demo {
+
+    article > {
+        h1 { padding-top: ($padding / 2); text-transform: capitalize; }
+
+        h1:after {
+            content       : '';
+            display       : block;
+            width         : 100%;
+            border-bottom : 1px solid rgba(0, 0, 0, 0.5);
+            margin-top    : $padding;
+            margin-bottom : $padding;
+        }
+    }
+}
+
+//-------------------------------------------------------------------------------------------------
+//  Typography - DEMO
+
+table th {
+    @include typo-caption($colorContrast: true);
+
+    padding-right: 80px;
+
+    vertical-align: top;
+    text-align: left;
+}
+
+.PreviewBlock--white {
+    background-color: white;
+    color: black;
+}
+
+.PreviewBlock--black {
+    background-color: black;
+    color: white;
+}
+
+.PreviewBlock--white,
+.PreviewBlock--black,
+.PreviewBlock--img-1,
+.PreviewBlock--img-2 {
+    width: 360px;
+    height: 272px;
+
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.PreviewBlock--img-1 {
+    background-image: url(../images/img-1.png);
+    color: white;
+}
+
+.PreviewBlock--img-2 {
+    background-image: url(../images/img-2.png);
+    color: white;
+}
+

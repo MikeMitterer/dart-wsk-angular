@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link rel="stylesheet" href="assets/css/styleguide.css">
+
+    <style>
+        header a, header a:visited, footer a, footer a:visited {
+            color : #ffffff; font-size : 13px;
+        }
+        h1, h2, h3, h4, h5 { font-weight : bold;}
+        #log { background-color: #777777;}
+
+    </style>
+
+</head>
+<body ng-app ng-cloak flexbox-navi-handler>
+<header class="bg-dark">
+    <nav class="navbar navbar-inverse" role="navigation">
+        <a href="#" id="toggle-sidenav"><i class="fa fa-bars"></i></a>
+        <a href="#" id="toggle-debugcss"><i class="fa fa-bug"></i></a>
+        <span class="spacer"></span>
+        <a href="#" id="toggle-log"><i class="fa fa-list"></i></a>
+        <a href="#" id="toggle-sidebar" style="margin-bottom: 0.1em">
+            <i class="fa fa-toggle-left"></i>
+            <i class="fa fa-toggle-right"></i>
+        </a>
+    </nav>
+</header>
+<section id="middle">
+    <nav id="sidenav">
+        <div>
+            <h4>Navigation</h4>
+            <ul class="nav left links">
+                <li navbaractivator data-route="first/first"><a href="#/first">Home</a>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li navbaractivator><a href="#/first/sub">Submenu</a></li>
+                    </ul>
+                </li>
+                <li navbaractivator><a href="#/second">Second</a></li>
+                <li navbaractivator data-route="third"><a href="#/third">Third</a></li>
+                <li navbaractivator><a href="flexbox.html" target="_self">JS-Version</a></li>
+            </ul>
+            <!--<ul class="nav nav-pills nav-stacked" >-->
+            <!--<li ><a href="#/first">Home</a></li>-->
+            <!--<li ><a href="#/second">Second</a></li>-->
+            <!--<li ><a href="#/third">Third</a></li>-->
+            <!--<li><a href="flexbox.html" target="_self">JS-Version</a></li>-->
+            <!--</ul>-->
+        </div>
+    </nav>
+    <main>
+        <ng-view id="main"></ng-view>
+    </main>
+</section>
+<section id="log" class="logging">Log</section>
+<footer class="bg-footer">
+    <a href="#">Footer</a>
+</footer>
+<script type="application/dart" src="main.dart"></script>
+<script type="text/javascript" src="packages/browser/dart.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-library webapp_base_ui_angular.example.mm_uia_alertlist;
+library wsk_angular.example.wsk_button;
 
 import 'package:angular/angular.dart';
 import 'package:angular/application_factory.dart';

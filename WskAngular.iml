@@ -6,6 +6,11 @@
       <excludeFolder url="file://$MODULE_DIR$/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/styleguide/assets/css/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/styleguide/assets/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/styleguide/assets/scss/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/styleguide/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/styleguide/views/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_button/packages" />
       <excludeFolder url="file://$MODULE_DIR$/packages/wsk_angular" />
       <excludeFolder url="file://$MODULE_DIR$/packages/wsk_material" />
