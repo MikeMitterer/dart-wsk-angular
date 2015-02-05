@@ -1,5 +1,6 @@
 # wsk_angular
 
+The base-module for wsk_angular is [wsk_material][wskmaterial]
 
 ###AngularDart-Bug###
 I you want to build the JS-Version you have to
@@ -21,3 +22,4 @@ Or if you want to check out the styleguide you need
 Please file feature requests and bugs at the [issue tracker][tracker].
 
 [tracker]: https://github.com/MikeMitterer/dart-wsk-angular/issues
+[wskmaterial]: https://github.com/MikeMitterer/dart-wsk-material
