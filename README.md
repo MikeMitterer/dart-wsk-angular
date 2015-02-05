@@ -2,8 +2,19 @@
 
 
 ###AngularDart-Bug###
-I you want to build a JS-Version you have to 'rm -rf web' (it's a symlink)<br>
-and 'ln -s example/wsk_button/ web'<br>
+I you want to build the JS-Version you have to
+```bash
+    rm -rf web
+    ln -s example/wsk_button/ web
+    pub build web
+```
+
+Or if you want to check out the styleguide you need
+```bash
+    rm -rf web
+    ln -s example/styleguide/ web
+    pub build web
+```
 
 Now you can 'pub build web'
 
