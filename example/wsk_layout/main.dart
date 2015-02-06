@@ -1,4 +1,4 @@
-library wsk_angular.example.wsk_button;
+library wsk_angular.example.wsk_layout;
 
 import 'package:angular/angular.dart';
 import 'package:angular/application_factory.dart';
@@ -6,7 +6,7 @@ import 'package:angular/application_factory.dart';
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
-import 'package:wsk_angular/wsk_button/wsk_button.dart';
+import 'package:wsk_angular/wsk_layout/wsk_layout.dart';
 
 
 /**
@@ -22,16 +22,13 @@ main() {
  */
 class SampleModule extends Module {
     SampleModule() {
-//        install(new AlertModule());
-        install(new WskButtonModule());
+        install(new WskLayoutModule());
 
         // -- controllers
-        //type(MessageController);
 
         // -- services
 
         // -- decorator
-        //bind(NaviHandler);
 
         //factory(NgRoutingUsePushState, (_) => new NgRoutingUsePushState.value(false));
     }

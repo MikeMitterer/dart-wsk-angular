@@ -38,7 +38,7 @@ abstract class WskAngularComponent {
 
     // - private ----------------------------------------------------------------------------------
 
-    void _upgrade({ final int inMilliSeconds: 10} ) {
+    void _upgrade({ final int inMilliSeconds: 200} ) {
         if (inMilliSeconds >= _TIMEOUT_IN_MS) {
             throw new TimeoutException("Could not find a component with css-class: .${mainconfig.cssClass}");
         }

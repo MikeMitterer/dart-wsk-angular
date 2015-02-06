@@ -7,40 +7,8 @@ import "package:angular/angular.dart";
 import 'package:angular/core/annotation_src.dart';
 
 import 'package:logging/logging.dart';
-
-//---------------------------------------------------------
-// Extra packages (piepag) (http_utils, validate, signer)
-//---------------------------------------------------------
 import 'package:validate/validate.dart';
 
-//---------------------------------------------------------
-// WebApp-Basis (piwab) - webapp_base_dart
-//---------------------------------------------------------
-
-//---------------------------------------------------------
-// UI-Basis (pibui) - webapp_base_ui
-//---------------------------------------------------------
-//import 'package:webapp_base_ui/events.dart';
-
-// __ interfaces
-
-// __ tools
-//   __ conroller
-//   __ decorators
-//   __ services
-
-//   __ component
-
-//---------------------------------------------------------
-// MobiAd UI (pimui) - mobiad_rest_ui
-//---------------------------------------------------------
-
-// __ interfaces
-// __ tools
-//   __ conroller
-//   __ decorators
-//   __ services
-//   __ component
 import 'package:wsk_material/wskcomponets.dart';
 import 'package:wsk_angular/wsk_angular.dart';
 
