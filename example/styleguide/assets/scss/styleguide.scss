@@ -4,6 +4,9 @@
 // Make the layout work
 @import "packages/wsk_material/sass/layout/layout";
 
+// Tabs
+@import "packages/wsk_material/sass/tabs/_tabs";
+
 // needed for button
 @import "packages/wsk_material/sass/shadow/shadow";
 @import "packages/wsk_material/sass/button/button";
@@ -80,6 +83,19 @@ html {
             margin-bottom : $padding;
         }
     }
+}
+
+wsk-layout-header .wsk-layout-title {
+    text-transform: capitalize;
+}
+
+wsk-drawer .wsk-layout-title {
+    background-color: $layout-header-bg-color;
+    color: white;
+}
+
+article.sample {
+    margin-top: 24px;
 }
 
 //-------------------------------------------------------------------------------------------------

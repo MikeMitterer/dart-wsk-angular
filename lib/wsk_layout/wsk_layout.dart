@@ -20,17 +20,21 @@ class WskLayoutModule extends Module {
         // install(new XYModule());
 
         bind(WskLayoutComponent);
-        bind(WskHeaderComponent);
+
+        bind(WskLayoutHeaderComponent);
         bind(WskHeaderRowComponent);
+        bind(WskLayoutTabBarComponent);
+        bind(WskTabPanelComponent);
+        bind(WskLayoutTabComponent);
+        bind(WskLayoutContentComponent);
+
         bind(WskDrawerComponent);
-        bind(WskTabBarComponent);
-        bind(WskTabBarComponent);
 
         //- Services ---------------------------
     }
 }
 
-/// LayoutComponent-Componente
+/// LayoutComponent
 @Component(selector: 'wsk-layout', useShadowDom: false, templateUrl: 'packages/wsk_angular/wsk_layout/wsk_layout.html')
 class WskLayoutComponent extends WskAngularComponent {
     final _logger = new Logger('wsk_anuglar.wsk_layout.LayoutComponent');
@@ -48,6 +52,9 @@ class WskLayoutComponent extends WskAngularComponent {
 
     @NgAttr("header")
     String header = "";
+
+    @NgAttr("tabs")
+    String tabs = "";
 
     @NgOneWay("isDrawerFixed")
     bool get isDrawerFixed => (drawer != null && drawer != "" && (drawer == "fixed" || drawer == "fix"));
@@ -72,27 +79,19 @@ class WskLayoutComponent extends WskAngularComponent {
         return isFixed;
     }
 
-    // - EventHandler -----------------------------------------------------------------------------
+    @NgOneWay("isTabsFixed")
+    bool get isTabsFixed => (tabs != null && tabs != "" && (tabs == "fixed" || tabs == "fix"));
 
-    /**
-     * Sample:
-     *     <button id="sendButton" name="sendButton" ng-click="handleEvent($event)">Send</button>
-     */
-    void handleEvent(final html.Event e) {
-        _logger.fine("Event: handleEvent");
-    }
-
-    // - private ----------------------------------------------------------------------------------
 }
 
-/// HeaderComponent-Componente
-@Decorator(selector: 'wsk-header')
-class WskHeaderComponent implements AttachAware {
+/// HeaderComponent
+@Decorator(selector: 'wsk-layout-header')
+class WskLayoutHeaderComponent implements AttachAware {
     final _logger = new Logger('wsk_anuglar.wsk_layout.WskHeaderComponent');
 
     final html.Element _component;
 
-    WskHeaderComponent(this._component) {
+    WskLayoutHeaderComponent(this._component) {
         Validate.notNull(_component);
     }
 
@@ -125,7 +124,7 @@ class WskHeaderComponent implements AttachAware {
 
 }
 
-/// WskHeaderRowComponent-Componente
+/// WskHeaderRowComponent
 @Decorator(selector: 'wsk-header-row')
 class WskHeaderRowComponent implements AttachAware {
     final _logger = new Logger('wsk_anuglar.wsk_layout.WskHeaderRowComponent');
@@ -141,26 +140,44 @@ class WskHeaderRowComponent implements AttachAware {
     }
 }
 
-/// WskTabBarComponent-Componente
-@Decorator(selector: 'wsk-tab-bar')
-class WskTabBarComponent implements AttachAware {
+/// WskTabBarComponent
+@Decorator(selector: 'wsk-layout-tab-bar')
+class WskLayoutTabBarComponent implements AttachAware {
     final _logger = new Logger('wsk_anuglar.wsk_layout.WskTabBarComponent');
 
-    final html.Element _component;
+    html.Element _component;
 
-    WskTabBarComponent(this._component) {
+    WskLayoutTabBarComponent(this._component) {
         Validate.notNull(_component);
     }
 
     attach() {
         _component.classes.add("wsk-layout__tab-bar");
         _component.classes.add("wsk-js-ripple-effect");
-
     }
 }
 
-/// WskTabBarComponent-Componente
-@Decorator(selector: 'wsk-tab-panel')
+@Decorator(selector: 'wsk-layout-tab')
+class WskLayoutTabComponent extends WskAngularComponent implements AttachAware {
+    final _logger = new Logger('wsk_anuglar.wsk_layout.WskLayoutTabComponent');
+
+    final html.Element _component;
+
+    WskLayoutTabComponent(final html.Element component)
+        : super(component,materialRippleConfig(),[],false), _component = component {
+        Validate.notNull(_component);
+    }
+
+    attach() {
+        _component.classes.add("wsk-layout__tab");
+//        _component.classes.add("wsk-js-ripple-effect");
+
+        upgrade();
+    }
+}
+
+/// WskTabPanelComponent
+@Decorator(selector: 'wsk-layout-tab-panel')
 class WskTabPanelComponent implements AttachAware {
     final _logger = new Logger('wsk_anuglar.wsk_layout.WskTabPanelComponent');
 
@@ -175,8 +192,24 @@ class WskTabPanelComponent implements AttachAware {
     }
 }
 
+/// WskLayoutContentComponent
+@Decorator(selector: 'wsk-layout-content')
+class WskLayoutContentComponent implements AttachAware {
+    final _logger = new Logger('wsk_anuglar.wsk_layout.WskLayoutContentComponent');
 
-/// WskDrawerComponent-Componente
+    final html.Element _component;
+
+    WskLayoutContentComponent(this._component) {
+        Validate.notNull(_component);
+    }
+
+    attach() {
+        _component.classes.add("wsk-layout__content");
+    }
+}
+
+
+/// WskDrawerComponent
 @Decorator(selector: 'wsk-drawer')
 class WskDrawerComponent implements AttachAware {
     final _logger = new Logger('wsk_anuglar.wsk_layout.WskDrawerComponent');

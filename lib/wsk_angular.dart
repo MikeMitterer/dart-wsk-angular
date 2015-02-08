@@ -12,7 +12,7 @@ import 'package:validate/validate.dart';
 import 'package:wsk_material/wskcore.dart';
 import 'package:wsk_material/wskcomponets.dart';
 
-abstract class WskAngularComponent {
+class WskAngularComponent {
     final _logger = new Logger('wsk_angular.WskAngularComponent');
 
     static const int _TIMEOUT_IN_MS = 2000;
@@ -20,7 +20,7 @@ abstract class WskAngularComponent {
     final html.Element _component;
     final List<WskConfig> _configs = new List<WskConfig>();
 
-    WskAngularComponent(this._component, final WskConfig mainConfig, [ final List<WskConfig> additionalConfigs = const [] ]) {
+    WskAngularComponent(this._component, final WskConfig mainConfig,[ final List<WskConfig> additionalConfigs = const [], final bool autoUpgrade = true ] ) {
         Validate.notNull(_component);
         Validate.notNull(mainConfig);
         Validate.notNull(additionalConfigs);
@@ -28,17 +28,24 @@ abstract class WskAngularComponent {
         _configs.add(mainConfig);
         _configs.addAll(additionalConfigs);
 
-        _upgrade();
+        if(autoUpgrade) {
+            _upgrade();
+        }
     }
 
     WskConfig get mainconfig => _configs[0];
+
+    /// If autoUpgrade in the Constructor is false you can upgrade the component manually
+    void upgrade() {
+        _upgrade();
+    }
 
     /// Informs component about the final upgrade-state
     void upgraded() {}
 
     // - private ----------------------------------------------------------------------------------
 
-    void _upgrade({ final int inMilliSeconds: 200} ) {
+    void _upgrade({ final int inMilliSeconds: 30} ) {
         if (inMilliSeconds >= _TIMEOUT_IN_MS) {
             throw new TimeoutException("Could not find a component with css-class: .${mainconfig.cssClass}");
         }

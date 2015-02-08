@@ -10,7 +10,9 @@ import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
 // Components
+import 'package:wsk_angular/wsk_layout/wsk_layout.dart';
 import 'package:wsk_angular/wsk_button/wsk_button.dart';
+import 'package:wsk_angular/wsk_tabs/wsk_tabs.dart';
 
 @Injectable()
 class AppController {
@@ -20,7 +22,13 @@ class AppController {
     final String _classToChange = "active";
 
     @NgOneWay('name') // only for demonstration!!!
-    String get name => _router.activePath[0].name;
+    String get name {
+        String name = "Material Design";
+        if(_router.activePath.length > 0) {
+            name = _router.activePath[0].name;
+        }
+        return name;
+    }
 
     AppController(this._router) {
         _logger.fine("AppController");
@@ -58,10 +66,19 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
             path: "/button",
             enter: view("views/button.html")
         )
+
         ..addRoute(
            name: "typography",
             path: "/typography",
             enter: view("views/typography.html")
+        )
+
+        ..addRoute(
+            name: "tabs",
+            path: "/tabs",
+            enter: view("views/tabs.html")
+
+
     );
     // @formatter:on
 }
@@ -73,6 +90,8 @@ class SampleModule extends Module {
         bind(AppController);
 
         // Components
+        install(new WskLayoutModule());
+        install(new WskTabsModule());
         install(new WskButtonModule());
 
 
