@@ -11,8 +11,8 @@ dependencies:
 
   validate: any
 
-  wsk_material:
-    path: /Volumes/Daten/DevLocal/DevDart/WskMaterial
+  wsk_material: ">=0.2.0 <0.3.0"
+    # path: /Volumes/Daten/DevLocal/DevDart/WskMaterial
 
   logging: any
   logging_handlers: any
@@ -33,5 +33,5 @@ transformers:
 #    dart_sdk:   "/Developer/dart-1.8.5/dart-sdk"
     html_files:
 #      - test/mm_uia_apikey/index.html
-#      - web/wsk_button/index.html
+      - web/index.html
 
