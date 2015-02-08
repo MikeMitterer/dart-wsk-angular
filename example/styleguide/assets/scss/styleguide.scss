@@ -87,11 +87,23 @@ html {
 
 wsk-layout-header .wsk-layout-title {
     text-transform: capitalize;
+    font-weight: 200;
 }
 
-wsk-drawer .wsk-layout-title {
-    background-color: $layout-header-bg-color;
-    color: white;
+wsk-drawer {
+    .wsk-layout-title {
+        background-color: $layout-header-bg-color;
+        color: white;
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+
+    nav a.active {
+        color: $button-primary-color-alt;
+    }
 }
 
 article.sample {

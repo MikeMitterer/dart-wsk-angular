@@ -9,6 +9,9 @@ import 'package:angular/application_factory.dart';
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
+// Activates menu
+import 'package:wsk_angular/decorators/navactivator.dart';
+
 // Components
 import 'package:wsk_angular/wsk_layout/wsk_layout.dart';
 import 'package:wsk_angular/wsk_button/wsk_button.dart';
@@ -88,6 +91,9 @@ class SampleModule extends Module {
         bind(RouteInitializerFn, toValue: myRouteInitializer);
 
         bind(AppController);
+
+        // Activate / deactivate menu
+        bind(NavActivator);
 
         // Components
         install(new WskLayoutModule());
