@@ -1,5 +1,17 @@
-# Changelog
-
-## 0.0.1
-
-- Initial version, created by Stagehand
+###v0.1.3###
+* NavActivator added [155c8e6](http://github.com/MikeMitterer/wsk_angular/commit/155c8e6b41fef9a1fdfbf837634fdbf9341ca16e)
+* Link to Homepage [faaa4bd](http://github.com/MikeMitterer/wsk_angular/commit/faaa4bdc55580df3546512572004524ce8c6381a)
+* Styleguide works, link to running sample added [8930899](http://github.com/MikeMitterer/wsk_angular/commit/89308996e00fe87ed731cb3787cba06924bf3b25)
+* Layout + Tab works [b58eecd](http://github.com/MikeMitterer/wsk_angular/commit/b58eecd825189713b7b3e5614deb845d1323b38e)
+* Mit Layout gestartet, Tabs in Arbeit [c8a149f](http://github.com/MikeMitterer/wsk_angular/commit/c8a149f186487bf33b0b7bee82847bce98d7ad92)
+* Link to wsk_material [29acab4](http://github.com/MikeMitterer/wsk_angular/commit/29acab4dd60ca800fc683773b41850769ea42e74)
+* index.tmp.off -> index.tmp [521cb61](http://github.com/MikeMitterer/wsk_angular/commit/521cb61c3b8ff8ea75d5b021faf9a4188c4e6f07)
+* .gitignor updated [237019a](http://github.com/MikeMitterer/wsk_angular/commit/237019a1913b67e533277073c007a3f7a4be736e)
+* Readme updated [b11c4f7](http://github.com/MikeMitterer/wsk_angular/commit/b11c4f710c697750a1f6a96939c389ee98631d5f)
+* Readme updated [33beaff](http://github.com/MikeMitterer/wsk_angular/commit/33beaff5533706fa8b5298dd9e58ecce4cd3f893)
+* Started with Styleguide [325112c](http://github.com/MikeMitterer/wsk_angular/commit/325112cd567f9a11f09e2a2c61acf9b3e95c18a4)
+* Timing optimized linear -> progressive [cbdade1](http://github.com/MikeMitterer/wsk_angular/commit/cbdade12ce659d3b2eb0486f69cb25f04d6dd819)
+* Instruction for pub build in README [dd9ee0d](http://github.com/MikeMitterer/wsk_angular/commit/dd9ee0df239d37fdfd39f335b90dec23ee58d6cf)
+* README updated [b6bb3a1](http://github.com/MikeMitterer/wsk_angular/commit/b6bb3a189857f48a922c8d5e97b0a51559aa7233)
+* Button works (little flickering...) [d7552c9](http://github.com/MikeMitterer/wsk_angular/commit/d7552c95ea36ac68408a6a80dc080604b9d74ef2)
+* Initial release [9830635](http://github.com/MikeMitterer/wsk_angular/commit/9830635e005a080147f75e87ac4458812b171204)
