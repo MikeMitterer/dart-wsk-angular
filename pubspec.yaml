@@ -1,8 +1,8 @@
 name: wsk_angular
 description: Web Starter Kit for Angular
-version: 0.0.1
+version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
-#homepage: https://www.example.com
+homepage: https://github.com/MikeMitterer/dart-wsk-angular
 
 dependencies:
   browser: any
