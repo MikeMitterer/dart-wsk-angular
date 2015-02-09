@@ -7,7 +7,7 @@
 // Tabs
 @import "packages/wsk_material/sass/tabs/_tabs";
 
-// needed for button
+// Button
 @import "packages/wsk_material/sass/shadow/shadow";
 @import "packages/wsk_material/sass/button/button";
 
@@ -15,14 +15,7 @@
 @import "packages/wsk_material/sass/card/card";
 @import "packages/wsk_material/sass/animation/animation";
 
-
 $padding: 24px;
-
-.button-block {
-  display: inline-block;
-  margin: 20px 20px 20px 0;
-}
-
 
 html, body {
     margin     : 0;
@@ -65,6 +58,14 @@ body {
     .wsk-layout {
         height: 100vh;
     }
+}
+
+.todo {
+    display: block;
+    padding: 12px;
+    border: 1px solid $button-fab-color-alt;
+    background-color: orange;
+    color: $layout-header-bg-color;
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -243,4 +244,13 @@ table th {
     position: absolute;
     top: 50px;
     transition-property: left;
+}
+
+
+//-------------------------------------------------------------------------------------------------
+//  Button
+
+.button-block {
+    display: inline-block;
+    margin: 20px 20px 20px 0;
 }

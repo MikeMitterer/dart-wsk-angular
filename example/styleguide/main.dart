@@ -1,5 +1,7 @@
 library wsk_angular.example.styleguide;
 
+import 'dart:html' as html;
+
 import 'package:angular/angular.dart';
 import 'package:angular/application_factory.dart';
 
@@ -42,6 +44,11 @@ class AppController {
         //_logger.fine("Location: ${_router.activePath[0].name} : Link: $link");
         return link != null && _router.activePath[0].name == link;
     }
+
+    void handleEvent(final html.Event e) {
+        _logger.info("Event: handleEvent");
+    }
+
 }
 
 void myRouteInitializer(Router router, RouteViewFactory view) {

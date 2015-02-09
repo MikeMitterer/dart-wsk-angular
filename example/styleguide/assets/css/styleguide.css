@@ -2965,10 +2965,6 @@ dt {
   transform-origin: 165px 25px;
   width: 100%; }
 
-.button-block {
-  display: inline-block;
-  margin: 20px 20px 20px 0; }
-
 html, body {
   margin: 0;
   padding: 0;
@@ -2996,6 +2992,13 @@ body {
       padding: 0 24px; }
   body .wsk-layout {
     height: 100vh; }
+
+.todo {
+  display: block;
+  padding: 12px;
+  border: 1px solid #ec407a;
+  background-color: orange;
+  color: #3f51b5; }
 
 html {
   color: #424242; }
@@ -3120,3 +3123,7 @@ table th {
   position: absolute;
   top: 50px;
   transition-property: left; }
+
+.button-block {
+  display: inline-block;
+  margin: 20px 20px 20px 0; }

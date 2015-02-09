@@ -1,19 +1,19 @@
 <!-- mm_uia_button.html -->
 <!DOCTYPE html>
 <style>
-    div.mm_uia_button, .mm_uia_button div {
-        box-sizing : border-box;
-    }
-
-
-    .mm_uia_button.wsk-upgrading {
-    }
-
-    .mm_uia_button.wsk-upgraded {
+    button.wsk-button {
+        /* box-sizing : border-box; */
     }
 
 </style>
-<button class="mm_uia_button wsk-button wsk-js-button wsk-button--raised wsk-button--colored wsk-js-ripple-effect wsk-upgrading"
-        ng-click="handleEvent($event)">
+<button class="wsk-button wsk-js-button" ng-class="{
+            'wsk-js-ripple-effect': withRippleEffect,
+            'wsk-button--raised': isRaised,
+            'wsk-button--colored': isColored,
+            'wsk-button--fab': isFabButton,
+            'wsk-button--mini-fab': isMiniFabButton,
+            'wsk-button--icon': withIcon
+            }"
+         ng-disabled="isDisabled">
     <content></content>
 </button>
