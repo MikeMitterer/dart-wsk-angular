@@ -16,6 +16,7 @@ import 'package:wsk_angular/decorators/navactivator.dart';
 import 'package:wsk_angular/wsk_layout/wsk_layout.dart';
 import 'package:wsk_angular/wsk_button/wsk_button.dart';
 import 'package:wsk_angular/wsk_tabs/wsk_tabs.dart';
+import 'package:wsk_angular/wsk_animation/wsk_animation.dart';
 
 @Injectable()
 class AppController {
@@ -77,6 +78,12 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
         )
 
         ..addRoute(
+           name: "animation",
+            path: "/animation",
+            enter: view("views/animation.html")
+        )
+
+        ..addRoute(
             name: "tabs",
             path: "/tabs",
             enter: view("views/tabs.html")
@@ -99,6 +106,7 @@ class SampleModule extends Module {
         install(new WskLayoutModule());
         install(new WskTabsModule());
         install(new WskButtonModule());
+        install(new WskAnimationModule());
 
 
         bind(NgRoutingUsePushState, toFactory: () => new NgRoutingUsePushState.value(false));
