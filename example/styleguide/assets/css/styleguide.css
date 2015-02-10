@@ -4530,10 +4530,10 @@ dt {
   padding: 16px;
   box-sizing: border-box; }
 .typography.sample .preview-block--img-1 {
-  background-image: url(../../images/img-1.png);
+  background-image: url(../images/img-1.png);
   color: white; }
 .typography.sample .preview-block--img-2 {
-  background-image: url(../../images/img-2.png);
+  background-image: url(../images/img-2.png);
   color: white; }
 
 .animation.sample .demo-animate-container {
@@ -4642,7 +4642,7 @@ body {
     flex-grow: 1;
     flex-basis: 0;
     overflow: scroll; }
-    body > main #content {
+    body > main .content {
       padding: 0 24px; }
   body .wsk-layout {
     height: 100vh; }

@@ -29,7 +29,10 @@ class AppController {
     final Router _router;
     final String _classToChange = "active";
 
-    @NgOneWay('name') // only for demonstration!!!
+    AppController(this._router) {
+        _logger.fine("AppController");
+    }
+
     String get name {
         String name = "Material Design";
         if(_router.activePath.length > 0) {
@@ -38,18 +41,7 @@ class AppController {
         return name;
     }
 
-    AppController(this._router) {
-        _logger.fine("AppController");
-    }
-
-    bool isActive(final String link) {
-        //_logger.fine("Location: ${_router.activePath[0].name} : Link: $link");
-        return link != null && _router.activePath[0].name == link;
-    }
-
-    void handleEvent(final html.Event e) {
-        _logger.info("Event: handleEvent");
-    }
+    void handleEvent(final html.Event e) { _logger.info("Event: handleEvent"); }
 
     // Checkboxes
     bool checkOne = false;
@@ -60,7 +52,6 @@ class AppController {
     bool toggleOne = false;
     dynamic toggleTwo = false;
     bool toggleThree = false;
-
 }
 
 void myRouteInitializer(Router router, RouteViewFactory view) {

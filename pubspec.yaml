@@ -30,8 +30,24 @@ dev_dependencies:
 #
 transformers:
 - angular:
-#    dart_sdk:   "/Developer/dart-1.8.5/dart-sdk"
-    html_files:
-#      - test/mm_uia_apikey/index.html
-      - web/index.html
+    # dart_sdk:   "/Developer/dart-1.8.5/dart-sdk"
+
+    # List is necessary because of this bug: http://goo.gl/4Rb3wr
+    html_files: [
+      'web/index.html',
+      'web/views/button.html',
+      'web/views/checkbox.html',
+      'web/views/firstsub.html',
+      'web/views/home.html',
+      'web/views/tabs.html',
+      'web/views/animation.html',
+      'web/views/cards.html',
+      'web/views/dropdown.html',
+      'web/views/footer.html',
+      'web/views/icon-toggle.html',
+      'web/views/typography.html'
+      ]
+
+- $dart2js:
+    minify: true
 

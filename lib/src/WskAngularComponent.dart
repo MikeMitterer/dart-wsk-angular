@@ -38,9 +38,9 @@ class WskAngularComponent {
             throw new TimeoutException("Could not find a component with css-class: .${mainconfig.cssClass}");
         }
 
-        _logger.info("Next check for component - in: ${inMilliSeconds}ms");
+        _logger.fine("Next check for component - in: ${inMilliSeconds}ms");
         new Future.delayed(new Duration(milliseconds: inMilliSeconds), () {
-            _logger.info(" - cssClass: .${mainconfig.cssClass}");
+            _logger.fine(" - cssClass: .${mainconfig.cssClass}");
 
             final html.HtmlElement component = _component.querySelector(".${mainconfig.cssClass}");
             if (component == null) {
@@ -49,7 +49,7 @@ class WskAngularComponent {
             return component;
 
         }).then((final html.HtmlElement component) {
-            _logger.info("Found $component with class '${mainconfig.cssClass}'");
+            _logger.fine("Found $component with class '${mainconfig.cssClass}'");
 
             componenthandler.upgradeElement(component, () {
                 return _configs;
