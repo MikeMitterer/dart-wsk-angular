@@ -1,7 +1,8 @@
 # wsk_angular
 
-The base-module for wsk_angular is [wsk_material][wskmaterial]<br>
-Running sample can be found on [wsk.angular.mikemitterer.at][live]
+The base-module for wsk_angular is [wsk_material][wskmaterial]
+
+Running sample can be found on **[wsk.angular.mikemitterer.at][live]**
 
 ###AngularDart-Bug###
 I you want to build the JS-Version you have to
