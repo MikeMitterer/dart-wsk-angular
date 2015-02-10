@@ -1,4 +1,4 @@
-library wsk_angular.example.wsk_layout;
+library wsk_angular.example.wsk_tabs;
 
 import 'package:angular/angular.dart';
 import 'package:angular/application_factory.dart';

@@ -9,11 +9,13 @@
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/assets/css/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/assets/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/assets/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/styleguide/assets/scss/_demo/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/assets/scss/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/views/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_animation/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_button/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_checkbox/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_layout/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_layout/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_tabs/packages" />

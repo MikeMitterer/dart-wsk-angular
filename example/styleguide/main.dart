@@ -19,6 +19,7 @@ import 'package:wsk_angular/wsk_layout/wsk_layout.dart';
 import 'package:wsk_angular/wsk_button/wsk_button.dart';
 import 'package:wsk_angular/wsk_tabs/wsk_tabs.dart';
 import 'package:wsk_angular/wsk_animation/wsk_animation.dart';
+import 'package:wsk_angular/wsk_checkbox/wsk_checkbox.dart';
 
 @Injectable()
 class AppController {
@@ -49,6 +50,10 @@ class AppController {
         _logger.info("Event: handleEvent");
     }
 
+    // Checkboxes
+    bool checkOne = false;
+    dynamic checkTwo = false;
+    bool checkThree = false;
 }
 
 void myRouteInitializer(Router router, RouteViewFactory view) {
@@ -100,7 +105,11 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
             name: "cards",
             path: "/cards",
             enter: view("views/cards.html")
-
+        )
+            ..addRoute(
+            name: "checkbox",
+            path: "/checkbox",
+            enter: view("views/checkbox.html")
     );
     // @formatter:on
 }
@@ -119,7 +128,7 @@ class SampleModule extends Module {
         install(new WskTabsModule());
         install(new WskButtonModule());
         install(new WskAnimationModule());
-
+        install(new WskCheckboxModule());
 
         bind(NgRoutingUsePushState, toFactory: () => new NgRoutingUsePushState.value(false));
     }

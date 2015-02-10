@@ -38,7 +38,7 @@ class WskButtonComponent extends WskAngularComponent implements AttachAware {
 
     @NgAttr('ripple')
     String ripple = "";
-    bool get withRippleEffect => (ripple != null);
+    bool get withRippleEffect => (ripple == null || ripple != "off");
 
     @NgAttr('raised')
     String raised = "";
