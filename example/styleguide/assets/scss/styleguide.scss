@@ -15,6 +15,14 @@
 @import "packages/wsk_material/sass/card/card";
 @import "packages/wsk_material/sass/animation/animation";
 
+// Styleguide
+@import "_demo/styleguide";
+
+// Necessary for demo-Views
+@import "_demo/typography";
+@import "_demo/animation";
+@import "_demo/button";
+
 $padding: 24px;
 
 html, body {
@@ -22,6 +30,8 @@ html, body {
     padding    : 0;
     height     : 100%;
     min-height : 100%;
+
+    color: $text-color-primary;
 }
 
 body {
@@ -68,189 +78,8 @@ body {
     color: $layout-header-bg-color;
 }
 
-//-------------------------------------------------------------------------------------------------
-//
-
-html {
-    color: $text-color-primary;
-}
-
-.styleguide-demo {
-
-    article > {
-        h1 { padding-top: ($padding / 2); text-transform: capitalize; }
-
-        h1:after {
-            content       : '';
-            display       : block;
-            width         : 100%;
-            border-bottom : 1px solid rgba(0, 0, 0, 0.5);
-            margin-top    : $padding;
-            margin-bottom : $padding;
-        }
-    }
-}
-
-wsk-layout-header .wsk-layout-title {
-    text-transform: capitalize;
-    font-weight: 200;
-}
-
-wsk-drawer {
-    .wsk-layout-title {
-        background-color: $layout-header-bg-color;
-        color: white;
-
-        a {
-            color: white;
-            text-decoration: none;
-        }
-    }
-
-    nav a.active {
-        color: $button-primary-color-alt;
-    }
-}
-
-article.sample {
-    margin-top: 24px;
-}
-
-//-------------------------------------------------------------------------------------------------
-//  Typography - DEMO
-
-table th {
-    @include typo-caption($colorContrast: true);
-
-    padding-right: 80px;
-
-    vertical-align: top;
-    text-align: left;
-}
-
-.PreviewBlock--white {
-    background-color: white;
-    color: black;
-}
-
-.PreviewBlock--black {
-    background-color: black;
-    color: white;
-}
-
-.PreviewBlock--white,
-.PreviewBlock--black,
-.PreviewBlock--img-1,
-.PreviewBlock--img-2 {
-    width: 360px;
-    height: 272px;
-
-    padding: 16px;
-    box-sizing: border-box;
-}
-
-.PreviewBlock--img-1 {
-    background-image: url(../images/img-1.png);
-    color: white;
-}
-
-.PreviewBlock--img-2 {
-    background-image: url(../images/img-2.png);
-    color: white;
-}
-
-//-------------------------------------------------------------------------------------------------
-//  Animation
-
-//.PreviewBlock {
-//    height: 200px;
-//    padding: 0;
-//    background: none;
-//}
-
-.demo-animate-container {
-    position: relative;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    width: 300px;
-    height: 100%;
-    text-align: center;
-    background-color: #ddd;
-}
-
-.demo-animate-container--foreground {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 100;
-}
-
-.demo-animate-container--background {
-    line-height: 200px;
-    z-index: -100;
-}
-
-// Outside the view, on the left.
-// We leave the view when moving to this state, so we use fast-out-linear-in.
-.demo-position-1 {
-    left: -102px;
-    @include material-animation-fast-out-linear-in();
-}
-
-// Left side.
-// We enter the view when moving to this state, so we use linear-out-slow-in.
-.demo-position-2 {
-    left: 20px;
-    @include material-animation-linear-out-slow-in();
-}
-
-// Right side.
-// We're always visible when moving to this state, so we use default.
-.demo-position-3 {
-    left: 180px;
-    @include material-animation-default();
-}
-
-// Outside the view, on the right.
-// We leave the view when moving to this state, so we use fast-out-linear-in.
-.demo-position-4 {
-    left: 302px;
-    @include material-animation-fast-out-linear-in();
-}
-
-// Right side.
-// We enter the view when moving to this state, so we use linear-out-slow-in.
-.demo-position-5 {
-    left: 180px;
-    @include material-animation-linear-out-slow-in();
-}
-
-// Left side.
-// We're always visible when moving to this state, so we use default.
-.demo-position-6 {
-    left: 20px;
-    @include material-animation-default();
-}
-
-.demo-paper-card {
-    background-color: red;
-    border-radius: 2px;
-    display: block;
-    height: 100px;
-    width: 100px;
-    position: absolute;
-    top: 50px;
-    transition-property: left;
-}
 
 
-//-------------------------------------------------------------------------------------------------
-//  Button
 
-.button-block {
-    display: inline-block;
-    margin: 20px 20px 20px 0;
-}
+
+

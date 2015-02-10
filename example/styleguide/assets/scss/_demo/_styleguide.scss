@@ -1,0 +1,47 @@
+//-------------------------------------------------------------------------------------------------
+// Styleguide
+
+.styleguide-demo {
+
+    wsk-layout-header .wsk-layout-title {
+        text-transform: capitalize;
+        font-weight: 200;
+    }
+
+    wsk-drawer {
+        .wsk-layout-title {
+            background-color: $layout-header-bg-color;
+            color: white;
+
+            a {
+                color: white;
+                text-decoration: none;
+            }
+        }
+
+        nav a.active {
+            color: $button-primary-color-alt;
+        }
+    }
+
+    article {
+        &.sample {
+            margin-top : 24px;
+        }
+
+        > {
+            h1 { padding-top: ($padding / 2); text-transform: capitalize; }
+
+            h1:after {
+                content       : '';
+                display       : block;
+                width         : 100%;
+                border-bottom : 1px solid rgba(0, 0, 0, 0.5);
+                margin-top    : $padding;
+                margin-bottom : $padding;
+            }
+        }
+
+    }
+}
+

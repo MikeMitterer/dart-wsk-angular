@@ -1,4 +1,7 @@
-###v0.1.3###
+###v0.1.6###
+* Buttons are working (almost) [01a8646](http://github.com/MikeMitterer/wsk_angular/commit/01a8646101da3fd252644a1c3e4b2d6d4f54b4d3)
+* Animation sample works [b0a7fb1](http://github.com/MikeMitterer/wsk_angular/commit/b0a7fb149529660db222d2b2fb9891ebc83ab590)
+* build.gradle [be035aa](http://github.com/MikeMitterer/wsk_angular/commit/be035aa7ea84237c545a3ae23b4d0f4deae95a1f)
 * NavActivator added [155c8e6](http://github.com/MikeMitterer/wsk_angular/commit/155c8e6b41fef9a1fdfbf837634fdbf9341ca16e)
 * Link to Homepage [faaa4bd](http://github.com/MikeMitterer/wsk_angular/commit/faaa4bdc55580df3546512572004524ce8c6381a)
 * Styleguide works, link to running sample added [8930899](http://github.com/MikeMitterer/wsk_angular/commit/89308996e00fe87ed731cb3787cba06924bf3b25)
