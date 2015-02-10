@@ -35,7 +35,7 @@ class WskCheckboxComponent extends WskAngularComponent {
     dynamic ngInternalModel;
 
     WskCheckboxComponent(final html.Element component)
-        : super(component,materialCheckboxConfig(), [ materialRippleConfig()]) {
+        : super(component,materialCheckboxConfig(), [ materialRippleConfig() ]) {
         Validate.notNull(component);
     }
 

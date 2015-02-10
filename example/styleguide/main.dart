@@ -110,6 +110,13 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
             name: "checkbox",
             path: "/checkbox",
             enter: view("views/checkbox.html")
+        )
+
+            ..addRoute(
+            name: "dropdown",
+            path: "/dropdown",
+            enter: view("views/dropdown.html")
+
     );
     // @formatter:on
 }
