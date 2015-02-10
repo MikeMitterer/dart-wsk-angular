@@ -1,4 +1,6 @@
-###v0.1.14###
+###v0.1.16###
+* pub does not support <br> so - readme changed again [1e7de69](http://github.com/MikeMitterer/dart-wsk_angular/commit/1e7de6936541a34d14b05134fe37f933a18f4aee)
+* Changelog... [40ea7c8](http://github.com/MikeMitterer/dart-wsk_angular/commit/40ea7c88d00f01eb7a72bf8b99086c3942c82f05)
 * Styleguide sample works - even in the JS version... [9b42f69](http://github.com/MikeMitterer/dart-wsk_angular/commit/9b42f69886a2cadf13e7bd9a58a24772ebd17d0f)
 * Icon-Toggle works [a7933a8](http://github.com/MikeMitterer/dart-wsk_angular/commit/a7933a8df3bf3b85ef24f9c1ca295ac9a817dfe5)
 * SVGs for Footer [4841825](http://github.com/MikeMitterer/dart-wsk_angular/commit/4841825a793075bad56ccf451a79da4932dcba5a)
