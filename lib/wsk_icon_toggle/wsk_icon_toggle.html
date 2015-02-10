@@ -1,0 +1,11 @@
+<!-- wsk_icon_toggle.html -->
+<!DOCTYPE html>
+<style>
+    label.wsk-icon-toggle { }
+</style>
+<label class="wsk-icon-toggle wsk-js-icon-toggle wsk-js-ripple-effect" ng-class="{ 'is-checked': ngInternalModel }" >
+    <input type="checkbox" class="wsk-icon-toggle__input" ng-model="ngInternalModel" ng-disabled="isDisabled" />
+    <span class="wsk-icon-toggle__label">
+        <content></content>
+    </span>
+</label>

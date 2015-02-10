@@ -4348,6 +4348,143 @@ dt {
   .wsk-mini-footer--link-list li {
     line-height: 36px; } }
 
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+.wsk-shadow--z1 {
+  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+
+.wsk-shadow--z2 {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
+
+.wsk-shadow--z3 {
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23); }
+
+.wsk-shadow--z4 {
+  box-shadow: 0 14px 14px 0 rgba(0, 0, 0, 0.25), 0 10px 5px 0 rgba(0, 0, 0, 0.22); }
+
+.wsk-shadow--z5 {
+  box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
+
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+.wsk-ripple {
+  background: #212121;
+  border-radius: 50%;
+  height: 50px;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  overflow: hidden; }
+  .wsk-ripple.is-animating {
+    transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-icon-toggle {
+  position: relative;
+  z-index: 1;
+  vertical-align: middle;
+  display: inline-block;
+  height: 32px;
+  margin: 0;
+  padding: 0; }
+
+.wsk-icon-toggle__input {
+  line-height: 32px; }
+  .wsk-icon-toggle.is-upgraded .wsk-icon-toggle__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none; }
+
+.wsk-icon-toggle__label {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+  min-width: 32px;
+  line-height: 32px;
+  color: #616161;
+  border-radius: 50%;
+  font-size: 24px;
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: center;
+  background-color: transparent;
+  will-change: background-color;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+  .wsk-icon-toggle.is-checked .wsk-icon-toggle__label {
+    color: #3f51b5; }
+  .wsk-icon-toggle.is-disabled .wsk-icon-toggle__label {
+    color: rgba(0, 0, 0, 0.26);
+    cursor: auto;
+    transition: none; }
+  .wsk-icon-toggle.is-focused .wsk-icon-toggle__label {
+    background-color: rgba(0, 0, 0, 0.12); }
+  .wsk-icon-toggle.is-focused.is-checked .wsk-icon-toggle__label {
+    background-color: rgba(63, 81, 181, 0.26); }
+
+.wsk-icon-toggle__ripple-container {
+  position: absolute;
+  z-index: 2;
+  top: -2px;
+  left: -2px;
+  box-sizing: border-box;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
+  .wsk-icon-toggle__ripple-container .wsk-ripple {
+    background: #616161; }
+  .wsk-icon-toggle.is-disabled .wsk-icon-toggle__ripple-container {
+    cursor: auto; }
+  .wsk-icon-toggle.is-disabled .wsk-icon-toggle__ripple-container .wsk-ripple {
+    background: transparent; }
+
 .styleguide-demo wsk-layout-header .wsk-layout-title {
   text-transform: capitalize;
   font-weight: 200; }
@@ -4465,6 +4602,21 @@ dt {
 
 .footer.sample footer {
   margin-bottom: 16px; }
+
+.icon-toggle.sample ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none; }
+.icon-toggle.sample span {
+  padding-left: 6px; }
+.icon-toggle.sample .cols {
+  display: flex;
+  flex-direction: row; }
+  .icon-toggle.sample .cols > div {
+    padding: 10px; }
+.icon-toggle.sample .button-block {
+  display: inline-block;
+  margin: 0 20px 20px 0; }
 
 html, body {
   margin: 0;

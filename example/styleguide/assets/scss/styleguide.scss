@@ -26,6 +26,9 @@
 @import "packages/wsk_material/sass/footer/mega_footer";
 @import "packages/wsk_material/sass/footer/mini_footer";
 
+// Icon-Toggle
+@import "packages/wsk_material/sass/icon-toggle/_icon-toggle";
+
 // Styleguide
 @import "_demo/styleguide";
 
@@ -35,6 +38,7 @@
 @import "_demo/button";
 @import "_demo/card";
 @import "_demo/footer";
+@import "_demo/icon-toggle";
 
 $padding: 24px;
 

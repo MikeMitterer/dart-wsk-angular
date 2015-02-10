@@ -20,6 +20,7 @@ import 'package:wsk_angular/wsk_button/wsk_button.dart';
 import 'package:wsk_angular/wsk_tabs/wsk_tabs.dart';
 import 'package:wsk_angular/wsk_animation/wsk_animation.dart';
 import 'package:wsk_angular/wsk_checkbox/wsk_checkbox.dart';
+import 'package:wsk_angular/wsk_icon_toggle/wsk_icon_toggle.dart';
 
 @Injectable()
 class AppController {
@@ -54,6 +55,12 @@ class AppController {
     bool checkOne = false;
     dynamic checkTwo = false;
     bool checkThree = false;
+
+    // Icon-Toggle
+    bool toggleOne = false;
+    dynamic toggleTwo = false;
+    bool toggleThree = false;
+
 }
 
 void myRouteInitializer(Router router, RouteViewFactory view) {
@@ -118,6 +125,11 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
             enter: view("views/dropdown.html")
         )
             ..addRoute(
+            name: "icon-toggle",
+            path: "/icon-toggle",
+            enter: view("views/icon-toggle.html")
+        )
+            ..addRoute(
             name: "footer",
             path: "/footer",
             enter: view("views/footer.html")
@@ -141,6 +153,7 @@ class SampleModule extends Module {
         install(new WskButtonModule());
         install(new WskAnimationModule());
         install(new WskCheckboxModule());
+        install(new WskIconToggleModule());
 
         bind(NgRoutingUsePushState, toFactory: () => new NgRoutingUsePushState.value(false));
     }

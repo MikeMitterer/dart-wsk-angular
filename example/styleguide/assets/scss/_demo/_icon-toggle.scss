@@ -1,0 +1,28 @@
+//-------------------------------------------------------------------------------------------------
+//  Icon-Toggle - DEMO
+
+.icon-toggle.sample {
+
+    ul {
+        padding         : 0;
+        margin          : 0;
+        list-style-type : none;
+    }
+    span {
+        padding-left : 6px;
+    }
+
+    .cols {
+        display        : flex;
+        flex-direction : row;
+
+        > div {
+            padding : 10px;
+        }
+    }
+
+    .button-block {
+        display: inline-block;
+        margin: 0 20px 20px 0;
+    }
+}

@@ -1,12 +1,11 @@
 <!-- wsk_checkbox.html -->
 <!DOCTYPE html>
 <style>
-    label.wsk-checkbox {
-    }
+    label.wsk-checkbox { }
 
 </style>
-<label class="wsk-checkbox wsk-js-checkbox wsk-js-ripple-effect">
-    <input type="checkbox" class="wsk-checkbox__input" ng-model="ngInternalModel" ng-disabled="isDisabled"/>
+<label class="wsk-checkbox wsk-js-checkbox wsk-js-ripple-effect" ng-class="{ 'is-checked': ngInternalModel }">
+    <input type="checkbox" class="wsk-checkbox__input" ng-model="ngInternalModel" ng-disabled="isDisabled" />
     <span class="wsk-checkbox__label">
         <content></content>
     </span>
