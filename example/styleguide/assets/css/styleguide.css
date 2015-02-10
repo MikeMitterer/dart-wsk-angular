@@ -2976,22 +2976,20 @@ dt {
     text-decoration: none; }
 .styleguide-demo wsk-drawer nav a.active {
   color: #3f51b5; }
-.styleguide-demo article {
-  /** TEST17 */ }
-  .styleguide-demo article.sample {
-    margin-top: 24px; }
-  .styleguide-demo article > h1 {
-    padding-top: 12px;
-    text-transform: capitalize; }
-  .styleguide-demo article > h1:after {
-    content: '';
-    display: block;
-    width: 100%;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-    margin-top: 24px;
-    margin-bottom: 24px; }
+.styleguide-demo article.sample {
+  margin-top: 24px; }
+.styleguide-demo article > h1 {
+  padding-top: 12px;
+  text-transform: capitalize; }
+.styleguide-demo article > h1:after {
+  content: '';
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  margin-top: 24px;
+  margin-bottom: 24px; }
 
-table th {
+.typography.sample table th {
   font-size: 12px;
   font-weight: 400;
   line-height: 1;
@@ -3000,30 +2998,25 @@ table th {
   padding-right: 80px;
   vertical-align: top;
   text-align: left; }
-
-.PreviewBlock--white {
+.typography.sample .preview-block--white {
   background-color: white;
   color: black; }
-
-.PreviewBlock--black {
+.typography.sample .preview-block--black {
   background-color: black;
   color: white; }
-
-.PreviewBlock--white, .PreviewBlock--black, .PreviewBlock--img-1, .PreviewBlock--img-2 {
+.typography.sample .preview-block--white, .typography.sample .preview-block--black, .typography.sample .preview-block--img-1, .typography.sample .preview-block--img-2 {
   width: 360px;
   height: 272px;
   padding: 16px;
   box-sizing: border-box; }
-
-.PreviewBlock--img-1 {
+.typography.sample .preview-block--img-1 {
   background-image: url(../../images/img-1.png);
   color: white; }
-
-.PreviewBlock--img-2 {
+.typography.sample .preview-block--img-2 {
   background-image: url(../../images/img-2.png);
   color: white; }
 
-.demo-animate-container {
+.animation.sample .demo-animate-container {
   position: relative;
   overflow: hidden;
   margin: 0;
@@ -3032,50 +3025,41 @@ table th {
   height: 100%;
   text-align: center;
   background-color: #ddd; }
-
-.demo-animate-container--foreground {
+.animation.sample .demo-animate-container--foreground {
   width: 100%;
   height: 100%;
   position: absolute;
   left: 0;
   top: 0;
   z-index: 100; }
-
-.demo-animate-container--background {
+.animation.sample .demo-animate-container--background {
   line-height: 200px;
   z-index: -100; }
-
-.demo-position-1 {
+.animation.sample .demo-position-1 {
   left: -102px;
   transition-duration: 0.2s;
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
-
-.demo-position-2 {
+.animation.sample .demo-position-2 {
   left: 20px;
   transition-duration: 0.2s;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
-
-.demo-position-3 {
+.animation.sample .demo-position-3 {
   left: 180px;
   transition-duration: 0.2s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-
-.demo-position-4 {
+.animation.sample .demo-position-4 {
   left: 302px;
   transition-duration: 0.2s;
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
-
-.demo-position-5 {
+.animation.sample .demo-position-5 {
   left: 180px;
   transition-duration: 0.2s;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
-
-.demo-position-6 {
+.animation.sample .demo-position-6 {
   left: 20px;
   transition-duration: 0.2s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-
-.demo-paper-card {
+.animation.sample .demo-paper-card {
   background-color: red;
   border-radius: 2px;
   display: block;
@@ -3085,9 +3069,16 @@ table th {
   top: 50px;
   transition-property: left; }
 
-.button-block {
+.button.sample .button-block {
   display: inline-block;
   margin: 20px 20px 20px 0; }
+
+.cards.sample .wsk-card {
+  margin: 20px; }
+.cards.sample .wsk-card:nth-child(1) {
+  width: 330px; }
+.cards.sample .wsk-card:nth-child(2) {
+  width: 600px; }
 
 html, body {
   margin: 0;

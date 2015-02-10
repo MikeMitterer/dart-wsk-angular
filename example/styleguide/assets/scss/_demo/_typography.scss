@@ -1,42 +1,45 @@
 //-------------------------------------------------------------------------------------------------
 //  Typography - DEMO
 
-table th {
-    @include typo-caption($colorContrast: true);
+.typography.sample {
 
-    padding-right: 80px;
+    table th {
+        @include typo-caption($colorContrast: true);
 
-    vertical-align: top;
-    text-align: left;
-}
+        padding-right: 80px;
 
-.PreviewBlock--white {
-    background-color: white;
-    color: black;
-}
+        vertical-align: top;
+        text-align: left;
+    }
 
-.PreviewBlock--black {
-    background-color: black;
-    color: white;
-}
+    .preview-block--white {
+        background-color: white;
+        color: black;
+    }
 
-.PreviewBlock--white,
-.PreviewBlock--black,
-.PreviewBlock--img-1,
-.PreviewBlock--img-2 {
-    width: 360px;
-    height: 272px;
+    .preview-block--black {
+        background-color: black;
+        color: white;
+    }
 
-    padding: 16px;
-    box-sizing: border-box;
-}
+    .preview-block--white,
+    .preview-block--black,
+    .preview-block--img-1,
+    .preview-block--img-2 {
+        width: 360px;
+        height: 272px;
 
-.PreviewBlock--img-1 {
-    background-image: url(../../images/img-1.png);
-    color: white;
-}
+        padding: 16px;
+        box-sizing: border-box;
+    }
 
-.PreviewBlock--img-2 {
-    background-image: url(../../images/img-2.png);
-    color: white;
+    .preview-block--img-1 {
+        background-image: url(../../images/img-1.png);
+        color: white;
+    }
+
+    .preview-block--img-2 {
+        background-image: url(../../images/img-2.png);
+        color: white;
+    }
 }

@@ -95,6 +95,11 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
             path: "/tabs",
             enter: view("views/tabs.html")
 
+        )
+            ..addRoute(
+            name: "cards",
+            path: "/cards",
+            enter: view("views/cards.html")
 
     );
     // @formatter:on
