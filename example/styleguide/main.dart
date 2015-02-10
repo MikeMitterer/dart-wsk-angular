@@ -116,6 +116,11 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
             name: "dropdown",
             path: "/dropdown",
             enter: view("views/dropdown.html")
+        )
+            ..addRoute(
+            name: "footer",
+            path: "/footer",
+            enter: view("views/footer.html")
 
     );
     // @formatter:on

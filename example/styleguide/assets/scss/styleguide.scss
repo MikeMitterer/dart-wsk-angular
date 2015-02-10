@@ -22,6 +22,9 @@
 @import "packages/wsk_material/sass/item/item";
 @import "packages/wsk_material/sass/dropdown-menu/_dropdown-menu";
 
+// Footer
+@import "packages/wsk_material/sass/footer/mega_footer";
+@import "packages/wsk_material/sass/footer/mini_footer";
 
 // Styleguide
 @import "_demo/styleguide";
@@ -31,6 +34,7 @@
 @import "_demo/animation";
 @import "_demo/button";
 @import "_demo/card";
+@import "_demo/footer";
 
 $padding: 24px;
 
