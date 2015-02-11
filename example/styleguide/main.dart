@@ -89,6 +89,12 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
         )
 
         ..addRoute(
+           name: "list",
+            path: "/list",
+            enter: view("views/list.html")
+        )
+
+        ..addRoute(
            name: "animation",
             path: "/animation",
             enter: view("views/animation.html")
