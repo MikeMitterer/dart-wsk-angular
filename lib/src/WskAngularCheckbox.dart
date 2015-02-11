@@ -37,8 +37,8 @@ abstract class WskAngularCheckbox extends WskAngularComponent {
     @NgAttr("disabled")
     String disabled;
 
-    @NgOneWay("isDisabled")
-    bool get isDisabled => (_isSet(disabled) && (disabled.isEmpty || disabled == "true"));
+    /// Template-Helper to find out if Control is disabled
+    bool get isDisabled => WskAngularUtils.isDisabled(disabled);
 
     // - private ----------------------------------------------------------------------------------
 

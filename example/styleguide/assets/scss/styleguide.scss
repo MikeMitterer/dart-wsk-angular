@@ -38,6 +38,9 @@
 // Pallet
 @import 'packages/wsk_material/sass/palette/palette';
 
+// Radio
+@import "packages/wsk_material/sass/radio/_radio";
+
 // Styleguide
 @import "_demo/styleguide";
 
@@ -49,6 +52,7 @@
 @import "_demo/footer";
 @import "_demo/icon-toggle";
 @import "_demo/pallet";
+@import "_demo/radio";
 
 $padding: 24px;
 

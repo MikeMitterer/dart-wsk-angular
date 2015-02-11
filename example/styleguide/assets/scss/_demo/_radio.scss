@@ -1,0 +1,40 @@
+$_demo-radio-first_col_with : 280px;
+$_demo-radio-col_padding : 10px;
+
+.radio.sample {
+
+    .preview-block {
+        .selected {
+            color: $radio-color;
+        }
+        .avatar {
+            width: 80px;
+            height: 80px;
+        }
+
+        .cols {
+            display        : flex;
+            flex-direction : row;
+            flex-wrap: wrap;
+        }
+
+        .cols > div {
+            padding : $_demo-radio-col_padding;
+
+            width: $_demo-radio-first_col_with;
+            //min-width: $_first_col_with;
+
+            max-width: ($_demo-radio-first_col_with * 1.5);
+        }
+
+        .cols > div:first-child {
+        }
+
+        hr.on-small-screens { display: none; }
+
+        @media screen and (max-width: ($_demo-radio-first_col_with * 2 + ($_demo-radio-col_padding * 4)) + 50px) {
+            hr.on-small-screens { display: block; width: 100%; }
+        }
+    }
+
+}

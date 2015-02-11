@@ -16,4 +16,6 @@ import 'package:wsk_material/wskcore.dart';
 import 'package:wsk_material/wskcomponets.dart';
 
 part "src/WskAngularComponent.dart";
-part "src/basic_components.dart";
+part "src/WskAngularCheckbox.dart";
+
+part "src/WskAngularUtils.dart";

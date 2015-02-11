@@ -31,8 +31,10 @@ class WskButtonModule extends Module {
 class WskButtonComponent extends WskAngularComponent implements AttachAware {
     final _logger = new Logger('wsk_angular.wsk_button.WskButtonComponent');
 
+    final html.Element _component;
+
     WskButtonComponent(final html.Element component)
-        : super(component,materialButtonConfig(),[ materialRippleConfig() ],false) {
+        : super(component,materialButtonConfig(),[ materialRippleConfig() ],false), _component = component {
         Validate.notNull(component);
     }
 
@@ -60,9 +62,14 @@ class WskButtonComponent extends WskAngularComponent implements AttachAware {
     String icon = "";
     bool get withIcon => (icon != null);
 
-    @NgAttr('disabled')
-    String disabled = "";
-    bool get isDisabled => (disabled != null);
+    dynamic _disabled;
+
+    @NgOneWay('ng-disabled')
+    dynamic get disabled => _disabled == null ? _component.attributes['disabled'] : _disabled;
+    set disabled(dynamic value) => _disabled = value;
+
+    /// Template-Helper to find out if Control is disabled
+    bool get isDisabled => WskAngularUtils.isDisabled(disabled);
 
     // - EventHandler -----------------------------------------------------------------------------
 
@@ -75,7 +82,7 @@ class WskButtonComponent extends WskAngularComponent implements AttachAware {
     }
 
     void attach() {
-        upgrade();
+        autoUpgrade();
     }
 
 

@@ -36,16 +36,20 @@ transformers:
     # List is necessary because of this bug: http://goo.gl/4Rb3wr
     html_files: [
       'web/index.html',
-      'web/views/button.html',
-      'web/views/checkbox.html',
-      'web/views/firstsub.html',
-      'web/views/home.html',
-      'web/views/tabs.html',
       'web/views/animation.html',
+      'web/views/button.html',
       'web/views/cards.html',
+      'web/views/checkbox.html',
       'web/views/dropdown.html',
+      'web/views/firstsub.html',
       'web/views/footer.html',
+      'web/views/home.html',
       'web/views/icon-toggle.html',
+      'web/views/item.html',
+      'web/views/list.html',
+      'web/views/pallet.html',
+      'web/views/radio.html',
+      'web/views/tabs.html',
       'web/views/typography.html'
       ]
 

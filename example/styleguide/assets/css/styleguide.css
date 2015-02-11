@@ -5017,6 +5017,151 @@ dt {
 *
 **/
 /* ==========  Color Palettes  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+.wsk-ripple {
+  background: #212121;
+  border-radius: 50%;
+  height: 50px;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  overflow: hidden; }
+  .wsk-ripple.is-animating {
+    transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-radio {
+  position: relative;
+  font-size: 16px;
+  line-height: 24px;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 12px 0;
+  padding-left: 0; }
+  .wsk-radio.is-upgraded {
+    padding-left: 24px; }
+
+.wsk-radio__button {
+  line-height: 24px; }
+  .wsk-radio.is-upgraded .wsk-radio__button {
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none; }
+
+.wsk-radio__outer-circle {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  cursor: pointer;
+  border: 2px solid rgba(0, 0, 0, 0.54);
+  border-radius: 50%;
+  z-index: 2; }
+  .wsk-radio.is-checked .wsk-radio__outer-circle {
+    border: 2px solid #3f51b5; }
+  .wsk-radio.is-disabled .wsk-radio__outer-circle {
+    border: 2px solid rgba(0, 0, 0, 0.26);
+    cursor: auto; }
+
+.wsk-radio__inner-circle {
+  position: absolute;
+  z-index: 1;
+  margin: 0;
+  top: 8px;
+  left: 4px;
+  box-sizing: border-box;
+  width: 8px;
+  height: 8px;
+  cursor: pointer;
+  transition-duration: 0.28s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: transform;
+  transform: scale3d(0, 0, 0);
+  border-radius: 50%;
+  background: #3f51b5; }
+  .wsk-radio.is-checked .wsk-radio__inner-circle {
+    transform: scale3d(1, 1, 1); }
+  .wsk-radio.is-disabled .wsk-radio__inner-circle {
+    background: rgba(0, 0, 0, 0.26);
+    cursor: auto; }
+  .wsk-radio.is-focused .wsk-radio__inner-circle {
+    box-shadow: 0 0 0px 10px rgba(0, 0, 0, 0.1); }
+
+.wsk-radio__label {
+  cursor: pointer; }
+  .wsk-radio.is-disabled .wsk-radio__label {
+    color: rgba(0, 0, 0, 0.26);
+    cursor: auto; }
+
+.wsk-radio__ripple-container {
+  position: absolute;
+  z-index: 2;
+  top: -9px;
+  left: -13px;
+  box-sizing: border-box;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white, black); }
+  .wsk-radio__ripple-container .wsk-ripple {
+    background: #3f51b5; }
+  .wsk-radio.is-disabled .wsk-radio__ripple-container {
+    cursor: auto; }
+  .wsk-radio.is-disabled .wsk-radio__ripple-container .wsk-ripple {
+    background: transparent; }
+
 .styleguide-demo wsk-layout-header .wsk-layout-title {
   text-transform: capitalize;
   font-weight: 200; }
@@ -6471,6 +6616,26 @@ dt {
   .demo-palette-group__blue-grey .demo-palette-color--900:after {
     content: '#263238';
     float: right; }
+
+.radio.sample .preview-block .selected {
+  color: #3f51b5; }
+.radio.sample .preview-block .avatar {
+  width: 80px;
+  height: 80px; }
+.radio.sample .preview-block .cols {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+.radio.sample .preview-block .cols > div {
+  padding: 10px;
+  width: 280px;
+  max-width: 420px; }
+.radio.sample .preview-block hr.on-small-screens {
+  display: none; }
+@media screen and (max-width: 650px) {
+  .radio.sample .preview-block hr.on-small-screens {
+    display: block;
+    width: 100%; } }
 
 html, body {
   margin: 0;

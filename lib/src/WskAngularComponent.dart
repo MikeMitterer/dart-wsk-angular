@@ -33,7 +33,7 @@ class WskAngularComponent {
 
     /// Callback if Angular has loaded it's template
     void upgrade(final html.HtmlElement component) {
-        _logger.info("Found $component with class '${classToUpgrade}'");
+        _logger.fine("Found $component with class '${classToUpgrade}'");
 
         componenthandler.upgradeElement(component, () {
             return _configs;
@@ -53,9 +53,9 @@ class WskAngularComponent {
             throw new TimeoutException("Could not find a component with css-class: ${classToUpgrade}");
         }
 
-        _logger.info("Next check for component - in: ${inMilliSeconds}ms");
+        _logger.finer("Next check for component - in: ${inMilliSeconds}ms");
         new Future.delayed(new Duration(milliseconds: inMilliSeconds), () {
-            _logger.info(" - cssClass: .${mainconfig.cssClass}");
+            _logger.finer(" - cssClass: .${mainconfig.cssClass}");
 
             // 1 - check if _component HAS children with _classToUpgrade
             html.HtmlElement component = _component.querySelector(".$classToUpgrade");
@@ -66,7 +66,7 @@ class WskAngularComponent {
                     component = _component;
 
                 } else {
-                    _logger.info("Classes: ${_component.classes}");
+                    _logger.finer("Classes: ${_component.classes}");
                     throw "Component for .${classToUpgrade} not ready yet, try it again...";
                 }
             }

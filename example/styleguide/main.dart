@@ -20,6 +20,7 @@ import 'package:wsk_angular/wsk_button/wsk_button.dart';
 import 'package:wsk_angular/wsk_tabs/wsk_tabs.dart';
 import 'package:wsk_angular/wsk_animation/wsk_animation.dart';
 import 'package:wsk_angular/wsk_checkbox/wsk_checkbox.dart';
+import 'package:wsk_angular/wsk_radio/wsk_radio.dart';
 import 'package:wsk_angular/wsk_icon_toggle/wsk_icon_toggle.dart';
 import 'package:wsk_angular/wsk_item/wsk_item.dart';
 
@@ -32,6 +33,11 @@ class AppController {
 
     AppController(this._router) {
         _logger.fine("AppController");
+
+        radioData.add(new _RadioData("Lable I","value1",false));
+        radioData.add(new _RadioData("Lable II","value2",false));
+        radioData.add(new _RadioData("Lable III","value3",true));
+        radioData.add(new _RadioData("Lable IV","value4",false));
     }
 
     String get name {
@@ -55,7 +61,39 @@ class AppController {
     bool toggleOne = false;
     dynamic toggleTwo = false;
     bool toggleThree = false;
+
+    // Radio-Sample
+    String groupOne;
+    String groupTwo = "Never";
+    String groupThree;
+    String groupAvatar;
+    List<_RadioData> radioData = new List<_RadioData>();
+
+    void addRadioData(final html.Event e) {
+        _logger.fine("Event: addRadioData");
+        final DateTime datetime = new DateTime.now();
+        final String timeLabel = "${datetime.hour}:${datetime.minute}:${datetime.second}";
+        final String timeValue = "${datetime.hour}:${datetime.minute}:${datetime.second}.${datetime.millisecond}";
+        radioData.add(new _RadioData(timeLabel,timeValue,false));
+    }
+
+    void removeRadioData(final html.Event e) {
+        _logger.fine("Event: removeRadioData");
+        if(radioData.length > 0) {
+            radioData.removeLast();
+        }
+    }
 }
+
+/// Radio-Sample-Data
+class _RadioData {
+    final String label;
+    final String value;
+    bool isDisabled;
+
+    _RadioData(this.label, this.value, this.isDisabled);
+}
+
 
 void myRouteInitializer(Router router, RouteViewFactory view) {
     // @formatter:on
@@ -83,6 +121,8 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
         ..addRoute(name: "cards", path: "/cards", enter: view("views/cards.html"))
 
         ..addRoute(name: "checkbox", path: "/checkbox", enter: view("views/checkbox.html"))
+
+        ..addRoute(name: "radio", path: "/radio", enter: view("views/radio.html"))
 
         ..addRoute(name: "dropdown", path: "/dropdown", enter: view("views/dropdown.html"))
 
@@ -113,6 +153,7 @@ class SampleModule extends Module {
         install(new WskButtonModule());
         install(new WskAnimationModule());
         install(new WskCheckboxModule());
+        install(new WskRadioModule());
         install(new WskIconToggleModule());
         install(new WskItemModule());
 
