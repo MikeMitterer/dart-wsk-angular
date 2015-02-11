@@ -71,8 +71,7 @@ class WskTabComponent  extends WskAngularComponent implements AttachAware {
 
     attach() {
         _component.classes.add("wsk-tabs__tab");
-
-        upgrade();
+        autoUpgrade();
     }
 }
 

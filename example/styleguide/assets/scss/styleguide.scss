@@ -30,10 +30,13 @@
 @import "packages/wsk_material/sass/icon-toggle/_icon-toggle";
 
 // Items
-@import "packages/wsk_material/sass/item/_item";
+@import "packages/wsk_material/sass/item/item";
 
 // List
-@import "packages/wsk_material/sass/list/_list";
+@import "packages/wsk_material/sass/list/list";
+
+// Pallet
+@import 'packages/wsk_material/sass/palette/palette';
 
 // Styleguide
 @import "_demo/styleguide";
@@ -45,6 +48,7 @@
 @import "_demo/card";
 @import "_demo/footer";
 @import "_demo/icon-toggle";
+@import "_demo/pallet";
 
 $padding: 24px;
 

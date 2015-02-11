@@ -36,13 +36,15 @@ class AppController {
 
     String get name {
         String name = "Material Design";
-        if(_router.activePath.length > 0) {
+        if (_router.activePath.length > 0) {
             name = _router.activePath[0].name;
         }
         return name;
     }
 
-    void handleEvent(final html.Event e) { _logger.info("Event: handleEvent"); }
+    void handleEvent(final html.Event e) {
+        _logger.info("Event: handleEvent");
+    }
 
     // Checkboxes
     bool checkOne = false;
@@ -56,87 +58,41 @@ class AppController {
 }
 
 void myRouteInitializer(Router router, RouteViewFactory view) {
-    // @formatter:off
+    // @formatter:on
     router.root
         ..addRoute(
 
-            name: "home",
-            path: "/home",
-            //enter: view("views/first.html"),
-            defaultRoute: true,
+        defaultRoute: true, name: "home", path: "/home", //enter: view("views/first.html"),
 
             mount: (Route route) => route
                 ..addRoute(
-                    defaultRoute: true,
-                    name: 'home',
-                    path: '/home',
-                    enter: view('views/home.html'))
-                ..addRoute(
-                    name: 'firstsub',
-                    path: '/sub',
-                    enter: view('views/firstsub.html'))
-        )
-        ..addRoute(
-            name: "button",
-            path: "/button",
-            enter: view("views/button.html")
-        )
+                defaultRoute: true, name: 'home', path: '/home', enter: view('views/home.html'))
 
-        ..addRoute(
-           name: "typography",
-            path: "/typography",
-            enter: view("views/typography.html")
+                ..addRoute(name: 'firstsub', path: '/sub', enter: view('views/firstsub.html'))
         )
+        ..addRoute(name: "button", path: "/button", enter: view("views/button.html"))
 
-        ..addRoute(
-           name: "list",
-            path: "/list",
-            enter: view("views/list.html")
-        )
+        ..addRoute(name: "typography", path: "/typography", enter: view("views/typography.html"))
 
-        ..addRoute(
-           name: "animation",
-            path: "/animation",
-            enter: view("views/animation.html")
-        )
+        ..addRoute(name: "list", path: "/list", enter: view("views/list.html"))
 
-        ..addRoute(
-            name: "tabs",
-            path: "/tabs",
-            enter: view("views/tabs.html")
+        ..addRoute(name: "animation", path: "/animation", enter: view("views/animation.html"))
 
-        )
-            ..addRoute(
-            name: "cards",
-            path: "/cards",
-            enter: view("views/cards.html")
-        )
-            ..addRoute(
-            name: "checkbox",
-            path: "/checkbox",
-            enter: view("views/checkbox.html")
-        )
+        ..addRoute(name: "tabs", path: "/tabs", enter: view("views/tabs.html"))
 
-            ..addRoute(
-            name: "dropdown",
-            path: "/dropdown",
-            enter: view("views/dropdown.html")
-        )
-            ..addRoute(
-            name: "icon-toggle",
-            path: "/icon-toggle",
-            enter: view("views/icon-toggle.html")
-        )
-            ..addRoute(
-            name: "item",
-            path: "/item",
-            enter: view("views/item.html")
-        )
+        ..addRoute(name: "cards", path: "/cards", enter: view("views/cards.html"))
 
-            ..addRoute(
-            name: "footer",
-            path: "/footer",
-            enter: view("views/footer.html")
+        ..addRoute(name: "checkbox", path: "/checkbox", enter: view("views/checkbox.html"))
+
+        ..addRoute(name: "dropdown", path: "/dropdown", enter: view("views/dropdown.html"))
+
+        ..addRoute(name: "icon-toggle", path: "/icon-toggle", enter: view("views/icon-toggle.html"))
+
+        ..addRoute(name: "item", path: "/item", enter: view("views/item.html"))
+
+        ..addRoute(name: "pallet", path: "/pallet", enter: view("views/pallet.html"))
+
+        ..addRoute(name: "footer", path: "/footer", enter: view("views/footer.html")
 
     );
     // @formatter:on
