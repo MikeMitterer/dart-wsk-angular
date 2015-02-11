@@ -18,10 +18,12 @@
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_button/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_checkbox/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_icon_toggle/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_item/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_layout/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_layout/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_tabs/packages" />
       <excludeFolder url="file://$MODULE_DIR$/packages/wsk_angular" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/test/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/assets/css/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/assets/css/packages" />

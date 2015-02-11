@@ -21,6 +21,7 @@ import 'package:wsk_angular/wsk_tabs/wsk_tabs.dart';
 import 'package:wsk_angular/wsk_animation/wsk_animation.dart';
 import 'package:wsk_angular/wsk_checkbox/wsk_checkbox.dart';
 import 'package:wsk_angular/wsk_icon_toggle/wsk_icon_toggle.dart';
+import 'package:wsk_angular/wsk_item/wsk_item.dart';
 
 @Injectable()
 class AppController {
@@ -121,6 +122,12 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
             enter: view("views/icon-toggle.html")
         )
             ..addRoute(
+            name: "item",
+            path: "/item",
+            enter: view("views/item.html")
+        )
+
+            ..addRoute(
             name: "footer",
             path: "/footer",
             enter: view("views/footer.html")
@@ -145,6 +152,7 @@ class SampleModule extends Module {
         install(new WskAnimationModule());
         install(new WskCheckboxModule());
         install(new WskIconToggleModule());
+        install(new WskItemModule());
 
         bind(NgRoutingUsePushState, toFactory: () => new NgRoutingUsePushState.value(false));
     }

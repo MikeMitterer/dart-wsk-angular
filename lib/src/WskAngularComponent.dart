@@ -8,7 +8,10 @@ class WskAngularComponent {
     final html.Element _component;
     final List<WskConfig> _configs = new List<WskConfig>();
 
-    WskAngularComponent(this._component, final WskConfig mainConfig,[ final List<WskConfig> additionalConfigs = const [], final bool autoUpgrade = true ] ) {
+    WskAngularComponent(this._component,
+                        final WskConfig mainConfig,[ final List<WskConfig> additionalConfigs = const [],
+                        final bool upgradeAutomatically = true ] ) {
+
         Validate.notNull(_component);
         Validate.notNull(mainConfig);
         Validate.notNull(additionalConfigs);
@@ -16,48 +19,65 @@ class WskAngularComponent {
         _configs.add(mainConfig);
         _configs.addAll(additionalConfigs);
 
-        if(autoUpgrade) {
-            _upgrade();
+        if(upgradeAutomatically) {
+            autoUpgrade();
         }
     }
 
     WskConfig get mainconfig => _configs[0];
 
-    /// If autoUpgrade in the Constructor is false you can upgrade the component manually
-    void upgrade() {
-        _upgrade();
-    }
+    String get classToUpgrade => mainconfig.cssClass;
 
     /// Informs component about the final upgrade-state
     void upgraded() {}
 
+    /// Callback if Angular has loaded it's template
+    void upgrade(final html.HtmlElement component) {
+        _logger.info("Found $component with class '${classToUpgrade}'");
+
+        componenthandler.upgradeElement(component, () {
+            return _configs;
+        });
+    }
+
+    /// Waits for Angular to load the template, search for the component defined in mainConfig (CTOR)
+    void autoUpgrade() {
+        _waitForComponentToLoad();
+    }
+
     // - private ----------------------------------------------------------------------------------
 
-    void _upgrade({ final int inMilliSeconds: 20} ) {
+    /// If autoUpgrade in the Constructor is false you can upgrade the component manually
+    void _waitForComponentToLoad({ final int inMilliSeconds: 30} ) {
         if (inMilliSeconds >= _TIMEOUT_IN_MS) {
-            throw new TimeoutException("Could not find a component with css-class: .${mainconfig.cssClass}");
+            throw new TimeoutException("Could not find a component with css-class: ${classToUpgrade}");
         }
 
-        _logger.fine("Next check for component - in: ${inMilliSeconds}ms");
+        _logger.info("Next check for component - in: ${inMilliSeconds}ms");
         new Future.delayed(new Duration(milliseconds: inMilliSeconds), () {
-            _logger.fine(" - cssClass: .${mainconfig.cssClass}");
+            _logger.info(" - cssClass: .${mainconfig.cssClass}");
 
-            final html.HtmlElement component = _component.querySelector(".${mainconfig.cssClass}");
+            // 1 - check if _component HAS children with _classToUpgrade
+            html.HtmlElement component = _component.querySelector(".$classToUpgrade");
             if (component == null) {
-                throw "Component for .${mainconfig.cssClass} not ready yet, try it again...";
+
+                // 2 - check if _component IS!!! the element to upgrade
+                if(_component.classes.contains(classToUpgrade)) {
+                    component = _component;
+
+                } else {
+                    _logger.info("Classes: ${_component.classes}");
+                    throw "Component for .${classToUpgrade} not ready yet, try it again...";
+                }
             }
             return component;
 
         }).then((final html.HtmlElement component) {
-            _logger.fine("Found $component with class '${mainconfig.cssClass}'");
-
-            componenthandler.upgradeElement(component, () {
-                return _configs;
-            });
+            upgrade(component);
             upgraded();
 
         }).catchError((_) {
-            _upgrade(inMilliSeconds: inMilliSeconds < 100 ? inMilliSeconds + 5 : inMilliSeconds * 2);
+            _waitForComponentToLoad(inMilliSeconds: inMilliSeconds < 100 ? inMilliSeconds + 5 : inMilliSeconds * 2);
         });
     }
 }
