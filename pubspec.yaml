@@ -11,8 +11,9 @@ dependencies:
 
   validate: any
 
-  wsk_material: ">=0.2.0 <0.3.0"
-    # path: /Volumes/Daten/DevLocal/DevDart/WskMaterial
+  wsk_material:
+    #">=0.2.0 <0.3.0"
+    path: /Volumes/Daten/DevLocal/DevDart/WskMaterial
 
   logging: any
   logging_handlers: any
@@ -48,6 +49,8 @@ transformers:
       'web/views/list.html',
       'web/views/pallet.html',
       'web/views/radio.html',
+      'web/views/shadow.html',
+      'web/views/slider.html',
       'web/views/tabs.html',
       'web/views/typography.html'
       ]

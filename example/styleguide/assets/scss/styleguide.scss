@@ -44,6 +44,9 @@
 // Shadow
 @import "packages/wsk_material/sass/shadow/_shadow";
 
+// Slider
+@import "packages/wsk_material/sass/slider/_slider";
+
 // Styleguide
 @import "_demo/styleguide";
 
@@ -57,6 +60,7 @@
 @import "_demo/pallet";
 @import "_demo/radio";
 @import "_demo/shadow";
+@import "_demo/slider";
 
 $padding: 24px;
 

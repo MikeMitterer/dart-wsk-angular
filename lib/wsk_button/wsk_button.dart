@@ -63,7 +63,6 @@ class WskButtonComponent extends WskAngularComponent implements AttachAware {
     bool get withIcon => (icon != null);
 
     dynamic _disabled;
-
     @NgOneWay('ng-disabled')
     dynamic get disabled => _disabled == null ? _component.attributes['disabled'] : _disabled;
     set disabled(dynamic value) => _disabled = value;

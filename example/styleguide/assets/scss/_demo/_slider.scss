@@ -1,0 +1,28 @@
+.slider.sample {
+    .preview-block {
+        width: 100%;
+        max-width: 700px;
+    }
+
+    span i.fa { font-size: 20px; }
+    .values { padding: 10px 20px; }
+    .color-chooser {
+        flex-grow: 1;
+
+        box-sizing: border-box;
+        padding: 18px 0 0 10px;
+        margin: 5px 30px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+    .color-chooser wsk-slider .wsk-slider__container {
+        top: -18px;
+    }
+    .cols {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .cols .logo { padding: 20px 0 0 20px; }
+}

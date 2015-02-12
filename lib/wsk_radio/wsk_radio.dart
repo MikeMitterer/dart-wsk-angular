@@ -68,12 +68,10 @@ class WskRadioComponent extends WskAngularComponent implements ScopeAware {
         Validate.notNull(component);
     }
 
+    dynamic _disabled;
     @NgOneWay('ng-disabled')
-    void set nGDisabled(val) { disabled = val;}
-    dynamic get nGDisabled => disabled;
-
-    @NgAttr("disabled")
-    dynamic disabled;
+    dynamic get disabled => _disabled == null ? _component.attributes['disabled'] : _disabled;
+    set disabled(dynamic value) => _disabled = value;
 
     @NgOneWay('ng-value')
     void set nGValue(val) { _value = val; }
@@ -83,19 +81,8 @@ class WskRadioComponent extends WskAngularComponent implements ScopeAware {
     void set value(final String v) { _value = v; }
     dynamic get value => _value;
 
-    @NgOneWay("isDisabled")
-    bool get isDisabled {
-        if(!_isSet(disabled)) {
-            return false;
-        }
-        if(disabled is bool) {
-            return disabled;
-        }
-        if(disabled.toString().isEmpty || disabled.toString() == "true") {
-            return true;
-        }
-        return false;
-    }
+    /// Template-Helper to find out if Control is disabled
+    bool get isDisabled => WskAngularUtils.isDisabled(disabled);
 
     void set ngModel(final dynamic value) {
         _logger.fine("Value: $value");

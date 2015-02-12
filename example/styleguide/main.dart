@@ -1,6 +1,7 @@
 library wsk_angular.example.styleguide;
 
 import 'dart:html' as html;
+import 'dart:math' as Math;
 
 import 'package:angular/angular.dart';
 import 'package:angular/application_factory.dart';
@@ -23,6 +24,7 @@ import 'package:wsk_angular/wsk_checkbox/wsk_checkbox.dart';
 import 'package:wsk_angular/wsk_radio/wsk_radio.dart';
 import 'package:wsk_angular/wsk_icon_toggle/wsk_icon_toggle.dart';
 import 'package:wsk_angular/wsk_item/wsk_item.dart';
+import 'package:wsk_angular/wsk_slider/wsk_slider.dart';
 
 @Injectable()
 class AppController {
@@ -52,17 +54,17 @@ class AppController {
         _logger.info("Event: handleEvent");
     }
 
-    // Checkboxes
+    // - Checkboxes ----------------------------------------------------------------------------------------------------
     bool checkOne = false;
     dynamic checkTwo = false;
     bool checkThree = false;
 
-    // Icon-Toggle
+    // - Icon-Toggle ---------------------------------------------------------------------------------------------------
     bool toggleOne = false;
     dynamic toggleTwo = false;
     bool toggleThree = false;
 
-    // Radio-Sample
+    // - Radio-Sample --------------------------------------------------------------------------------------------------
     String groupOne;
     String groupTwo = "Never";
     String groupThree;
@@ -83,6 +85,36 @@ class AppController {
             radioData.removeLast();
         }
     }
+
+    //  Slider Sample --------------------------------------------------------------------------------------------------
+    int _activeColor = 0;
+
+    int colorRed = 45;
+    int colorGreen = 147;
+    int colorBlue = 59;
+
+    String get redAsHex => colorRed.toRadixString(16).padLeft(2,"0");
+    String get greenAsHex => colorGreen.toRadixString(16).padLeft(2,"0");
+    String get blueAsHex => colorBlue.toRadixString(16).padLeft(2,"0");
+
+    String get asHex => "#${redAsHex}${greenAsHex}${blueAsHex}";
+
+    final _Color color = new _Color();
+
+    void colorChanged() {
+        color[_activeColor] = asHex;
+    }
+
+    void activateColor(final int index) {
+        final String currentColor = color[index];
+        _logger.fine("CC $currentColor ${currentColor.substring(1,3)},${currentColor.substring(3,5)},${currentColor.substring(5)}");
+
+        colorRed   = int.parse(currentColor.substring(1,3),radix: 16);
+        colorGreen = int.parse(currentColor.substring(3,5),radix: 16);
+        colorBlue  = int.parse(currentColor.substring(5),radix: 16);
+
+        _activeColor = index;
+    }
 }
 
 /// Radio-Sample-Data
@@ -94,6 +126,22 @@ class _RadioData {
     _RadioData(this.label, this.value, this.isDisabled);
 }
 
+/// Slider-Sample-Data
+class _Color {
+    final List<String> _colors = new List<String>();
+
+    _Color() {
+        _colors.add("#123456");  // 00C4B3
+        _colors.add("#22D3C5");
+        _colors.add("#0075C9");
+        _colors.add("#0075C9");
+        _colors.add("#00A8E1");
+        _colors.add("#00C4B3");
+    }
+
+    String operator [](int index) => _colors[Math.max(0,Math.min(5,index))];
+    void operator []=(int index,final String value) { _colors[Math.max(0,Math.min(5,index))] = value; }
+}
 
 void myRouteInitializer(Router router, RouteViewFactory view) {
     // @formatter:on
@@ -132,6 +180,8 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
 
         ..addRoute(name: "pallet", path: "/pallet", enter: view("views/pallet.html"))
 
+        ..addRoute(name: "slider", path: "/slider", enter: view("views/slider.html"))
+
         ..addRoute(name: "shadow", path: "/shadow", enter: view("views/shadow.html"))
 
         ..addRoute(name: "footer", path: "/footer", enter: view("views/footer.html")
@@ -158,6 +208,7 @@ class SampleModule extends Module {
         install(new WskRadioModule());
         install(new WskIconToggleModule());
         install(new WskItemModule());
+        install(new WskSliderModule());
 
         bind(NgRoutingUsePushState, toFactory: () => new NgRoutingUsePushState.value(false));
     }

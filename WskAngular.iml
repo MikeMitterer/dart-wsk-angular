@@ -24,8 +24,10 @@
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_layout/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_radio/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_radio/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_slider/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_tabs/packages" />
       <excludeFolder url="file://$MODULE_DIR$/packages/wsk_angular" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/test/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/assets/css/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/assets/css/packages" />
@@ -35,6 +37,7 @@
       <excludeFolder url="file://$MODULE_DIR$/web/assets/scss/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/views/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/web/views/source/packages" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
