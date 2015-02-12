@@ -18,6 +18,10 @@
                 text-decoration: none;
             }
         }
+        .wsk-navigation__link {
+            padding: 8px 24px;
+            font-weight: 500;
+        }
 
         nav a.active {
             color: $button-primary-color-alt;

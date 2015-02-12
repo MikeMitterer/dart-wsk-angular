@@ -26,12 +26,29 @@ import 'package:wsk_angular/wsk_icon_toggle/wsk_icon_toggle.dart';
 import 'package:wsk_angular/wsk_item/wsk_item.dart';
 import 'package:wsk_angular/wsk_slider/wsk_slider.dart';
 
+class _SimpleModel {
+    final Map<String,dynamic> _model = new Map<String,dynamic>();
+
+    dynamic operator[](final String key) {
+        if(_model.containsKey(key)) {
+            return _model[key];
+        }
+        return 0;
+    }
+
+    void operator[]=(final String key,final dynamic value) {
+        _model[key] = value;
+    }
+}
+
 @Injectable()
 class AppController {
     final _logger = new Logger('wsk_angular.example.styleguide.AppController');
 
     final Router _router;
     final String _classToChange = "active";
+
+    final _SimpleModel model = new _SimpleModel();
 
     AppController(this._router) {
         _logger.fine("AppController");
