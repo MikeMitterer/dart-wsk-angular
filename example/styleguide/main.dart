@@ -80,6 +80,7 @@ class AppController {
     bool toggleOne = false;
     dynamic toggleTwo = false;
     bool toggleThree = false;
+    bool toggleChevron = false;
 
     // - Radio-Sample --------------------------------------------------------------------------------------------------
     String groupOne;

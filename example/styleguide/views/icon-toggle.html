@@ -50,6 +50,15 @@
             </wsk-icon-toggle> Toggle: {{toggleOne}}
           </div>
 
+          <h5>Rotate SVG + change color</h5>
+          <div class="button-block">
+              <wsk-icon-toggle ng-model="toggleChevron">
+                <svg class="chevron-right"  ng-class="{'rotate-45-right' : toggleChevron }"
+                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 18 18">
+                  <path d="M7.5 4.5L6.44 5.56 9.88 9l-3.44 3.44L7.5 13.5 12 9z"/>
+                </svg>
+              </wsk-icon-toggle>
+          </div>
        </div>
     </article>
 </section>

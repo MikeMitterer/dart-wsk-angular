@@ -5555,6 +5555,12 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
 .icon-toggle.sample .button-block {
   display: inline-block;
   margin: 0 20px 20px 0; }
+.icon-toggle.sample .chevron-right {
+  transition: 0.5s ease-in-out; }
+  .icon-toggle.sample .chevron-right.rotate-45-right {
+    transform: rotate(90deg);
+    transition: 0.5s ease-in-out;
+    stroke: #3f51b5; }
 
 .preview-block {
   display: inline-block; }

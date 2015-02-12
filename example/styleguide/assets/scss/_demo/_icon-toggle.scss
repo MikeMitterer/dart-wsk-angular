@@ -22,7 +22,18 @@
     }
 
     .button-block {
-        display: inline-block;
-        margin: 0 20px 20px 0;
+        display : inline-block;
+        margin  : 0 20px 20px 0;
     }
+
+    .chevron-right {
+        transition : 0.5s ease-in-out;
+
+        &.rotate-45-right {
+            transform  : rotate(90deg);
+            transition : 0.5s ease-in-out;
+            stroke: $radio-color;
+        }
+    }
+
 }
