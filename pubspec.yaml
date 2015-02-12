@@ -1,6 +1,6 @@
 name: wsk_angular
 description: Web Starter Kit for Angular
-version: 0.1.23
+version: 0.1.28
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-wsk-angular
 
@@ -11,9 +11,8 @@ dependencies:
 
   validate: any
 
-  wsk_material:
-    #">=0.2.0 <0.3.0"
-    path: /Volumes/Daten/DevLocal/DevDart/WskMaterial
+  wsk_material: ">=0.2.0 <0.3.0"
+    #path: /Volumes/Daten/DevLocal/DevDart/WskMaterial
 
   logging: any
   logging_handlers: any

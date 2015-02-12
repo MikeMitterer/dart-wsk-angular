@@ -1,4 +1,9 @@
-###v0.1.23###
+###v0.1.28###
+* Slider works, Bug: Layout was also a Textfield [0dc124a](http://github.com/MikeMitterer/dart-wsk-angular/commit/0dc124ac3f72210ff52353eab158ea5dfd50cfc8)
+* Shadow works [6b78ff1](http://github.com/MikeMitterer/dart-wsk-angular/commit/6b78ff1d6dc30a62885c96787c59dc679c073a3a)
+* Test for source-integration [a379b95](http://github.com/MikeMitterer/dart-wsk-angular/commit/a379b955ad0901a922d7fb8ee5f39f21ed1c618b)
+* Changed pubspec from local path to latest wsk_material version [aaac510](http://github.com/MikeMitterer/dart-wsk-angular/commit/aaac51011dcef94df4849c6deef94e816254e8bd)
+* Changelog... [738ce9f](http://github.com/MikeMitterer/dart-wsk-angular/commit/738ce9f597db5a05f14f622397c5e44a0e34f317)
 * Radio works [75d570e](http://github.com/MikeMitterer/dart-wsk-angular/commit/75d570e714d3f794a24947e219832d1ebf371a3b)
 * Pallet works [f9d97fc](http://github.com/MikeMitterer/dart-wsk-angular/commit/f9d97fc6599610585f1d9fb4acf821834e934318)
 * List works [250e522](http://github.com/MikeMitterer/dart-wsk-angular/commit/250e522e58f51ccb6618999a9dd13959c12a125d)
