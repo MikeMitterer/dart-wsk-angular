@@ -70,6 +70,9 @@ class WskButtonComponent extends WskAngularComponent implements AttachAware {
     /// Template-Helper to find out if Control is disabled
     bool get isDisabled => WskAngularUtils.isDisabled(disabled);
 
+    @NgTwoWay('ng-model')
+    dynamic model;
+
     // - EventHandler -----------------------------------------------------------------------------
 
     /**
@@ -78,10 +81,15 @@ class WskButtonComponent extends WskAngularComponent implements AttachAware {
      */
     void handleEvent(final html.Event e) {
         _logger.info("Event: handleEvent");
+        model = !WskAngularUtils.asBool(model);
     }
 
     void attach() {
         autoUpgrade();
+    }
+
+    void upgraded() {
+        _component.attributes.remove("ng-click");
     }
 
 

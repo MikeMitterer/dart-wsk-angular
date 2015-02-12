@@ -49,6 +49,7 @@ class AppController {
     final String _classToChange = "active";
 
     final _SimpleModel model = new _SimpleModel();
+    void toggle(final String modelKey) => model[modelKey] = !model[modelKey];
 
     AppController(this._router) {
         _logger.fine("AppController");

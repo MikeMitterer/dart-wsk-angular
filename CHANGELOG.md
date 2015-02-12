@@ -1,4 +1,8 @@
-###v0.1.28###
+###v0.1.32###
+* One more sample for Icon-Toggle [e234af8](http://github.com/MikeMitterer/dart-wsk-angular/commit/e234af84b1f7dea676a83a6e37d8d3c7c4653997)
+* Another sample for Icon-Toggle [ebf3de3](http://github.com/MikeMitterer/dart-wsk-angular/commit/ebf3de333b77e605fd8f06be4d1567d66cedd68d)
+* Typo in Layout [c1485cf](http://github.com/MikeMitterer/dart-wsk-angular/commit/c1485cf582ffa1addde4cb41a0fe0d28c4957ed2)
+* Upload for pub [b3a61ed](http://github.com/MikeMitterer/dart-wsk-angular/commit/b3a61ed8b5492ab0096c5f3d99a47076d5fb8f30)
 * Slider works, Bug: Layout was also a Textfield [0dc124a](http://github.com/MikeMitterer/dart-wsk-angular/commit/0dc124ac3f72210ff52353eab158ea5dfd50cfc8)
 * Shadow works [6b78ff1](http://github.com/MikeMitterer/dart-wsk-angular/commit/6b78ff1d6dc30a62885c96787c59dc679c073a3a)
 * Test for source-integration [a379b95](http://github.com/MikeMitterer/dart-wsk-angular/commit/a379b955ad0901a922d7fb8ee5f39f21ed1c618b)

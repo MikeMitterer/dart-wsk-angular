@@ -5527,9 +5527,17 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
 
 .button.sample .button-block {
   display: inline-block;
-  margin: 20px 20px 20px 0; }
+  margin: 15px 20px 5px 0; }
 .button.sample h6 {
   font-style: italic; }
+.button.sample .light {
+  font-size: 20px; }
+  .button.sample .light.on {
+    color: orange; }
+.button.sample h5.disabled {
+  text-decoration: line-through; }
+.button.sample .wsk-checkbox {
+  margin: 0 0 24px 0; }
 
 .cards.sample .wsk-card {
   margin: 20px; }
