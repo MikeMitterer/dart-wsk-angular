@@ -42,7 +42,7 @@ class WskLayoutComponent extends WskAngularComponent {
     final html.Element _component;
 
     WskLayoutComponent(final html.Element component)
-        : super(component, materialLayoutConfig(), [ WmaterialRippleConfig() ]),
+        : super(component, materialLayoutConfig(), [ materialRippleConfig() ]),
         this._component = component {
         Validate.notNull(component);
     }
