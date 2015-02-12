@@ -132,6 +132,8 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
 
         ..addRoute(name: "pallet", path: "/pallet", enter: view("views/pallet.html"))
 
+        ..addRoute(name: "shadow", path: "/shadow", enter: view("views/shadow.html"))
+
         ..addRoute(name: "footer", path: "/footer", enter: view("views/footer.html")
 
     );

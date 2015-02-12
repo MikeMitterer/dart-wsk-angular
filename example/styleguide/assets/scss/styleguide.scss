@@ -41,6 +41,9 @@
 // Radio
 @import "packages/wsk_material/sass/radio/_radio";
 
+// Shadow
+@import "packages/wsk_material/sass/shadow/_shadow";
+
 // Styleguide
 @import "_demo/styleguide";
 
@@ -53,6 +56,7 @@
 @import "_demo/icon-toggle";
 @import "_demo/pallet";
 @import "_demo/radio";
+@import "_demo/shadow";
 
 $padding: 24px;
 
