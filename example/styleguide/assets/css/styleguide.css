@@ -6221,6 +6221,423 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
     cursor: auto;
     left: 2px; }
 
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+/* We're splitting fonts into "preferred" and "performance" in order to optimize
+   page loading. For important text, such as the body, we want it to load
+   immediately and not wait for the web font load, whereas for other sections,
+   such as headers and titles, we're OK with things taking a bit longer to load.
+   We do have some optional classes and parameters in the mixins, in case you
+   definitely want to make sure you're using the preferred font and don't mind
+   the performance hit.
+   We should be able to improve on this once CSS Font Loading L3 becomes more
+   widely available.
+*/
+html, body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px; }
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0; }
+
+/**
+ * Styles for HTML elements
+ */
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  opacity: 0.54;
+  font-size: 0.6em; }
+
+h1 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em; }
+
+h2 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 48px; }
+
+h3 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 40px; }
+
+h4 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  -moz-osx-font-smoothing: grayscale; }
+
+h5 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em; }
+
+h6 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em; }
+
+p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  margin: 0 0 16px 0; }
+
+a {
+  font-weight: bold; }
+
+blockquote {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1;
+  letter-spacing: 0.08em; }
+  blockquote:before {
+    content: '“';
+    opacity: 0.54; }
+  blockquote:after {
+    content: '”';
+    opacity: 0.54; }
+
+mark {
+  background-color: #f4ff81; }
+
+dt {
+  font-weight: 700; }
+
+/**
+ * Class Name Styles
+ */
+.wsk-typography--display-4 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 112px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em; }
+
+.wsk-typography--display-4--colorContrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 112px;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  opacity: 0.54; }
+
+.wsk-typography--display-3 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em; }
+
+.wsk-typography--display-3--colorContrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  opacity: 0.54; }
+
+.wsk-typography--display-2 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 48px; }
+
+.wsk-typography--display-2--colorContrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 48px;
+  opacity: 0.54; }
+
+.wsk-typography--display-1 {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 40px; }
+
+.wsk-typography--display-1--colorContrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 40px;
+  opacity: 0.54; }
+
+.wsk-typography--headline {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  -moz-osx-font-smoothing: grayscale; }
+
+.wsk-typography--headline--colorContrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 32px;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 0.87; }
+
+.wsk-typography--title {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em; }
+
+.wsk-typography--title--colorContrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  opacity: 0.87; }
+
+.wsk-typography--subhead {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em; }
+
+.wsk-typography--subhead--colorContrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  opacity: 0.87; }
+
+.wsk-typography--body-2 {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 24px;
+  letter-spacing: 0.04em; }
+
+.wsk-typography--Body-2--colorContrast {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  opacity: 0.87; }
+
+.wsk-typography--body-1 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em; }
+
+.wsk-typography--body-1--colorContrast {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  opacity: 0.87; }
+
+.wsk-typography--body-2--forcePreferredFont {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.04em; }
+
+.wsk-typography--Body-2--forcePreferredFont--colorContrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  opacity: 0.87; }
+
+.wsk-typography--body-1--forcePreferredFont {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em; }
+
+.wsk-typography--body-1--forcePreferredFont--colorContrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.04em;
+  opacity: 0.87; }
+
+.wsk-typography--caption {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.08em; }
+
+.wsk-typography--caption--forcePreferredFont {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.08em; }
+
+.wsk-typography--caption--colorContrast {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  opacity: 0.54; }
+
+.wsk-typography--caption--forcePreferredFont--colorContrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  opacity: 0.54; }
+
+.wsk-typography--menu {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.04em; }
+
+.wsk-typography--menu--colorContrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  opacity: 0.87; }
+
+.wsk-typography--button {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 0.04em; }
+
+.wsk-typography--button--colorContrast {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  opacity: 0.87; }
+
+.wsk-typography--textLeft {
+  text-align: left; }
+
+.wsk-typography--textRight {
+  text-align: right; }
+
+.wsk-typography--textCenter {
+  text-align: center; }
+
+.wsk-typography--textJustify {
+  text-align: justify; }
+
+.wsk-typography--textNowrap {
+  white-space: nowrap; }
+
+.wsk-typography--textLowercase {
+  text-transform: lowercase; }
+
+.wsk-typography--textUppercase {
+  text-transform: uppercase; }
+
+.wsk-typography--textCapitalize {
+  text-transform: capitalize; }
+
+.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td, .wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
+  background-color: #f9f9f9; }
+
+.wsk-typography--tableStriped > tbody > tr:nth-child(odd) > td, .wsk-typography--tableStriped > tbody > tr:nth-child(odd) > th {
+  background-color: #f9f9f9; }
+
+.wsk-tooltip {
+  -webkit-transform: scale(0);
+  -webkit-transform-origin: top center;
+  background: #d81b60;
+  border-radius: 5px;
+  color: #fff;
+  display: none;
+  font-size: 10px;
+  line-height: 14px;
+  max-width: 170px;
+  padding: 5px 8px;
+  position: absolute;
+  text-align: center; }
+
+.wsk-tooltip.is-active {
+  display: inline-block;
+  -webkit-animation: pulse 200ms cubic-bezier(0, 0, .2, 1) forwards;
+  animation: pulse 200ms cubic-bezier(0, 0, .2, 1) forwards; }
+
+.wsk-tooltip--large {
+  line-height: 14px;
+  font-size: 14px;
+  padding: 16px; }
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(0);
+    opacity: 0; }
+
+  50% {
+    -webkit-transform: scale(1); }
+
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 1;
+    visibility: visible; } }
+
 .styleguide-demo wsk-layout-header .wsk-layout-title {
   text-transform: capitalize;
   font-weight: 200; }
@@ -7823,6 +8240,34 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
   .switch.sample hr.on-small-screens {
     display: block;
     width: 100%; } }
+
+.tooltip.sample .preview-block {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  background: #eee;
+  padding: 20px; }
+  .tooltip.sample .preview-block:first-of-type {
+    margin-bottom: 20px; }
+  .tooltip.sample .preview-block label {
+    padding-right: 1em; }
+.tooltip.sample .icon {
+  background-color: transparent;
+  border: none;
+  display: inline-block;
+  height: 21px;
+  margin: 0 50px;
+  opacity: .7;
+  outline: none;
+  padding: 0;
+  position: relative;
+  width: 21px; }
+.tooltip.sample icon:hover {
+  opacity: 1; }
 
 html, body {
   margin: 0;

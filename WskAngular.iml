@@ -28,6 +28,7 @@
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_spinner/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_switch/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_tabs/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_tooltip/packages" />
       <excludeFolder url="file://$MODULE_DIR$/packages/wsk_angular" />
       <excludeFolder url="file://$MODULE_DIR$/test/packages" />
       <excludeFolder url="file://$MODULE_DIR$/web/assets/css/images/packages" />

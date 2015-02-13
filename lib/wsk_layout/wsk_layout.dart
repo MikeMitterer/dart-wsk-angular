@@ -170,9 +170,7 @@ class WskLayoutTabComponent extends WskAngularComponent implements AttachAware {
 
     attach() {
         _component.classes.add("wsk-layout__tab");
-//        _component.classes.add("wsk-js-ripple-effect");
-
-        upgrade();
+        autoUpgrade();
     }
 }
 

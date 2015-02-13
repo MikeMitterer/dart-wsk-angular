@@ -57,6 +57,9 @@
 // Switch
 @import "packages/wsk_material/sass/switch/_switch";
 
+// Tooltip
+@import "packages/wsk_material/sass/tooltip/_tooltip";
+
 // Styleguide
 @import "_demo/styleguide";
 
@@ -72,6 +75,7 @@
 @import "_demo/shadow";
 @import "_demo/slider";
 @import "_demo/switch";
+@import "_demo/tooltip";
 
 $padding: 24px;
 

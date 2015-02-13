@@ -1,0 +1,38 @@
+@import "packages/wsk_material/sass/styleguide_demo_bp";
+@import "packages/wsk_material/sass/tooltip/_tooltip";
+
+.tooltip.sample {
+    .preview-block {
+        display: flex;
+        flex-wrap: wrap;
+
+        background: #eee;
+        padding   : 20px;
+
+        &:first-of-type {
+            margin-bottom : 20px;
+        }
+
+        label {
+            padding-right: 1em;
+        }
+    }
+
+    .icon {
+        background-color: transparent;
+        border: none;
+        display: inline-block;
+        height: 21px;
+        margin: 0 50px;
+        opacity: .7;
+        outline: none;
+        padding: 0;
+        position: relative;
+        width: 21px;
+    }
+
+    icon:hover {
+        opacity: 1;
+    }
+}
+

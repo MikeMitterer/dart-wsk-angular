@@ -27,6 +27,7 @@ import 'package:wsk_angular/wsk_item/wsk_item.dart';
 import 'package:wsk_angular/wsk_slider/wsk_slider.dart';
 import 'package:wsk_angular/wsk_spinner/wsk_spinner.dart';
 import 'package:wsk_angular/wsk_switch/wsk_switch.dart';
+import 'package:wsk_angular/wsk_tooltip/wsk_tooltip.dart';
 
 class _SimpleModel {
     final Map<String,dynamic> _model = new Map<String,dynamic>();
@@ -144,6 +145,8 @@ class AppController {
     bool toggleSwitch = false;
     bool flipText = false;
 
+    //  Tooltip Sample --------------------------------------------------------------------------------------------------
+    String tooltipText = "Simple tooltip";
 }
 
 /// Radio-Sample-Data
@@ -213,6 +216,8 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
 
         ..addRoute(name: "spinner", path: "/spinner", enter: view("views/spinner.html"))
 
+        ..addRoute(name: "tooltip", path: "/tooltip", enter: view("views/tooltip.html"))
+
         ..addRoute(name: "shadow", path: "/shadow", enter: view("views/shadow.html"))
 
         ..addRoute(name: "switch", path: "/switch", enter: view("views/switch.html"))
@@ -244,6 +249,7 @@ class SampleModule extends Module {
         install(new WskSliderModule());
         install(new WskSpinnerModule());
         install(new WskSwitchModule());
+        install(new WskTooltipModule());
 
         bind(NgRoutingUsePushState, toFactory: () => new NgRoutingUsePushState.value(false));
     }
