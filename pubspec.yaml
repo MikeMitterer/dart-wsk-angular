@@ -53,6 +53,7 @@ transformers:
       'web/views/slider.html',
       'web/views/switch.html',
       'web/views/tabs.html',
+      'web/views/tooltip.html',
       'web/views/typography.html'
       ]
 
