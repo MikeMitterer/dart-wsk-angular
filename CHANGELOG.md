@@ -1,4 +1,7 @@
-###v0.1.39###
+###v0.1.42###
+* toogle in styleguide-main tried to return something but was void [71a7906](http://github.com/MikeMitterer/dart-wsk-angular/commit/71a79060c3658026fc593a260af1ce75853ec8f5)
+* tooltip-view in pubspec [4509ada](http://github.com/MikeMitterer/dart-wsk-angular/commit/4509ada27ee7a611ac5f8391d32aa9c3f05787be)
+* Changelog... [ed8a963](http://github.com/MikeMitterer/dart-wsk-angular/commit/ed8a963c3da2dc57240ff4418495c33cf6303f7e)
 * Tooltip works [6e35aa8](http://github.com/MikeMitterer/dart-wsk-angular/commit/6e35aa8682196876ed0dddd29496640a71fe6ca1)
 * Switch works [8a75ab5](http://github.com/MikeMitterer/dart-wsk-angular/commit/8a75ab579cf22ac14bc05cc8026e935e5b02b71a)
 * Changelog [a87f7b5](http://github.com/MikeMitterer/dart-wsk-angular/commit/a87f7b53d03cc6c49242a3e64a319df49f115bb8)
