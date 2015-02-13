@@ -28,7 +28,7 @@ $spinner-duration: 360deg * $spinner-arc-time / (
 
     //&.is-upgraded.is-active {
     &.is-upgraded {
-        wsk-spinner.is-active &, wsk-spinner[active] & {
+        wsk-spinner.is-active &, wsk-spinner[is-active] & {
             animation: wsk-spinner__container-rotate $spinner-duration linear infinite;
         }
   }
@@ -54,7 +54,7 @@ $spinner-duration: 360deg * $spinner-arc-time / (
 
   //.wsk-spinner.is-active & {
   .wsk-spinner & {
-        wsk-spinner.is-active &, wsk-spinner[active] & {
+        wsk-spinner.is-active &, wsk-spinner[is-active] & {
             animation:
                 wsk-spinner__fill-unfill-rotate (4 * $spinner-arc-time)
                     $animation-curve-fast-out-slow-in infinite both,
@@ -73,7 +73,7 @@ $spinner-duration: 360deg * $spinner-arc-time / (
 
   //.wsk-spinner.is-active & {
     .wsk-spinner & {
-        wsk-spinner.is-active &, wsk-spinner[active] & {
+        wsk-spinner.is-active &, wsk-spinner[is-active] & {
             animation:
                 wsk-spinner__fill-unfill-rotate (4 * $spinner-arc-time)
                     $animation-curve-fast-out-slow-in infinite both,
@@ -92,7 +92,7 @@ $spinner-duration: 360deg * $spinner-arc-time / (
 
   //.wsk-spinner.is-active & {
     .wsk-spinner & {
-        wsk-spinner.is-active &, wsk-spinner[active] & {
+        wsk-spinner.is-active &, wsk-spinner[is-active] & {
         animation : wsk-spinner__fill-unfill-rotate (4 * $spinner-arc-time)
             $animation-curve-fast-out-slow-in infinite both,
         wsk-spinner__layer-3-fade-in-out (4 * $spinner-arc-time)
@@ -110,7 +110,7 @@ $spinner-duration: 360deg * $spinner-arc-time / (
 
   //.wsk-spinner.is-active & {
     .wsk-spinner & {
-        wsk-spinner.is-active &, wsk-spinner[active] & {
+        wsk-spinner.is-active &, wsk-spinner[is-active] & {
         animation:
             wsk-spinner__fill-unfill-rotate (4 * $spinner-arc-time)
                 $animation-curve-fast-out-slow-in infinite both,
@@ -232,7 +232,7 @@ $spinner-duration: 360deg * $spinner-arc-time / (
 
     //.wsk-spinner.is-active & {
       .wsk-spinner & {
-          wsk-spinner.is-active &, wsk-spinner[active] & {
+          wsk-spinner.is-active &, wsk-spinner[is-active] & {
               animation : wsk-spinner__left-spin $spinner-arc-time
                 $animation-curve-fast-out-slow-in infinite both;
           }
@@ -246,7 +246,7 @@ $spinner-duration: 360deg * $spinner-arc-time / (
 
     //.wsk-spinner.is-active & {
       .wsk-spinner & {
-          wsk-spinner.is-active &, wsk-spinner[active] & {
+          wsk-spinner.is-active &, wsk-spinner[is-active] & {
               animation : wsk-spinner__right-spin $spinner-arc-time
               $animation-curve-fast-out-slow-in infinite both;
           }

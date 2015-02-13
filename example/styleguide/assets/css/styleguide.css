@@ -5678,7 +5678,7 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
   height: 28px; }
   .wsk-spinner:not(.is-upgraded):after {
     content: "Loading..."; }
-  wsk-spinner.is-active .wsk-spinner.is-upgraded, wsk-spinner[active] .wsk-spinner.is-upgraded {
+  wsk-spinner.is-active .wsk-spinner.is-upgraded, wsk-spinner[is-active] .wsk-spinner.is-upgraded {
     -webkit-animation: wsk-spinner__container-rotate 1568.23529ms linear infinite;
             animation: wsk-spinner__container-rotate 1568.23529ms linear infinite; }
 
@@ -5702,7 +5702,7 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
   border-color: #4285f4; }
   .wsk-spinner--single-color .wsk-spinner__layer-1 {
     border-color: #3f51b5; }
-  wsk-spinner.is-active .wsk-spinner .wsk-spinner__layer-1, wsk-spinner[active] .wsk-spinner .wsk-spinner__layer-1 {
+  wsk-spinner.is-active .wsk-spinner .wsk-spinner__layer-1, wsk-spinner[is-active] .wsk-spinner .wsk-spinner__layer-1 {
     -webkit-animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-1-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
             animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-1-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
@@ -5710,7 +5710,7 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
   border-color: #db4437; }
   .wsk-spinner--single-color .wsk-spinner__layer-2 {
     border-color: #3f51b5; }
-  wsk-spinner.is-active .wsk-spinner .wsk-spinner__layer-2, wsk-spinner[active] .wsk-spinner .wsk-spinner__layer-2 {
+  wsk-spinner.is-active .wsk-spinner .wsk-spinner__layer-2, wsk-spinner[is-active] .wsk-spinner .wsk-spinner__layer-2 {
     -webkit-animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-2-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
             animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-2-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
@@ -5718,7 +5718,7 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
   border-color: #f4b400; }
   .wsk-spinner--single-color .wsk-spinner__layer-3 {
     border-color: #3f51b5; }
-  wsk-spinner.is-active .wsk-spinner .wsk-spinner__layer-3, wsk-spinner[active] .wsk-spinner .wsk-spinner__layer-3 {
+  wsk-spinner.is-active .wsk-spinner .wsk-spinner__layer-3, wsk-spinner[is-active] .wsk-spinner .wsk-spinner__layer-3 {
     -webkit-animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-3-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
             animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-3-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
@@ -5726,7 +5726,7 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
   border-color: #0f9d58; }
   .wsk-spinner--single-color .wsk-spinner__layer-4 {
     border-color: #3f51b5; }
-  wsk-spinner.is-active .wsk-spinner .wsk-spinner__layer-4, wsk-spinner[active] .wsk-spinner .wsk-spinner__layer-4 {
+  wsk-spinner.is-active .wsk-spinner .wsk-spinner__layer-4, wsk-spinner[is-active] .wsk-spinner .wsk-spinner__layer-4 {
     -webkit-animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-4-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
             animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-4-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
@@ -5965,7 +5965,7 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
     -webkit-transform: rotate(129deg);
         -ms-transform: rotate(129deg);
             transform: rotate(129deg); }
-    wsk-spinner.is-active .wsk-spinner .wsk-spinner__left .wsk-spinner__circle, wsk-spinner[active] .wsk-spinner .wsk-spinner__left .wsk-spinner__circle {
+    wsk-spinner.is-active .wsk-spinner .wsk-spinner__left .wsk-spinner__circle, wsk-spinner[is-active] .wsk-spinner .wsk-spinner__left .wsk-spinner__circle {
       -webkit-animation: wsk-spinner__left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
               animation: wsk-spinner__left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
   .wsk-spinner__right .wsk-spinner__circle {
@@ -5974,7 +5974,7 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
     -webkit-transform: rotate(-129deg);
         -ms-transform: rotate(-129deg);
             transform: rotate(-129deg); }
-    wsk-spinner.is-active .wsk-spinner .wsk-spinner__right .wsk-spinner__circle, wsk-spinner[active] .wsk-spinner .wsk-spinner__right .wsk-spinner__circle {
+    wsk-spinner.is-active .wsk-spinner .wsk-spinner__right .wsk-spinner__circle, wsk-spinner[is-active] .wsk-spinner .wsk-spinner__right .wsk-spinner__circle {
       -webkit-animation: wsk-spinner__right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
               animation: wsk-spinner__right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
@@ -6025,6 +6025,201 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
   to {
     -webkit-transform: rotate(-130deg);
             transform: rotate(-130deg); } }
+
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+/* ==========  Color & Themes  ========== */
+/* ==========  Typography  ========== */
+/* ==========  Components  ========== */
+/* ==========  Standard Buttons  ========== */
+/* ==========  Icon Toggles  ========== */
+/* ==========  Radio Buttons  ========== */
+/* ==========  Ripple effect  ========== */
+/* ==========  Layout  ========== */
+/* ==========  Content Tabs  ========== */
+/* ==========  Checkboxes  ========== */
+/* ==========  Switches  ========== */
+/* ==========  Spinner  ========== */
+/* ==========  Text fields  ========== */
+/* ==========  Card  ========== */
+/* Heading back */
+/* ==========  Sliders ========== */
+/* ==========  List ========== */
+/* ==========  Item ========== */
+/* ==========  Dropdown menu ========== */
+/* ==========  Tooltips  ========== */
+/* ==========  Footer  ========== */
+.wsk-shadow--z1 {
+  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+
+.wsk-shadow--z2 {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
+
+.wsk-shadow--z3 {
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23); }
+
+.wsk-shadow--z4 {
+  box-shadow: 0 14px 14px 0 rgba(0, 0, 0, 0.25), 0 10px 5px 0 rgba(0, 0, 0, 0.22); }
+
+.wsk-shadow--z5 {
+  box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
+
+/**
+*
+* Material design color palettes.
+* @see http://www.google.com/design/spec/style/color.html
+*
+**/
+/* ==========  Color Palettes  ========== */
+.wsk-ripple {
+  background: #212121;
+  border-radius: 50%;
+  height: 50px;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 50px;
+  overflow: hidden; }
+  .wsk-ripple.is-animating {
+    -webkit-transition: -webkit-transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1);
+            transition: transform 0.6s cubic-bezier(0, 0, 0.2, 1), width 0.6s cubic-bezier(0, 0, 0.2, 1), height 0.6s cubic-bezier(0, 0, 0.2, 1), opacity 0.6s cubic-bezier(0, 0, 0.2, 1); }
+
+.wsk-switch {
+  position: relative;
+  z-index: 1;
+  vertical-align: middle;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 24px;
+  margin: 12px 0;
+  padding: 0;
+  overflow: visible; }
+  .wsk-switch.is-upgraded {
+    padding-left: 28px; }
+
+.wsk-switch__input {
+  line-height: 24px; }
+  .wsk-switch.is-upgraded .wsk-switch__input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none; }
+
+.wsk-switch__track {
+  background: rgba(0, 0, 0, 0.26);
+  position: absolute;
+  left: 0;
+  top: 5px;
+  height: 14px;
+  width: 36px;
+  border-radius: 14px;
+  cursor: pointer; }
+  .wsk-switch.is-checked .wsk-switch__track {
+    background: rgba(63, 81, 181, 0.5); }
+  .wsk-switch.is-disabled .wsk-switch__track {
+    background: rgba(0, 0, 0, 0.12);
+    cursor: auto; }
+
+.wsk-switch__thumb {
+  background: #fafafa;
+  position: absolute;
+  left: 0;
+  top: 2px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+  -webkit-transition-duration: 0.28s;
+          transition-duration: 0.28s;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-property: left;
+          transition-property: left; }
+  .wsk-switch.is-checked .wsk-switch__thumb {
+    background: #3f51b5;
+    left: 16px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
+  .wsk-switch.is-disabled .wsk-switch__thumb {
+    background: #bdbdbd;
+    cursor: auto; }
+
+.wsk-switch__focus-helper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-4px, -4px);
+      -ms-transform: translate(-4px, -4px);
+          transform: translate(-4px, -4px);
+  display: inline-block;
+  box-sizing: border-box;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: transparent; }
+  .wsk-switch.is-focused .wsk-switch__focus-helper {
+    box-shadow: 0 0 0px 20px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1); }
+  .wsk-switch.is-focused.is-checked .wsk-switch__focus-helper {
+    box-shadow: 0 0 0px 20px rgba(63, 81, 181, 0.26);
+    background-color: rgba(63, 81, 181, 0.26); }
+
+.wsk-switch__label {
+  position: relative;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+  left: 24px; }
+  .wsk-switch.is-disabled .wsk-switch__label {
+    color: #bdbdbd;
+    cursor: auto; }
+
+.wsk-switch__ripple-container {
+  position: absolute;
+  z-index: 2;
+  top: -12px;
+  left: -14px;
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(circle, white, black);
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+  -webkit-transition-timing-function: step-end;
+          transition-timing-function: step-end;
+  -webkit-transition-property: left;
+          transition-property: left; }
+  .wsk-switch__ripple-container .wsk-ripple {
+    background: #3f51b5; }
+  .wsk-switch.is-disabled .wsk-switch__ripple-container {
+    cursor: auto; }
+  .wsk-switch.is-disabled .wsk-switch__ripple-container .wsk-ripple {
+    background: transparent; }
+  .wsk-switch.is-checked .wsk-switch__ripple-container {
+    cursor: auto;
+    left: 2px; }
 
 .styleguide-demo wsk-layout-header .wsk-layout-title {
   text-transform: capitalize;
@@ -7602,6 +7797,32 @@ _:-moz-tree-row(hover), .wsk-slider__background-upper {
           flex-wrap: wrap; }
 .slider.sample .cols .logo {
   padding: 20px 0 0 20px; }
+
+.switch.sample .cols {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+.switch.sample .cols > div {
+  padding: 10px;
+  width: 280px;
+  max-width: 420px; }
+.switch.sample .light {
+  font-size: 20px; }
+  .switch.sample .light.on {
+    color: orange; }
+@media screen and (max-width: 650px) {
+  .switch.sample hr.on-small-screens {
+    display: block;
+    width: 100%; } }
 
 html, body {
   margin: 0;

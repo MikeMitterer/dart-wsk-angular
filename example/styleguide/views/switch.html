@@ -1,0 +1,27 @@
+<section class="content">
+    <article class="switch sample">
+        <div class="preview-block">
+          <div class="cols">
+            <div>
+              <h5>Basic</h5>
+              <wsk-switch>Switch me</wsk-switch>
+              <wsk-switch ng-disabled="true">Can't touch this (ng-disabled)</wsk-switch>
+              <wsk-switch disabled>Can't touch this (disabled)</wsk-switch>
+              <wsk-switch class="is-disabled">Disabled via css-class</wsk-switch>
+            </div>
+            <div>
+              <h5>Controls model <i class="fa fa-lightbulb-o light" ng-class="{'on':toggleSwitch}"></i></h5>
+              <wsk-switch ng-model="flipText">
+                <span ng-if="!flipText">Flip me left and right</span>
+                <span ng-if="flipText">thgir dna tfel em pilF</span>
+              </wsk-switch>
+              <wsk-switch ng-model="toggleSwitch">Switch me</wsk-switch>
+              <wsk-switch ng-disabled="true" ng-model="toggleSwitch">Can't touch this (ng-disabled)</wsk-switch>
+              <wsk-switch disabled ng-model="toggleSwitch">Can't touch this (disabled)</wsk-switch>
+              <wsk-switch class="is-disabled" ng-model="toggleSwitch">Disabled via css-class</wsk-switch>
+              <label><input type="checkbox" ng-model="toggleSwitch"/> Old school checkbox</label>
+            </div>
+          </div>
+        </div>
+    </article>
+</section>

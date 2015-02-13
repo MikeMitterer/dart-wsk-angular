@@ -51,15 +51,31 @@ abstract class WskAngularUtils {
     }
 
     /// Checks if the component has either the class set or if the attribute is available
-    static bool hasAttributeOrClass(final dynamic attribute,final html.Element component,final String cssClass) {
-        final bool hasClass = component.classes.contains(cssClass);
-        return hasClass ? hasClass : hasAttribute(attribute);
+    /// {attributeVarInComponent} is a WskXXXComponent variable set via @Ngxxx()
+    static bool hasAttributeOrClass(final html.Element component,final List<String> classesOrAttributes,{ final dynamic attributeVarInComponent }) {
+        Validate.notNull(component);
+        Validate.notNull(classesOrAttributes);
+
+        for(final String classOrAttribute in classesOrAttributes) {
+            final bool hasClass = component.classes.contains(classOrAttribute);
+            if(hasClass) {
+                return true;
+            }
+            final bool isAttributeSet = component.attributes.containsKey(classOrAttribute);
+            if(isAttributeSet) {
+                return true;
+            }
+        }
+        if(attributeVarInComponent == null) {
+            return false;
+        }
+        return hasAttribute(attributeVarInComponent);
     }
 
     /// Checks if the component has the attribute set.
     /// Set means if {attribute} is not null
-    static bool hasAttribute(final dynamic attribute) {
-        return asBool(attribute,handleEmptyStringAs: true);
+    static bool hasAttribute(final dynamic attributeVarInComponent) {
+        return asBool(attributeVarInComponent,handleEmptyStringAs: true);
     }
 
     static bool hasClass(final html.Element component,final String cssClass) {

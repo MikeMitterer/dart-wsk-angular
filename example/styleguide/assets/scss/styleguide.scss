@@ -51,8 +51,11 @@
 // Slider
 @import "packages/wsk_material/sass/slider/_slider";
 
-// !!! IMPORTANT !!! You must include wsk_spinner instead of spinner!!
+// !!! IMPORTANT !!! You must include wsk_spinner instead of spinner!
 @import "packages/wsk_angular/sass/wsk_spinner/_wsk_spinner";
+
+// Switch
+@import "packages/wsk_material/sass/switch/_switch";
 
 // Styleguide
 @import "_demo/styleguide";
@@ -68,6 +71,7 @@
 @import "_demo/radio";
 @import "_demo/shadow";
 @import "_demo/slider";
+@import "_demo/switch";
 
 $padding: 24px;
 

@@ -587,7 +587,7 @@ body > h2 {
   height: 28px; }
   .wsk-spinner:not(.is-upgraded):after {
     content: "Loading..."; }
-  wsk-spinner.is-active .wsk-spinner.is-upgraded, wsk-spinner[active] .wsk-spinner.is-upgraded {
+  wsk-spinner.is-active .wsk-spinner.is-upgraded, wsk-spinner[is-active] .wsk-spinner.is-upgraded {
     -webkit-animation: wsk-spinner__container-rotate 1568.23529ms linear infinite;
             animation: wsk-spinner__container-rotate 1568.23529ms linear infinite; }
 
@@ -611,7 +611,7 @@ body > h2 {
   border-color: #4285f4; }
   .wsk-spinner--single-color .wsk-spinner__layer-1 {
     border-color: #2196f3; }
-  wsk-spinner.is-active .wsk-spinner .wsk-spinner__layer-1, wsk-spinner[active] .wsk-spinner .wsk-spinner__layer-1 {
+  wsk-spinner.is-active .wsk-spinner .wsk-spinner__layer-1, wsk-spinner[is-active] .wsk-spinner .wsk-spinner__layer-1 {
     -webkit-animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-1-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
             animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-1-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
@@ -619,7 +619,7 @@ body > h2 {
   border-color: #db4437; }
   .wsk-spinner--single-color .wsk-spinner__layer-2 {
     border-color: #2196f3; }
-  wsk-spinner.is-active .wsk-spinner .wsk-spinner__layer-2, wsk-spinner[active] .wsk-spinner .wsk-spinner__layer-2 {
+  wsk-spinner.is-active .wsk-spinner .wsk-spinner__layer-2, wsk-spinner[is-active] .wsk-spinner .wsk-spinner__layer-2 {
     -webkit-animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-2-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
             animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-2-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
@@ -627,7 +627,7 @@ body > h2 {
   border-color: #f4b400; }
   .wsk-spinner--single-color .wsk-spinner__layer-3 {
     border-color: #2196f3; }
-  wsk-spinner.is-active .wsk-spinner .wsk-spinner__layer-3, wsk-spinner[active] .wsk-spinner .wsk-spinner__layer-3 {
+  wsk-spinner.is-active .wsk-spinner .wsk-spinner__layer-3, wsk-spinner[is-active] .wsk-spinner .wsk-spinner__layer-3 {
     -webkit-animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-3-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
             animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-3-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
@@ -635,7 +635,7 @@ body > h2 {
   border-color: #0f9d58; }
   .wsk-spinner--single-color .wsk-spinner__layer-4 {
     border-color: #2196f3; }
-  wsk-spinner.is-active .wsk-spinner .wsk-spinner__layer-4, wsk-spinner[active] .wsk-spinner .wsk-spinner__layer-4 {
+  wsk-spinner.is-active .wsk-spinner .wsk-spinner__layer-4, wsk-spinner[is-active] .wsk-spinner .wsk-spinner__layer-4 {
     -webkit-animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-4-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
             animation: wsk-spinner__fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both, wsk-spinner__layer-4-fade-in-out 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 
@@ -874,7 +874,7 @@ body > h2 {
     -webkit-transform: rotate(129deg);
         -ms-transform: rotate(129deg);
             transform: rotate(129deg); }
-    wsk-spinner.is-active .wsk-spinner .wsk-spinner__left .wsk-spinner__circle, wsk-spinner[active] .wsk-spinner .wsk-spinner__left .wsk-spinner__circle {
+    wsk-spinner.is-active .wsk-spinner .wsk-spinner__left .wsk-spinner__circle, wsk-spinner[is-active] .wsk-spinner .wsk-spinner__left .wsk-spinner__circle {
       -webkit-animation: wsk-spinner__left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
               animation: wsk-spinner__left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
   .wsk-spinner__right .wsk-spinner__circle {
@@ -883,7 +883,7 @@ body > h2 {
     -webkit-transform: rotate(-129deg);
         -ms-transform: rotate(-129deg);
             transform: rotate(-129deg); }
-    wsk-spinner.is-active .wsk-spinner .wsk-spinner__right .wsk-spinner__circle, wsk-spinner[active] .wsk-spinner .wsk-spinner__right .wsk-spinner__circle {
+    wsk-spinner.is-active .wsk-spinner .wsk-spinner__right .wsk-spinner__circle, wsk-spinner[is-active] .wsk-spinner .wsk-spinner__right .wsk-spinner__circle {
       -webkit-animation: wsk-spinner__right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both;
               animation: wsk-spinner__right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both; }
 

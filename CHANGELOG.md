@@ -1,4 +1,5 @@
-###v0.1.36###
+###v0.1.37###
+* Changelog [a87f7b5](http://github.com/MikeMitterer/dart-wsk-angular/commit/a87f7b53d03cc6c49242a3e64a319df49f115bb8)
 * Readme changed [32d693c](http://github.com/MikeMitterer/dart-wsk-angular/commit/32d693cded7b0a9a65f98e60e063451cbc1e7f9c)
 * README updated [21da5ff](http://github.com/MikeMitterer/dart-wsk-angular/commit/21da5ffb640bfe30bb16be5fa0ca6783c4a7517c)
 * Spinner works [f87a5a6](http://github.com/MikeMitterer/dart-wsk-angular/commit/f87a5a6a8dd7ffbeb827e62e7d07df66cc68bf74)

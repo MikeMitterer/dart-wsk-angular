@@ -26,6 +26,7 @@ import 'package:wsk_angular/wsk_icon_toggle/wsk_icon_toggle.dart';
 import 'package:wsk_angular/wsk_item/wsk_item.dart';
 import 'package:wsk_angular/wsk_slider/wsk_slider.dart';
 import 'package:wsk_angular/wsk_spinner/wsk_spinner.dart';
+import 'package:wsk_angular/wsk_switch/wsk_switch.dart';
 
 class _SimpleModel {
     final Map<String,dynamic> _model = new Map<String,dynamic>();
@@ -138,6 +139,11 @@ class AppController {
 
     //  Slider Sample --------------------------------------------------------------------------------------------------
     bool activated = true;
+
+    //  Switch Sample --------------------------------------------------------------------------------------------------
+    bool toggleSwitch = false;
+    bool flipText = false;
+
 }
 
 /// Radio-Sample-Data
@@ -209,6 +215,8 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
 
         ..addRoute(name: "shadow", path: "/shadow", enter: view("views/shadow.html"))
 
+        ..addRoute(name: "switch", path: "/switch", enter: view("views/switch.html"))
+
         ..addRoute(name: "footer", path: "/footer", enter: view("views/footer.html")
 
     );
@@ -235,6 +243,7 @@ class SampleModule extends Module {
         install(new WskItemModule());
         install(new WskSliderModule());
         install(new WskSpinnerModule());
+        install(new WskSwitchModule());
 
         bind(NgRoutingUsePushState, toFactory: () => new NgRoutingUsePushState.value(false));
     }

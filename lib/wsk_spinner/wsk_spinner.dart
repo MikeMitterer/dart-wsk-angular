@@ -36,28 +36,18 @@ class WskSpinnerComponent extends WskAngularComponent {
         Validate.notNull(component);
     }
 
-    String _isActive;
-    @NgAttr("active")
-    set active(final dynamic value) => _isActive = value;
-    bool get active => WskAngularUtils.hasAttributeOrClass(_isActive,_component,"is-active");
+//    String _isActive;
+//    @NgAttr("is-active")
+//    set active(final dynamic value) => _isActive = value;
+    bool get isActive => WskAngularUtils.hasAttributeOrClass(_component,[ "is-active" ]);
 
-    dynamic _singleColor;
-    @NgAttr("single-color")
-    set singleColor(final dynamic value) => _singleColor = value;
-    bool get singleColor => WskAngularUtils.hasAttributeOrClass(_singleColor,_component,"single-color");
+//    dynamic _singleColor;
+//    @NgAttr("single-color")
+//    set singleColor(final dynamic value) => _singleColor = value;
+    bool get singleColor => WskAngularUtils.hasAttributeOrClass(_component,[ "single-color" ]);
 
-    void upgraded() {
-        active = true;
-    }
 
-    String get activation {
-        if(active) {
-            return "is-active";
-        }
-        return "";
-    }
-
-// - EventHandler -----------------------------------------------------------------------------
+    // - EventHandler -----------------------------------------------------------------------------
 
     // - private ----------------------------------------------------------------------------------
 }

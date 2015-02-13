@@ -1,0 +1,36 @@
+@import "packages/wsk_material/sass/styleguide_demo_bp";
+@import "packages/wsk_material/sass/switch/_switch";
+
+$_demo-switch-first_col_with : 280px;
+$_demo-switch-col_padding : 10px;
+
+.switch.sample {
+
+    .cols {
+        display        : flex;
+        flex-direction : row;
+        flex-wrap: wrap;
+    }
+
+    .cols > div {
+        padding : $_demo-switch-col_padding;
+
+        width: $_demo-switch-first_col_with;
+        //min-width: $_first_col_with;
+
+        max-width: ($_demo-switch-first_col_with * 1.5);
+    }
+
+
+    .light {
+        font-size: 20px;
+
+        &.on {
+            color: orange;
+        }
+    }
+
+    @media screen and (max-width: ($_demo-switch-first_col_with * 2 + ($_demo-switch-col_padding * 4)) + 50px) {
+        hr.on-small-screens { display: block; width: 100%; }
+    }
+}
