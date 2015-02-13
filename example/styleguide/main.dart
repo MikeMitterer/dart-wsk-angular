@@ -25,6 +25,7 @@ import 'package:wsk_angular/wsk_radio/wsk_radio.dart';
 import 'package:wsk_angular/wsk_icon_toggle/wsk_icon_toggle.dart';
 import 'package:wsk_angular/wsk_item/wsk_item.dart';
 import 'package:wsk_angular/wsk_slider/wsk_slider.dart';
+import 'package:wsk_angular/wsk_spinner/wsk_spinner.dart';
 
 class _SimpleModel {
     final Map<String,dynamic> _model = new Map<String,dynamic>();
@@ -134,6 +135,9 @@ class AppController {
 
         _activeColor = index;
     }
+
+    //  Slider Sample --------------------------------------------------------------------------------------------------
+    bool activated = true;
 }
 
 /// Radio-Sample-Data
@@ -201,6 +205,8 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
 
         ..addRoute(name: "slider", path: "/slider", enter: view("views/slider.html"))
 
+        ..addRoute(name: "spinner", path: "/spinner", enter: view("views/spinner.html"))
+
         ..addRoute(name: "shadow", path: "/shadow", enter: view("views/shadow.html"))
 
         ..addRoute(name: "footer", path: "/footer", enter: view("views/footer.html")
@@ -228,6 +234,7 @@ class SampleModule extends Module {
         install(new WskIconToggleModule());
         install(new WskItemModule());
         install(new WskSliderModule());
+        install(new WskSpinnerModule());
 
         bind(NgRoutingUsePushState, toFactory: () => new NgRoutingUsePushState.value(false));
     }

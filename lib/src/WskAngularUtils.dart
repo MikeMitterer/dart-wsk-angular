@@ -49,4 +49,20 @@ abstract class WskAngularUtils {
 
         return defaultValue;
     }
+
+    /// Checks if the component has either the class set or if the attribute is available
+    static bool hasAttributeOrClass(final dynamic attribute,final html.Element component,final String cssClass) {
+        final bool hasClass = component.classes.contains(cssClass);
+        return hasClass ? hasClass : hasAttribute(attribute);
+    }
+
+    /// Checks if the component has the attribute set.
+    /// Set means if {attribute} is not null
+    static bool hasAttribute(final dynamic attribute) {
+        return asBool(attribute,handleEmptyStringAs: true);
+    }
+
+    static bool hasClass(final html.Element component,final String cssClass) {
+        return component.classes.contains(cssClass);
+    }
 }

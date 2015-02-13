@@ -1,0 +1,12 @@
+@import "packages/wsk_material/sass/styleguide_demo_bp";
+
+// !!! IMPORTANT !!! You must include wsk_spinner instead of spinner!!!!
+@import "packages/wsk_angular/sass/wsk_spinner/_wsk_spinner";
+//@import "packages/wsk_material/sass/spinner/_spinner";
+
+// Only for the button used for turning on/off the spinner
+@import "packages/wsk_material/sass/shadow/_shadow";
+@import "packages/wsk_material/sass/button/_button";
+
+// Autoprefixer is needed it you generate the css by hand!
+

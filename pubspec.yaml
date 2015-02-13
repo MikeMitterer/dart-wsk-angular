@@ -1,6 +1,6 @@
 name: wsk_angular
 description: Web Starter Kit for Angular
-version: 0.1.32
+version: 0.1.33
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-wsk-angular
 
@@ -49,6 +49,7 @@ transformers:
       'web/views/pallet.html',
       'web/views/radio.html',
       'web/views/shadow.html',
+      'web/views/spinner.html',
       'web/views/slider.html',
       'web/views/tabs.html',
       'web/views/typography.html'

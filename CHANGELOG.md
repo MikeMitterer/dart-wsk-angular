@@ -1,4 +1,5 @@
-###v0.1.32###
+###v0.1.33###
+* wsk-button Sample added + optimized event-handling [eb26f18](http://github.com/MikeMitterer/dart-wsk-angular/commit/eb26f18aa6e455216e8f65cf00aa35c85c21a979)
 * One more sample for Icon-Toggle [e234af8](http://github.com/MikeMitterer/dart-wsk-angular/commit/e234af84b1f7dea676a83a6e37d8d3c7c4653997)
 * Another sample for Icon-Toggle [ebf3de3](http://github.com/MikeMitterer/dart-wsk-angular/commit/ebf3de333b77e605fd8f06be4d1567d66cedd68d)
 * Typo in Layout [c1485cf](http://github.com/MikeMitterer/dart-wsk-angular/commit/c1485cf582ffa1addde4cb41a0fe0d28c4957ed2)

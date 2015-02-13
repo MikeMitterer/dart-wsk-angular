@@ -80,8 +80,9 @@ class WskButtonComponent extends WskAngularComponent implements AttachAware {
      *     <button id="sendButton" name="sendButton" ng-click="handleEvent($event)">Send</button>
      */
     void handleEvent(final html.Event e) {
-        _logger.info("Event: handleEvent");
-        model = !WskAngularUtils.asBool(model);
+        final bool currentValue = WskAngularUtils.asBool(model);
+        _logger.fine("Event: handleEvent, currentValue: $currentValue");
+        model = !currentValue;
     }
 
     void attach() {
@@ -93,6 +94,6 @@ class WskButtonComponent extends WskAngularComponent implements AttachAware {
     }
 
 
-// - private ----------------------------------------------------------------------------------
+    // - private ----------------------------------------------------------------------------------
 }
         

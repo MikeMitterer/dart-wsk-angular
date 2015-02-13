@@ -45,6 +45,22 @@ class WskAngularComponent {
         _waitForComponentToLoad();
     }
 
+    /// returns the component to upgrade
+    html.HtmlElement get componentToUpgrade {
+        // 1 - check if _component HAS children (at least one...) with _classToUpgrade
+        html.HtmlElement component  = _component.querySelector(".$classToUpgrade");
+
+        if (component == null) {
+
+            // 2 - check if _component IS!!! the element to upgrade
+            if (_component.classes.contains(classToUpgrade)) {
+                component = _component;
+            }
+        }
+        //_logger.info("componentToUpgrade: $component");
+        return component;
+    }
+
     // - private ----------------------------------------------------------------------------------
 
     /// If autoUpgrade in the Constructor is false you can upgrade the component manually
@@ -57,19 +73,12 @@ class WskAngularComponent {
         new Future.delayed(new Duration(milliseconds: inMilliSeconds), () {
             _logger.finer(" - cssClass: .${mainconfig.cssClass}");
 
-            // 1 - check if _component HAS children with _classToUpgrade
-            html.HtmlElement component = _component.querySelector(".$classToUpgrade");
+            html.HtmlElement component = componentToUpgrade;
             if (component == null) {
-
-                // 2 - check if _component IS!!! the element to upgrade
-                if(_component.classes.contains(classToUpgrade)) {
-                    component = _component;
-
-                } else {
-                    _logger.finer("Classes: ${_component.classes}");
-                    throw "Component for .${classToUpgrade} not ready yet, try it again...";
-                }
+                _logger.finer("Classes: ${_component.classes}");
+                throw "Component for .${classToUpgrade} not ready yet, try it again...";
             }
+            _logger.fine("Found componentToUpgrade: $component");
             return component;
 
         }).then((final html.HtmlElement component) {

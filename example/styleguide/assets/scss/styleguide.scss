@@ -1,3 +1,7 @@
+/** --------------------------------------------------------------------------------------------------------------------
+ It is recommended to run autoprefixer on the generated .CSS
+*/
+
 @import "packages/wsk_material/sass/styleguide_demo_bp";
 @import "colors"; // Theming
 
@@ -46,6 +50,9 @@
 
 // Slider
 @import "packages/wsk_material/sass/slider/_slider";
+
+// !!! IMPORTANT !!! You must include wsk_spinner instead of spinner!!
+@import "packages/wsk_angular/sass/wsk_spinner/_wsk_spinner";
 
 // Styleguide
 @import "_demo/styleguide";
@@ -116,9 +123,3 @@ body {
     background-color: orange;
     color: $layout-header-bg-color;
 }
-
-
-
-
-
-
