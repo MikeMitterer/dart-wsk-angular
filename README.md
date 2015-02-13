@@ -1,6 +1,8 @@
 # Web Starter Kit - Material Theme for AngularDart
 
-The WSK-Material project is an implementation of Material Design in AngularDart. 
+The WSK-Angular project is an implementation of Material Design in AngularDart
+with Googles Web Starter Kit.
+ 
 This project provides a set of reusable and accessible UI components 
 based on the Material Design system.
 
