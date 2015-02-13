@@ -1,4 +1,5 @@
-###v0.1.35###
+###v0.1.36###
+* Readme changed [32d693c](http://github.com/MikeMitterer/dart-wsk-angular/commit/32d693cded7b0a9a65f98e60e063451cbc1e7f9c)
 * README updated [21da5ff](http://github.com/MikeMitterer/dart-wsk-angular/commit/21da5ffb640bfe30bb16be5fa0ca6783c4a7517c)
 * Spinner works [f87a5a6](http://github.com/MikeMitterer/dart-wsk-angular/commit/f87a5a6a8dd7ffbeb827e62e7d07df66cc68bf74)
 * wsk-button Sample added + optimized event-handling [eb26f18](http://github.com/MikeMitterer/dart-wsk-angular/commit/eb26f18aa6e455216e8f65cf00aa35c85c21a979)
