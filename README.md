@@ -13,20 +13,18 @@ The base-module for wsk_angular is [wsk_material][wskmaterial]
 
 Running sample can be found on **[wsk.angular.mikemitterer.at][live]**
 
-###AngularDart-Bug###
-I you want to build the JS-Version you have to
-```bash
-    rm -rf web
-    ln -s example/wsk_button/ web
-    pub build web
-```
+###pub build + Angular###
+If your AngularDart Application is in web - pub build should work out of the box but<br>
+if you want to build your samples in "example" pub build fails.<br><br>
+Here is my workaround:<br>
 
-Or if you want to check out the styleguide you need
 ```bash
-    rm -rf web
+    mv web web.orig
     ln -s example/styleguide/ web
     pub build web
 ```
+
+Another thing not to forget is to add all your views to pubspec.yaml - otherwise it won't work.
 
 ## Features and bugs
 

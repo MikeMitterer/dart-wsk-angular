@@ -9,7 +9,7 @@
 @import "packages/wsk_material/sass/layout/layout";
 
 // Tabs
-@import "packages/wsk_material/sass/tabs/_tabs";
+@import "packages/wsk_angular/sass/wsk_tabs/wsk_tabs";
 
 // Button
 @import "packages/wsk_material/sass/shadow/shadow";
@@ -52,7 +52,7 @@
 @import "packages/wsk_material/sass/slider/_slider";
 
 // !!! IMPORTANT !!! You must include wsk_spinner instead of spinner!
-@import "packages/wsk_angular/sass/wsk_spinner/_wsk_spinner";
+@import "packages/wsk_angular/sass/wsk_spinner/wsk_spinner";
 
 // Switch
 @import "packages/wsk_material/sass/switch/_switch";
@@ -61,13 +61,14 @@
 @import "packages/wsk_material/sass/tooltip/_tooltip";
 
 // Textfield
-@import "packages/wsk_angular/sass/wsk_textfield/_wsk_textfield";
+@import "packages/wsk_angular/sass/wsk_textfield/wsk_textfield";
 
 // Styleguide
 @import "_demo/styleguide";
 
 // Necessary for demo-Views
 @import "_demo/typography";
+@import "_demo/tabs";
 @import "_demo/animation";
 @import "_demo/button";
 @import "_demo/card";

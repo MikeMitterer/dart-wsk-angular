@@ -2002,6 +2002,9 @@ dt {
     opacity: 1;
     width: 100%; } }
 
+wsk-tab-bar {
+  display: block; }
+
 .wsk-shadow--z1 {
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
 
@@ -6876,6 +6879,9 @@ wsk-textfield-container {
 .styleguide-demo wsk-layout-header .wsk-layout-title {
   text-transform: capitalize;
   font-weight: 200; }
+  @media screen and (max-width: 850px) {
+    .styleguide-demo wsk-layout-header .wsk-layout-title {
+      padding-left: 30px; } }
 .styleguide-demo wsk-drawer .wsk-layout-title {
   background-color: #3f51b5;
   color: white; }
@@ -6926,6 +6932,9 @@ wsk-textfield-container {
 .typography.sample .preview-block--img-2 {
   background-image: url(../images/img-2.png);
   color: white; }
+
+wsk-tab-bar {
+  min-width: 400px; }
 
 .animation.sample .demo-animate-container {
   position: relative;

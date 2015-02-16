@@ -6,6 +6,10 @@
     wsk-layout-header .wsk-layout-title {
         text-transform: capitalize;
         font-weight: 200;
+
+        @media screen and (max-width: $layout-screen-size-threshold) {
+            padding-left: 30px;
+        }
     }
 
     wsk-drawer {

@@ -1,5 +1,6 @@
-###dart-wsk-angular ChangeLog v0.6###
+###dart-wsk-angular ChangeLog v0.6.1###
 
+* Version... [cbd90ae](http://github.com/MikeMitterer/dart-wsk-angular/commit/cbd90ae4f0d6d9693a3526cb7c249b62180739ee)
 * Dependencies for wsk_material ugraded to 0.6.0 [740d096](http://github.com/MikeMitterer/dart-wsk-angular/commit/740d096757b44c88d05430f47fe8511c740c3e00)
 
 ###v0.6.0###
