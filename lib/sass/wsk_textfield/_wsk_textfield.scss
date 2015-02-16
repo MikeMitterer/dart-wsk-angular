@@ -1,0 +1,15 @@
+@import "packages/wsk_material/sass/textfield/_textfield";
+
+wsk-textfield-container {
+    display    : block;
+    box-sizing : border-box;
+
+    wsk-textfield {
+        box-sizing : border-box;
+
+        /** Disabled Styling **/
+        .wsk-textfield[disabled] {
+            color         : $input-text-label-color;
+        }
+    }
+}

@@ -1,4 +1,4 @@
-library wsk_angular.example.wsk_checkbox;
+library wsk_angular.example.wsk_icontoggle;
 
 import 'package:angular/angular.dart';
 import 'package:angular/application_factory.dart';
@@ -10,7 +10,7 @@ import 'package:wsk_angular/wsk_icon_toggle/wsk_icon_toggle.dart';
 
 @Injectable()
 class AppController {
-    final _logger = new Logger('wsk_angular.example.wsk_checkbox.AppController');
+    final _logger = new Logger('wsk_angular.example.wsk_icontoggle.AppController');
 
     final Router _router;
     final String _classToChange = "active";

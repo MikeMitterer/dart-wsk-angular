@@ -1,0 +1,48 @@
+@import "packages/wsk_material/sass/styleguide_demo_bp";
+@import "packages/wsk_angular/sass/wsk_textfield/_wsk_textfield";
+
+// Only for Sample
+@import "packages/wsk_material/sass/checkbox/_checkbox";
+@import "packages/wsk_material/sass/shadow/_shadow";
+@import "packages/wsk_material/sass/button/_button";
+
+
+
+$_demo-textarea-first_col_with : 280px;
+$_demo-textarea-col_padding : 10px;
+
+.textfield.sample {
+
+    .cols {
+        display        : flex;
+        flex-direction : row;
+        flex-wrap: wrap;
+    }
+
+
+    .cols > div {
+        &:first-child {
+            width: $_demo-textarea-first_col_with;
+            max-width: ($_demo-textarea-first_col_with * 1.2);
+        }
+
+        flex-grow: 1;
+        padding : $_demo-textarea-col_padding;
+
+        //min-width: $_first_col_with;
+
+    }
+
+    textarea {
+        overflow : auto;
+        resize   : none;
+    }
+
+    form {
+        padding-bottom: 30px;
+    }
+
+    @media screen and (max-width: ($_demo-textarea-first_col_with * 2 + ($_demo-textarea-col_padding * 4)) + 50px) {
+        hr.on-small-screens { display: block; width: 100%; }
+    }
+}

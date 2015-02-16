@@ -28,6 +28,9 @@ class WskAngularComponent {
 
     String get classToUpgrade => mainconfig.cssClass;
 
+    /// called before componentHandler takes place
+    void preUpgrade(final html.Element component) { }
+
     /// Informs component about the final upgrade-state
     void upgraded() {}
 
@@ -82,6 +85,7 @@ class WskAngularComponent {
             return component;
 
         }).then((final html.HtmlElement component) {
+            preUpgrade(component);
             upgrade(component);
             upgraded();
 

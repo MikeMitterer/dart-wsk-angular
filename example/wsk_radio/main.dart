@@ -1,4 +1,4 @@
-library wsk_angular.example.wsk_checkbox;
+library wsk_angular.example.wsk_radio;
 
 import 'dart:html' as html;
 
@@ -21,7 +21,7 @@ class _RadioData {
 
 @Injectable()
 class AppController {
-    final _logger = new Logger('wsk_angular.example.wsk_checkbox.AppController');
+    final _logger = new Logger('wsk_angular.example.wsk_radio.AppController');
 
     final Router _router;
     final String _classToChange = "active";

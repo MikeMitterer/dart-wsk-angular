@@ -1,4 +1,4 @@
-library wsk_angular.example.wsk_checkbox;
+library wsk_angular.example.wsk_switch;
 
 import 'dart:html' as html;
 import "dart:math" as Math;
@@ -13,7 +13,7 @@ import 'package:wsk_angular/wsk_switch/wsk_switch.dart';
 
 @Injectable()
 class AppController {
-    final _logger = new Logger('wsk_angular.example.wsk_checkbox.AppController');
+    final _logger = new Logger('wsk_angular.example.wsk_switch.AppController');
 
     AppController() {
         _logger.fine("AppController");

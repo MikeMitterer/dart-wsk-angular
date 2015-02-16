@@ -1,0 +1,25 @@
+<label ng-if="hasIcon" class="wsk-textfield-expandable-icon wsk-label" for="{{name}}"></label>
+<div ng-class="{'wsk-input__expandable-holder': hasIcon }">
+  <input class="wsk-textfield wsk-js-textfield" type="text" name="{{name}}"
+         ng-class="{
+            'wsk-textfield--floating-label' : hasFloatingLabel,
+            'wsk-textfield--expandable' : hasIcon
+          }"
+         pattern="{{pattern}}" ng-disabled="isDisabled"
+         id="{{id}}"
+         ng-if="!hasRows" />
+
+  <textarea class="wsk-textfield wsk-js-textfield" type="text" name="{{name}}"
+         rows="{{rows}}" ng-maxrows="maxRows"
+         ng-class="{
+            'wsk-textfield--floating-label' : hasFloatingLabel,
+            'wsk-textfield--expandable' : hasIcon
+          }"
+         pattern="{{pattern}}" ng-disabled="isDisabled"
+         id="{{id}}"
+         ng-if="hasRows"></textarea>
+
+  <label class="wsk-label" for="{{name}}">
+    <content></content>
+  </label>
+</div>

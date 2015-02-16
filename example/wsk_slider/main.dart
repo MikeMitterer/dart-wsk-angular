@@ -1,4 +1,4 @@
-library wsk_angular.example.wsk_checkbox;
+library wsk_angular.example.wsk_slider;
 
 import 'dart:html' as html;
 import "dart:math" as Math;
@@ -29,7 +29,7 @@ class _Color {
 
 @Injectable()
 class AppController {
-    final _logger = new Logger('wsk_angular.example.wsk_checkbox.AppController');
+    final _logger = new Logger('wsk_angular.example.wsk_slider.AppController');
 
     int _activeColor = 0;
 

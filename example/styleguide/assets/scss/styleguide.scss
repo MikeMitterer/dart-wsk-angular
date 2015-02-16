@@ -60,6 +60,9 @@
 // Tooltip
 @import "packages/wsk_material/sass/tooltip/_tooltip";
 
+// Textfield
+@import "packages/wsk_angular/sass/wsk_textfield/_wsk_textfield";
+
 // Styleguide
 @import "_demo/styleguide";
 
@@ -76,6 +79,7 @@
 @import "_demo/slider";
 @import "_demo/switch";
 @import "_demo/tooltip";
+@import "_demo/textfield";
 
 $padding: 24px;
 

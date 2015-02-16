@@ -28,6 +28,7 @@ import 'package:wsk_angular/wsk_slider/wsk_slider.dart';
 import 'package:wsk_angular/wsk_spinner/wsk_spinner.dart';
 import 'package:wsk_angular/wsk_switch/wsk_switch.dart';
 import 'package:wsk_angular/wsk_tooltip/wsk_tooltip.dart';
+import 'package:wsk_angular/wsk_textfield/wsk_textfield.dart';
 
 class _SimpleModel {
     final Map<String,dynamic> _model = new Map<String,dynamic>();
@@ -147,6 +148,31 @@ class AppController {
 
     //  Tooltip Sample --------------------------------------------------------------------------------------------------
     String tooltipText = "Simple tooltip";
+
+    //  TextField Sample --------------------------------------------------------------------------------------------------
+    bool disableInputField = true;
+    void onSubmit(final html.Event event) {
+        event.preventDefault();
+        //_logger.info(event.target);
+        final html.FormElement form = html.document.querySelector("form");
+        if(form != null) {
+            final Map<String,String> data = new Map<String,String>();
+
+            // Form elements to extract {name: value} from
+            final String formElementSelectors = "select, input, button, textarea";
+            form.querySelectorAll(formElementSelectors).forEach((final html.HtmlElement element) {
+                if(element is html.InputElement) {
+                    data[element.attributes["name"]] = (element as html.InputElement).value;
+
+                } else if(element is html.TextAreaElement) {
+                    data[element.attributes["name"]] = (element as html.TextAreaElement).value;
+                }
+
+            });
+
+            _logger.info("FormData: $data");
+        }
+    }
 }
 
 /// Radio-Sample-Data
@@ -218,6 +244,8 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
 
         ..addRoute(name: "tooltip", path: "/tooltip", enter: view("views/tooltip.html"))
 
+        ..addRoute(name: "textfield", path: "/textfield", enter: view("views/textfield.html"))
+
         ..addRoute(name: "shadow", path: "/shadow", enter: view("views/shadow.html"))
 
         ..addRoute(name: "switch", path: "/switch", enter: view("views/switch.html"))
@@ -250,6 +278,7 @@ class SampleModule extends Module {
         install(new WskSpinnerModule());
         install(new WskSwitchModule());
         install(new WskTooltipModule());
+        install(new WskTextfieldModule());
 
         bind(NgRoutingUsePushState, toFactory: () => new NgRoutingUsePushState.value(false));
     }

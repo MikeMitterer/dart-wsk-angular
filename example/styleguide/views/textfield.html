@@ -1,0 +1,97 @@
+<section class="content">
+    <article class="textfield sample">
+      <h5>Basic</h5>
+      <div class="preview-block">
+        <form action="#">
+          <div class="cols">
+            <!-- ----------  First Col ------------>
+            <div>
+              <wsk-textfield-container>
+                <wsk-textfield>Type Something...</wsk-textfield>
+              </wsk-textfield-container>
+
+              <wsk-textfield-container>
+                <wsk-textfield pattern="[0-9]*" name="numbers">Numbers Only</wsk-textfield>
+                <wsk-textfield-error >Input is not a number!</wsk-textfield-error>
+              </wsk-textfield-container>
+
+              <wsk-textfield-container>
+                <wsk-textfield disabled>I'm Disabled</wsk-textfield>
+              </wsk-textfield-container>
+
+              <wsk-textfield-container>
+                <wsk-textfield class="is-disabled">I'm Disabled via css-Class</wsk-textfield>
+              </wsk-textfield-container>
+
+              <wsk-textfield-container>
+                <wsk-textfield floating-label>With floating label</wsk-textfield>
+              </wsk-textfield-container>
+
+              <wsk-textfield-container>
+                <wsk-textfield floating-label pattern="[0-9]*">With floating label + pattern + error</wsk-textfield>
+                <wsk-textfield-error>Input is not a number!</wsk-textfield-error>
+              </wsk-textfield-container>
+
+              <wsk-textfield-container>
+                <wsk-textfield rows="1">Type multiple lines here...</wsk-textfield>
+              </wsk-textfield-container>
+
+              <wsk-textfield-container>
+                <wsk-textfield rows="3">This input is 3 rows high</wsk-textfield>
+              </wsk-textfield-container>
+            </div>
+            <!-- ----------  Second Col ------------>
+            <div>
+              <wsk-textfield-container>
+                <wsk-textfield rows="1" maxrows="3">This input is at most 3 rows high</wsk-textfield>
+              </wsk-textfield-container>
+
+              <wsk-textfield-container>
+                <wsk-textfield floating-label rows="1">Multiple lines and a floating label</wsk-textfield>
+              </wsk-textfield-container>
+
+              <wsk-textfield-container>
+                <wsk-textfield floating-label rows="3" maxrows="3">Multiple lines and a floating label</wsk-textfield>
+              </wsk-textfield-container>
+
+              <wsk-textfield-container large>
+                <wsk-textfield>Type Something very long</wsk-textfield>
+              </wsk-textfield-container>
+
+              <wsk-textfield-container>
+                <wsk-textfield-expandable-icon>
+                  <span class="wsk-textfield-expandable-icon-search"></span>
+                </wsk-textfield-expandable-icon>
+                <wsk-textfield>Expandable Input</wsk-textfield>
+              </wsk-textfield-container>
+
+              <wsk-textfield-container>
+                <wsk-textfield-expandable-icon>
+                  <span class="wsk-textfield-expandable-icon-search"></span>
+                </wsk-textfield-expandable-icon>
+                <wsk-textfield floating-label>Expandable Input</wsk-textfield>
+              </wsk-textfield-container>
+
+              <wsk-textfield-container right large>
+                Right/No Label:
+                <wsk-textfield-expandable-icon>
+                  <span class="wsk-textfield-expandable-icon-search"></span>
+                </wsk-textfield-expandable-icon>
+                <wsk-textfield floating-label>Expandable Input</wsk-textfield>
+              </wsk-textfield-container>        </div>
+          </div>
+          <wsk-button raised ng-click="onSubmit($event)">Submit</wsk-button> Shows form-values as console output
+        </form>
+      </div>
+      <h5>Advanced</h5>
+      <div class="preview-block">
+        <wsk-textfield-container>
+          <wsk-textfield ng-class="{'is-disabled':disableInputField}">hhh
+            <span ng-if="disableInputField">I'm Disabled via class</span>
+            <span ng-if="!disableInputField">Type Something...</span>
+          </wsk-textfield>
+        </wsk-textfield-container>
+        <wsk-checkbox ng-model="disableInputField">Disabled</wsk-checkbox>
+      </div>
+    </article>
+</section>

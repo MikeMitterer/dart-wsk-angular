@@ -78,7 +78,14 @@ abstract class WskAngularUtils {
         return asBool(attributeVarInComponent,handleEmptyStringAs: true);
     }
 
+    /// Checks if {component} has {cssClass}
     static bool hasClass(final html.Element component,final String cssClass) {
         return component.classes.contains(cssClass);
     }
+
+//    static String getAttribute(final html.Element component,final String attribute) {
+//        Validate.notNull(component);
+//        Validate.notBlank(attribute);
+//
+//    }
 }
