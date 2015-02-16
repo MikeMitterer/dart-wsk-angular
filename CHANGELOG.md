@@ -1,4 +1,13 @@
-###v0.1.42###
+###dart-wsk-angular ChangeLog v0.6###
+
+* Dependencies for wsk_material ugraded to 0.6.0 [740d096](http://github.com/MikeMitterer/dart-wsk-angular/commit/740d096757b44c88d05430f47fe8511c740c3e00)
+
+###v0.6.0###
+* Dependencies for wsk_material ugraded to 0.6.0 [740d096](http://github.com/MikeMitterer/dart-wsk-angular/commit/740d096757b44c88d05430f47fe8511c740c3e00)
+
+###v0.6###
+* Dependencies for wsk_material ugraded to 0.6.0 [740d096](http://github.com/MikeMitterer/dart-wsk-angular/commit/740d096757b44c88d05430f47fe8511c740c3e00)
+* CHANGELOG [ceef314](http://github.com/MikeMitterer/dart-wsk-angular/commit/ceef31444c875e10edcf0dac43a3a1cbd8f206e6)
 * toogle in styleguide-main tried to return something but was void [71a7906](http://github.com/MikeMitterer/dart-wsk-angular/commit/71a79060c3658026fc593a260af1ce75853ec8f5)
 * tooltip-view in pubspec [4509ada](http://github.com/MikeMitterer/dart-wsk-angular/commit/4509ada27ee7a611ac5f8391d32aa9c3f05787be)
 * Changelog... [ed8a963](http://github.com/MikeMitterer/dart-wsk-angular/commit/ed8a963c3da2dc57240ff4418495c33cf6303f7e)
@@ -41,6 +50,8 @@
 * NavActivator added [155c8e6](http://github.com/MikeMitterer/dart-wsk-angular/commit/155c8e6b41fef9a1fdfbf837634fdbf9341ca16e)
 * Link to Homepage [faaa4bd](http://github.com/MikeMitterer/dart-wsk-angular/commit/faaa4bdc55580df3546512572004524ce8c6381a)
 * Styleguide works, link to running sample added [8930899](http://github.com/MikeMitterer/dart-wsk-angular/commit/89308996e00fe87ed731cb3787cba06924bf3b25)
+
+###v0.1###
 * Layout + Tab works [b58eecd](http://github.com/MikeMitterer/dart-wsk-angular/commit/b58eecd825189713b7b3e5614deb845d1323b38e)
 * Mit Layout gestartet, Tabs in Arbeit [c8a149f](http://github.com/MikeMitterer/dart-wsk-angular/commit/c8a149f186487bf33b0b7bee82847bce98d7ad92)
 * Link to wsk_material [29acab4](http://github.com/MikeMitterer/dart-wsk-angular/commit/29acab4dd60ca800fc683773b41850769ea42e74)
