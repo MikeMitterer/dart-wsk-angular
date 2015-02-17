@@ -19,6 +19,7 @@ class _WskDialogCssClasses {
 
     final String WSK_DIALOG_CONTAINER = 'wsk-dialog--container';
     final String IS_VISIBLE = 'is-visible';
+    final String IS_HIDDEN = 'is-hidden';
 
     const _WskDialogCssClasses();
 }
@@ -30,7 +31,7 @@ class _WskDialogCssClasses {
 class WskDialogModule extends Module {
     WskDialogModule() {
         bind(WskDialogComponent);
-        bind(WskDialog);
+        //bind(WskDialog);
         bind(WskAlertDialog);
 
         //- Services ---------------------------
@@ -48,9 +49,9 @@ class WskDialogComponent {
         Validate.notNull(component);
     }
 
-    // - EventHandler -----------------------------------------------------------------------------
+// - EventHandler -----------------------------------------------------------------------------
 
-    // - private ----------------------------------------------------------------------------------
+// - private ----------------------------------------------------------------------------------
 }
 
 html.Element _createDialogElementFromString(final String htmlString) {
@@ -60,9 +61,9 @@ html.Element _createDialogElementFromString(final String htmlString) {
     baseElement.setInnerHtml(htmlString, treeSanitizer: new NullTreeSanitizer());
 
     final List<html.Node> nodes = new List<html.Node>();
-    for(final html.Node node in baseElement.nodes) {
-        if(node is html.Element) {
-            if( (node as html.Element).tagName.toLowerCase() == WskDialog.TAG ) {
+    for (final html.Node node in baseElement.nodes) {
+        if (node is html.Element) {
+            if ((node as html.Element).tagName.toLowerCase() == WskDialog.TAG) {
                 return node as html.Element;
             }
         }
@@ -71,13 +72,15 @@ html.Element _createDialogElementFromString(final String htmlString) {
 }
 
 final Logger _logger = new Logger('wsk_angular.wsk_dialog._waitForComponentToLoad');
-Future<html.HtmlElement> _waitForComponentToLoad(final String selector,{ Completer completer, html.Element parent, final int inMilliSeconds: 10,final int TIMEOUT_IN_MS: 1000 } ) {
+Future<html.HtmlElement> _waitForComponentToLoad(final String selector, { Completer completer,
+        html.Element parent, final int inMilliSeconds: 10, final int TIMEOUT_IN_MS: 1000 }) {
+
     Validate.notBlank(selector);
 
-    if(completer == null) {
+    if (completer == null) {
         completer = new Completer<html.HtmlElement>();
     }
-    if(parent == null) {
+    if (parent == null) {
         parent = html.document.querySelector("body");
     }
 
@@ -96,21 +99,23 @@ Future<html.HtmlElement> _waitForComponentToLoad(final String selector,{ Complet
         _logger.fine("Found: $component with selector: ${selector}");
         return component;
 
-    }).then( (final html.HtmlElement component) {
+    }).then((final html.HtmlElement component) {
         completer.complete(component);
 
     }).catchError((_) {
-        _waitForComponentToLoad(selector,completer: completer,parent: parent, inMilliSeconds: inMilliSeconds < 100 ? inMilliSeconds + 5 : inMilliSeconds * 2);
+
+        // next round...
+        _waitForComponentToLoad(selector, completer: completer,
+            parent: parent, inMilliSeconds: inMilliSeconds < 100 ? inMilliSeconds + 5 : inMilliSeconds * 2);
+
     });
 
     return completer.future;
 }
 
 
-
 /// WskDialog - Service
-@Injectable()
-abstract class WskDialog  {
+abstract class WskDialog {
     final Logger _logger = new Logger('wsk_angular.wsk_dialog.WskDialog');
 
     static const String TAG = "wsk-dialog";
@@ -118,9 +123,9 @@ abstract class WskDialog  {
     WskDialog() {
     }
 
-    // - EventHandler -----------------------------------------------------------------------------
+// - EventHandler -----------------------------------------------------------------------------
 
-    // - private ----------------------------------------------------------------------------------
+// - private ----------------------------------------------------------------------------------
 }
 
 class _DialogElement {
@@ -145,27 +150,33 @@ class _DialogElement {
         _dialog = _createDialogElementFromString(htmlString);
         _container = _wrapInContainer(_dialog);
         _container.attributes["id"] = _ID;
+        _container.classes.add(_cssClasses.IS_HIDDEN);
     }
 
     void show() {
-        if(_parent.querySelector(_containerSelector) == null) {
+        if (_parent.querySelector(_containerSelector) == null) {
             _parent.append(_container);
         }
         _waitForComponentToLoad(_containerSelector).then((_) {
+            _container.classes.remove(_cssClasses.IS_HIDDEN);
             _container.classes.add(_cssClasses.IS_VISIBLE);
         });
     }
 
-    void hide() { _container.classes.remove(_cssClasses.IS_VISIBLE); }
+    void hide() {
+        _container.classes.remove(_cssClasses.IS_VISIBLE);
+        _container.classes.add(_cssClasses.IS_HIDDEN);
+    }
 
     void dismiss() {
         final html.Element container = _parent.querySelector(_containerSelector);
         _logger.info("Selector ${_containerSelector} brought: $container");
-        if(container != null) {
+        if (container != null) {
             container.remove();
             _logger.info("Container removed!");
         }
     }
+
     // - private ----------------------------------------------------------------------------------
 
     html.DivElement _wrapInContainer(final html.Element dialog) {
@@ -173,15 +184,15 @@ class _DialogElement {
 
         final html.DivElement container = new html.DivElement();
         container.classes.add(_cssClasses.WSK_DIALOG_CONTAINER);
-//        container.onClick.listen( ( final html.MouseEvent event) {
-//            _logger.info("click on container");
-//            event.preventDefault();
-//            event.stopPropagation();
-//            if(event.target == container) {
-//                //hide();
-//                dismiss();
-//            }
-//        });
+        container.onClick.listen((final html.MouseEvent event) {
+            _logger.info("click on container");
+            event.preventDefault();
+            event.stopPropagation();
+            if (event.target == container) {
+                hide();
+                //dismiss();
+            }
+        });
 
         container.append(dialog);
         return container;
@@ -191,7 +202,7 @@ class _DialogElement {
 
 //@Component(selector: "wsk-alert-dialog",useShadowDom: false)
 @Injectable()
-class WskAlertDialog  {
+class WskAlertDialog {
     static _DialogElement _dialog;
 
     Scope scope;
@@ -204,7 +215,7 @@ class WskAlertDialog  {
     int counter = 0;
     Completer completer;
 
-    WskAlertDialog(this._injector,this._compiler) {
+    WskAlertDialog(this._injector, this._compiler) {
         Validate.notNull(_injector);
         Validate.notNull(_compiler);
 
@@ -215,54 +226,60 @@ class WskAlertDialog  {
     String get testmike => "Hallo Mike $counter";
 
     Future show() {
-        if(_dialog == null) {
-            _dialog = new _DialogElement.fromString(_createTemplate());
-        }
 
         DirectiveMap _directiveMap = _injector.get(DirectiveMap);
         DirectiveInjector _directiveInjector = _injector.get(DirectiveInjector);
         TemplateCache _templateCache = _injector.get(TemplateCache);
         _http = _injector.get(Http);
 
-        //final String url = "packages/wsk_angular/wsk_tooltip/wsk_tooltip.html";
-        final String url = "http://www.heise.de/";
-        _http.get(url,cache: _templateCache).then((result) {
-            _logger.info(result.data);
-        });
-
-        Validate.notNull(_http);
-
-        scope = _injector.get(Scope);
-
-        Validate.notNull(_directiveMap);
-        //Validate.notNull(_directiveInjector);
-
-        ViewFactory viewFactory = _compiler.call([_dialog._dialog], _directiveMap); //(scope,_directiveInjector,[_dialog._dialog]);
-        Validate.notNull(viewFactory);
-
-        //_childScope = scope.createChild(scope.context);
-        //_childScope = scope.createProtoChild();
-        if (_childScope == null) {
-            //_childScope.destroy();
-            _childScope = scope.createChild(this);
-
-            Validate.notNull(_dialog._dialog);
-            //_childScope = scope.createChild(this);
-            view = viewFactory.call(_childScope, null, [_dialog._dialog]);
-        }
-
-        _dialog.show();
-        counter++;
-
         completer = null;
         completer = new Completer();
+
+        final String url = "packages/wsk_angular/wsk_dialog/wsk_dialog.html";
+        //final String url = "http://www.heise.de/";
+        _http.get(url, cache: _templateCache).then((result) {
+            if (_dialog == null) {
+                _dialog = new _DialogElement.fromString(result.data);
+            }
+
+            _logger.info(result.data);
+
+            Validate.notNull(_http);
+
+            scope = _injector.get(Scope);
+
+            Validate.notNull(_directiveMap);
+            //Validate.notNull(_directiveInjector);
+
+            ViewFactory viewFactory = _compiler.call([_dialog._dialog], _directiveMap); //(scope,_directiveInjector,[_dialog._dialog]);
+            Validate.notNull(viewFactory);
+
+            //_childScope = scope.createChild(scope.context);
+            //_childScope = scope.createProtoChild();
+            if (_childScope == null) {
+                //_childScope.destroy();
+                _childScope = scope.createChild(this);
+
+                Validate.notNull(_dialog._dialog);
+                //_childScope = scope.createChild(this);
+                view = viewFactory.call(_childScope, null, [_dialog._dialog]);
+            }
+
+            _dialog.show();
+            counter++;
+        });
+
+
         return completer.future;
     }
 
-    void hide() => _dialog.hide();
+    void hide() {
+        _dialog.hide();
+        completer.complete();
+    }
 
     void dismiss() {
-        new Future( () {
+        new Future(() {
             _dialog.dismiss();
 
             _childScope.destroy();
@@ -277,7 +294,8 @@ class WskAlertDialog  {
 
     void onClose(final html.Event event) {
         _logger.info("onClose");
-        dismiss();
+        //dismiss();
+        hide();
     }
 
     // - EventHandler -----------------------------------------------------------------------------

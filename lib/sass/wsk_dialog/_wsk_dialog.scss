@@ -27,10 +27,17 @@ $dialog-z-index : 80 !default;
         visibility: visible;
 
         wsk-dialog {
-
             opacity    : 1;
             transition : $dialog-swift-ease-out-duration;
             transform  : translate3d(0, 0, 0) scale(1.0);
+        }
+    }
+
+    &.is-hidden {
+        wsk-dialog {
+            // hidden
+            transition     : $dialog-swift-ease-out;
+            transform      : translate3d(0, 100%, 0) scale(0.2);
         }
     }
 
@@ -39,10 +46,6 @@ $dialog-z-index : 80 !default;
         box-sizing      : border-box;
 
         background-color: white;
-
-        // hidden
-        transition     : $dialog-swift-ease-out;
-        transform      : translate3d(0, 100%, 0) scale(0.2);
 
         opacity        : 0;
         min-width      : 240px;

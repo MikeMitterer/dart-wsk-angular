@@ -55,9 +55,10 @@ transformers:
       'web/views/tabs.html',
       'web/views/textfield.html',
       'web/views/tooltip.html',
-      'web/views/typography.html'
+      'web/views/typography.html',
+      'packages/wsk_angular/wsk_dialog/wsk_dialog.html'
       ]
 
 - $dart2js:
-    minify: true
+    minify: false
 
