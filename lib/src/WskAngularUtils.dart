@@ -83,9 +83,4 @@ abstract class WskAngularUtils {
         return component.classes.contains(cssClass);
     }
 
-//    static String getAttribute(final html.Element component,final String attribute) {
-//        Validate.notNull(component);
-//        Validate.notBlank(attribute);
-//
-//    }
 }

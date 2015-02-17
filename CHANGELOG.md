@@ -1,5 +1,6 @@
-###dart-wsk-angular ChangeLog v0.6.1###
+###dart-wsk-angular ChangeLog v0.6.2###
 
+* Updated some styles for tabs and headline [b83ae83](http://github.com/MikeMitterer/dart-wsk-angular/commit/b83ae8358a06084a8f7c292c9956cfe066c9f543)
 * Version... [cbd90ae](http://github.com/MikeMitterer/dart-wsk-angular/commit/cbd90ae4f0d6d9693a3526cb7c249b62180739ee)
 * Dependencies for wsk_material ugraded to 0.6.0 [740d096](http://github.com/MikeMitterer/dart-wsk-angular/commit/740d096757b44c88d05430f47fe8511c740c3e00)
 
