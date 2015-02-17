@@ -221,7 +221,15 @@ class WskAlertDialog  {
 
         DirectiveMap _directiveMap = _injector.get(DirectiveMap);
         DirectiveInjector _directiveInjector = _injector.get(DirectiveInjector);
+        TemplateCache _templateCache = _injector.get(TemplateCache);
         _http = _injector.get(Http);
+
+        //final String url = "packages/wsk_angular/wsk_tooltip/wsk_tooltip.html";
+        final String url = "http://www.heise.de/";
+        _http.get(url,cache: _templateCache).then((result) {
+            _logger.info(result.data);
+        });
+
         Validate.notNull(_http);
 
         scope = _injector.get(Scope);
