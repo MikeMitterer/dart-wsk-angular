@@ -27,8 +27,8 @@ class AppController {
         event.preventDefault();
 
         _logger.info("openAlertDialog");
-        _alert.show().then((_) {
-            _logger.info("closed AlertDialog");
+        _alert.show().then((final WskDialogStatus status) {
+            _logger.info("closed AlertDialog with status: ${status}");
         });
     }
 }

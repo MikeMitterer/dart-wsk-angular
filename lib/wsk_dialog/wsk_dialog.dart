@@ -30,7 +30,7 @@ class _WskDialogCssClasses {
  */
 class WskDialogModule extends Module {
     WskDialogModule() {
-        bind(WskDialogComponent);
+        //bind(WskDialogComponent);
         //bind(WskDialog);
         bind(WskAlertDialog);
 
@@ -38,24 +38,27 @@ class WskDialogModule extends Module {
     }
 }
 
-/// WskDialogComponent
-@Component(selector: 'wsk-dialog-xx', useShadowDom: false, templateUrl: 'packages/wsk_angular/wsk_dialog/wsk_dialog.html')
-class WskDialogComponent {
-    final Logger _logger = new Logger('wsk_angular.wsk_dialog.WskDialogComponent');
+///// WskDialogComponent
+//@Component(selector: 'wsk-dialog-xx', useShadowDom: false, templateUrl: 'packages/wsk_angular/wsk_dialog/wsk_dialog.html')
+//class WskDialogComponent {
+//    final Logger _logger = new Logger('wsk_angular.wsk_dialog.WskDialogComponent');
+//
+//    final html.Element _component;
+//
+//    WskDialogComponent(final html.Element component) : _component = component {
+//        Validate.notNull(component);
+//    }
+//
+//// - EventHandler -----------------------------------------------------------------------------
+//
+//// - private ----------------------------------------------------------------------------------
+//}
 
-    final html.Element _component;
-
-    WskDialogComponent(final html.Element component) : _component = component {
-        Validate.notNull(component);
-    }
-
-// - EventHandler -----------------------------------------------------------------------------
-
-// - private ----------------------------------------------------------------------------------
-}
-
-html.Element _createDialogElementFromString(final String htmlString) {
+/// Creates html.Element from {htmlString}. This {htmlString} must contain wsk-dialog that defines the
+/// root-Element for this Dialog
+html.Element _createDialogElementFromString(final String htmlString,{ final String rootTag: "wsk-dialog" }) {
     Validate.notBlank(htmlString);
+    Validate.isTrue(htmlString.contains(rootTag),"The HTML-String must contain '${rootTag}'!");
 
     final html.HtmlElement baseElement = new html.DivElement();
     baseElement.setInnerHtml(htmlString, treeSanitizer: new NullTreeSanitizer());
@@ -63,12 +66,12 @@ html.Element _createDialogElementFromString(final String htmlString) {
     final List<html.Node> nodes = new List<html.Node>();
     for (final html.Node node in baseElement.nodes) {
         if (node is html.Element) {
-            if ((node as html.Element).tagName.toLowerCase() == WskDialog.TAG) {
+            if ((node as html.Element).tagName.toLowerCase() == rootTag) {
                 return node as html.Element;
             }
         }
     }
-    throw new ArgumentError("Could not find <${WskDialog.TAG}>...</${WskDialog.TAG}> in '$htmlString'!");
+    throw new ArgumentError("Could not find <${rootTag}>...</${rootTag}> in '$htmlString'!");
 }
 
 final Logger _logger = new Logger('wsk_angular.wsk_dialog._waitForComponentToLoad');
@@ -113,68 +116,99 @@ Future<html.HtmlElement> _waitForComponentToLoad(final String selector, { Comple
     return completer.future;
 }
 
+enum WskDialogStatus { CLOSED_BY_ESC, CLOSED_BY_BACKDROPCLICK, OK }
 
-/// WskDialog - Service
-abstract class WskDialog {
-    final Logger _logger = new Logger('wsk_angular.wsk_dialog.WskDialog');
-
-    static const String TAG = "wsk-dialog";
-
-    WskDialog() {
-    }
-
-// - EventHandler -----------------------------------------------------------------------------
-
-// - private ----------------------------------------------------------------------------------
-}
-
-class _DialogElement {
+class DialogElement {
     final Logger _logger = new Logger('wsk_angular.wsk_dialog._DialogElement');
 
     static const String _DEFAULT_PARENT = "body";
     static const _WskDialogCssClasses _cssClasses = const _WskDialogCssClasses();
 
-    String _ID;
+    /// usually the html body
     html.Element _parent;
-    html.Element _dialog;
-    html.DivElement _container;
+
+    /// represents the <wsk-dialog> tag
+    html.Element _wskDialogElement;
+
+    /// Wraps wskDialogElement. Darkens the background and
+    /// is used for backdrop click
+    html.DivElement _wskDialogContainer;
+
+    /// unique ID for dialog-wrapper
+    String _containerID;
+
+    /// identifies the container
     String _containerSelector;
 
-    _DialogElement.fromString(final String htmlString) {
+    /// Informs about open and close actions
+    Completer<WskDialogStatus> _completer;
+
+    /// Listens to Keyboard-Events
+    StreamSubscription _keyboardEventSubscription;
+
+    final bool _acceptEscToClose;
+
+    DialogElement.fromString(final String htmlString, { final bool closeDialogOnBackDropClick: true,
+        final bool acceptEscToClose: true }) : _acceptEscToClose = acceptEscToClose {
+
         Validate.notBlank(htmlString);
 
-        _parent = html.document.querySelector(_DEFAULT_PARENT);
-        _ID = "dialog${hashCode.toString()}";
-        _containerSelector = "#${_ID}.${_cssClasses.WSK_DIALOG_CONTAINER}";
+        _containerID = "dialog${hashCode.toString()}";
+        _containerSelector = "#${_containerID}.${_cssClasses.WSK_DIALOG_CONTAINER}";
 
-        _dialog = _createDialogElementFromString(htmlString);
-        _container = _wrapInContainer(_dialog);
-        _container.attributes["id"] = _ID;
-        _container.classes.add(_cssClasses.IS_HIDDEN);
+        _parent = html.document.querySelector(_DEFAULT_PARENT);
+
+        _wskDialogElement = _createDialogElementFromString(htmlString);
+        _wskDialogContainer = _wrapInContainer(_wskDialogElement);
+        if(closeDialogOnBackDropClick) {
+            _addBackDropClickListener(_wskDialogContainer);
+        }
+
+        _wskDialogContainer.attributes["id"] = _containerID;
+        _wskDialogContainer.classes.add(_cssClasses.IS_HIDDEN);
     }
 
-    void show() {
+    void show(final Completer<WskDialogStatus> completer) {
+        Validate.notNull(completer);
+        Validate.isTrue(!completer.isCompleted);
+        Validate.isTrue(_completer == null || _completer.isCompleted);
+
+        _completer = completer;
+
         if (_parent.querySelector(_containerSelector) == null) {
-            _parent.append(_container);
+            _parent.append(_wskDialogContainer);
         }
         _waitForComponentToLoad(_containerSelector).then((_) {
-            _container.classes.remove(_cssClasses.IS_HIDDEN);
-            _container.classes.add(_cssClasses.IS_VISIBLE);
+            _wskDialogContainer.classes.remove(_cssClasses.IS_HIDDEN);
+            _wskDialogContainer.classes.add(_cssClasses.IS_VISIBLE);
         });
+
+        if(_acceptEscToClose) {
+            _addEscListener();
+        }
     }
 
-    void hide() {
-        _container.classes.remove(_cssClasses.IS_VISIBLE);
-        _container.classes.add(_cssClasses.IS_HIDDEN);
+    void close(final WskDialogStatus status) {
+        _removeEscListener();
+        hide(status);
     }
 
-    void dismiss() {
+    void hide(final WskDialogStatus status) {
+        _wskDialogContainer.classes.remove(_cssClasses.IS_VISIBLE);
+        _wskDialogContainer.classes.add(_cssClasses.IS_HIDDEN);
+
+        _complete(status);
+    }
+
+    void destroy(final WskDialogStatus status) {
         final html.Element container = _parent.querySelector(_containerSelector);
         _logger.info("Selector ${_containerSelector} brought: $container");
+
         if (container != null) {
             container.remove();
             _logger.info("Container removed!");
         }
+        _complete(status);
     }
 
     // - private ----------------------------------------------------------------------------------
@@ -184,137 +218,211 @@ class _DialogElement {
 
         final html.DivElement container = new html.DivElement();
         container.classes.add(_cssClasses.WSK_DIALOG_CONTAINER);
-        container.onClick.listen((final html.MouseEvent event) {
-            _logger.info("click on container");
-            event.preventDefault();
-            event.stopPropagation();
-            if (event.target == container) {
-                hide();
-                //dismiss();
-            }
-        });
 
         container.append(dialog);
         return container;
     }
 
+    void _addBackDropClickListener(final html.DivElement container) {
+        container.onClick.listen((final html.MouseEvent event) {
+            _logger.info("click on container");
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            if (event.target == container) {
+                close(WskDialogStatus.CLOSED_BY_BACKDROPCLICK);
+            }
+        });
+    }
+
+    void _addEscListener() {
+        _keyboardEventSubscription = html.document.onKeyDown.listen( (final html.KeyboardEvent event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            if(event.keyCode == 27) {
+                close(WskDialogStatus.CLOSED_BY_ESC);
+            }
+        });
+    }
+
+    void _complete(final WskDialogStatus status) {
+        //Validate.notNull(_completer);
+        //Validate.isTrue(_completer.isCompleted == false);
+        if(_completer == null) {
+            _logger.fine("Completer is null - Status to inform the caller is: $status");
+            return;
+        }
+
+        if(!_completer.isCompleted) {
+            _completer.complete(status);
+        }
+        _completer = null;
+    }
+
+    void _removeEscListener() {
+        if(_keyboardEventSubscription != null) {
+            _keyboardEventSubscription.cancel();
+            _keyboardEventSubscription = null;
+        }
+    }
 }
 
-//@Component(selector: "wsk-alert-dialog",useShadowDom: false)
-@Injectable()
-class WskAlertDialog {
-    static _DialogElement _dialog;
+abstract class WskDialog {
+    final Logger _logger = new Logger('wsk_angular.wsk_dialog.WskDialog');
 
-    Scope scope;
-    View view;
-    Compiler _compiler;
+    /// DialogElement in your DOM-Tree
+    DialogElement _dialogElement;
+
+    /// identifies the Template.
+    ///     @Component(selector: <directiveSelector>, templateUrl: ...)
+    final String _directiveSelector;
+
+    /// {_injector} returns all the necessary Objects to compile the Scope
+    /// into the template
     Injector _injector;
-    DirectiveMap _directiveMap;
-    Http _http;
+
     Scope _childScope;
-    int counter = 0;
-    Completer completer;
 
-    WskAlertDialog(this._injector, this._compiler) {
-        Validate.notNull(_injector);
-        Validate.notNull(_compiler);
+    /// Informs the caller about the dialog status
+    Completer<WskDialogStatus> _openCompleter;
 
-        //_directiveMap = _injector.getByKey(Injector.DIRECTIVE_MAP_KEY);
-        //Validate.notNull(_directiveMap);
+    WskDialog(this._directiveSelector) {
+        Validate.notBlank(_directiveSelector);
     }
 
-    String get testmike => "Hallo Mike $counter";
+    /// Must be set in Child-CTOR.
+    /// Can't be set in automatically via super-param (in Child) is always null if set from super
+    void set injector(final Injector injectorObject) {
+        Validate.notNull(injectorObject);
+        _injector = injectorObject;
+    }
 
-    Future show() {
+    Future<WskDialogStatus> show() {
 
-        DirectiveMap _directiveMap = _injector.get(DirectiveMap);
-        DirectiveInjector _directiveInjector = _injector.get(DirectiveInjector);
-        TemplateCache _templateCache = _injector.get(TemplateCache);
-        _http = _injector.get(Http);
+        final DirectiveMap directiveMap = _injector.get(DirectiveMap);
+        Validate.notNull(directiveMap);
 
-        completer = null;
-        completer = new Completer();
+        final TemplateCache templateCache = _injector.get(TemplateCache);
+        Validate.notNull(templateCache);
 
-        final String url = "packages/wsk_angular/wsk_dialog/wsk_dialog.html";
-        //final String url = "http://www.heise.de/";
-        _http.get(url, cache: _templateCache).then((result) {
-            if (_dialog == null) {
-                _dialog = new _DialogElement.fromString(result.data);
-            }
+        final Http http = _injector.get(Http);
+        Validate.notNull(http);
 
-            _logger.info(result.data);
+        _openCompleter = null;
+        _openCompleter = new Completer<WskDialogStatus>();
 
-            Validate.notNull(_http);
+        final String url = _getTemplateUrl(directiveMap);
+        http.get(url, cache: templateCache).then( (final HttpResponse response) {
+            Validate.notNull(response);
+            Validate.notBlank(response.data);
 
-            scope = _injector.get(Scope);
+            _createDialogElement(response.data);
+            _compileScopeIntoHtmlElement(_dialogElement._wskDialogElement);
 
-            Validate.notNull(_directiveMap);
-            //Validate.notNull(_directiveInjector);
-
-            ViewFactory viewFactory = _compiler.call([_dialog._dialog], _directiveMap); //(scope,_directiveInjector,[_dialog._dialog]);
-            Validate.notNull(viewFactory);
-
-            //_childScope = scope.createChild(scope.context);
-            //_childScope = scope.createProtoChild();
-            if (_childScope == null) {
-                //_childScope.destroy();
-                _childScope = scope.createChild(this);
-
-                Validate.notNull(_dialog._dialog);
-                //_childScope = scope.createChild(this);
-                view = viewFactory.call(_childScope, null, [_dialog._dialog]);
-            }
-
-            _dialog.show();
-            counter++;
+            _dialogElement.show(_openCompleter);
         });
 
-
-        return completer.future;
+        return _openCompleter.future;
     }
 
-    void hide() {
-        _dialog.hide();
-        completer.complete();
+    void close(final WskDialogStatus status) {
+       _destroy(status);
+
     }
-
-    void dismiss() {
-        new Future(() {
-            _dialog.dismiss();
-
-            _childScope.destroy();
-            _childScope = null;
-            view = null;
-
-            _dialog = null;
-
-            completer.complete();
-        });
-    }
-
-    void onClose(final html.Event event) {
-        _logger.info("onClose");
-        //dismiss();
-        hide();
-    }
-
     // - EventHandler -----------------------------------------------------------------------------
 
     // - private ----------------------------------------------------------------------------------
 
-    String _createTemplate() {
-        return """
-               <wsk-dialog>
-                    <wsk-content>
-                        <h2>This is an alert title</h2>
-                        <p>You can >{{testmike}}< specify some description text in here.</p>
-                    </wsk-content>
-                    <div class="wsk-actions" layout="row">
-                        <div class="button-block">
-                            <wsk-button ng-click="onClose(\$event)">Got it!</wsk-button>
-                        </div>
-                    </div>
-               </wsk-dialog>
-               """.trim();
+    void _hide(final WskDialogStatus status) {
+        _dialogElement.hide(status);
     }
+
+    void _destroy(final WskDialogStatus status) {
+        new Future(() {
+            _dialogElement.destroy(status);
+
+            _childScope.destroy();
+            _childScope = null;
+
+            _dialogElement = null;
+        });
+    }
+
+    String _getTemplateUrl(final DirectiveMap directiveMap) {
+        Validate.notNull(directiveMap);
+
+        // is List<DirectiveTypeTuple>
+        final tuples = directiveMap[_directiveSelector];
+        Validate.isTrue(tuples[0].directive is Component);
+
+        Component annotation = tuples[0].directive;
+        Validate.notBlank(annotation.templateUrl,"WskDialogXX must have a templateUrl!");
+
+        _logger.fine("TemplateUrl for ${_directiveSelector}: ${annotation.templateUrl}");
+
+        return annotation.templateUrl;
+    }
+
+    void _createDialogElement(final String template) {
+        Validate.notBlank(template);
+
+        if (_dialogElement == null) {
+            _dialogElement = new DialogElement.fromString(template);
+        }
+    }
+
+    void _compileScopeIntoHtmlElement(final html.Element dialog) {
+        final Compiler compiler = _injector.get(Compiler);
+        Validate.notNull(compiler);
+
+        final DirectiveMap directiveMap = _injector.get(DirectiveMap);
+        Validate.notNull(directiveMap);
+
+        final ViewFactory viewFactory = compiler.call([ dialog ],directiveMap);
+        Validate.notNull(viewFactory);
+
+        if (_childScope == null) {
+            final Scope scope = _injector.get(Scope);
+            Validate.notNull(scope);
+
+            _childScope = scope.createChild(this);
+            //_childScope = scope.createChild(scope.context);
+            //_childScope = scope.createProtoChild();
+
+            Validate.notNull(_dialogElement._wskDialogElement);
+            //_childScope = scope.createChild(this);
+            final View view = viewFactory.call(_childScope, null, [ dialog ]);
+            Validate.notNull(view);
+        }
+    }
+}
+
+
+@Component(selector: "wsk-alert-dialog" ,useShadowDom: false, templateUrl: "packages/wsk_angular/wsk_dialog/wsk_alert-dialog.html")
+class WskAlertDialog extends WskDialog {
+    static const String SELECTOR = "wsk-alert-dialog";
+
+    int _counter = 0;
+
+    WskAlertDialog(final Injector injector) : super(SELECTOR) {
+        Validate.notNull(injector);
+        this.injector = injector;
+    }
+
+    String get testmike => "Hallo Mike $_counter";
+
+    @override
+    Future show() { _counter++; return super.show(); }
+
+    // - EventHandler -----------------------------------------------------------------------------
+
+    void onClose(final html.Event event) {
+        _logger.info("onClose");
+        close(WskDialogStatus.OK);
+    }
+
+    // - private ----------------------------------------------------------------------------------
+
 }
