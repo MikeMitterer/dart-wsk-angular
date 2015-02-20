@@ -1,0 +1,41 @@
+name: wsk_angular_button_sample
+description: WSK Angular Button sample
+version: 0.1.0
+author: Mike Mitterer <office@mikemitterer.at>
+homepage: https://github.com/MikeMitterer/dart-wsk-angular
+
+dependencies:
+  browser: any
+
+  angular: ">=1.0.0 <2.0.0"
+
+  validate: any
+
+  wsk_angular:
+    path: ../../
+
+  wsk_material: any
+
+  logging: any
+  logging_handlers: any
+  console_log_handler: any
+
+dev_dependencies:
+  unittest: any
+
+  # Angular braucht das!
+  mock: ">=0.11.0+1 <0.12.0"
+
+#------------------------------------------------
+transformers:
+- angular:
+    # dart_sdk:   "/Developer/dart-1.8.5/dart-sdk"
+
+    # List is necessary because of this bug: http://goo.gl/4Rb3wr
+    html_files: [
+      'web/index.html',
+      ]
+
+- $dart2js:
+    minify: false
+    sourceMaps: true
