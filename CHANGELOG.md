@@ -1,7 +1,7 @@
 #Change Log for wsk_angular#
 Web Starter Kit for Angular
 
-##[Unreleased](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.6.0...HEAD)##
+##[v0.6.1](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.6.0...v0.6.1) - 2015-02-22##
 
 ###Feature###
 * tools/buildsample.dart builds all the examples [c32a6fa](http://github.com/mikemitterer/dart-wsk-angular/commit/c32a6fa52449073eed4db1adce884f62b6971a05)
