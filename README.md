@@ -14,6 +14,10 @@ There are several [samples][allsamples] for you to play with.<br>
 You can also try out the samples in your regular browser:<br> 
 **[wsk.angular.mikemitterer.at][live]**<br>
 
+![Screenshot styleguide][screenshot]
+
+##Usage##
+
 If you have multiple views in your AngularDart application then don't forget to add these views 
 to pubspec.yaml (Check out the styleguide-sample)
   
