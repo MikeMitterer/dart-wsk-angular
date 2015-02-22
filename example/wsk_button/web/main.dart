@@ -13,6 +13,8 @@ import 'package:wsk_angular/wsk_button/wsk_button.dart';
  * Entry point into app.
  */
 main() {
+    for (var i in new List(5)) { print("this is printed x times");}
+
     configLogger();
     applicationFactory().addModule(new SampleModule()).run();
 }

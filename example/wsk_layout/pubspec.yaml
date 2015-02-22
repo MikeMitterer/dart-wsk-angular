@@ -1,5 +1,5 @@
-name: wsk_angular_button_sample
-description: WSK Angular Button sample
+name: wsk_angular_layout_sample
+description: WSK Angular Layout sample
 version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-wsk-angular

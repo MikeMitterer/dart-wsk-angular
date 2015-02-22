@@ -33,7 +33,7 @@ transformers:
 
     # List is necessary because of this bug: http://goo.gl/4Rb3wr
     html_files: [
-      'web/index.html',
+      'web/index.html'
       ]
 
 - $dart2js:

@@ -1,5 +1,5 @@
-name: wsk_angular_button_sample
-description: WSK Angular Button sample
+name: wsk_angular_styleguice
+description: Web Starter Kit for Angular - Styleguide
 version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-wsk-angular
@@ -11,14 +11,13 @@ dependencies:
 
   validate: any
 
-  wsk_angular:
-    path: ../../
-
-  wsk_material: any
+  wsk_material: ">=0.6.0 <0.7.0"
+    #path: /Volumes/Daten/DevLocal/DevDart/WskMaterial
 
   logging: any
   logging_handlers: any
   console_log_handler: any
+  #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
 dev_dependencies:
   unittest: any
@@ -27,14 +26,14 @@ dev_dependencies:
   mock: ">=0.11.0+1 <0.12.0"
 
 #------------------------------------------------
+# Kann mit dart-ptransformers generiert werden.
+#
 transformers:
-- angular:
-    # dart_sdk:   "/Developer/dart-1.8.5/dart-sdk"
-
-    # List is necessary because of this bug: http://goo.gl/4Rb3wr
-    html_files: [
-      'web/index.html'
-      ]
+#- angular:
+#    # dart_sdk:   "/Developer/dart-1.8.5/dart-sdk"
+#
+#    # List is necessary because of this bug: http://goo.gl/4Rb3wr
+#    html_files: [ ]
 
 - $dart2js:
     minify: false

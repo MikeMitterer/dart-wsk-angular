@@ -25,6 +25,8 @@ dev_dependencies:
   # Angular braucht das!
   mock: ">=0.11.0+1 <0.12.0"
 
+  args: any
+
 #------------------------------------------------
 # Kann mit dart-ptransformers generiert werden.
 #
