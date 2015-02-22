@@ -42,14 +42,26 @@ class Application {
             }
 
             if(argResults[Options._ARG_SHOW_SAMPLES]) {
-                _iterateThroughDirSync(config.samplesfolder,new List<String>(),(final FileSystemEntity entity) {
-                    return FileSystemEntity.isDirectorySync(entity.path);
-
-                },(final File file) {
-                    _logger.info(file.path);
+                _iterateThroughDirSync(config.samplesfolder,new List<String>(),_onlyDirs,(final File file) {
+                    _logger.info(" - ${file.path}");
                 });
                 return;
             }
+
+            if(argResults[Options._ARG_BUILD ]) {
+                _iterateThroughDirSync(config.samplesfolder,new List<String>(),_onlyDirs,(final File file) {
+                    buildSampleInFolder(new File(file.path));
+                });
+                return;
+            }
+
+            if(argResults[Options._ARG_CPY_BUILD ]) {
+                _iterateThroughDirSync(config.samplesfolder,new List<String>(),_onlyDirs,(final File file) {
+                    copyExampleBuildToRootBuild(new File(file.path));
+                });
+                return;
+            }
+
             options.showUsage();
         }
 
@@ -59,8 +71,46 @@ class Application {
         }
     }
 
-    // -- private -------------------------------------------------------------
+    void buildSampleInFolder(final File file) {
+        Validate.notNull(file);
+        Validate.isTrue(FileSystemEntity.isDirectorySync(file.path));
 
+        final String folder = file.path;
+        _logger.info("Building sample in ${folder}");
+
+        final ProcessResult result = Process.runSync( "sh", [ '-c', '(cd $folder && pub build)' ]);
+        if(result.exitCode != 0) {
+            _logger.severe("run faild with: ${(result.stderr as String).trim()}!");
+        }
+        _logger.info("Done!\n");
+    }
+
+    void copyExampleBuildToRootBuild(final File file) {
+        Validate.notNull(file);
+        Validate.isTrue(FileSystemEntity.isDirectorySync(file.path));
+
+        final Directory webDir = new Directory("${file.path}/build/web");
+        final Directory buildDir = new Directory("build/${file.path}");
+
+        if(!webDir.existsSync()) {
+            _logger.severe("${webDir.path} does not exist!");
+            return;
+        }
+
+        if(buildDir.existsSync()) {
+            buildDir.deleteSync(recursive: true);
+        }
+
+        _logger.info("copy ${webDir.path} -> ${buildDir.path}");
+
+        final File src = new File(webDir.path);
+        final File target = new File(buildDir.path);
+        _copySubdirs(src,target);
+
+        _logger.info(" - done!");
+    }
+
+    // -- private -------------------------------------------------------------
 
     /// Goes through the files
     void _iterateThroughDirSync(final String dir,final List<String> foldersToExclude,
@@ -102,6 +152,50 @@ class Application {
         }
     }
 
+    void _copySubdirs(final File sourceDir, final File targetDir, { int level: 0 } ) {
+        Validate.notNull(sourceDir);
+        Validate.notNull(targetDir);
+
+        _logger.fine("Start!!!! ${sourceDir.path} -> ${targetDir.path} , Level: $level");
+        final Directory directory = new Directory(sourceDir.path);
+        directory.listSync(recursive: false).where((final FileSystemEntity entity) {
+            // _logger.info("Check ${entity.path}");
+
+            if(entity.path.startsWith(".") || entity.path.contains("/.")) {
+                return false;
+            }
+            if(FileSystemEntity.isLinkSync(entity.path)) {
+                return false;
+            }
+
+            return true;
+
+        }).forEach((final FileSystemEntity entity) {
+            //_logger.info("D ${entity.path}");
+
+            if (FileSystemEntity.isDirectorySync(entity.path)) {
+                final File src = new File(entity.path);
+                final File target = new File(entity.path.replaceFirst(sourceDir.path,""));
+                _copySubdirs(new File("${entity.path}"),new File("${targetDir.path}${target.path}"),level: ++level);
+
+            } else {
+                if(level >= 0) {
+                    final File src = new File(entity.path);
+                    final File target = new File("${targetDir.path}${entity.path.replaceFirst(sourceDir.path,"")}");
+                    if(!target.existsSync()) {
+                        target.createSync(recursive: true);
+                    }
+                    _logger.fine("    copy ${src.path} -> ${target.path} (Level $level)...");
+                    src.copySync(target.path);
+                }
+            }
+        });
+    }
+
+    bool _onlyDirs(final FileSystemEntity entity) {
+        return FileSystemEntity.isDirectorySync(entity.path);
+    }
+
     void _configLogging(final String loglevel) {
         Validate.notBlank(loglevel);
 
@@ -135,6 +229,8 @@ class Options {
     static const _ARG_LOGLEVEL              = 'loglevel';
     static const _ARG_SETTINGS              = 'settings';
     static const _ARG_SHOW_SAMPLES          = 'showsamples';
+    static const _ARG_BUILD                 = 'build';
+    static const _ARG_CPY_BUILD             = 'copybuild';
 
     final ArgParser _parser;
 
@@ -151,9 +247,9 @@ class Options {
             print("    $line");
         });
 
-        print("");
-        print("Sample:");
-        print("    Sample sample:           '$APPNAME your sample");
+//        print("");
+//        print("Sample:");
+//        print("    Sample sample:           '$APPNAME your sample");
         print("");
     }
 
@@ -165,6 +261,8 @@ class Options {
             ..addFlag(_ARG_HELP,            abbr: 'h', negatable: false, help: "Shows this message")
             ..addFlag(_ARG_SETTINGS,        abbr: 's', negatable: false, help: "Prints settings")
             ..addFlag(_ARG_SHOW_SAMPLES,    abbr: 'x', negatable: false, help: "Show samples")
+            ..addFlag(_ARG_BUILD,           abbr: 'b', negatable: false, help: "Build your samples")
+            ..addFlag(_ARG_CPY_BUILD,       abbr: 'c', negatable: false, help: "Copy example-build to root-build")
 
             ..addOption(_ARG_LOGLEVEL,      abbr: 'v', help: "[ info | debug | warning ]")
         ;

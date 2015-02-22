@@ -31,34 +31,11 @@ dev_dependencies:
 # Kann mit dart-ptransformers generiert werden.
 #
 transformers:
-- angular:
-    # dart_sdk:   "/Developer/dart-1.8.5/dart-sdk"
-
-    # List is necessary because of this bug: http://goo.gl/4Rb3wr
-    html_files: [
-      'web/index.html',
-      'web/views/animation.html',
-      'web/views/button.html',
-      'web/views/cards.html',
-      'web/views/checkbox.html',
-      'web/views/dropdown.html',
-      'web/views/firstsub.html',
-      'web/views/footer.html',
-      'web/views/home.html',
-      'web/views/icon-toggle.html',
-      'web/views/item.html',
-      'web/views/list.html',
-      'web/views/pallet.html',
-      'web/views/radio.html',
-      'web/views/shadow.html',
-      'web/views/spinner.html',
-      'web/views/slider.html',
-      'web/views/switch.html',
-      'web/views/tabs.html',
-      'web/views/textfield.html',
-      'web/views/tooltip.html',
-      'web/views/typography.html'
-      ]
+#- angular:
+#    # dart_sdk:   "/Developer/dart-1.8.5/dart-sdk"
+#
+#    # List is necessary because of this bug: http://goo.gl/4Rb3wr
+#    html_files: [ ]
 
 - $dart2js:
     minify: false
