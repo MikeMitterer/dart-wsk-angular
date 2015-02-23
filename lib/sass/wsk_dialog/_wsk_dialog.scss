@@ -26,7 +26,7 @@ $dialog-z-index : 80 !default;
         background-color: rgba(0, 0, 0, 0.25);
         visibility: visible;
 
-        wsk-dialog {
+        .wsk-dialog {
             opacity    : 1;
             transition : $dialog-swift-ease-out-duration;
             transform  : translate3d(0, 0, 0) scale(1.0);
@@ -34,60 +34,60 @@ $dialog-z-index : 80 !default;
     }
 
     &.is-hidden {
-        wsk-dialog {
+        .wsk-dialog {
             // hidden
             transition     : $dialog-swift-ease-out;
             transform      : translate3d(0, 100%, 0) scale(0.2);
         }
     }
 
-    wsk-dialog {
-        display: block;
-        box-sizing      : border-box;
+    .wsk-dialog {
+        display          : flex;
+        flex-direction   : column;
+        box-sizing       : border-box;
+        background-color : white;
+        opacity          : 0;
+        min-width        : 280px;
+        max-width        : 80%;
+        max-height       : 80%;
+        position         : relative;
+        overflow         : hidden; // stop content from leaking out of dialog parent
 
-        background-color: white;
-
-        opacity        : 0;
-        min-width      : 240px;
-        max-width      : 80%;
-        max-height     : 80%;
-        position       : relative;
-        overflow       : hidden; // stop content from leaking out of dialog parent
-        display        : flex;
-        flex-direction : column;
         @include shadow-z5();
 
-        wsk-content {
+        .wsk-dialog--content {
             display: block;
             box-sizing      : border-box;
 
             order                      : 1;
-            padding                    : 24px;
+            padding                    : 24px 24px 0 24px;
             overflow                   : auto;
             -webkit-overflow-scrolling : touch;
 
             &:not([layout=row]) > *:first-child:not(.wsk-subheader) {
                 margin-top : 0;
             }
+
+            h1,h2,h3,h4,h5,h6 { margin-bottom: 18px; }
+
+            p { @include typo-subhead(true); color: $text-color-secondary; }
         }
 
-        .wsk-actions {
+        .wsk-dialog--actions {
             display         : flex;
             order           : 2;
             box-sizing      : border-box;
             align-items     : center;
             justify-content : flex-end;
-            padding         : 16px 16px;
+            padding         : 6px 16px 6px 0;
+            margin-top      : 16px;
+            margin-bottom   : 8px;
             min-height      : $dialog-baseline-grid * 5;
 
             > * {
                 margin-left : 8px;
             }
 
-            .button-block {
-                display: inline-block;
-                margin: 20px 20px 20px 0;
-            }
         }
         &.wsk-content-overflow .wsk-actions {
             border-top : 1px solid;

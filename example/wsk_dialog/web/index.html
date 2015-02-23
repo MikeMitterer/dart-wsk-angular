@@ -14,18 +14,28 @@
       body[ng-cloak] .angular-controlled {
         display : none;
       }
+
+      .dialog.sample .preview-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .dialog.sample .status {
+        padding: 24px;
+        font-weight: bold;
+      }
     </style>
 </head>
 <body ng-cloak >
   <div class="angular-controlled dialog sample">
     <h5>Advanced</h5>
     <div class="preview-block">
-      <wsk-button raised ng-click="openAlertDialog($event)">Alert Dialog</wsk-button>
-      <div class="button-block">
-        <wsk-button>Got it!</wsk-button>
-          <wsk-button>Got it!</wsk-button>
-      </div>
+      <wsk-button ng-click="openAlertDialog()">Alert Dialog</wsk-button>
+      <wsk-button ng-click="openAlertDialogWithTitle()">Alert with title</wsk-button>
+      <wsk-button ng-click="openConfirmDialog()">Confirm Dialog</wsk-button>
+      <wsk-button ng-click="openCustomDialog()">Custom Dialog</wsk-button>
 
+      <div class="status">Status: {{statusMessage}}</div>
     </div>
   </div>
 

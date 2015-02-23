@@ -9,7 +9,7 @@ html.Element _createDialogElementFromString(final String htmlString,{ final Stri
     final html.HtmlElement baseElement = new html.DivElement();
     baseElement.setInnerHtml(htmlString, treeSanitizer: new NullTreeSanitizer());
 
-    final List<html.Node> nodes = new List<html.Node>();
+    //final List<html.Node> nodes = new List<html.Node>();
     for (final html.Node node in baseElement.nodes) {
         if (node is html.Element) {
             if ((node as html.Element).tagName.toLowerCase() == rootTag) {
