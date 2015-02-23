@@ -6,14 +6,14 @@ with Googles Web Starter Kit.
 This project provides a set of reusable and accessible UI components 
 based on the Material Design system.
 
-Web Starter Kit strives to give you a high performance starting point out of the box
+Web Starter Kit strives to give you a high performance starting point out of the box  
 Responsive layout is included with the kit that adapts to fit the device your user is viewing it on. 
 
-There are several [samples][allsamples] for you to play with.<br>
+There are several [samples][allsamples] for you to play with.  
 
-You can also try out the samples in your regular browser:<br> 
-**[wsk.angular.mikemitterer.at][live]**<br>
-
+You can also try out the samples in your regular browser:   
+**[wsk.angular.mikemitterer.at][live]**  
+  
 ![Screenshot styleguide][screenshot]
 
 ##Usage##
