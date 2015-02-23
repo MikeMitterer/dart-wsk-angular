@@ -103,6 +103,10 @@ class DialogElement {
         _wskDialogContainer.classes.add(_cssClasses.IS_HIDDEN);
 
         _complete(status);
+
+        new Future.delayed(new Duration(milliseconds: 200), () {
+            _destroy(status);
+        });
     }
 
     /// The dialog get removed from the DOM

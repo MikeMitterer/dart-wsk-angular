@@ -1,0 +1,35 @@
+.dialog.sample {
+    .preview-block {
+        display        : flex;
+        flex-direction : column;
+        align-items    : center;
+    }
+
+    .status {
+        padding     : 24px;
+        font-weight : bold;
+    }
+}
+
+.wsk-dialog.custom-dialog {
+    h5 {
+        background-color: #B3D38D;
+
+        position: absolute;
+        left: 0;
+        top: 0 !important;
+        right: 0;
+        padding: 24px;
+    }
+
+    .wsk-dialog--content {
+        margin-top: 68px; // padding * 2 + font-size (20)
+        p {
+            font-size: 14px;
+        }
+    }
+
+    .wsk-dialog--actions {
+        border-top: 1px solid rgb(231, 231, 231);
+    }
+}

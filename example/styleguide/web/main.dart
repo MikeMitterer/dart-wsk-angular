@@ -1,4 +1,4 @@
-library wsk_angular.example.styleguide;
+library wsk_angular_styleguide;
 
 import 'dart:html' as html;
 import 'dart:math' as Math;
@@ -30,6 +30,9 @@ import 'package:wsk_angular/wsk_switch/wsk_switch.dart';
 import 'package:wsk_angular/wsk_tooltip/wsk_tooltip.dart';
 import 'package:wsk_angular/wsk_textfield/wsk_textfield.dart';
 
+import 'package:wsk_angular/wsk_dialog/wsk_dialog.dart';
+import 'package:wsk_angular_styleguide/custom_dialog/custom_dialog.dart';
+
 class _SimpleModel {
     final Map<String,dynamic> _model = new Map<String,dynamic>();
 
@@ -55,7 +58,7 @@ class AppController {
     final _SimpleModel model = new _SimpleModel();
     void toggle(final String modelKey) { model[modelKey] = !model[modelKey];}
 
-    AppController(this._router) {
+    AppController(this._router,this._alert,this._confirm,this._customDialog) {
         _logger.fine("AppController");
 
         radioData.add(new _RadioData("Lable I","value1",false));
@@ -173,6 +176,56 @@ class AppController {
             _logger.info("FormData: $data");
         }
     }
+
+    //  Dialog Sample --------------------------------------------------------------------------------------------------
+
+    final WskAlertDialog _alert;
+    final WskConfirmDialog _confirm;
+    final CustomDialog _customDialog;
+
+    int mangoCounter = 0;
+    String statusMessage = "";
+
+    void openAlertDialog() {
+        _logger.info("openAlertDialog");
+
+        _alert("This is your message!").show().then((final WskDialogStatus status) {
+            statusMessage = "closed AlertDialog with status: ${status}";
+        });
+    }
+
+    void openAlertDialogWithTitle() {
+
+        _logger.info("openAlertDialogWithTitle");
+
+        _alert("You can specify some description text in here.",
+        title: "This is an alert title", okButton: "Got it!").show().then((final WskDialogStatus status) {
+            statusMessage = "closed AlertDialog with status: ${status}";
+        });
+    }
+
+    void openConfirmDialog() {
+
+        _logger.info("openConfirmDialog");
+
+        _confirm("All of the banks have agreed to forgive you your debts.",
+        title: "Would you like to delete your debt?",
+        yesButton: "Please do it!", noButton: "Sounds like a scam").show().then((final WskDialogStatus status) {
+            statusMessage = "closed ConfirmDialog with status: ${status}";
+        });
+    }
+
+    void openCustomDialog() {
+
+        _logger.info("openCustomDialog");
+
+        _customDialog("3All of the banks have agreed to forgive you your debts.",
+        title: "Mango #${mangoCounter} (Fruit)",
+        yesButton: "Please do it!", noButton: "Sounds like a scam").show().then((final WskDialogStatus status) {
+            statusMessage = "closed ConfirmDialog with status: ${status}";
+            mangoCounter++;
+        });
+    }
 }
 
 /// Radio-Sample-Data
@@ -232,6 +285,8 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
 
         ..addRoute(name: "dropdown", path: "/dropdown", enter: view("views/dropdown.html"))
 
+        ..addRoute(name: "dialog", path: "/dialog", enter: view("views/dialog.html"))
+
         ..addRoute(name: "icon-toggle", path: "/icon-toggle", enter: view("views/icon-toggle.html"))
 
         ..addRoute(name: "item", path: "/item", enter: view("views/item.html"))
@@ -279,6 +334,10 @@ class SampleModule extends Module {
         install(new WskSwitchModule());
         install(new WskTooltipModule());
         install(new WskTextfieldModule());
+
+        install(new WskDialogModule());
+        install(new CustomDialogModule());
+
 
         bind(NgRoutingUsePushState, toFactory: () => new NgRoutingUsePushState.value(false));
     }

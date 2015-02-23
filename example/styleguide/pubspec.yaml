@@ -1,4 +1,4 @@
-name: wsk_angular_styleguice
+name: wsk_angular_styleguide
 description: Web Starter Kit for Angular - Styleguide
 version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
@@ -42,6 +42,7 @@ transformers:
       'web/views/button.html',
       'web/views/cards.html',
       'web/views/checkbox.html',
+      'web/views/dialog.html',
       'web/views/dropdown.html',
       'web/views/firstsub.html',
       'web/views/footer.html',

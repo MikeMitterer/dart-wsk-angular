@@ -63,6 +63,9 @@
 // Textfield
 @import "packages/wsk_angular/sass/wsk_textfield/wsk_textfield";
 
+// Dialog
+@import "packages/wsk_angular/sass/wsk_dialog/wsk_dialog";
+
 // Styleguide
 @import "_demo/styleguide";
 
@@ -81,6 +84,7 @@
 @import "_demo/switch";
 @import "_demo/tooltip";
 @import "_demo/textfield";
+@import "_demo/dialog";
 
 $padding: 24px;
 
