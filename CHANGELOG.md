@@ -1,6 +1,14 @@
 #Change Log for wsk_angular#
 Web Starter Kit for Angular
 
+##[v0.6.4](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.6.3...v0.6.4) - 2015-02-23##
+
+###Feature###
+* AlertDialog works, ConfirmDialog works, CustomDialog works [4484962](http://github.com/mikemitterer/dart-wsk-angular/commit/44849629b486d4be1865f85b8d2fe01d43fdc6bb)
+
+###Docs###
+* Styleguide works with Dialogs, example/wsk_dialog works [5e6e74b](http://github.com/mikemitterer/dart-wsk-angular/commit/5e6e74b7e48b1d200b1837dd0d5e4b51ef0f132f)
+
 ##[v0.6.1](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.6.0...v0.6.1) - 2015-02-22##
 
 ###Feature###
