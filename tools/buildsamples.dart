@@ -32,33 +32,39 @@ class Application {
 
             _configLogging(config.loglevel);
 
-            if (argResults[Options._ARG_HELP] || (config.dirstoscan.length == 0 && args.length == 0)) {
+            if (argResults.wasParsed(Options._ARG_HELP) || (config.dirstoscan.length == 0 && args.length == 0)) {
                 options.showUsage();
                 return;
             }
-            if(argResults[Options._ARG_SETTINGS]) {
+
+            if(argResults.wasParsed(Options._ARG_SETTINGS)) {
                 config.printSettings();
                 return;
             }
 
-            if(argResults[Options._ARG_SHOW_SAMPLES]) {
+            if(argResults.wasParsed(Options._ARG_SHOW_SAMPLES)) {
                 _iterateThroughDirSync(config.samplesfolder,new List<String>(),_onlyDirs,(final File file) {
                     _logger.info(" - ${file.path}");
                 });
                 return;
             }
 
-            if(argResults[Options._ARG_BUILD ]) {
+            if(argResults.wasParsed(Options._ARG_BUILD )) {
                 _iterateThroughDirSync(config.samplesfolder,new List<String>(),_onlyDirs,(final File file) {
                     buildSampleInFolder(new File(file.path));
                 });
                 return;
             }
 
-            if(argResults[Options._ARG_CPY_BUILD ]) {
+            if(argResults.wasParsed(Options._ARG_CPY_BUILD )) {
                 _iterateThroughDirSync(config.samplesfolder,new List<String>(),_onlyDirs,(final File file) {
                     copyExampleBuildToRootBuild(new File(file.path));
                 });
+                return;
+            }
+
+            if(argResults.wasParsed(Options._ARG_RSYNC)) {
+                rsyncBuildWeb();
                 return;
             }
 
@@ -109,6 +115,29 @@ class Application {
 
         _logger.info(" - done!");
     }
+
+    /// More infos about rsync without PW:
+    ///     http://www.thegeekstuff.com/2011/07/rsync-over-ssh-without-password/
+    ///     http://www.thegeekstuff.com/2008/06/perform-ssh-and-scp-without-entering-password-on-openssh/
+    void rsyncBuildWeb() {
+        _logger.info("RSync build/web...");
+
+        // rsync -avz -e ssh build/example/ bcadmin@vhost2.mikemitterer.at:/home/wskan82301/www/
+        Process.start("rsync", [ '-avz', '-e', 'ssh', 'build/example/', 'bcadmin@vhost2.mikemitterer.at:/home/wskan82301/www/' ],
+        runInShell: false).then((final Process process) {
+
+            process.stdout.transform(UTF8.decoder).listen((final String data) {
+                print(data);
+            });
+
+            // Get the exit code from the new process.
+            process.exitCode.then((exitCode) {
+                print('Exit code: $exitCode'); // Prints 'exit code: 0'.
+            });
+
+        });
+    }
+
 
     // -- private -------------------------------------------------------------
 
@@ -231,6 +260,7 @@ class Options {
     static const _ARG_SHOW_SAMPLES          = 'showsamples';
     static const _ARG_BUILD                 = 'build';
     static const _ARG_CPY_BUILD             = 'copybuild';
+    static const _ARG_RSYNC                 = 'rsync';
 
     final ArgParser _parser;
 
@@ -263,6 +293,7 @@ class Options {
             ..addFlag(_ARG_SHOW_SAMPLES,    abbr: 'x', negatable: false, help: "Show samples")
             ..addFlag(_ARG_BUILD,           abbr: 'b', negatable: false, help: "Build your samples")
             ..addFlag(_ARG_CPY_BUILD,       abbr: 'c', negatable: false, help: "Copy example-build to root-build")
+            ..addFlag(_ARG_RSYNC,           abbr: 'r', negatable: false, help: "RSync's build/web")
 
             ..addOption(_ARG_LOGLEVEL,      abbr: 'v', help: "[ info | debug | warning ]")
         ;
