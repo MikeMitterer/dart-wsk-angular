@@ -1,6 +1,11 @@
 #Change Log for wsk_angular#
 Web Starter Kit for Angular
 
+##[Unreleased](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.6.4...HEAD)##
+
+###Fixes###
+* Two times 'switch' in styleguide, fixes #1 [b2f6195](http://github.com/mikemitterer/dart-wsk-angular/commit/b2f6195c3d0437dc0c5b5dd9a9ea387316fd9417)
+
 ##[v0.6.4](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.6.3...v0.6.4) - 2015-02-23##
 
 ###Feature###
