@@ -49,26 +49,30 @@ class Application {
                 return;
             }
 
+            bool foundOptionToWorkWith = false;
             if(argResults.wasParsed(Options._ARG_BUILD )) {
+                foundOptionToWorkWith = true;
                 _iterateThroughDirSync(config.samplesfolder,new List<String>(),_onlyDirs,(final File file) {
                     buildSampleInFolder(new File(file.path));
                 });
-                return;
             }
 
             if(argResults.wasParsed(Options._ARG_CPY_BUILD )) {
+                foundOptionToWorkWith = true;
                 _iterateThroughDirSync(config.samplesfolder,new List<String>(),_onlyDirs,(final File file) {
                     copyExampleBuildToRootBuild(new File(file.path));
                 });
-                return;
+                copyIndexHtmlToExample();
             }
 
             if(argResults.wasParsed(Options._ARG_RSYNC)) {
+                foundOptionToWorkWith = true;
                 rsyncBuildWeb();
-                return;
             }
 
-            options.showUsage();
+            if(!foundOptionToWorkWith) {
+                options.showUsage();
+            }
         }
 
         on FormatException
@@ -117,6 +121,13 @@ class Application {
         _copySubdirs(src,target);
 
         _logger.info(" - done!");
+    }
+
+    void copyIndexHtmlToExample() {
+        final File src = new File("example/index.html");
+        final File target = new File("build/example/index.html");
+        src.copySync(target.path);
+        _logger.info("index.html copied!");
     }
 
     /// More infos about rsync without PW:
