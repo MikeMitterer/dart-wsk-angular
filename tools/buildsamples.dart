@@ -84,10 +84,13 @@ class Application {
         final String folder = file.path;
         _logger.info("Building sample in ${folder}");
 
-        final ProcessResult result = Process.runSync( "sh", [ '-c', '(cd $folder && pub build)' ]);
+        final ProcessResult result = Process.runSync( "sh", [ '-c', '(cd ${folder} && pub build)' ]);
         if(result.exitCode != 0) {
             _logger.severe("run faild with: ${(result.stderr as String).trim()}!");
+            _vickiSay("error in $folder");
         }
+
+        _logger.info(result.stdout);
         _logger.info("Done!\n");
     }
 
@@ -123,8 +126,8 @@ class Application {
         _logger.info("RSync build/web...");
 
         // rsync -avz -e ssh build/example/ bcadmin@vhost2.mikemitterer.at:/home/wskan82301/www/
-        Process.start("rsync", [ '-avz', '-e', 'ssh', 'build/example/', 'bcadmin@vhost2.mikemitterer.at:/home/wskan82301/www/' ],
-        runInShell: false).then((final Process process) {
+        Process.start("rsync", [ '-avz', '-e', 'ssh', 'build/example/', 'bcadmin@vhost2.mikemitterer.at:/home/wskan82301/www/' ])
+            .then((final Process process) {
 
             process.stdout.transform(UTF8.decoder).listen((final String data) {
                 print(data);
@@ -140,6 +143,14 @@ class Application {
 
 
     // -- private -------------------------------------------------------------
+    void _vickiSay(final String sentence) {
+        Validate.notBlank(sentence);
+
+        final ProcessResult result = Process.runSync( "say", [ '-v', "Vicki",'-r', '200', sentence.replaceFirst("wsk_","") ]);
+        if(result.exitCode != 0) {
+            _logger.severe("run faild with: ${(result.stderr as String).trim()}!");
+        }
+    }
 
     /// Goes through the files
     void _iterateThroughDirSync(final String dir,final List<String> foldersToExclude,
