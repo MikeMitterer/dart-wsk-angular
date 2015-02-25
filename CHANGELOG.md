@@ -1,10 +1,13 @@
 #Change Log for wsk_angular#
 Web Starter Kit for Angular
 
-##[Unreleased](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.6.4...HEAD)##
+##[v0.6.5](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.6.4...v0.6.5) - 2015-02-25##
 
 ###Fixes###
 * Two times 'switch' in styleguide, fixes #1 [b2f6195](http://github.com/mikemitterer/dart-wsk-angular/commit/b2f6195c3d0437dc0c5b5dd9a9ea387316fd9417)
+
+###Refactor###
+* All samples refere now to styles in wsk_angular/sass instead of wsk_material/sass [0336c6f](http://github.com/mikemitterer/dart-wsk-angular/commit/0336c6f066b1c735d394a93d01922e1bf9b07e74)
 
 ##[v0.6.4](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.6.3...v0.6.4) - 2015-02-23##
 
