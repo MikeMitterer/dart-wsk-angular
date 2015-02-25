@@ -169,8 +169,13 @@ class Application {
     void copyIndexHtmlToExample() {
         final File src = new File("example/index.html");
         final File target = new File("build/example/index.html");
-        src.copySync(target.path);
-        _logger.info("index.html copied!");
+
+        final String content = src.readAsStringSync().replaceAll("{{lastupdate}}",new DateTime.now().toIso8601String());
+        if(target.existsSync()) {
+            target.deleteSync();
+        }
+        target.writeAsString(content);
+        _logger.info("index.html copied and 'last update date' updated!");
     }
 
     /// More infos about rsync without PW:
