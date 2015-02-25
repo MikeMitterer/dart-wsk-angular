@@ -1,4 +1,5 @@
-@import "packages/wsk_material/sass/shadow/_shadow";
+@import "packages/wsk_angular/sass/wsk_shadow/wsk_shadow";
+@import "packages/wsk_angular/sass/wsk_colors";
 
 $dialog-swift-ease-out-duration : 0.2s !default;
 $dialog-baseline-grid : 8px !default;

@@ -2,63 +2,63 @@
  It is recommended to run autoprefixer on the generated .CSS
 */
 
-@import "packages/wsk_material/sass/styleguide_demo_bp";
+@import "packages/wsk_angular/sass/wsk_styleguide_demo_bp";
 @import "colors"; // Theming
 
 // Make the layout work
-@import "packages/wsk_material/sass/layout/layout";
+@import "packages/wsk_angular/sass/wsk_layout/wsk_layout";
 
 // Tabs
 @import "packages/wsk_angular/sass/wsk_tabs/wsk_tabs";
 
 // Button
-@import "packages/wsk_material/sass/shadow/shadow";
-@import "packages/wsk_material/sass/button/button";
+@import "packages/wsk_angular/sass/wsk_shadow/wsk_shadow";
+@import "packages/wsk_angular/sass/wsk_button/wsk_button";
 
 // Animation
-@import "packages/wsk_material/sass/card/card";
-@import "packages/wsk_material/sass/animation/animation";
+@import "packages/wsk_angular/sass/wsk_card/wsk_card";
+@import "packages/wsk_angular/sass/wsk_animation/wsk_animation";
 
 // Checkbox
-@import "packages/wsk_material/sass/checkbox/_checkbox";
+@import "packages/wsk_angular/sass/wsk_checkbox/wsk_checkbox";
 
 // Dropdown
-@import "packages/wsk_material/sass/item/item";
-@import "packages/wsk_material/sass/dropdown-menu/_dropdown-menu";
+@import "packages/wsk_angular/sass/wsk_item/wsk_item";
+@import "packages/wsk_angular/sass/wsk_dropdown-menu/wsk_dropdown-menu";
 
 // Footer
-@import "packages/wsk_material/sass/footer/mega_footer";
-@import "packages/wsk_material/sass/footer/mini_footer";
+@import "packages/wsk_angular/sass/wsk_footer/wsk_mega_footer";
+@import "packages/wsk_angular/sass/wsk_footer/wsk_mini_footer";
 
 // Icon-Toggle
-@import "packages/wsk_material/sass/icon-toggle/_icon-toggle";
+@import "packages/wsk_angular/sass/wsk_icon-toggle/wsk_icon-toggle";
 
 // Items
-@import "packages/wsk_material/sass/item/item";
+@import "packages/wsk_angular/sass/wsk_item/wsk_item";
 
 // List
-@import "packages/wsk_material/sass/list/list";
+@import "packages/wsk_angular/sass/wsk_list/wsk_list";
 
 // Pallet
-@import 'packages/wsk_material/sass/palette/palette';
+@import 'packages/wsk_angular/sass/wsk_palette/wsk_palette';
 
 // Radio
-@import "packages/wsk_material/sass/radio/_radio";
+@import "packages/wsk_angular/sass/wsk_radio/wsk_radio";
 
 // Shadow
-@import "packages/wsk_material/sass/shadow/_shadow";
+@import "packages/wsk_angular/sass/wsk_shadow/wsk_shadow";
 
 // Slider
-@import "packages/wsk_material/sass/slider/_slider";
+@import "packages/wsk_angular/sass/wsk_slider/wsk_slider";
 
 // !!! IMPORTANT !!! You must include wsk_spinner instead of spinner!
 @import "packages/wsk_angular/sass/wsk_spinner/wsk_spinner";
 
 // Switch
-@import "packages/wsk_material/sass/switch/_switch";
+@import "packages/wsk_angular/sass/wsk_switch/wsk_switch";
 
 // Tooltip
-@import "packages/wsk_material/sass/tooltip/_tooltip";
+@import "packages/wsk_angular/sass/wsk_tooltip/wsk_tooltip";
 
 // Textfield
 @import "packages/wsk_angular/sass/wsk_textfield/wsk_textfield";

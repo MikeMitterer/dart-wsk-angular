@@ -9,22 +9,11 @@ dependencies:
 
   angular: ">=1.0.0 <2.0.0"
 
-  validate: any
-
   wsk_angular:
     path: ../../
 
-  wsk_material: any
-
-  logging: any
-  logging_handlers: any
-  console_log_handler: any
-
 dev_dependencies:
   unittest: any
-
-  # Angular braucht das!
-  mock: ">=0.11.0+1 <0.12.0"
 
 #------------------------------------------------
 transformers:

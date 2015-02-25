@@ -16,10 +16,6 @@ import 'package:validate/validate.dart';
 class Application {
     final Logger _logger = new Logger("buildsamples.Application");
 
-    static const _ARG_HELP          = 'help';
-    static const _ARG_LOGLEVEL      = 'loglevel';
-    static const _ARG_SETTINGS      = 'settings';
-
     final Options options;
 
     Application() : options = new Options();
@@ -50,6 +46,21 @@ class Application {
             }
 
             bool foundOptionToWorkWith = false;
+
+            if(argResults.wasParsed(Options._ARG_UPDATE )) {
+                foundOptionToWorkWith = true;
+                _iterateThroughDirSync(config.samplesfolder,new List<String>(),_onlyDirs,(final File file) {
+                    pubUpdate(new File(file.path));
+                });
+            }
+
+            if(argResults.wasParsed(Options._ARG_SASS )) {
+                foundOptionToWorkWith = true;
+                _iterateThroughDirSync(config.samplesfolder,new List<String>(),_onlyDirs,(final File file) {
+                    compileSassAndAutoPrefixCSS(new File(file.path));
+                });
+            }
+
             if(argResults.wasParsed(Options._ARG_BUILD )) {
                 foundOptionToWorkWith = true;
                 _iterateThroughDirSync(config.samplesfolder,new List<String>(),_onlyDirs,(final File file) {
@@ -67,7 +78,7 @@ class Application {
 
             if(argResults.wasParsed(Options._ARG_RSYNC)) {
                 foundOptionToWorkWith = true;
-                rsyncBuildWeb();
+                rsyncBuildExample();
             }
 
             if(!foundOptionToWorkWith) {
@@ -81,18 +92,50 @@ class Application {
         }
     }
 
-    void buildSampleInFolder(final File file) {
+    void pubUpdate(final File file) async {
+        Validate.notNull(file);
+        Validate.isTrue(FileSystemEntity.isDirectorySync(file.path));
+
+        final String folder = file.path;
+        _logger.info("'pub update' in ${folder}");
+
+        final ProcessResult result = Process.runSync("tools/buildinfolder.sh", [ '--update' ,folder ]);
+        if(result.exitCode != 0) {
+            _logger.severe("'pub update' faild with: ${(result.stderr as String).trim()}!");
+            _vickiSay("error with pup update");
+        }
+
+        _logger.info(result.stdout);
+        _logger.info("Done!\n");
+    }
+
+    void buildSampleInFolder(final File file) async {
         Validate.notNull(file);
         Validate.isTrue(FileSystemEntity.isDirectorySync(file.path));
 
         final String folder = file.path;
         _logger.info("Building sample in ${folder}");
 
-        final ProcessResult result = Process.runSync( "sh", [ '-c', '(cd ${folder} && pub build)' ]);
+        final ProcessResult result = Process.runSync("tools/buildinfolder.sh", [ '--jsonly' ,folder ]);
         if(result.exitCode != 0) {
             _logger.severe("run faild with: ${(result.stderr as String).trim()}!");
             _vickiSay("error in $folder");
         }
+
+//        final Future<Process> buildProcess = Process.start( "tools/buildinfolder.sh", [ folder ]);
+//
+//        buildProcess.then((final Process process) {
+//
+//            process.stdout.transform(UTF8.decoder).listen((final String data) {
+//                _logger.info(data);
+//            });
+//
+//            // Get the exit code from the new process.
+//            process.exitCode.then((exitCode) {
+//                _logger.info('Exit code: $exitCode'); // Prints 'exit code: 0'.
+//            });
+//
+//        });
 
         _logger.info(result.stdout);
         _logger.info("Done!\n");
@@ -133,7 +176,7 @@ class Application {
     /// More infos about rsync without PW:
     ///     http://www.thegeekstuff.com/2011/07/rsync-over-ssh-without-password/
     ///     http://www.thegeekstuff.com/2008/06/perform-ssh-and-scp-without-entering-password-on-openssh/
-    void rsyncBuildWeb() {
+    void rsyncBuildExample() {
         _logger.info("RSync build/web...");
 
         // rsync -avz -e ssh build/example/ bcadmin@vhost2.mikemitterer.at:/home/wskan82301/www/
@@ -141,19 +184,50 @@ class Application {
             .then((final Process process) {
 
             process.stdout.transform(UTF8.decoder).listen((final String data) {
-                print(data);
+                _logger.info(data);
             });
 
             // Get the exit code from the new process.
             process.exitCode.then((exitCode) {
-                print('Exit code: $exitCode'); // Prints 'exit code: 0'.
+                _logger.info('Exit code: $exitCode'); // Prints 'exit code: 0'.
             });
 
         });
     }
 
+    void compileSassAndAutoPrefixCSS(final File sampleFolder) {
+        Validate.notNull(sampleFolder);
+
+        File sassFile = new File("${sampleFolder.path}/web/demo.scss");
+        File cssFile = new File("${sampleFolder.path}/web/demo.css");
+        if(!sassFile.existsSync()) {
+            sassFile = new File("${sampleFolder.path}/web/assets/scss/styleguide.scss");
+            cssFile = new File("${sampleFolder.path}/web/assets/css/styleguide.css");
+            if(!sassFile.existsSync()) {
+                _logger.warning("Could not find wether demo.scss nor styleguide.scss");
+                return;
+            }
+        }
+
+        _logger.info("Compiling ${sassFile.path} -> ${cssFile.path}");
+        final ProcessResult result = Process.runSync("sassc", [ sassFile.path, cssFile.path ]);
+        if(result.exitCode != 0) {
+            _logger.info("sassc faild with: ${(result.stderr as String).trim()}!");
+            _vickiSay("got a sassc error");
+            return;
+        }
+
+        _logger.info("Autoprefixing ${cssFile.path}");
+        final ProcessResult prefixResult = Process.runSync("autoprefixer", [ cssFile.path ]);
+        if(prefixResult.exitCode != 0) {
+            _logger.info("autoprefixer faild with: ${(prefixResult.stderr as String).trim()}!");
+            _vickiSay("autoprefixer faild");
+        }
+    }
+
 
     // -- private -------------------------------------------------------------
+
     void _vickiSay(final String sentence) {
         Validate.notBlank(sentence);
 
@@ -281,6 +355,8 @@ class Options {
     static const _ARG_SETTINGS              = 'settings';
     static const _ARG_SHOW_SAMPLES          = 'showsamples';
     static const _ARG_BUILD                 = 'build';
+    static const _ARG_SASS                  = 'sass';
+    static const _ARG_UPDATE                = 'update';
     static const _ARG_CPY_BUILD             = 'copybuild';
     static const _ARG_RSYNC                 = 'rsync';
 
@@ -314,8 +390,10 @@ class Options {
             ..addFlag(_ARG_SETTINGS,        abbr: 's', negatable: false, help: "Prints settings")
             ..addFlag(_ARG_SHOW_SAMPLES,    abbr: 'x', negatable: false, help: "Show samples")
             ..addFlag(_ARG_BUILD,           abbr: 'b', negatable: false, help: "Build your samples")
+            ..addFlag(_ARG_SASS,            abbr: 'a', negatable: false, help: "sassc + autoprefixer")
+            ..addFlag(_ARG_UPDATE,          abbr: 'u', negatable: false, help: "pub update for samples")
             ..addFlag(_ARG_CPY_BUILD,       abbr: 'c', negatable: false, help: "Copy example-build to root-build")
-            ..addFlag(_ARG_RSYNC,           abbr: 'r', negatable: false, help: "RSync's build/web")
+            ..addFlag(_ARG_RSYNC,           abbr: 'r', negatable: false, help: "RSync's build/example")
 
             ..addOption(_ARG_LOGLEVEL,      abbr: 'v', help: "[ info | debug | warning ]")
         ;

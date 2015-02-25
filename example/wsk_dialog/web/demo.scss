@@ -1,11 +1,8 @@
-@import "packages/wsk_material/sass/styleguide_demo_bp";
-@import "packages/wsk_material/sass/shadow/_shadow";
-@import "packages/wsk_material/sass/colors";
-
+@import "packages/wsk_angular/sass/wsk_styleguide_demo_bp";
 @import "packages/wsk_angular/sass/wsk_dialog/wsk_dialog";
 
 // Only for Sample
-@import "packages/wsk_material/sass/button/_button";
+@import "packages/wsk_angular/sass/wsk_button/wsk_button";
 
 
 .dialog.sample {
