@@ -42,7 +42,9 @@ class WskLayoutComponent extends WskAngularComponent {
     final html.Element _component;
 
     WskLayoutComponent(final html.Element component)
-        : super(component, materialLayoutConfig(), [ materialRippleConfig() ]),
+        // materialRippleConfig() sollte bei der Layout-Klasse nicht verwendet werden - sonst
+        // kommt es wie beim Accordion zu einem falschen Ripple-Effekt!!!!
+        : super(component, materialLayoutConfig(), [ ]),
         this._component = component {
         Validate.notNull(component);
     }

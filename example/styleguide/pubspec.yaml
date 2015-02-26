@@ -26,6 +26,7 @@ transformers:
     # List is necessary because of this bug: http://goo.gl/4Rb3wr
     html_files: [
       'web/index.html',
+      'web/views/accordion.html',
       'web/views/animation.html',
       'web/views/button.html',
       'web/views/cards.html',

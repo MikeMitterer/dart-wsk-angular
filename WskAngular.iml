@@ -21,6 +21,10 @@
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/views/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/views/source/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_accordion/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_accordion/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_accordion/packages/wsk_angular" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_accordion/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_animation/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_animation/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_animation/packages/wsk_angular" />

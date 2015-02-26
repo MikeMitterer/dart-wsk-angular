@@ -1,0 +1,21 @@
+.accordion.sample {
+    .toolbar {
+        z-index: 99;
+        position: absolute;
+    }
+    .toolbar i {
+        margin: 2px 2px;
+        display: inline-block;
+        color: GrayText;
+    }
+    .toolbar i.checked, .toolbar i:hover {
+        color: red;
+    }
+    .toolbar i:hover {
+        background-color: yellow;
+    }
+
+    .custom-label {
+        margin-left: 120px;
+    }
+}

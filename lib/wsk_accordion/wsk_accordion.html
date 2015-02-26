@@ -1,0 +1,18 @@
+<!-- Panel -->
+<div>
+  <input type="{{type}}" name="wsk-accordion-{{name}}" id="{{id}}">
+  <label class="wsk-accordion__label" for="{{id}}">
+    <span ng-if="!hasLabel"class="wsk-accordion__extended_label"></span>
+    <span ng-if="hasLabel">{{label}}<i class="fa fa-chevron-right indicator"></i></span>
+
+    <span ng-if="withRippleEffect" class="wsk-accordion__ripple-container wsk-js-ripple-effect">
+      <span class="wsk-ripple"></span>
+    </span>
+  </label>
+  <div class="wsk-accordion--content">
+    <h5 ng-if="hasHeader" class="wsk-accordion--header">{{header}}</h5>
+    <p class="wsk-accordion--body">
+      <content></content>
+    </p>
+  </div>
+</div>

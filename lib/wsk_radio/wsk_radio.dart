@@ -42,7 +42,7 @@ class WskRadioGroupComponent  {
             return _name;
         }
         _logger.info("No name provided for wsk-radio-goup - is this really what you want?");
-        return "parentHash${hashCode}";
+        return "group-hash-${hashCode}";
     }
 
     // - private ----------------------------------------------------------------------------------

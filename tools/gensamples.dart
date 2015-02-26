@@ -353,7 +353,7 @@ class Application {
 
 
 class Options {
-    static const APPNAME                    = 'buildsamples';
+    static const APPNAME                    = 'gensamples';
 
     static const _ARG_HELP                  = 'help';
     static const _ARG_LOGLEVEL              = 'loglevel';
@@ -380,9 +380,13 @@ class Options {
             print("    $line");
         });
 
-//        print("");
-//        print("Sample:");
-//        print("    Sample sample:           '$APPNAME your sample");
+        print("");
+        print("Sample: (usual workflow)");
+        print("");
+        print("    'pub update' for every example:                      '$APPNAME -u'");
+        print("    'pub build' for every example:                       '$APPNAME -b'");
+        print("    'Copy example/<sample>/build/web to build/example/:  '$APPNAME -c'");
+        print("    'Rsyncs build/example to webserver:                  '$APPNAME -r'");
         print("");
     }
 

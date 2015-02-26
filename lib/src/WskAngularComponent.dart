@@ -31,10 +31,7 @@ class WskAngularComponent {
     /// called before componentHandler takes place
     void preUpgrade(final html.Element component) { }
 
-    /// Informs component about the final upgrade-state
-    void upgraded() {}
-
-    /// Callback if Angular has loaded it's template
+    /// Callback after Angular has loaded it's template
     void upgrade(final html.HtmlElement component) {
         _logger.fine("Found $component with class '${classToUpgrade}'");
 
@@ -42,6 +39,9 @@ class WskAngularComponent {
             return _configs;
         });
     }
+
+    /// Informs component about the final upgrade-state
+    void upgraded() {}
 
     /// Waits for Angular to load the template, search for the component defined in mainConfig (CTOR)
     void autoUpgrade() {

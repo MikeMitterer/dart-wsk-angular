@@ -15,6 +15,9 @@ import 'package:console_log_handler/console_log_handler.dart';
 // Activates menu
 import 'package:wsk_angular/decorators/navactivator.dart';
 
+// Services
+import 'package:wsk_angular/services/LoadChecker.dart';
+
 // Components
 import 'package:wsk_angular/wsk_layout/wsk_layout.dart';
 import 'package:wsk_angular/wsk_button/wsk_button.dart';
@@ -32,6 +35,8 @@ import 'package:wsk_angular/wsk_textfield/wsk_textfield.dart';
 
 import 'package:wsk_angular/wsk_dialog/wsk_dialog.dart';
 import 'package:wsk_angular_styleguide/custom_dialog/custom_dialog.dart';
+
+import 'package:wsk_angular/wsk_accordion/wsk_accordion.dart';
 
 class _SimpleModel {
     final Map<String,dynamic> _model = new Map<String,dynamic>();
@@ -53,7 +58,6 @@ class AppController {
     final _logger = new Logger('wsk_angular.example.styleguide.AppController');
 
     final Router _router;
-    final String _classToChange = "active";
 
     final _SimpleModel model = new _SimpleModel();
     void toggle(final String modelKey) { model[modelKey] = !model[modelKey];}
@@ -226,6 +230,15 @@ class AppController {
             mangoCounter++;
         });
     }
+
+    //  Accordion Sample --------------------------------------------------------------------------------------------------
+
+    int rating = 1;
+    void setRating(final html.Event event,final int rating) {
+        event.stopPropagation();
+        event.preventDefault();
+        this.rating = rating;
+    }
 }
 
 /// Radio-Sample-Data
@@ -267,6 +280,9 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
 
                 ..addRoute(name: 'firstsub', path: '/sub', enter: view('views/firstsub.html'))
         )
+
+        ..addRoute(name: "accordion", path: "/accordion", enter: view("views/accordion.html"))
+
         ..addRoute(name: "button", path: "/button", enter: view("views/button.html"))
 
         ..addRoute(name: "typography", path: "/typography", enter: view("views/typography.html"))
@@ -338,6 +354,11 @@ class SampleModule extends Module {
         install(new WskDialogModule());
         install(new CustomDialogModule());
 
+        install(new WskAccordionModule());
+
+        // because the styleguide-app hides ng-view with class="angular-controlled" for preloading
+        // we need a LoadChecker-Instance to remove the loadchecker-class from body.
+        bind(LoadChecker, toValue: new LoadChecker());
 
         bind(NgRoutingUsePushState, toFactory: () => new NgRoutingUsePushState.value(false));
     }
