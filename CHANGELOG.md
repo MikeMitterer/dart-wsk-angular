@@ -1,6 +1,11 @@
 #Change Log for wsk_angular#
 Web Starter Kit for Angular
 
+##[v0.6.6](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.6.5...v0.6.6) - 2015-02-26##
+
+###Feature###
+* Accordion added [ba825c3](http://github.com/mikemitterer/dart-wsk-angular/commit/ba825c34b5ea6864f28edc67ccb349d18ac79965)
+
 ##[v0.6.5](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.6.4...v0.6.5) - 2015-02-25##
 
 ###Fixes###
