@@ -1,0 +1,45 @@
+@import "packages/wsk_angular/sass/wsk_styleguide_demo_bp";
+@import "packages/wsk_angular/sass/wsk_demo/wsk_demo";
+
+.ui-drag-over {
+    transition: background 0.3s ease;
+
+    border: 2px dashed #1c691b !important;
+    border-radius: 5px;
+    background-color: rgba(149, 255, 149,0.6) !important;;
+}
+
+.ui-drag-enter-invalid {
+    animation: swing 1s ease;
+    animation-iteration-count: 1;
+}
+
+@mixin keyframe-swing() {
+    15% {
+        transform: translateX(5px);
+    }
+    30% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(3px);
+    }
+    65% {
+        transform: translateX(-3px);
+    }
+    80% {
+        transform: translateX(2px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@-webkit-keyframes swing {
+    @include keyframe-swing();
+}
+
+@keyframes swing {
+    @include keyframe-swing();
+}
+
+

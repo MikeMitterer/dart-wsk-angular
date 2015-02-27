@@ -14,7 +14,7 @@ import 'package:wsk_angular/wsk_accordion/wsk_accordion.dart';
 
 @Injectable()
 class AppController {
-    final _logger = new Logger('wsk_angular.example.wsk_textfield.AppController');
+    final _logger = new Logger('wsk_angular.example.wsk_accordion.AppController');
 
     AppController() {
         _logger.fine("AppController");

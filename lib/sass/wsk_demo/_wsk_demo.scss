@@ -9,11 +9,13 @@ body.debug.loadchecker {
 }
 
 .loadindicator,
+body[ng-cloak] .angular-controlled,
 body.ng-cloak .angular-controlled,
 body.loadchecker .angular-controlled {
     display: none;
 }
 
+body[ng-cloak] .loadindicator.angular,
 body.ng-cloak .loadindicator.angular,
 body.loadchecker .loadindicator.wsk {
     display: block;

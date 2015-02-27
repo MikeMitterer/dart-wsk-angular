@@ -45,6 +45,10 @@
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_dialog/packages/wsk_angular_dialog_sample" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_dialog/web/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_dialog/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_dragdrop/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_dragdrop/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_dragdrop/packages/wsk_angular" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_dragdrop/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_icon_toggle/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_icon_toggle/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_icon_toggle/packages/wsk_angular" />
@@ -93,5 +97,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="application" />
+    <orderEntry type="library" name="Dart SDK (3)" level="application" />
   </component>
 </module>
