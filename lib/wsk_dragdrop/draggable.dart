@@ -37,6 +37,7 @@ class DraggableComponent {
 
         _component.onDragEnd.listen(_onDragEnd);
         _component.onTouchStart.listen(_onDragStart);
+        _component.onTouchMove.listen(_onTouchMove);
         _component.onTouchEnd.listen(_onDragEnd);
     }
 
@@ -73,6 +74,7 @@ class DraggableComponent {
     // -- private ---------------------------------------------------------------------------------
 
     void _onDragStart(html.Event event) {
+        _logger.info("_onDragStart");
         if (!_enabled) {
             return;
         }
@@ -93,6 +95,16 @@ class DraggableComponent {
         _dragDropService.onDragSuccessCallback = null;
     }
 
+    void _onTouchMove(final html.TouchEvent event) {
+        _logger.info("_onTouchMove");
+
+        event.preventDefault();
+
+        final html.Touch touch = event.targetTouches.first;
+        _component.style.left = "${touch.screen.x - 25}px";
+        _component.style.top = "${touch.screen.y - 25}px";
+        _component.style.position = "absolute";
+    }
 }
 
 class DraggableElementHandler {

@@ -14,7 +14,7 @@
     animation-iteration-count: 1;
 }
 
-@mixin keyframe-swing() {
+@mixin keyframes-swing() {
     15% {
         transform: translateX(5px);
     }
@@ -35,11 +35,11 @@
     }
 }
 @-webkit-keyframes swing {
-    @include keyframe-swing();
+    @include keyframes-swing();
 }
 
 @keyframes swing {
-    @include keyframe-swing();
+    @include keyframes-swing();
 }
 
 
