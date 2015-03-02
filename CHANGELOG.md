@@ -1,5 +1,10 @@
 #Change Log for wsk_angular#
-Web Starter Kit for Angular
+Material Design for Angular App! Based on Googles Web Starter Kit - Material version
+
+##[v0.6.7](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.6.6-d+d-desktop...v0.6.7) - 2015-03-02##
+
+###Feature###
+* Drag and Drop [b07549c](http://github.com/mikemitterer/dart-wsk-angular/commit/b07549c70255f6083b0d4ca2670acb799c2a03a1)
 
 ##[v0.6.6](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.6.5...v0.6.6) - 2015-02-26##
 
