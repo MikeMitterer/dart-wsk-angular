@@ -1,4 +1,3 @@
-
 part of wsk_angular.wsk_dragdrop;
 
 @Decorator(selector: 'wsk-dropzone')
