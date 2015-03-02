@@ -37,6 +37,7 @@ import 'package:wsk_angular/wsk_dialog/wsk_dialog.dart';
 import 'package:wsk_angular_styleguide/custom_dialog/custom_dialog.dart';
 
 import 'package:wsk_angular/wsk_accordion/wsk_accordion.dart';
+import 'package:wsk_angular/wsk_dragdrop/wsk_dragdrop.dart';
 
 class _SimpleModel {
     final Map<String,dynamic> _model = new Map<String,dynamic>();
@@ -69,6 +70,17 @@ class AppController {
         radioData.add(new _RadioData("Lable II","value2",false));
         radioData.add(new _RadioData("Lable III","value3",true));
         radioData.add(new _RadioData("Lable IV","value4",false));
+
+        // Drag&Drop
+        languages.add(new _Natural("English"));
+        languages.add(new _Natural("German"));
+        languages.add(new _Natural("Italian"));
+        languages.add(new _Natural("French"));
+        languages.add(new _Natural("Spanish"));
+
+        languages.add(new _Programming("CPP"));
+        languages.add(new _Programming("Dart"));
+        languages.add(new _Programming("Java"));
     }
 
     String get name {
@@ -231,7 +243,7 @@ class AppController {
         });
     }
 
-    //  Accordion Sample --------------------------------------------------------------------------------------------------
+    //  Accordion Sample -----------------------------------------------------------------------------------------------
 
     int rating = 1;
     void setRating(final html.Event event,final int rating) {
@@ -239,6 +251,38 @@ class AppController {
         event.preventDefault();
         this.rating = rating;
     }
+
+    //  Drag&Drop Sample -----------------------------------------------------------------------------------------------
+
+    final List<_Language> languages = new List<_Language>();
+    final List<_Language> natural = new List<_Language>();
+    final List<_Language> programming = new List<_Language>();
+
+    void addToProgrammingLanguages(final _Language language) {
+        if(language.type == "programming") {
+            if(!programming.contains(language)) {
+                programming.add(language);
+            }
+        }
+    }
+
+    void addToNaturalLanguages(final _Language language) {
+        if(language.type == "natural") {
+            if(!natural.contains(language)) {
+                natural.add(language);
+            }
+        }
+    }
+
+    void moveToTrash(final _Language language) {
+        if(language.type == "programming" && programming.contains(language)) {
+            programming.remove(language);
+
+        } else if(language.type == "natural" && natural.contains(language)) {
+            natural.remove(language);
+        }
+    }
+
 }
 
 /// Radio-Sample-Data
@@ -266,6 +310,22 @@ class _Color {
     String operator [](int index) => _colors[Math.max(0,Math.min(5,index))];
     void operator []=(int index,final String value) { _colors[Math.max(0,Math.min(5,index))] = value; }
 }
+
+/// Drag&Drop-Sample-Data
+class _Language {
+    final String name;
+    final String type;
+
+    _Language(this.name, this.type);
+}
+
+class _Programming extends _Language {
+    _Programming(final String name) : super(name,"programming");
+}
+class _Natural extends _Language {
+    _Natural(final String name) : super(name,"natural");
+}
+
 
 void myRouteInitializer(Router router, RouteViewFactory view) {
     // @formatter:on
@@ -321,6 +381,8 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
 
         ..addRoute(name: "switch", path: "/switch", enter: view("views/switch.html"))
 
+        ..addRoute(name: "drag & drop", path: "/draganddrop", enter: view("views/draganddrop.html"))
+
         ..addRoute(name: "footer", path: "/footer", enter: view("views/footer.html")
 
     );
@@ -355,6 +417,7 @@ class SampleModule extends Module {
         install(new CustomDialogModule());
 
         install(new WskAccordionModule());
+        install(new WskDragDropModule());
 
         // because the styleguide-app hides ng-view with class="angular-controlled" for preloading
         // we need a LoadChecker-Instance to remove the loadchecker-class from body.

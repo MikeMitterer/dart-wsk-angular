@@ -32,6 +32,7 @@ transformers:
       'web/views/cards.html',
       'web/views/checkbox.html',
       'web/views/dialog.html',
+      'web/views/draganddrop.html',
       'web/views/dropdown.html',
       'web/views/firstsub.html',
       'web/views/footer.html',

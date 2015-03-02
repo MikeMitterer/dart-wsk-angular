@@ -71,6 +71,9 @@
 // Accordion
 @import "packages/wsk_angular/sass/wsk_accordion/wsk_accordion";
 
+// Drag & Drop
+@import "packages/wsk_angular/sass/wsk_dragdrop/wsk_dragdrop";
+
 // Styleguide
 @import "_demo/styleguide";
 
@@ -91,6 +94,7 @@
 @import "_demo/textfield";
 @import "_demo/dialog";
 @import "_demo/accordion";
+@import "_demo/draganddrop";
 
 $padding: 24px;
 

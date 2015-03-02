@@ -1,6 +1,7 @@
 library wsk_angular.example.wsk_dragdrop;
 
-//import 'dart:async';
+import "dart:html" as html;
+import "dart:js" as js;
 
 import 'package:angular/angular.dart';
 import 'package:angular/application_factory.dart';
@@ -74,6 +75,9 @@ class AppController {
         }
     }
 
+    loaded() {
+        _logger.info("Loaded!");
+    }
     //-----------------------------------------------------------------------------
     // private
 
@@ -83,6 +87,7 @@ class AppController {
 class SampleModule extends Module {
     SampleModule() {
         install(new WskDragDropModule());
+        bind(IncludeSource);
 
         // -- controllers
 
@@ -109,4 +114,48 @@ void configLogger() {
     // Turn off all logging first
     Logger.root.level = Level.INFO;
     Logger.root.onRecord.listen(new LogConsoleHandler());
+}
+
+@Decorator( selector: '[include-src]')
+class IncludeSource {
+
+    final html.Element element;
+    final Scope scope;
+    final ViewFactoryCache viewFactoryCache;
+    final DirectiveInjector directiveInjector;
+    final DirectiveMap directives;
+
+    View _view;
+    Scope _childScope;
+
+    IncludeSource(this.element, this.scope, this.viewFactoryCache,
+              this.directiveInjector, this.directives);
+
+    _cleanUp() {
+        if (_view == null) return;
+        _view.nodes.forEach((node) => node.remove);
+        _childScope.destroy();
+        _childScope = null;
+        element.innerHtml = '';
+        _view = null;
+    }
+
+    _updateContent(ViewFactory viewFactory) {
+        // create a new scope
+        _childScope = scope.createProtoChild();
+        _view = viewFactory(_childScope, directiveInjector);
+        _view.nodes.forEach((node) => element.append(node));
+
+        //js.context.callMethod("prettyPrint");
+        //var object = new js.JsObject(js.context['Object']);
+
+    }
+
+    @NgAttr("include-src")
+    set url(value) {
+        _cleanUp();
+        if (value != null && value != '') {
+            viewFactoryCache.fromUrl(value, directives, Uri.base).then(_updateContent);
+        }
+    }
 }

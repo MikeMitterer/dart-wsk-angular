@@ -1,0 +1,57 @@
+<section class="content">
+    <article class="dragdrop sample">
+        <div class="preview-block">
+            <!-- add your code here -->
+
+            <div class="danddcontainer">
+                <div class="choose ">
+
+                    <h6>Choose language</h6>
+                    <div class="source langbox">
+                        <wsk-draggable class="language" ng-repeat="language in languages"
+                                       data-to-drag="language"
+                                       drop-zone="language.type">{{language.name}}
+                        </wsk-draggable>
+                    </div>
+                </div>
+
+                <div class="accept">
+                    <div class="langbox">
+
+                        <h6>Programming languages</h6>
+                        <wsk-dropzone class="programming"
+                                      name="'programming'"
+                                      on-drop-success="addToProgrammingLanguages(data)">
+
+
+                            <!-- programming language item becomes a 'draggable' item and can be dragged to 'trash' -->
+                            <wsk-draggable class="language" ng-repeat="language in programming"
+                                           data-to-drag="language"
+                                           drop-zone="'trash'">{{language.name}}
+                            </wsk-draggable>
+                        </wsk-dropzone>
+                    </div>
+
+                    <div class="langbox">
+
+                        <h6>Natural languages</h6>
+                        <wsk-dropzone class="natural"
+                                      name="'natural'"
+                                      on-drop-success="addToNaturalLanguages(data)">
+
+                            <!-- natural language item becomes a 'draggable' item and can be dragged to 'trash' -->
+                            <wsk-draggable class="language" ng-repeat="language in natural"
+                                           data-to-drag="language"
+                                           drop-zone="'trash'">{{language.name}}
+                            </wsk-draggable>
+                        </wsk-dropzone>
+                    </div>
+                </div>
+                <div class="trash">
+                    <h6>Trash</h6>
+                    <wsk-dropzone class="trashbox"  name="'trash'" on-drop-success="moveToTrash(data)"></wsk-dropzone>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
