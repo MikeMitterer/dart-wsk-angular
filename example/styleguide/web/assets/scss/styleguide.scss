@@ -17,8 +17,11 @@
 @import "packages/wsk_angular/sass/wsk_shadow/wsk_shadow";
 @import "packages/wsk_angular/sass/wsk_button/wsk_button";
 
-// Animation
+// Card - with default width set to 310px...
+$card-width: 310px;
 @import "packages/wsk_angular/sass/wsk_card/wsk_card";
+
+// Animation
 @import "packages/wsk_angular/sass/wsk_animation/wsk_animation";
 
 // Checkbox

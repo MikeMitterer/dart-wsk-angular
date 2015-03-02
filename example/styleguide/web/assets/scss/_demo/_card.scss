@@ -3,10 +3,11 @@
 
 .cards.sample {
     .wsk-card {
-        margin : 20px;
+        margin : 0;
+        margin-bottom: 24px;
     }
     .wsk-card:nth-child(1) {
-        width : 330px;
+        width : 310px;
     }
     .wsk-card:nth-child(2) {
         width : 600px;
