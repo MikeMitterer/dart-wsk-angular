@@ -13,7 +13,7 @@ Responsive layout is included with the kit that adapts to fit the device your us
 
 ##Usage##
 There are several [samples][allsamples] for you to play with.    
-Please take a look at their [source code][samples][allsamples]
+Please take a look at their [source code][allsamples]
 
 You can also try out the samples in your regular browser:   
 **[wsk.angular.mikemitterer.at][live]**  
