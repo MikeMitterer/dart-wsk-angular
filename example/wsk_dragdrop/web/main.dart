@@ -82,7 +82,7 @@ class AppController {
 
 class SampleModule extends Module {
     SampleModule() {
-        install(new DragDropModule());
+        install(new WskDragDropModule());
 
         // -- controllers
 

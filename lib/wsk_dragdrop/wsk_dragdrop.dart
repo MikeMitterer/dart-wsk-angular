@@ -11,63 +11,41 @@ import 'package:angular/core/annotation_src.dart';
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
 
-part 'draggable.dart';
-part 'droppable.dart';
+import 'package:wsk_angular/wsk_angular.dart';
+
+import 'package:dnd/dnd.dart';
+
+part 'src/wsk_draggable.dart';
+part 'src/wsk_dropzone.dart';
+
+/// Store strings for class names defined by this component that are used in
+/// Dart. This allows us to simply change it in one place should we
+/// decide to modify at a later date.
+class _DNDCssClasses {
+
+    final String WSK_DROPZONE   = 'wsk-dropzone';
+    final String WSK_DRAGGABLE  = 'wsk-draggable';
+
+    final String DRAGGABLE      = 'dnd-draggable';
+    final String OVER           = 'dnd-over';
+    final String INVALID        = 'dnd-invalid';
+
+    const _DNDCssClasses();
+}
+
+
 
 @Injectable()
-class DragDropDataService {
-    Function onDragSuccessCallback;
-    var draggableData;
+class DragInfo {
+    var data;
     List<String> allowedDropZones = [];
 }
 
-@Injectable()
-class DragDropConfigService {
-    DragDropConfig config = new DragDropConfig();
-}
+class WskDragDropModule extends Module {
+    WskDragDropModule() {
+        bind(DragInfo);
 
-class DragDropConfig {
-    DragImage dragImage;
-
-    DataTransferEffect dragEffect = DataTransferEffect.MOVE;
-    DataTransferEffect dropEffect = DataTransferEffect.MOVE;
-
-    String dragCursor = "move";
-    String onDragStartClass         = "ui-drag-start";
-    String onDragEnterClass         = "ui-drag-enter";
-    String onDragEnterInvalidClass  = "ui-drag-enter-invalid";
-    String onDragOverClass          = "ui-drag-over";
-}
-
-class DragImage {
-    html.Element imageElement;
-    int x_offset;
-    int y_offset;
-
-    DragImage(this.imageElement, {this.x_offset : 0, this.y_offset : 0}) {
-    }
-
-}
-
-class DataTransferEffect {
-
-    static const COPY = const DataTransferEffect('copy');
-    static const LINK = const DataTransferEffect('link');
-    static const MOVE = const DataTransferEffect('move');
-    static const NONE = const DataTransferEffect('none');
-
-    static const values = const <DataTransferEffect>[COPY, LINK, MOVE, NONE];
-
-    final String name;
-
-    const DataTransferEffect(this.name);
-}
-
-class DragDropModule extends Module {
-    DragDropModule() {
-        bind(DragDropDataService);
-        bind(DragDropConfigService);
-        bind(DraggableComponent);
-        bind(DroppableComponent);
+        bind(WskDraggableComponent);
+        bind(WskDropZoneComponent);
     }
 }

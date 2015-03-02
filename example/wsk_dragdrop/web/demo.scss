@@ -1,45 +1,114 @@
 @import "packages/wsk_angular/sass/wsk_styleguide_demo_bp";
 @import "packages/wsk_angular/sass/wsk_demo/wsk_demo";
 
-.ui-drag-over {
-    transition: background 0.3s ease;
+@import "packages/wsk_angular/sass/wsk_dragdrop/wsk_dragdrop";
 
-    border: 2px dashed #1c691b !important;
-    border-radius: 5px;
-    background-color: rgba(149, 255, 149,0.6) !important;;
+.dragdrop.sample {
+    .danddcontainer {
+        display        : flex;
+        flex-direction : column;
+        flex-wrap      : wrap;
+        max-width      : 500px;
+    }
+
+    .accept {
+        display         : flex;
+        flex-direction  : row;
+        flex-wrap       : wrap;
+        flex-grow       : 1;
+        justify-content : space-between;
+    }
+
+    .source, .programming, .natural, .trash .language {
+        display         : flex;
+        flex-direction  : row;
+        flex-wrap       : wrap;
+        justify-content : flex-start;
+        padding         : 10px 10px 0 0;
+        align-items     : center;
+    }
+
+    .langbox {
+        min-width  : 200px;
+        box-sizing : border-box;
+    }
+
+    .choose .source {
+        min-height : 100px;
+        min-width  : 250px;
+        margin     : 0 0 10px 0;
+        border     : 1px solid green;
+    }
+
+    .programming, .natural {
+        flex-grow     : 1;
+        align-content : flex-start;
+        align-items   : flex-start;
+    }
+
+    .language {
+        border        : 1px solid gray;
+        border-radius : 3px;
+        margin        : 0 0 10px 10px;
+        width         : 70px;
+        height        : 20px;
+        padding       : 5px 10px 5px 10px;
+        overflow      : scroll;
+    }
+
+    .accept > div {
+        display        : flex;
+        flex-direction : column;
+        flex-grow      : 1;
+        margin         : 10px 0;
+        max-width      : 245px;
+        min-width      : 245px;
+    }
+
+    /*.accept > div:last-child {*/
+    /*margin-right: 0;*/
+    /*}*/
+
+    /*
+    Calc max-width:
+      body padding 24px!
+
+      200 [min-width flexbox] x 2 [nr of boxes] + 10 [margin for one box] + (24 x 2) [body padding] + 10 [margin box] */
+    @media screen and (max-width : 548px) {
+        .accept {
+            flex-direction : column;
+            align-items    : stretch;
+        }
+
+        .accept > div, .choose .source {
+            max-width : inherit;
+            min-width : inherit;
+        }
+    }
+
+    .accept > div {
+        min-height : 80px;
+    }
+
+    .natural, .programming {
+        flex-grow : 1;
+    }
+
+    .accept .natural {
+        border : 1px solid red;
+    }
+
+    .accept .programming {
+        border : 1px solid blue;
+    }
+
+    .trash .trashbox {
+        border : 1px solid black;
+        background-color: darkgray;
+        min-height: 80px;
+    }
 }
 
-.ui-drag-enter-invalid {
-    animation: swing 1s ease;
-    animation-iteration-count: 1;
-}
 
-@mixin keyframes-swing() {
-    15% {
-        transform: translateX(5px);
-    }
-    30% {
-        transform: translateX(-5px);
-    }
-    50% {
-        transform: translateX(3px);
-    }
-    65% {
-        transform: translateX(-3px);
-    }
-    80% {
-        transform: translateX(2px);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-@-webkit-keyframes swing {
-    @include keyframes-swing();
-}
-
-@keyframes swing {
-    @include keyframes-swing();
-}
 
 
