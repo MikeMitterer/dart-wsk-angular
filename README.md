@@ -9,14 +9,14 @@ based on the Material Design system.
 Web Starter Kit strives to give you a high performance starting point out of the box  
 Responsive layout is included with the kit that adapts to fit the device your user is viewing it on. 
 
-There are several [samples][allsamples] for you to play with.  
-
-You can also try out the samples in your regular browser:   
-**[wsk.angular.mikemitterer.at][live]**  
-  
 ![Screenshot styleguide][screenshot]
 
 ##Usage##
+There are several [samples][allsamples] for you to play with.    
+Please take a look at their [source code][samples][allsamples]
+
+You can also try out the samples in your regular browser:   
+**[wsk.angular.mikemitterer.at][live]**  
 
 If you have multiple views in your AngularDart application then don't forget to add these views 
 to pubspec.yaml (Check out the styleguide-sample)
