@@ -1,6 +1,7 @@
 library wsk_angular.example.wsk_dragdrop;
 
 import "dart:html" as html;
+import "dart:async";
 import "dart:js" as js;
 
 import 'package:angular/angular.dart';
@@ -8,6 +9,7 @@ import 'package:angular/application_factory.dart';
 
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
+import 'package:prettify/prettify.dart';
 
 import 'package:wsk_angular/wsk_dragdrop/wsk_dragdrop.dart';
 
@@ -146,7 +148,8 @@ class IncludeSource {
         _view = viewFactory(_childScope, directiveInjector);
         _view.nodes.forEach((node) => element.append(node));
 
-        //js.context.callMethod("prettyPrint");
+        prettyPrint();
+
         //var object = new js.JsObject(js.context['Object']);
 
     }

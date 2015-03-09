@@ -1,68 +1,307 @@
-<!doctype html>
-<html lang="">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Web Starter Kit - Material-Style for AngularDart</title>
-  <link href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
-  <style>
-    .script { padding-left: 1em; }
-    body {
-      font-family: "Roboto", Arial, "sans-serif";
-      font-size: 15px;;
-    }
-    a {
-      text-decoration: none;
-      min-width: 200px;
-      display: inline-block;
-    }
-    a:hover {
-      text-decoration: underline;
-      color: orangered;
-    }
-    .links { padding: 2em; }
-    .links div { margin-left: 1em; }
-  </style>
-</head>
-<body>
-<div class="PreviewBlock">
-  <h1>Web Starter Kit for Angular Dart - Samples</h1>
-  <p>The WSK-Angular project is an implementation of Material Design with AngularDart and Googles Web Starter Kit.<br>
-    <br>
-    This project provides a set of reusable and accessible UI components
-    based on the Material Design system.
-  </p>
-  <p>The source code is hosted on
-    <a href="https://github.com/MikeMitterer/dart-wsk-angular" target="_blank">GitHub</a>
-  </p>
-  <h2>Styleguide</h2>
-  <ul><li><a href="/styleguide/index.html">Styleguide</a></li></ul>
-  <h2>Smaller samples</h2>
-  <ol>
-    <li><a href="wsk_animation/index.html">wsk_animation</a></li>
-    <li><a href="wsk_accordion/index.html">wsk_accordion</a></li>
-    <li><a href="wsk_button/index.html">wsk_button</a></li>
-    <li><a href="wsk_checkbox/index.html">wsk_checkbox</a></li>
-    <li><a href="wsk_dialog/index.html">wsk_dialog</a></li>
-    <li><a href="wsk_icon_toggle/index.html">wsk_icon_toggle</a></li>
-    <li><a href="wsk_item/index.html">wsk_item</a></li>
-    <li><a href="wsk_layout/index.html">wsk_layout</a></li>
-    <li><a href="wsk_radio/index.html">wsk_radio</a></li>
-    <li><a href="wsk_slider/index.html">wsk_slider</a></li>
-    <li><a href="wsk_spinner/index.html">wsk_spinner</a></li>
-    <li><a href="wsk_switch/index.html">wsk_switch</a></li>
-    <li><a href="wsk_tabs/index.html">wsk_tabs</a></li>
-    <li><a href="wsk_textfield/index.html">wsk_textfield</a></li>
-    <li><a href="wsk_tooltip/index.html">wsk_tooltip</a></li>
-    <li><a href="wsk_dragdrop/index.html">wsk_dragdrop</a></li>
-  </ol>
-  <p>There is also a version without Angular available. Check it out on
-    <a href="http://wsk.mikemitterer.at">http://wsk.mikemitterer.at</a></p>
+<!DOCTYPE html>
+<html lang="en">
 
-  <p>Last update: <strong>{{lastupdate}}</strong></p>
+<head>
+    <title>Web Starter Kit for Angular + Dart - Material style</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="main.css">
+
+    <link rel="shortcut icon" href="assets/icons/favicon.ico"/>
+</head>
+
+<body>
+<div class="wsk-layout wsk-layout--fixed-header">
+    <div class="wsk-layout__header addscrollshadow">
+        <!-- Icon -->
+        <svg class="wsk-layout-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#ffffff" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+
+        <!-- Title -->
+        <span class="wsk-layout-title">Material style for Angular Dart</span>
+
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="wsk-layout-spacer"></div>
+
+        <!-- Navigation -->
+        <nav class="wsk-navigation">
+            <a class="wsk-navigation__link hide-on-mobile" href="#components">Components</a>
+            <a class="wsk-navigation__link hide-on-mobile" href="#sample_layouts">Sample layouts</a>
+            <a class="wsk-navigation__link hide-on-mobile" href="#theming">Theming</a>
+            <a class="wsk-navigation__link hide-on-mobile" href="#links">Links</a>
+        </nav>
+    </div>
+    <div class="wsk-layout__drawer">
+        <span class="wsk-layout-title">Sample layout</span>
+        <nav class="wsk-navigation">
+            <a class="wsk-navigation__link" href="#">Components</a>
+            <a class="wsk-navigation__link" href="#">Sample layouts</a>
+            <a class="wsk-navigation__link" href="#">Theming</a>
+            <a class="wsk-navigation__link" href="#">Links</a>
+        </nav>
+    </div>
+    <div class="wsk-layout__content" id="top">
+        <section>
+            <header><h3>Web Starter Kit, Material style for Angular / Dart</h3></header>
+            <p><strong>A port of Googles Web Starter Kit (Material branch) to Angular / Dart</strong><br>
+                <br>
+                Web Starter Kit strives to give you a high performance starting point out of the box
+                Responsive layout is included with the kit that adapts to fit the device your user is viewing it on.<br>
+                <strong>Delete-key friendly</strong><br>
+                Create a tailored starter kit by taking only what you need, and easily deleting anything you don't.
+            </p>
+            <p>The source code is hosted on
+                <a href="https://github.com/MikeMitterer/dart-wsk-angular" target="_blank">GitHub.</a>
+                Issues, ideas: <a href="https://github.com/MikeMitterer/dart-wsk-angular/issues">Issue-Tracker on GitHub</a>
+            </p>
+
+            <section class="components" id="components">
+                <article>
+                    <h4>Styleguide</h4>
+                    <p>The <a href="styleguide/index.html">Styleguide</a> shows all samples on one page.</p>
+                    <p>If you are not sure - this is your main entry point.</p>
+                </article>
+
+                <article>
+                    <h4>Components</h4>
+                    <div class="wsk-list--styled-view">
+                        <ul class="wsk-list--inline">
+                            <li>
+                                <a href="wsk_accordion/index.html">
+                                    <span class="wsk-list-view--avatar component script"></span>
+                                    <span class="wsk-list-view--name script">wsk-accordion</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="wsk_animation/index.html">
+                                    <span class="wsk-list-view--avatar component script"></span>
+                                    <span class="wsk-list-view--name script">wsk-animation</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="wsk_button/index.html">
+                                    <span class="wsk-list-view--avatar component script"></span>
+                                    <span class="wsk-list-view--name script">wsk-button</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="wsk_checkbox/index.html">
+                                    <span class="wsk-list-view--avatar component script"></span>
+                                    <span class="wsk-list-view--name script">wsk-checkbox</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="wsk_dialog/index.html">
+                                    <span class="wsk-list-view--avatar component script"></span>
+                                    <span class="wsk-list-view--name script">wsk-dialog</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="wsk_dragdrop/index.html">
+                                    <span class="wsk-list-view--avatar component script"></span>
+                                    <span class="wsk-list-view--name">wsk-dragdrop</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="wsk_icon_toggle/index.html">
+                                    <span class="wsk-list-view--avatar component script"></span>
+                                    <span class="wsk-list-view--name script">wsk-icon-toggle</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="wsk_item/index.html">
+                                    <span class="wsk-list-view--avatar component script"></span>
+                                    <span class="wsk-list-view--name script">wsk-item</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="wsk_layout/index.html">
+                                    <span class="wsk-list-view--avatar component script"></span>
+                                    <span class="wsk-list-view--name script">wsk-layout</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="wsk_radio/index.html">
+                                    <span class="wsk-list-view--avatar component script"></span>
+                                    <span class="wsk-list-view--name script">wsk-radio</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="wsk_slider/index.html">
+                                    <span class="wsk-list-view--avatar component script"></span>
+                                    <span class="wsk-list-view--name script">wsk-slider</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="wsk_spinner/index.html">
+                                    <span class="wsk-list-view--avatar component script"></span>
+                                    <span class="wsk-list-view--name script">wsk-spinner</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="wsk_switch/index.html">
+                                    <span class="wsk-list-view--avatar component script"></span>
+                                    <span class="wsk-list-view--name script">wsk-switch</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="wsk_tabs/index.html">
+                                    <span class="wsk-list-view--avatar component script"></span>
+                                    <span class="wsk-list-view--name script">wsk-tabs</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="wsk_textfield/index.html">
+                                    <span class="wsk-list-view--avatar component script"></span>
+                                    <span class="wsk-list-view--name script">wsk-textfield</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="wsk_tooltip/index.html">
+                                    <span class="wsk-list-view--avatar component script"></span>
+                                    <span class="wsk-list-view--name script">wsk-tooltip</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+
+            <section class="cards" id="sample_layouts">
+                <h4>Sample layouts</h4>
+                <article>
+                    <div class="wsk-card wsk-shadow--z1">
+                        <div class="wsk-card--img-container">
+                            <a href="layout-header-drawer/index.html"><img src="_images/card-headerfooter-330.jpg" alt=""/></a>
+                        </div>
+                        <div class="wsk-card--heading">
+                            <span class="wsk-card--heading-text">Fixed header, collapsible drawer for smaller screens, footer scrolls</span>
+                        </div>
+                        <div class="wsk-card--caption">
+                            Layout sample
+                        </div>
+                        <div class="wsk-card--lower">
+                            This layout comes with a fixed header.
+                            Always shows a header, even in smaller screens.
+                            At the end of the page you'll see a "mini-footer".
+                        </div>
+                        <div class="wsk-card--bottom">
+                            <a href="layout-header-drawer/index.html">Show me the sample</a>
+                        </div>
+                    </div>
+
+                    <div class="wsk-card wsk-shadow--z1">
+                        <div class="wsk-card--img-container">
+                            <a href="layout-header-drawer-footer/index.html"><img src="_images/card-bottombar-330.jpg" alt=""/></a>
+                        </div>
+                        <div class="wsk-card--heading">
+                            <span class="wsk-card--heading-text">
+                                Fixed header, collapsible drawer for smaller screens, fixed footer</span>
+                        </div>
+                        <div class="wsk-card--caption">
+                            Layout sample
+                        </div>
+                        <div class="wsk-card--lower">
+                            This layout comes with a fixed header and a fixed footer.
+                            Always shows a header, even in smaller screens.
+                            On smaller screens the "mini-footer" will be replaced by a "bottom-bar".
+                        </div>
+                        <div class="wsk-card--bottom">
+                            <a href="layout-header-drawer-footer/index.html">Show me the sample</a>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="theming" id="theming">
+                <h4>Theming</h4>
+                <p>Theming is very easy. This is your basic SCSS file:<br><br>
+                    main.scss:
+                    <pre>
+    1.  @import 'packages/wsk_material/sass/resets/h5bp';
+    2.  @import 'packages/wsk_material/sass/typography/typography';
+    3.  @import 'packages/wsk_material/sass/palette/palette';
+
+    4.  @import 'colors';
+
+    5.  @import 'packages/wsk_material/sass/layout/layout';
+            </pre>
+                Line 1 - 3 shows you basic imports from wsk_material.<br>
+                On line 4 you <span class="important">import your local "colors"</span> file.<br>
+                <br>
+                _colors.scss:
+                <pre>
+    1.  @import "packages/wsk_material/sass/palette/palette";
+
+    2.  /* ==========  Color & Themes  ========== */
+
+    3.  // Use color primarily for emphasis. Choose colors that fit with
+    4.  // your brand and provide good contrast between visual components.
+
+    5.  $palette-primary: $palette-indigo !default;
+    6.  $palette-accent: $palette-pink !default;
+    7.  $palette-secondary: $palette-grey !default;
+    8.  $palette-disabled: $palette-grey !default;
+    9.  $palette-page: $palette-grey !default;
+        ...
+                </pre>
+                Now <span class="important">change the <a href="/styleguide/index.html#/pallet" target="_blank">pallets-name</a></span><br>
+                Yes - <span class="important">that's it!</span> Compile your sass-file and you are done!
+                </p>
+
+                <p>If you want to know how to theme your SVG-Icons - check out this files
+                    <a href="https://github.com/MikeMitterer/dart-wsk-material/blob/master/example/main.scss" target="_blank">main.scss</a> (svgShapeComponent)</p>
+
+            </section>
+
+            <section class="links" id="links">
+                <h6>Base-Project</h6>
+                <p>If you don't need Angular there is a pure Dart version for you. Check it out:
+                    <a href="http://wsk.mikemitterer.at">http://wsk.mikemitterer.at</a>
+                </p>
+
+                <h6>More links</h6>
+                <ul>
+                    <li><a href="http://google.github.io/material-design-icons/">Googles Material Design Icons - SVG preview</a></li>
+                    <li><a href="https://developers.google.com/web/starter-kit/">Web Starter Kit</a></li>
+                    <li><a href="http://www.google.com/design/spec/material-design/">Material design - specifications</a></li>
+                </ul>
+            </section>
+        </section>
+        <footer class="wsk-mini-footer-flex">
+            <div class="wsk-mini-footer--left-section">
+                <div>Last update: <strong>{{lastupdate}}</strong></div>
+                <!--<div class="wsk-logo">-->
+                    <!--<strong>Sample layout</strong>-->
+                <!--</div>-->
+                <!--<ul class="wsk-mini-footer&#45;&#45;link-list">-->
+                    <!--<li><a href="#" target="_blank" class="hide-on-mobile">Link</a></li>-->
+                <!--</ul>-->
+            </div>
+            <div class="wsk-mini-footer--right-section">
+                <ul class="wsk-mini-footer--link-list">
+                    <li><a href="http://www.mikemitterer.at" target="_blank">www.MikeMitterer.at</a></li>
+                </ul>
+
+                <!--<button class="wsk-mini-footer&#45;&#45;social-btn hide-on-mobile"></button>-->
+                <!--<button class="wsk-mini-footer&#45;&#45;social-btn"></button>-->
+                <!--<button class="wsk-mini-footer&#45;&#45;social-btn"></button>-->
+                <!--<button class="wsk-mini-footer&#45;&#45;social-btn"></button>-->
+            </div>
+        </footer>
+    </div>
 </div>
+</div>
+<!--<script type="application/dart" src="main.dart"></script>-->
+<!--<script data-pub-inline src="packages/browser/dart.js"></script>-->
 </body>
 </html>
-

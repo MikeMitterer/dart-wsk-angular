@@ -1,8 +1,11 @@
-name: wsk_angular_dragdrop_sample
-description: WSK Angular Drag & Drop sample
-version: 0.1.0
-author: Mike Mitterer <office@mikemitterer.at>
-homepage: https://github.com/MikeMitterer/dart-wsk-angular
+name: wsk_angular_layout_header_drawer_footer_sample
+version: 0.0.1
+description: An absolute bare-bones web app.
+#author: <your name> <email@example.com>
+#homepage: https://www.example.com
+
+environment:
+  sdk: '>=1.0.0 <2.0.0'
 
 dependencies:
   browser: any
@@ -12,11 +15,9 @@ dependencies:
   wsk_angular:
     path: ../../
 
+
 dev_dependencies:
   unittest: any
-
-  prettify:
-    path: /Volumes/Daten/DevLocal/DevDart/Prettify
 
 #------------------------------------------------
 transformers:
@@ -31,3 +32,5 @@ transformers:
 - $dart2js:
     minify: false
     sourceMaps: true
+
+

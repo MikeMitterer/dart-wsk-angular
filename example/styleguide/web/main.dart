@@ -341,49 +341,58 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
                 ..addRoute(name: 'firstsub', path: '/sub', enter: view('views/firstsub.html'))
         )
 
+        // Getting started
+        ..addRoute(name: "gettingstarted", path: "/gettingstarted", enter: view("views/gettingstarted.html"))
+
+
+        // Components
         ..addRoute(name: "accordion", path: "/accordion", enter: view("views/accordion.html"))
-
-        ..addRoute(name: "button", path: "/button", enter: view("views/button.html"))
-
-        ..addRoute(name: "typography", path: "/typography", enter: view("views/typography.html"))
-
-        ..addRoute(name: "list", path: "/list", enter: view("views/list.html"))
 
         ..addRoute(name: "animation", path: "/animation", enter: view("views/animation.html"))
 
-        ..addRoute(name: "tabs", path: "/tabs", enter: view("views/tabs.html"))
+        ..addRoute(name: "button", path: "/button", enter: view("views/button.html"))
 
         ..addRoute(name: "cards", path: "/cards", enter: view("views/cards.html"))
 
         ..addRoute(name: "checkbox", path: "/checkbox", enter: view("views/checkbox.html"))
 
-        ..addRoute(name: "radio", path: "/radio", enter: view("views/radio.html"))
+        ..addRoute(name: "dialog", path: "/dialog", enter: view("views/dialog.html"))
+
+        ..addRoute(name: "drag & drop", path: "/draganddrop", enter: view("views/draganddrop.html"))
 
         ..addRoute(name: "dropdown", path: "/dropdown", enter: view("views/dropdown.html"))
 
-        ..addRoute(name: "dialog", path: "/dialog", enter: view("views/dialog.html"))
+        ..addRoute(name: "footer", path: "/footer", enter: view("views/footer.html"))
 
         ..addRoute(name: "icon-toggle", path: "/icon-toggle", enter: view("views/icon-toggle.html"))
 
         ..addRoute(name: "item", path: "/item", enter: view("views/item.html"))
 
+        ..addRoute(name: "list", path: "/list", enter: view("views/list.html"))
+
         ..addRoute(name: "pallet", path: "/pallet", enter: view("views/pallet.html"))
 
-        ..addRoute(name: "slider", path: "/slider", enter: view("views/slider.html"))
-
-        ..addRoute(name: "spinner", path: "/spinner", enter: view("views/spinner.html"))
-
-        ..addRoute(name: "tooltip", path: "/tooltip", enter: view("views/tooltip.html"))
-
-        ..addRoute(name: "textfield", path: "/textfield", enter: view("views/textfield.html"))
+        ..addRoute(name: "radio", path: "/radio", enter: view("views/radio.html"))
 
         ..addRoute(name: "shadow", path: "/shadow", enter: view("views/shadow.html"))
 
+        ..addRoute(name: "spinner", path: "/spinner", enter: view("views/spinner.html"))
+
+        ..addRoute(name: "slider", path: "/slider", enter: view("views/slider.html"))
+
         ..addRoute(name: "switch", path: "/switch", enter: view("views/switch.html"))
 
-        ..addRoute(name: "drag & drop", path: "/draganddrop", enter: view("views/draganddrop.html"))
+        ..addRoute(name: "tabs", path: "/tabs", enter: view("views/tabs.html"))
 
-        ..addRoute(name: "footer", path: "/footer", enter: view("views/footer.html")
+        ..addRoute(name: "textfield", path: "/textfield", enter: view("views/textfield.html"))
+
+        ..addRoute(name: "tooltip", path: "/tooltip", enter: view("views/tooltip.html"))
+
+        ..addRoute(name: "typography", path: "/typography", enter: view("views/typography.html"))
+
+        // Theming
+        ..addRoute(name: "theming", path: "/theming", enter: view("views/theming.html")
+
 
     );
     // @formatter:on

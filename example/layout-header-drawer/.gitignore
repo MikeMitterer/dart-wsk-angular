@@ -5,7 +5,3 @@
 build/
 packages
 pubspec.lock
-*.temp
-*.tmp
-*.css
-.bs

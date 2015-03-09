@@ -26,6 +26,9 @@ transformers:
     # List is necessary because of this bug: http://goo.gl/4Rb3wr
     html_files: [
       'web/index.html',
+
+      'web/views/gettingstarted.html',
+
       'web/views/accordion.html',
       'web/views/animation.html',
       'web/views/button.html',
@@ -49,7 +52,9 @@ transformers:
       'web/views/tabs.html',
       'web/views/textfield.html',
       'web/views/tooltip.html',
-      'web/views/typography.html'
+      'web/views/typography.html',
+
+      'web/views/theming.html'
       ]
 
 - $dart2js:

@@ -20,7 +20,7 @@ class WskDraggableComponent {
         _component.classes.add(_cssClasses.WSK_DRAGGABLE);
         _component.classes.add(_cssClasses.DRAGGABLE);
 
-        _draggable = new Draggable( _component,avatarHandler: new AvatarHandler.clone());
+        _draggable = new Draggable(_component, avatarHandler: new AvatarHandler.clone());
 
         _draggable.onDragStart.listen(_onDragStart);
         _draggable.onDragEnd.listen(_onDragEnd);
@@ -45,7 +45,7 @@ class WskDraggableComponent {
     // -- private ---------------------------------------------------------------------------------
 
     void _onDragStart(final DraggableEvent event) {
-        _logger.info("_onDragStart");
+        _logger.info("_onDragStart ${event}");
         if (_isDisabled) {
             return;
         }

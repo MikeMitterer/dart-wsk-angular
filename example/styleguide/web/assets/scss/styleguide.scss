@@ -101,6 +101,11 @@ $card-width: 310px;
 
 $padding: 24px;
 
+//button:focus { outline: 0 !important; }
+button {
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+}
+
 html, body {
     margin     : 0;
     padding    : 0;

@@ -1,6 +1,7 @@
 library wsk_angular.wsk_dragdrop;
 
 import 'dart:html' as html;
+import 'dart:async';
 
 import "package:angular/angular.dart";
 import 'package:angular/core/annotation_src.dart';
