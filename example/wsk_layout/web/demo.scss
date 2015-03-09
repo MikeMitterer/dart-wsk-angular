@@ -1,9 +1,14 @@
 @import 'packages/wsk_angular/sass/wsk_styleguide_demo_bp';
+@import "packages/wsk_angular/sass/wsk_demo/wsk_demo";
+
 @import 'packages/wsk_angular/sass/wsk_layout/wsk_layout';
 @import 'packages/wsk_angular/sass/wsk_textfield/wsk_textfield';
 @import 'packages/wsk_angular/sass/wsk_animation/wsk_animation';
 @import 'packages/wsk_angular/sass/wsk_palette/wsk_palette';
 
+body {
+    margin: 24px;
+}
 .demo-container {
   width: 100%;
   float: left;

@@ -10,31 +10,20 @@
     <link rel="stylesheet" href="demo.css">
 
     <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
-    <style>
-      body[ng-cloak] .angular-controlled {
-        display : none;
-      }
-
-      .dialog.sample .preview-block {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .dialog.sample .status {
-        padding: 24px;
-        font-weight: bold;
-      }
-    </style>
 </head>
 <body ng-cloak >
-  <div class="angular-controlled dialog sample">
-    <div class="preview-block">
-      <wsk-button ng-click="openAlertDialog()">Alert Dialog</wsk-button>
-      <wsk-button ng-click="openAlertDialogWithTitle()">Alert with title</wsk-button>
-      <wsk-button ng-click="openConfirmDialog()">Confirm Dialog</wsk-button>
-      <wsk-button ng-click="openCustomDialog()">Custom Dialog</wsk-button>
+  <div class="angular-controlled">
+    <div class="preview-block dialog sample">
+      <h5>Dialog</h5>
 
-      <div class="status">Status: {{statusMessage}}</div>
+        <div class="center">
+            <wsk-button ng-click="openAlertDialog()">Alert Dialog</wsk-button>
+            <wsk-button ng-click="openAlertDialogWithTitle()">Alert with title</wsk-button>
+            <wsk-button ng-click="openConfirmDialog()">Confirm Dialog</wsk-button>
+            <wsk-button ng-click="openCustomDialog()">Custom Dialog</wsk-button>
+        </div>
+        <div class="status">Status:<br>
+            {{statusMessage}}</div>
     </div>
   </div>
 

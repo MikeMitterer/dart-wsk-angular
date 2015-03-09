@@ -12,37 +12,12 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
   <link rel="stylesheet" href="demo.css">
-  <style>
-    body[ng-cloak] .angular-controlled {
-      display : none;
-    }
-    span i.fa { font-size: 20px; }
-    .values { padding: 10px 20px; }
-    .color-chooser {
-      flex-grow: 1;
-
-      box-sizing: border-box;
-      padding: 18px 0 0 10px;
-      margin: 5px 30px;
-      border: 1px solid gray;
-      border-radius: 5px;
-      font-size: 15px;
-    }
-    .color-chooser wsk-slider .wsk-slider__container {
-      top: -18px;
-    }
-    .cols {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-    .cols .logo { padding: 20px 0 0 20px; }
-  </style>
 </head>
 <body ng-cloak>
 <div class="angular-controlled">
+  <div class="preview-block slider sample">
+    <h5>Slider</h5>
 
-  <div class="preview-block">
     <wsk-slider></wsk-slider>
     <wsk-slider value="10"></wsk-slider>
     <wsk-slider min="0" max="100" value="0" disabled></wsk-slider>

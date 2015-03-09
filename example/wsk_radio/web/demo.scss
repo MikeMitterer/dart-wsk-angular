@@ -1,4 +1,6 @@
 @import "packages/wsk_angular/sass/wsk_styleguide_demo_bp";
+@import "packages/wsk_angular/sass/wsk_demo/wsk_demo";
+
 @import "packages/wsk_angular/sass/wsk_radio/wsk_radio";
 
 // Necessary for Add + Remove Button
@@ -7,7 +9,7 @@
 
 $_demo-radio-first_col_with : 280px;
 $_demo-radio-col_padding : 10px;
-.preview-block {
+.radio.sample {
     .selected {
         color: $radio-color;
     }

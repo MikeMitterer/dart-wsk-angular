@@ -556,6 +556,32 @@ body > h2 {
   background: #f5f5f5;
   padding: 20px; }
 
+/*
+    Some global styles for all the samples
+-------------------------------------------------------------------------- */
+.sample {
+  padding-bottom: 2em; }
+  .sample > h1, .sample > h2, .sample > h3, .sample > h4, .sample > h5, .sample > h6 {
+    padding-top: 0.6em;
+    padding-bottom: 0.3em; }
+    .sample > h1:first-child, .sample > h2:first-child, .sample > h3:first-child, .sample > h4:first-child, .sample > h5:first-child, .sample > h6:first-child {
+      padding-top: 0; }
+
+/*
+    Angular and LoadChecker (loadindicator) related
+-------------------------------------------------------------------------- */
+body.debug.loadchecker {
+  border: 5px solid red; }
+
+.loadindicator, body[ng-cloak] .angular-controlled, body.ng-cloak .angular-controlled, body.loadchecker .angular-controlled {
+  display: none; }
+
+body[ng-cloak] .loadindicator.angular, body.ng-cloak .loadindicator.angular, body.loadchecker .loadindicator.wsk {
+  display: block; }
+
+.preview-block.sample {
+  margin: 24px; }
+
 .wsk-shadow--z1 {
   box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
 
@@ -1132,6 +1158,6 @@ dt {
   .wsk-button[disabled] .wsk-button__ripple-container .wsk-ripple {
     background-color: transparent; }
 
-.button-block {
+.button.sample .button-block {
   display: inline-block;
   margin: 20px 20px 20px 0; }

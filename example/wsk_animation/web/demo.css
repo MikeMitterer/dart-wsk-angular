@@ -556,6 +556,32 @@ body > h2 {
   background: #f5f5f5;
   padding: 20px; }
 
+/*
+    Some global styles for all the samples
+-------------------------------------------------------------------------- */
+.sample {
+  padding-bottom: 2em; }
+  .sample > h1, .sample > h2, .sample > h3, .sample > h4, .sample > h5, .sample > h6 {
+    padding-top: 0.6em;
+    padding-bottom: 0.3em; }
+    .sample > h1:first-child, .sample > h2:first-child, .sample > h3:first-child, .sample > h4:first-child, .sample > h5:first-child, .sample > h6:first-child {
+      padding-top: 0; }
+
+/*
+    Angular and LoadChecker (loadindicator) related
+-------------------------------------------------------------------------- */
+body.debug.loadchecker {
+  border: 5px solid red; }
+
+.loadindicator, body[ng-cloak] .angular-controlled, body.ng-cloak .angular-controlled, body.loadchecker .angular-controlled {
+  display: none; }
+
+body[ng-cloak] .loadindicator.angular, body.ng-cloak .loadindicator.angular, body.loadchecker .loadindicator.wsk {
+  display: block; }
+
+.preview-block.sample {
+  margin: 24px; }
+
 /* We're splitting fonts into "preferred" and "performance" in order to optimize
    page loading. For important text, such as the body, we want it to load
    immediately and not wait for the web font load, whereas for other sections,
@@ -1092,82 +1118,72 @@ dt {
 .wsk-shadow--z5 {
   box-shadow: 0 19px 19px 0 rgba(0, 0, 0, 0.3), 0 15px 6px 0 rgba(0, 0, 0, 0.22); }
 
-.PreviewBlock {
+.animation.sample {
   height: 200px;
   padding: 0;
   background: none; }
-
-.demo-animate-container {
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  width: 300px;
-  height: 100%;
-  text-align: center;
-  background-color: #ddd; }
-
-.demo-animate-container--foreground {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 100; }
-
-.demo-animate-container--background {
-  line-height: 200px;
-  z-index: -100; }
-
-.demo-position-1 {
-  left: -102px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
-
-.demo-position-2 {
-  left: 20px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
-
-.demo-position-3 {
-  left: 180px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-
-.demo-position-4 {
-  left: 302px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
-
-.demo-position-5 {
-  left: 180px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
-
-.demo-position-6 {
-  left: 20px;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
-
-.demo-paper-card {
-  background-color: red;
-  border-radius: 2px;
-  display: block;
-  height: 100px;
-  width: 100px;
-  position: absolute;
-  top: 50px;
-  -webkit-transition-property: left;
-          transition-property: left; }
+  .animation.sample .demo-animate-container {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 300px;
+    height: 100%;
+    text-align: center;
+    background-color: #ddd; }
+  .animation.sample .demo-animate-container--foreground {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100; }
+  .animation.sample .demo-animate-container--background {
+    line-height: 200px;
+    z-index: -100; }
+  .animation.sample .demo-position-1 {
+    left: -102px;
+    -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+            transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+  .animation.sample .demo-position-2 {
+    left: 20px;
+    -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+    -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+  .animation.sample .demo-position-3 {
+    left: 180px;
+    -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  .animation.sample .demo-position-4 {
+    left: 302px;
+    -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+            transition-timing-function: cubic-bezier(0.4, 0, 1, 1); }
+  .animation.sample .demo-position-5 {
+    left: 180px;
+    -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+    -webkit-transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+  .animation.sample .demo-position-6 {
+    left: 20px;
+    -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+    -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+  .animation.sample .demo-paper-card {
+    background-color: red;
+    border-radius: 2px;
+    display: block;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 50px;
+    -webkit-transition-property: left;
+            transition-property: left; }

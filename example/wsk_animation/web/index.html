@@ -9,21 +9,20 @@
     <link rel="stylesheet" href="demo.css">
     <link href="//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
           rel="stylesheet">
-    <style>
-        body[ng-cloak] .angular-controlled {
-            display : none;
-        }
-    </style>
 </head>
 <body ng-cloak>
 <div class="angular-controlled">
-    <wsk-animation class="PreviewBlock">
-        <div class="demo-animate-container">
-            <div class="demo-animate-container--background">Click me to animate</div>
-            <div class="demo-animate-container--foreground"></div>
-            <div class="demo-paper-card wsk-shadow--z1 demo-position-1 demo-js-movable-area"></div>
-        </div>
-    </wsk-animation>
+    <div class="preview-block animation sample">
+        <h5>Animation</h5>
+
+        <wsk-animation>
+            <div class="demo-animate-container">
+                <div class="demo-animate-container--background">Click me to animate</div>
+                <div class="demo-animate-container--foreground"></div>
+                <div class="demo-paper-card wsk-shadow--z1 demo-position-1 demo-js-movable-area"></div>
+            </div>
+        </wsk-animation>
+    </div>
     <!-- build:js(app/styleguide/animation/) ../../scripts/main.min.js -->
     <!-- <script src="../wskComponentHandler.js"></script> -->
     <!-- <script src="animation.js"></script> -->

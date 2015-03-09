@@ -1,2 +1,28 @@
 @import "packages/wsk_angular/sass/wsk_styleguide_demo_bp";
+@import "packages/wsk_angular/sass/wsk_demo/wsk_demo";
+
 @import "packages/wsk_angular/sass/wsk_slider/wsk_slider";
+
+.slider.sample {
+    span i.fa { font-size: 20px; }
+    .values { padding: 10px 20px; }
+    .color-chooser {
+        flex-grow: 1;
+
+        box-sizing: border-box;
+        padding: 18px 0 0 10px;
+        margin: 5px 30px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+    .color-chooser wsk-slider .wsk-slider__container {
+        top: -18px;
+    }
+    .cols {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .cols .logo { padding: 20px 0 0 20px; }
+}

@@ -1,54 +1,85 @@
 <section class="content">
     <article class="accordion sample">
-      <div class="preview-block sample">
-        <h5>Accordion (checkbox-style)</h5>
-        <wsk-accordion-group>
-          <wsk-accordion label="Test1" header="header1">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.
-          </wsk-accordion>
-          <wsk-accordion label="Test2" header="header2">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.
-          </wsk-accordion>
-        </wsk-accordion-group>
+        <div class="preview-block">
+            <h5>Accordion (checkbox-style)</h5>
+            <wsk-accordion-group>
+                <wsk-accordion label="Test1" header="header1">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias
+                    modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis
+                    velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit
+                    amet.
+                </wsk-accordion>
+                <wsk-accordion label="Test2" header="header2">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias
+                    modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis
+                    velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit
+                    amet.
+                </wsk-accordion>
+            </wsk-accordion-group>
 
-        <h5>Accordion (radio-style)</h5>
+            <h5>Accordion (radio-style)</h5>
 
-        <wsk-accordion-group type="radio" >
-          <wsk-accordion label="Test1">
-            No header ist set<br>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.
-          </wsk-accordion>
-          <wsk-accordion label="Test2" header="header2">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.
-          </wsk-accordion>
-        </wsk-accordion-group>
-      </div>
+            <wsk-accordion-group type="radio">
+                <wsk-accordion label="Test1">
+                    No header ist set<br>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias
+                    modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis
+                    velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit
+                    amet.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias
+                    modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis
+                    velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit
+                    amet.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias
+                    modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis
+                    velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit
+                    amet.
+                </wsk-accordion>
+                <wsk-accordion label="Test2" header="header2">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias
+                    modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis
+                    velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit
+                    amet.
+                </wsk-accordion>
+            </wsk-accordion-group>
 
-      <div class="preview-block advanced sample">
-        <h5>Custom label</h5>
-        <wsk-accordion-group>
-          <wsk-accordion>
-            <wsk-accordion-label>
-          <span class="toolbar">
-            <i class="fa fa-star-o" ng-class="{'checked' : rating >= 1}" ng-click="setRating($event,1)"></i>
-            <i class="fa fa-star-o" ng-class="{'checked' : rating >= 2}" ng-click="setRating($event,2)"></i>
-            <i class="fa fa-star-o" ng-class="{'checked' : rating >= 3}" ng-click="setRating($event,3)"></i>
-            <i class="fa fa-star-o" ng-class="{'checked' : rating >= 4}" ng-click="setRating($event,4)"></i>
-            <i class="fa fa-star-o" ng-class="{'checked' : rating >= 5}" ng-click="setRating($event,5)"></i>
-          </span>
-              <span class="custom-label">Rate me!</span>
-              <i class="fa fa-chevron-right indicator"></i>
-            </wsk-accordion-label>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.
-          </wsk-accordion>
-          <wsk-accordion label="Test2" header="header2">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet.
-          </wsk-accordion>
-        </wsk-accordion-group>
-      </div>
+            <div class="advanced sample">
+                <h5>Custom label</h5>
+                <wsk-accordion-group>
+                    <wsk-accordion>
+                        <wsk-accordion-label>
+                          <span class="toolbar">
+                            <i class="fa fa-star-o" ng-class="{'checked' : rating >= 1}" ng-click="setRating($event,1)"></i>
+                            <i class="fa fa-star-o" ng-class="{'checked' : rating >= 2}" ng-click="setRating($event,2)"></i>
+                            <i class="fa fa-star-o" ng-class="{'checked' : rating >= 3}" ng-click="setRating($event,3)"></i>
+                            <i class="fa fa-star-o" ng-class="{'checked' : rating >= 4}" ng-click="setRating($event,4)"></i>
+                            <i class="fa fa-star-o" ng-class="{'checked' : rating >= 5}" ng-click="setRating($event,5)"></i>
+                          </span>
+                            <span class="custom-label">Rate me!</span>
+                            <i class="fa fa-chevron-right indicator"></i>
+                        </wsk-accordion-label>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe
+                        molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit
+                        perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Lorem ipsum dolor sit amet.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe
+                        molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit
+                        perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Lorem ipsum dolor sit amet.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe
+                        molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit
+                        perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Lorem ipsum dolor sit amet.
+                    </wsk-accordion>
+                    <wsk-accordion label="Test2" header="header2">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto possimus at a cum saepe
+                        molestias modi illo facere ducimus voluptatibus praesentium deleniti fugiat ab error quia sit
+                        perspiciatis velit necessitatibus.Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Lorem ipsum dolor sit amet.
+                    </wsk-accordion>
+                </wsk-accordion-group>
+            </div>
+        </div>
+
     </article>
 </section>

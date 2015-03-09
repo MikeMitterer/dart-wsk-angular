@@ -10,16 +10,11 @@
     <link rel="stylesheet" href="demo.css">
 
     <link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
-    <style>
-      body[ng-cloak] .angular-controlled {
-        display : none;
-      }
-    </style>
 </head>
 <body ng-cloak >
-  <div class="angular-controlled textfield sample">
-    <h5>Basic</h5>
-    <div class="preview-block">
+  <div class="angular-controlled">
+    <div class="preview-block textfield sample">
+      <h5>Textfield</h5>
       <form action="#">
         <div class="cols">
           <!-- ----------  First Col ------------>
@@ -98,11 +93,11 @@
               <wsk-textfield floating-label>Expandable Input</wsk-textfield>
             </wsk-textfield-container>        </div>
         </div>
-        <wsk-button raised ng-click="onSubmit($event)">Submit</wsk-button> Shows form-values as console output
+        <wsk-button raised ng-click="onSubmit($event)">Submit</wsk-button><br>
+          Shows form-values as console output
       </form>
-    </div>
-    <h5>Advanced</h5>
-    <div class="preview-block">
+
+      <h5>Advanced</h5>
       <wsk-textfield-container>
         <wsk-textfield ng-class="{'is-disabled':disableInputField}">hhh
           <span ng-if="disableInputField">I'm Disabled via class</span>

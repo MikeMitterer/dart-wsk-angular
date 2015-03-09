@@ -11,33 +11,11 @@
 
   <link href='//fonts.googleapis.com/css?family=RobotoDraft:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <style>
-        body[ng-cloak] .angular-controlled {
-            display : none;
-        }
-
-        ul {
-            padding: 0;
-            margin: 0;
-            list-style-type: none;
-        }
-        span {
-            padding-left : 6px;
-        }
-
-        .cols {
-            display: flex;
-            flex-direction: row;
-        }
-        .cols > div {
-            padding: 10px;
-        }
-    </style>
-
 </head>
 <body ng-cloak>
 <div class="angular-controlled">
-  <div class="preview-block">
+  <div class="preview-block icon-toggle sample">
+    <h5>Icon toggle</h5>
     <div class="button-block">
         <div class="cols">
             <div>
@@ -47,7 +25,7 @@
                     <li><wsk-icon-toggle ng-model="toggleTwo" ng-true-value="'girl'" ng-false-value="'boy'">♣</wsk-icon-toggle> Sex: {{toggleTwo}}</li>
                     <li><wsk-icon-toggle ng-model="toggleThree" ng-true-value="'in bed'" ng-false-value="'awake'">
                         <i class="fa fa-bed"></i>
-                    </wsk-icon-toggle><span>you are: {{toggleThree}}</span></li>
+                    </wsk-icon-toggle><span>{{toggleThree}}</span></li>
                 </ul>
             </div>
             <div>
@@ -57,12 +35,12 @@
                     <li><wsk-icon-toggle ng-model="toggleTwo" ng-true-value="'girl'" ng-false-value="'boy'">♣</wsk-icon-toggle> Sex: {{toggleTwo}}</li>
                     <li><wsk-icon-toggle ng-model="toggleThree" ng-true-value="'in bed'" ng-false-value="'awake'">
                         <i class="fa fa-bed"></i>
-                    </wsk-icon-toggle><span>you are: {{toggleThree}}</span></li>
+                    </wsk-icon-toggle><span>{{toggleThree}}</span></li>
                 </ul>
             </div>
         </div>
 
-    <h2>Disabled</h2>
+    <h5>Disabled</h5>
 
         <div class="button-block">
             <wsk-icon-toggle ng-model="toggleOne" disabled>♠</wsk-icon-toggle>

@@ -1,8 +1,12 @@
 @import "packages/wsk_angular/sass/wsk_styleguide_demo_bp";
+@import "packages/wsk_angular/sass/wsk_demo/wsk_demo";
+
 @import "packages/wsk_angular/sass/wsk_shadow/wsk_shadow";
 @import "packages/wsk_angular/sass/wsk_button/wsk_button";
 
-.button-block {
-  display: inline-block;
-  margin: 20px 20px 20px 0;
+.button.sample {
+    .button-block {
+        display: inline-block;
+        margin: 20px 20px 20px 0;
+    }
 }

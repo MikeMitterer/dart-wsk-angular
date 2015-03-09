@@ -11,16 +11,11 @@
           rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="demo.css">
-
-    <style>
-        body[ng-cloak] .angular-controlled {
-            display : none;
-        }
-    </style>
 </head>
 <body ng-cloak>
 <div class="angular-controlled">
-    <div class="preview-block">
+    <div class="preview-block checkbox sample">
+        <h5>Checkbox</h5>
 
         <wsk-checkbox ng-model="checkOne">Check me out: {{checkOne}}</wsk-checkbox>
         <wsk-checkbox ng-model="checkTwo" ng-true-value="'girl'" ng-false-value="'boy'">

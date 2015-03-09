@@ -1,4 +1,10 @@
 .accordion.sample {
+    .preview-block > h5:first-child {
+        margin-top: 0;
+    }
+
+    h5 { margin-top: 2em; }
+
     .toolbar {
         z-index: 99;
         position: absolute;

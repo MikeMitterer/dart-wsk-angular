@@ -11,16 +11,11 @@
         rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="demo.css">
-  <style>
-    body[ng-cloak] .angular-controlled {
-      display : none;
-    }
-  </style>
 </head>
 <body ng-cloak>
 <div class="angular-controlled">
-  <div class="preview-block">
-    <h5>Basic</h5>
+  <div class="preview-block spinner sample">
+    <h5>Spinner</h5>
     <p>
       Default:
       <wsk-spinner class="is-active"></wsk-spinner>
@@ -34,7 +29,7 @@
       <wsk-spinner active single-color></wsk-spinner>
     </p>
 
-    <h5>Toggle state</h5>
+    <h6>Toggle state</h6>
     <p>
       Current state: <span ng-if="activated">active</span><span ng-if="!activated">inactive</span>
       <wsk-spinner ng-class="{'is-active':activated}"></wsk-spinner>

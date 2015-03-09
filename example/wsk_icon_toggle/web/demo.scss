@@ -1,8 +1,29 @@
 @import "packages/wsk_angular/sass/wsk_styleguide_demo_bp";
+@import "packages/wsk_angular/sass/wsk_demo/wsk_demo";
+
 @import "packages/wsk_angular/sass/wsk_icon-toggle/wsk_icon-toggle";
 
-.button-block {
-  display: inline-block;
-  margin: 0 20px 20px 0;
+.icon-toggle.sample {
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+    }
+    span {
+        padding-left : 6px;
+    }
+
+    .cols {
+        display: flex;
+        flex-direction: row;
+    }
+    .cols > div {
+        padding: 10px;
+    }
+
+    .button-block {
+        display: inline-block;
+        margin: 0 20px 20px 0;
+    }
 }
 
