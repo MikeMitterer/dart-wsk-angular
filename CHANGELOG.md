@@ -1,6 +1,12 @@
 #Change Log for wsk_angular#
 Material Design for Angular App! Based on Googles Web Starter Kit - Material version
 
+##[v0.7.7](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.7.6...v0.7.7) - 2015-03-10##
+
+###Docs###
+* Theming added to styleguide [bec00e4](http://github.com/mikemitterer/dart-wsk-angular/commit/bec00e4323d6302184396d83aa3256ac9d6f4b6b)
+* Drawer in styleguide looks nicer [6ae8542](http://github.com/mikemitterer/dart-wsk-angular/commit/6ae8542a5e180e799fd01d79490340532b09c305)
+
 ##[v0.7.6](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.7.5...v0.7.6) - 2015-03-10##
 
 ###Docs###
