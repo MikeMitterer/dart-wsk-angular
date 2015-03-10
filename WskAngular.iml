@@ -5,11 +5,15 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/_images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer-footer/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer-footer/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer-footer/packages/wsk_angular" />
       <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer-footer/web/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer-footer/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer-footer/web/styles/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer/packages/wsk_angular" />
       <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer/web/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/layout-header-drawer/web/packages" />

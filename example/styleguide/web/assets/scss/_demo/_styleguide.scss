@@ -23,17 +23,29 @@
             }
         }
 
-        nav.wsk-navigation > a {
-            font-size: 16px;
-            padding-left: 16px;
-            color: $accordion-text-color;
-            line-height: 48px;
+        nav.wsk-navigation {
+            > a {
+                font-size: 16px;
+                padding-left: 16px;
+                color: $accordion-text-color;
+                line-height: 48px;
 
-            border-bottom: 1px solid $accordion-divider-color;
-            &.no-border {
-                border-bottom: none;
+                border-bottom: 1px solid $accordion-divider-color;
+                &.no-border {
+                    border-bottom: none;
+                }
+            }
+
+            .wsk-accordion .wsk-accordion--content {
+                padding: 0;
+
+                .wsk-navigation__link {
+                    padding-left: 48px;
+                }
+
             }
         }
+
 
         .wsk-navigation__link {
             padding: 2px 24px;

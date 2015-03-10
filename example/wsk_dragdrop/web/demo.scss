@@ -5,11 +5,16 @@
 
 .dragdrop.sample {
     .danddcontainer {
-        display        : flex;
+        display        : block;
         flex-direction : column;
         flex-wrap      : wrap;
         max-width      : 500px;
+        max-height     : 280px;
+
+        overflow       : scroll;
+        border: 1px dotted black;
     }
+
 
     .accept {
         display         : flex;

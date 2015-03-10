@@ -21,7 +21,7 @@ dependencies:
   console_log_handler: any
   #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
-  dnd: "0.1.4"
+  dnd: any
 
 dev_dependencies:
   unittest: any
