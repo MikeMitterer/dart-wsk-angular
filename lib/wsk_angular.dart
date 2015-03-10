@@ -15,6 +15,7 @@ import 'package:validate/validate.dart';
 import 'package:wsk_material/wskcore.dart';
 import 'package:wsk_material/wskcomponets.dart';
 
+part "src/UpgradableComponent.dart";
 part "src/WskAngularComponent.dart";
 part "src/WskAngularCheckbox.dart";
 

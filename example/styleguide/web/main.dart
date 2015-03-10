@@ -35,6 +35,7 @@ import 'package:wsk_angular/wsk_textfield/wsk_textfield.dart';
 
 import 'package:wsk_angular/wsk_dialog/wsk_dialog.dart';
 import 'package:wsk_angular_styleguide/custom_dialog/custom_dialog.dart';
+import 'package:wsk_angular_styleguide/pretty_print/pretty_print.dart';
 
 import 'package:wsk_angular/wsk_accordion/wsk_accordion.dart';
 import 'package:wsk_angular/wsk_dragdrop/wsk_dragdrop.dart';
@@ -427,6 +428,8 @@ class SampleModule extends Module {
 
         install(new WskAccordionModule());
         install(new WskDragDropModule());
+
+        install(new PrettyPrintModule());
 
         // because the styleguide-app hides ng-view with class="angular-controlled" for preloading
         // we need a LoadChecker-Instance to remove the loadchecker-class from body.

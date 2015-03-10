@@ -1,7 +1,42 @@
 <section class="content">
     <article class="theming sample">
         <div class="preview-block">
-            Comes asap!
+            <p>Theming is very easy. If this is your basic SCSS file:<br>
+                main.scss:
+                        <pre class="prettyprint linenums lang-dart" pretty-print>
+    @import "packages/wsk_angular/sass/wsk_resets/wsk_h5bp";
+    @import 'packages/wsk_angular/sass/wsk_typography/wsk_typography';
+    @import 'packages/wsk_angular/sass/wsk_palette/wsk_palette';
+
+    @import 'colors';
+
+    @import 'packages/wsk_angular/sass/wsk_layout/wsk_layout';
+        </pre>
+
+            Line 1 - 3 shows you basic imports from wsk_angular.<br>
+            On line 4 you <span class="important">import your local "colors"</span> file.<br>
+            <br>
+            _colors.scss:
+                <pre class="prettyprint linenums lang-dart" pretty-print>
+    @import "packages/wsk_angular/sass/wsk_palette/wsk_palette";
+
+    /* ==========  Color & Themes  ========== */
+
+    // Use color primarily for emphasis. Choose colors that fit with
+    // your brand and provide good contrast between visual components.
+
+    $palette-primary: $palette-indigo !default;
+    $palette-accent: $palette-pink !default;
+    $palette-secondary: $palette-grey !default;
+    $palette-disabled: $palette-grey !default;
+    $palette-page: $palette-grey !default;
+    ...</pre>
+            Now <span class="important">change the <a href="/styleguide/index.html#/pallet" target="_blank">pallets-name</a></span><br>
+            Yes - <span class="important">that's it!</span> Compile your sass-file and you are done!
+            </p>
+
+            <p>If you want to know how to theme your SVG-Icons - check out this files
+                <a href="https://github.com/MikeMitterer/dart-wsk-material/blob/master/example/main.scss" target="_blank">main.scss</a> (svgShapeComponent)</p>
         </div>
     </article>
 </section>

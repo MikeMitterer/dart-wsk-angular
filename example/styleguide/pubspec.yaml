@@ -12,6 +12,8 @@ dependencies:
   wsk_angular:
     path: ../../
 
+  prettify: any
+
 dev_dependencies:
   unittest: any
 
