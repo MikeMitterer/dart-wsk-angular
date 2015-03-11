@@ -23,6 +23,7 @@
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/lib/custom_dialog/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/lib/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/styleguide/lib/pretty_print/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/packages/wsk_angular" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/packages/wsk_angular_styleguide" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/assets/css/images/packages" />
@@ -109,6 +110,7 @@
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_tooltip/packages/wsk_angular" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_tooltip/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/packages/wsk_angular" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/wsk_material" />
       <excludeFolder url="file://$MODULE_DIR$/test/packages" />
     </content>
     <orderEntry type="inheritedJdk" />

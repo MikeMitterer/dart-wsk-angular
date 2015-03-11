@@ -13,8 +13,8 @@ dependencies:
 
   wsk_material:
     #">=0.6.0 <0.7.0"
-    any
-    #path: /Volumes/Daten/DevLocal/DevDart/WskMaterial
+    #any
+    path: /Volumes/Daten/DevLocal/DevDart/WskMaterial
 
   logging: any
   logging_handlers: any

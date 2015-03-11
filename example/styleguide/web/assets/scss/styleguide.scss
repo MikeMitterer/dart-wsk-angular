@@ -13,6 +13,7 @@
 // Tabs
 @import "packages/wsk_angular/sass/wsk_tabs/wsk_tabs";
 
+
 // Button
 @import "packages/wsk_angular/sass/wsk_shadow/wsk_shadow";
 @import "packages/wsk_angular/sass/wsk_button/wsk_button";
@@ -20,6 +21,7 @@
 // Card - with default width set to 310px...
 $card-width: 310px;
 @import "packages/wsk_angular/sass/wsk_card/wsk_card";
+
 
 // Animation
 @import "packages/wsk_angular/sass/wsk_animation/wsk_animation";
@@ -34,6 +36,9 @@ $card-width: 310px;
 // Footer
 @import "packages/wsk_angular/sass/wsk_footer/wsk_mega_footer";
 @import "packages/wsk_angular/sass/wsk_footer/wsk_mini_footer";
+@import "packages/wsk_angular/sass/wsk_footer/wsk_mini_footer-flex";
+@import "packages/wsk_angular/sass/wsk_bottombar/wsk_bottombar";
+
 
 // Icon-Toggle
 @import "packages/wsk_angular/sass/wsk_icon-toggle/wsk_icon-toggle";
