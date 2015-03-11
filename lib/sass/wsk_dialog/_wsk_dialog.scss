@@ -1,8 +1,8 @@
 @import "packages/wsk_angular/sass/wsk_shadow/wsk_shadow";
 @import "packages/wsk_angular/sass/wsk_colors";
 
-$dialog-swift-ease-out-duration : 0.2s !default;
 $dialog-baseline-grid : 8px !default;
+$dialog-swift-ease-out-duration : 0.2s !default;
 
 $dialog-swift-ease-out-duration : 0.2s !default;
 $dialog-swift-ease-out-timing-function : cubic-bezier(0.25, 0.8, 0.25, 1) !default;
@@ -10,7 +10,7 @@ $dialog-swift-ease-out : all $dialog-swift-ease-out-duration $dialog-swift-ease-
 
 $dialog-z-index : 80 !default;
 
-.wsk-dialog--container {
+.wsk-dialog-container {
     display          : flex;
     justify-content  : center;
     align-items      : center;
@@ -56,7 +56,7 @@ $dialog-z-index : 80 !default;
 
         @include shadow-z5();
 
-        .wsk-dialog--content {
+        .wsk-dialog__content {
             display: block;
             box-sizing      : border-box;
 
@@ -74,7 +74,7 @@ $dialog-z-index : 80 !default;
             p { @include typo-subhead(true); color: $text-color-secondary; }
         }
 
-        .wsk-dialog--actions {
+        .wsk-dialog__actions {
             display         : flex;
             order           : 2;
             box-sizing      : border-box;

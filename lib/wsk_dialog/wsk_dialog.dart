@@ -24,9 +24,9 @@ part "src/ConfirmDialog.dart";
 /// decide to modify at a later date.
 class _WskDialogCssClasses {
 
-    final String WSK_DIALOG_CONTAINER = 'wsk-dialog--container';
-    final String IS_VISIBLE = 'is-visible';
-    final String IS_HIDDEN = 'is-hidden';
+    final String DIALOG = "wsk-dialog";
+    final String CONTENT = "wsk-dialog__content";
+    final String ACTIONS = "wsk-dialog__actions";
 
     const _WskDialogCssClasses();
 }
@@ -51,28 +51,31 @@ class WskDialogModule extends Module {
 
 @Decorator(selector: 'wsk-dialog')
 class WskDialogComponent {
+    static const _WskDialogCssClasses _cssClasses = const _WskDialogCssClasses();
 
     WskDialogComponent(final html.Element component) {
         Validate.notNull(component);
-        component.classes.add("wsk-dialog");
+        component.classes.add(_cssClasses.DIALOG);
     }
 }
 
 @Decorator(selector: 'wsk-dialog-content')
 class WskDialogContentComponent {
+    static const _WskDialogCssClasses _cssClasses = const _WskDialogCssClasses();
 
     WskDialogContentComponent(final html.Element component) {
         Validate.notNull(component);
-        component.classes.add("wsk-dialog--content");
+        component.classes.add(_cssClasses.CONTENT);
     }
 }
 
 @Decorator(selector: 'wsk-dialog-actions')
 class WskDialogActions {
+    static const _WskDialogCssClasses _cssClasses = const _WskDialogCssClasses();
 
     WskDialogActions(final html.Element component) {
         Validate.notNull(component);
-        component.classes.add("wsk-dialog--actions");
+        component.classes.add(_cssClasses.ACTIONS);
     }
 }
 

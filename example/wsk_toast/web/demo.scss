@@ -1,0 +1,26 @@
+@import "packages/wsk_angular/sass/wsk_styleguide_demo_bp";
+@import "packages/wsk_angular/sass/wsk_demo/wsk_demo";
+
+@import "packages/wsk_angular/sass/wsk_toast/wsk_toast";
+
+// Only for Sample
+@import "packages/wsk_angular/sass/wsk_button/wsk_button";
+
+
+.toast.sample {
+    .wsk-toast-container {
+        position: relative;
+        border: 1px solid red;
+        min-height: 200px;
+        min-width: 500px;
+    }
+}
+
+
+
+
+
+
+
+
+

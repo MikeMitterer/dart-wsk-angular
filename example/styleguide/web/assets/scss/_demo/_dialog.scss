@@ -22,14 +22,14 @@
         padding: 24px;
     }
 
-    .wsk-dialog--content {
+    .wsk-dialog__content {
         margin-top: 68px; // padding * 2 + font-size (20)
         p {
             font-size: 14px;
         }
     }
 
-    .wsk-dialog--actions {
+    .wsk-dialog__actions {
         border-top: 1px solid rgb(231, 231, 231);
     }
 }

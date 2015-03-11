@@ -1,0 +1,170 @@
+@import "packages/wsk_angular/sass/wsk_colors";
+
+@import "packages/wsk_angular/sass/wsk_shadow/wsk_shadow";
+@import "packages/wsk_angular/sass/wsk_button/wsk_button";
+
+// wsk-toast was mainly taken from Angular-Material
+//  More: https://github.com/angular/material/blob/master/src/components/toast/toast.scss
+
+$toast-baseline-grid:            8px !default;
+$toast-swift-ease-out-duration : 0.2s !default;
+
+$toast-height: $toast-baseline-grid * 3 !default;
+$toast-margin: $toast-baseline-grid * 1 !default;
+
+$toast-swift-ease-in-duration: 0.2s !default;
+$toast-swift-ease-in-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2) !default;
+$toast-swift-ease-in: all $toast-swift-ease-in-duration $toast-swift-ease-in-timing-function !default;
+
+$toast-swift-ease-out-duration : 0.2s !default;
+$toast-swift-ease-out-timing-function : cubic-bezier(0.25, 0.8, 0.25, 1) !default;
+$toast-swift-ease-out : all $toast-swift-ease-out-duration $toast-swift-ease-out-timing-function !default;
+
+$toast-z-index: 90 !default;
+
+$toast-layout-breakpoint-sm:     600px !default;
+
+$toast-color: $text-color-primary-inverse !default;
+$toast-background: nth($palette-grey, 9) !default;
+
+.wsk-toast {
+    display: flex;
+    position:absolute;
+    box-sizing: border-box;
+    align-items: center;
+
+    min-height: 48px;
+    padding-left: 24px;
+    padding-right: 24px;
+
+    border-radius: 2px;
+    font-size: 14px;
+    cursor: default;
+
+    max-width: 879px;
+    max-height: 40px;
+
+    height: $toast-height;
+    z-index: $toast-z-index;
+
+    color: $toast-color;
+    background-color: $toast-background;
+
+    @include shadow-z2();
+
+    &.wsk-capsule {
+        border-radius: 24px;
+    }
+
+    opacity: 1;
+    transform: translate3d(0,0,0) rotateZ(0deg);
+    transition: $toast-swift-ease-out;
+
+    &.ng-leave-active {
+        transition: $toast-swift-ease-in;
+    }
+
+    /* Transition differently when swiping */
+    &.wsk-swipeleft,
+    &.wsk-swiperight,
+    &.wsk-swipeup,
+    &.wsk-swipedown {
+        transition: $toast-swift-ease-out;
+    }
+
+    &.ng-enter {
+        transform: translate3d(0, 100%, 0);
+        &.wsk-top {
+            transform: translate3d(0, -100%, 0);
+        }
+        opacity: 0;
+        &.ng-enter-active {
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
+        }
+    }
+    &.ng-leave.ng-leave-active {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+        &.wsk-toast--top {
+            transform: translate3d(0, -100%, 0);
+        }
+        &.wsk-swipeleft {
+            transform: translate3d(-100%, 0%, 0);
+        }
+        &.wsk-swiperight {
+            transform: translate3d(100%, 0%, 0);
+        }
+    }
+
+    .wsk-button {
+        color: $toast-color;
+    }
+
+    &.wsk-toast--left { left: 0; }
+
+    &.wsk-toast--top { top: 0; }
+
+    &.wsk-toast--right { right: 0; }
+
+    &.wsk-toast--bottom { bottom: 0; }
+
+    .wsk-toast__flex {
+        flex-grow: 1;
+    }
+}
+
+
+@media (max-width: $toast-layout-breakpoint-sm) {
+    .wsk-toast {
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        border-radius: 0;
+        bottom: 0;
+        &.wsk-toast--top {
+            bottom: auto;
+            top: 0;
+        }
+    }
+}
+@media (min-width: $toast-layout-breakpoint-sm) {
+    .wsk-toast {
+        min-width: 288px;
+        &.wsk-toast--bottom {
+            bottom: $toast-margin;
+        }
+        &.wsk-toast--left {
+            left: $toast-margin;
+        }
+        &.wsk-toast--right {
+            right: $toast-margin;
+        }
+        &.wsk-toast--top {
+            top: $toast-margin;
+        }
+
+        /*
+         * When the toast doesn't take up the whole screen,
+         * make it rotate when the user swipes it away
+         */
+        &.ng-leave.ng-leave-active {
+            &.wsk-swipeleft {
+                transform: translate3d(-100%, 25%, 0) rotateZ(-15deg);
+            }
+            &.wsk-swiperight {
+                transform: translate3d(100%, 25%, 0) rotateZ(15deg);
+            }
+            &.wsk-toast--top {
+                &.wsk-swipeleft {
+                    transform: translate3d(-100%, 0, 0) rotateZ(-15deg);
+                }
+                &.wsk-swiperight {
+                    transform: translate3d(100%, 0, 0) rotateZ(15deg);
+                }
+            }
+        }
+    }
+}

@@ -105,6 +105,12 @@
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_textfield/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_textfield/packages/wsk_angular" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_textfield/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_toast/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_toast/packages/wsk_angular" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_toast/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_toast/web/views/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_toast/web/views/src/html/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_toast/web/views/src/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_tooltip/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_tooltip/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_tooltip/packages/wsk_angular" />

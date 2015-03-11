@@ -2,6 +2,7 @@ part of wsk_angular.wsk_dialog;
 
 enum WskDialogStatus {
     CLOSED_BY_ESC, CLOSED_BY_BACKDROPCLICK,
+    CLOSED_ON_TIMEOUT, CLOSED_VIA_NEXT_SHOW,
     OK,
     YES, NO
 }
@@ -25,9 +26,15 @@ abstract class WskDialog {
     /// Informs the caller about the dialog status
     Completer<WskDialogStatus> _openCompleter;
 
+    final DialogConfig config;
+
     /// {_directiveSelector} is for example wsk-alert-dialog and will be needed in _getTemplateUrl
-    WskDialog(this._directiveSelector) {
+    WskDialog(this._directiveSelector,this.config ) {
         Validate.notBlank(_directiveSelector);
+        Validate.notNull(config);
+
+        // Lets get informed if the user clicks on ESC or on the backdrop-container
+        config.onCloseCallbacks.add(_onCloseViaEscOrClickOnBackDrop);
     }
 
     /// Must be set in Child-CTOR.
@@ -37,7 +44,7 @@ abstract class WskDialog {
         _injector = injectorObject;
     }
 
-    /// The returned Future informs about how the way the dialog was closed
+    /// The returned Future informs about how the dialog was closed
     Future<WskDialogStatus> show() {
 
         final DirectiveMap directiveMap = _injector.get(DirectiveMap);
@@ -66,8 +73,8 @@ abstract class WskDialog {
         return _openCompleter.future;
     }
 
-    void close(final WskDialogStatus status) {
-        _destroy(status);
+    Future close(final WskDialogStatus status) {
+        return _destroy(status);
 
     }
     // - EventHandler -----------------------------------------------------------------------------
@@ -77,15 +84,28 @@ abstract class WskDialog {
         _destroy(status);
     }
 
-    void _destroy(final WskDialogStatus status) {
-        new Future(() {
-            _dialogElement.close(status);
+    Future _destroy(final WskDialogStatus status) {
+        Future _cleanupScope() {
+            return new Future(() {
 
-            _childScope.destroy();
-            _childScope = null;
+                if(_childScope != null) {
+                    _childScope.destroy();
+                }
 
-            _dialogElement = null;
-        });
+                _childScope = null;
+                _dialogElement = null;
+            });
+        }
+
+        if(_dialogElement != null) {
+            return _dialogElement.close(status).then((_) {
+                _dialogElement = null;
+                return _cleanupScope();
+            });
+
+        } else {
+            return _cleanupScope();
+        }
     }
 
     String _getTemplateUrl(final DirectiveMap directiveMap) {
@@ -107,7 +127,7 @@ abstract class WskDialog {
         Validate.notBlank(template);
 
         if (_dialogElement == null) {
-            _dialogElement = new DialogElement.fromString(template,onCloseCallback: _onCloseViaEscOrClickOnBackDrop);
+            _dialogElement = new DialogElement.fromString(template, config );
         }
     }
 

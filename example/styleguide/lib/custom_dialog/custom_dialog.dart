@@ -40,7 +40,7 @@ class CustomDialog extends WskDialog {
     String yesButton = _DEFAULT_YES_BUTTON;
     String noButton = _DEFAULT_NO_BUTTON;
 
-    CustomDialog(final Injector injector) : super(SELECTOR) {
+    CustomDialog(final Injector injector) : super(SELECTOR,new DialogConfig()) {
         Validate.notNull(injector);
         this.injector = injector;
     }

@@ -10,7 +10,7 @@ class WskAlertDialog extends WskDialog {
     String text = "";
     String okButton = _DEFAULT_OK_BUTTON;
 
-    WskAlertDialog(final Injector injector) : super(SELECTOR) {
+    WskAlertDialog(final Injector injector) : super(SELECTOR,new DialogConfig()) {
         Validate.notNull(injector);
         this.injector = injector;
     }
