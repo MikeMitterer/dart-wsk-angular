@@ -24,13 +24,14 @@ class _DialogElementCssClasses {
     final String IS_DELETABLE = "is-deletable";
     final String APPENDING = "appending";
 
+    final String WAITING_FOR_CONFIRMATION = 'waiting-for-confirmation';
+
     const _DialogElementCssClasses();
 }
 
 /**
  * Configuration for DialogElement
  */
-@Injectable()
 class DialogConfig {
     static const String _DEFAULT_PARENT_SELECTOR = "body";
 
@@ -39,10 +40,10 @@ class DialogConfig {
     final String rootTagInTemplate;
 
     /// If set to true a BackDrop-Container is added
-    final bool closeOnBackDropClick;
+    bool closeOnBackDropClick;
 
     /// true
-    final bool acceptEscToClose;
+    bool acceptEscToClose;
 
     /// Informs the caller about ESC and about onBackDropClick so that the caller can
     /// close this DialogElement an cleanup internal states
@@ -148,7 +149,7 @@ class DialogElement {
     // - private ----------------------------------------------------------------------------------
     html.HtmlElement get _container => html.document.querySelector(".${_containerClass}");
 
-    html.Element get _element => _wskDialogContainer.querySelector(_elementSelector);
+    html.Element get _element => html.document.querySelector(_elementSelector);
 
     /// wsk-dialog-container or wsk-toast-container
     String get _containerClass => "${_config.rootTagInTemplate}${_cssClasses.CONTAINER_POSTFIX}";
@@ -171,8 +172,6 @@ class DialogElement {
         _wskDialogContainer.classes.remove(_cssClasses.IS_VISIBLE);
         _wskDialogContainer.classes.add(_cssClasses.IS_HIDDEN);
 
-        //_complete(status);
-
         return new Future.delayed(new Duration(milliseconds: 200), () {
             _destroy(status);
         });
@@ -182,18 +181,24 @@ class DialogElement {
     void _destroy(final WskDialogStatus status) {
         _logger.info("_destroy - selector ${_containerSelector} brought: $_container");
 
-        _container.querySelectorAll(_config.rootTagInTemplate).forEach((final html.Element element) {
-            _logger.info("Element ${element} removed!");
-            element.remove();
-        });
-
-        if (_container != null &&
-                !_container.classes.contains(_cssClasses.APPENDING) &&
-                _container.classes.contains(_cssClasses.IS_DELETABLE)) {
-
-            _container.remove();
-            _logger.info("Container removed!");
+        if(_element != null) {
+            _element.remove();
         }
+
+        html.document.querySelectorAll(".${_containerClass}").forEach((final html.Element container) {
+            container.querySelectorAll(_config.rootTagInTemplate).forEach((final html.Element element) {
+                _logger.info("Element ${element} removed!");
+                if(! element.classes.contains(_cssClasses.WAITING_FOR_CONFIRMATION)) {
+
+                }
+            });
+
+            if (!container.classes.contains(_cssClasses.APPENDING) && container.classes.contains(_cssClasses.IS_DELETABLE)) {
+                container.remove();
+                _logger.info("Container removed!");
+            }
+
+        });
 
         _complete(status);
     }
@@ -241,7 +246,6 @@ class DialogElement {
                 _config.onCloseCallbacks.forEach((final OnCloseCallback callback) {
                     callback(this,WskDialogStatus.CLOSED_BY_ESC);
                 });
-
             }
         });
     }

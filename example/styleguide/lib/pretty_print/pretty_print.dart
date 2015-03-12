@@ -54,7 +54,9 @@ class PrettyPrintComponent implements ScopeAware, AttachAware {
 
     @override
     void attach() {
-        prettyPrint();
+        if(!_component.attributes.containsKey("url")) {
+            prettyPrint();
+        }
     }
 
     // - private ----------------------------------------------------------------------------------

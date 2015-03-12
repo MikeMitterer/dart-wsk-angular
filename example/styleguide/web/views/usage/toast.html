@@ -1,0 +1,73 @@
+<wsk-accordion-group class="source">
+    <wsk-accordion >
+        <wsk-accordion-label>
+            <span class="custom-label">Basic Usage</span>
+            <i class="fa fa-eye" ></i>
+            <i class="fa fa-chevron-right indicator"></i>
+        </wsk-accordion-label>
+        <wsk-tabs>
+            <wsk-tab-bar>
+                <wsk-tab href="#toast-dart">Dart</wsk-tab>
+                <wsk-tab href="#toast-html">Html</wsk-tab>
+                <wsk-tab href="#toast-css">CSS</wsk-tab>
+            </wsk-tab-bar>
+
+            <wsk-tabs-panel id="toast-dart" class="is-active" >
+                <pre class="prettyprint linenums lang-dart">
+@Injectable()
+class AppController {
+    final _logger = new Logger('wsk_toast.AppController');
+
+    int _messageCounter = 1;
+    final WskToast wskToast;
+
+    AppController(this.wskToast) {
+    }
+
+    void showSimpleToast() {
+        wskToast(&quot;Message #${_messageCounter++}&quot;).show()
+                    .then( (final WskDialogStatus status) {
+
+            _logger.info(&quot;Status: $status&quot;);
+        });
+    }
+}
+
+class SampleModule extends Module {
+    SampleModule() {
+        install(new WskToastModule());
+    }
+}
+
+main() {
+    configLogger();
+    applicationFactory().addModule(new SampleModule()).rootContextType(AppController).run();
+}
+                </pre>
+            </wsk-tabs-panel>
+
+            <wsk-tabs-panel id="toast-html">
+                <pre class="prettyprint linenums lang-html">
+&lt;wsk-button ng-click=&quot;showSimpleToast()&quot;&gt;
+    Show simple
+&lt;/wsk-button&gt;</pre>
+            </wsk-tabs-panel>
+
+            <wsk-tabs-panel id="toast-css">
+                <p>As you can see the top / left or top / right position regards the page-header.<br>
+                    This is very easy to configure:<br><span class="filename">main.scss:</span></p>
+                <pre class="prettyprint linenums lang-css">
+body > .wsk-toast-container {
+    .wsk-toast {
+        &amp;.wsk-toast--top {
+            top: $layout-header-desktop-row-height;
+            @media screen and (max-width: $layout-screen-size-threshold) {
+                top: $layout-header-mobile-row-height;
+            }
+        }
+    }
+}</pre>
+            </wsk-tabs-panel>
+        </wsk-tabs>
+    </wsk-accordion>
+</wsk-accordion-group>

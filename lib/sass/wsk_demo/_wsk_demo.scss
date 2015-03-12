@@ -21,8 +21,28 @@ body.loadchecker .loadindicator.wsk {
     display: block;
 }
 
+$demo-first_col_with: 280px;
+$demo-col_padding: 10px;
+
 .preview-block.sample {
     margin: 24px;
+
+    .cols {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; // ⇾
+        align-content: space-between; // ||
+        align-items: flex-start; // ↓
+    }
+
+    .cols > div {
+        padding : $demo-col_padding;
+
+        width: $demo-first_col_with;
+
+        max-width: ($demo-first_col_with * 1.5);
+    }
 }
 
 

@@ -4,7 +4,10 @@ enum WskDialogStatus {
     CLOSED_BY_ESC, CLOSED_BY_BACKDROPCLICK,
     CLOSED_ON_TIMEOUT, CLOSED_VIA_NEXT_SHOW,
     OK,
-    YES, NO
+    YES, NO,
+
+    // Toast sends a "confirmed"
+    CONFIRMED
 }
 
 abstract class WskDialog {

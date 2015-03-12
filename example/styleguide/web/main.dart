@@ -39,6 +39,7 @@ import 'package:wsk_angular_styleguide/pretty_print/pretty_print.dart';
 
 import 'package:wsk_angular/wsk_accordion/wsk_accordion.dart';
 import 'package:wsk_angular/wsk_dragdrop/wsk_dragdrop.dart';
+import 'package:wsk_angular/wsk_toast/wsk_toast.dart';
 
 class _SimpleModel {
     final Map<String,dynamic> _model = new Map<String,dynamic>();
@@ -64,7 +65,7 @@ class AppController {
     final _SimpleModel model = new _SimpleModel();
     void toggle(final String modelKey) { model[modelKey] = !model[modelKey];}
 
-    AppController(this._router,this._alert,this._confirm,this._customDialog) {
+    AppController(this._router,this._alert,this._confirm,this._customDialog,this.wskToast) {
         _logger.fine("AppController");
 
         radioData.add(new _RadioData("Lable I","value1",false));
@@ -202,10 +203,14 @@ class AppController {
 
     int mangoCounter = 0;
     String statusMessage = "";
+    bool enableEsc = true;
+    bool enableBackDropClick = true;
 
     void openAlertDialog() {
         _logger.info("openAlertDialog");
 
+        _alert.config.acceptEscToClose = enableEsc;
+        _alert.config.closeOnBackDropClick = enableBackDropClick;
         _alert("This is your message!").show().then((final WskDialogStatus status) {
             statusMessage = "closed AlertDialog with status: ${status}";
         });
@@ -215,6 +220,8 @@ class AppController {
 
         _logger.info("openAlertDialogWithTitle");
 
+        _alert.config.acceptEscToClose = enableEsc;
+        _alert.config.closeOnBackDropClick = enableBackDropClick;
         _alert("You can specify some description text in here.",
         title: "This is an alert title", okButton: "Got it!").show().then((final WskDialogStatus status) {
             statusMessage = "closed AlertDialog with status: ${status}";
@@ -225,6 +232,8 @@ class AppController {
 
         _logger.info("openConfirmDialog");
 
+        _confirm.config.acceptEscToClose = enableEsc;
+        _confirm.config.closeOnBackDropClick = enableBackDropClick;
         _confirm("All of the banks have agreed to forgive you your debts.",
         title: "Would you like to delete your debt?",
         yesButton: "Please do it!", noButton: "Sounds like a scam").show().then((final WskDialogStatus status) {
@@ -236,6 +245,8 @@ class AppController {
 
         _logger.info("openCustomDialog");
 
+        _customDialog.config.acceptEscToClose = enableEsc;
+        _customDialog.config.closeOnBackDropClick = enableBackDropClick;
         _customDialog("3All of the banks have agreed to forgive you your debts.",
         title: "Mango #${mangoCounter} (Fruit)",
         yesButton: "Please do it!", noButton: "Sounds like a scam").show().then((final WskDialogStatus status) {
@@ -284,6 +295,33 @@ class AppController {
         }
     }
 
+    //  Toast Sample -----------------------------------------------------------------------------------------------
+
+    int _messageCounter = 1;
+    final WskToast wskToast;
+    String status = "";
+
+    bool useContainer = false;
+    bool get waitingForConfirmation => wskToast.waitingForConfirmation;
+
+    void showSimpleToast() {
+        wskToast.close(WskDialogStatus.CLOSED_VIA_NEXT_SHOW).then((_) {
+            wskToast("Message #${_messageCounter++}").show().then((final WskDialogStatus status) {
+                _logger.info("Status: $status");
+                this.status = status.toString();
+            });
+
+        });
+    }
+
+    void showWithAction() {
+        wskToast.close(WskDialogStatus.CLOSED_VIA_NEXT_SHOW).then((_) {
+            wskToast("And... action! #${_messageCounter++}",confirmButton: "OK").show().then((final WskDialogStatus status) {
+                _logger.info("Status: $status");
+                this.status = status.toString();
+            });
+        });
+    }
 }
 
 /// Radio-Sample-Data
@@ -389,6 +427,8 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
 
         ..addRoute(name: "tooltip", path: "/tooltip", enter: view("views/tooltip.html"))
 
+        ..addRoute(name: "toast", path: "/toast", enter: view("views/toast.html"))
+
         ..addRoute(name: "typography", path: "/typography", enter: view("views/typography.html"))
 
         // Theming
@@ -428,6 +468,7 @@ class SampleModule extends Module {
 
         install(new WskAccordionModule());
         install(new WskDragDropModule());
+        install(new WskToastModule());
 
         install(new PrettyPrintModule());
 

@@ -82,8 +82,12 @@ $card-width: 310px;
 // Drag & Drop
 @import "packages/wsk_angular/sass/wsk_dragdrop/wsk_dragdrop";
 
+// Toast
+@import "packages/wsk_angular/sass/wsk_toast/wsk_toast";
+
 // Styleguide
 @import "_demo/styleguide";
+@import "_demo/source";
 
 // Necessary for demo-Views
 @import "_demo/typography";
@@ -103,6 +107,7 @@ $card-width: 310px;
 @import "_demo/dialog";
 @import "_demo/accordion";
 @import "_demo/draganddrop";
+@import "_demo/toast";
 
 $padding: 24px;
 

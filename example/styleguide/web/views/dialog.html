@@ -1,12 +1,23 @@
 <section class="content">
     <article class="dialog sample">
       <div class="preview-block">
-        <wsk-button ng-click="openAlertDialog()">Alert Dialog</wsk-button>
-        <wsk-button ng-click="openAlertDialogWithTitle()">Alert with title</wsk-button>
-        <wsk-button ng-click="openConfirmDialog()">Confirm Dialog</wsk-button>
-        <wsk-button ng-click="openCustomDialog()">Custom Dialog</wsk-button>
+          <p>Open a dialog over the app's content.</p>
+          <div class="cols">
+              <div class="center">
+                  <wsk-button ng-click="openAlertDialog()">Alert Dialog</wsk-button>
+                  <wsk-button ng-click="openAlertDialogWithTitle()">Alert with title</wsk-button>
+                  <wsk-button ng-click="openConfirmDialog()">Confirm Dialog</wsk-button>
+                  <wsk-button ng-click="openCustomDialog()">Custom Dialog</wsk-button>
+              </div>
+              <div>
+                  <wsk-checkbox ng-model="enableEsc">Enable ESC</wsk-checkbox>
+                  <wsk-checkbox ng-model="enableBackDropClick">Enable "BackDropClick"</wsk-checkbox>
+              </div>
+          </div>
 
-        <div class="status">Status: {{statusMessage}}</div>
+          <div class="status">Status:<br>
+              <span>{{statusMessage}}</span></div>
+
       </div>
     </article>
 </section>

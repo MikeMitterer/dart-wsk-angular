@@ -1,0 +1,25 @@
+<section class="content">
+    <article class="toast sample">
+        <div class="preview-block">
+            <div url="views/usage/toast.html" pretty-print></div>
+            <wsk-button ng-click="waitingForConfirmation || showSimpleToast()"
+                        ng-disabled="waitingForConfirmation">Show simple
+            </wsk-button>
+            <wsk-button ng-click="waitingForConfirmation || showWithAction()"
+                        ng-disabled="waitingForConfirmation">Show with Action
+            </wsk-button>
+            <div class="status">Status: <span>{{status}}</span></div>
+            <h6>Toast Postition</h6>
+            <div class="position">
+                <wsk-checkbox ng-model="wskToast.position.top">top</wsk-checkbox>
+                <wsk-checkbox ng-model="wskToast.position.left">left</wsk-checkbox>
+                <wsk-checkbox ng-model="wskToast.position.right">right</wsk-checkbox>
+                <wsk-checkbox ng-model="wskToast.position.bottom">bottom</wsk-checkbox>
+            </div>
+            <wsk-checkbox ng-model="useContainer">Use container</wsk-checkbox>
+            <div class="container" ng-class="{'wsk-toast-container' : useContainer}">Container</div>
+
+
+        </div>
+    </article>
+</section>

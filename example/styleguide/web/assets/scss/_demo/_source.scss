@@ -1,0 +1,25 @@
+$source-background: nth($palette-grey, 9) !default;
+$source-label-background: nth($palette-grey, 2) !default;
+
+wsk-accordion-group.source {
+    margin-bottom: 24px;
+
+    .wsk-accordion {
+        //background-color: $source-background;
+        border-left: 1px solid $accordion-divider-color;
+        border-right: 1px solid $accordion-divider-color;
+
+        .wsk-accordion__label {
+            background-color: $source-label-background;
+        }
+
+        .filename {
+            font-weight: bold;
+        }
+    }
+
+    input[name^='wsk-accordion']:checked ~ .wsk-accordion--content {
+        max-height: 500px;
+        height: 500px;
+    }
+}

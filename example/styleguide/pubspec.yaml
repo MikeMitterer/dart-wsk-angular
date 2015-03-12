@@ -53,10 +53,13 @@ transformers:
       'web/views/switch.html',
       'web/views/tabs.html',
       'web/views/textfield.html',
+      'web/views/toast.html',
       'web/views/tooltip.html',
       'web/views/typography.html',
 
-      'web/views/theming.html'
+      'web/views/theming.html',
+
+      'web/views/usage/toast.html'
       ]
 
 - $dart2js:

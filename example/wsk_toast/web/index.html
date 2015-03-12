@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Toast</title>
+    <title>wsk-toast</title>
 
     <link rel="stylesheet" href="demo.css">
 
@@ -18,13 +18,28 @@
 <div class="angular-controlled">
     <div class="preview-block toast sample">
         <h5>Toast</h5>
-        <wsk-button ng-click="showSimpleToast()">Show simple</wsk-button>
-        <div class="wsk-toast-container-">Container</div>
+        <wsk-button ng-click="waitingForConfirmation || showSimpleToast()"
+                    ng-disabled="waitingForConfirmation">Show simple
+        </wsk-button>
+        <wsk-button ng-click="waitingForConfirmation || showWithAction()"
+                    ng-disabled="waitingForConfirmation">Show with Action
+        </wsk-button>
+        <div class="status">Status: <span>{{status}}</span></div>
+        <h6>Toast Postition</h6>
+        <div class="position">
+            <wsk-checkbox ng-model="wskToast.position.top">top</wsk-checkbox>
+            <wsk-checkbox ng-model="wskToast.position.left">left</wsk-checkbox>
+            <wsk-checkbox ng-model="wskToast.position.right">right</wsk-checkbox>
+            <wsk-checkbox ng-model="wskToast.position.bottom">bottom</wsk-checkbox>
+        </div>
+
+        <wsk-checkbox ng-model="useContainer">Use container</wsk-checkbox>
+        <div class="container" ng-class="{'wsk-toast-container' : useContainer}">Container</div>
     </div>
 </div>
 </div>
 <!--<wsk-toast class="wsk-toast wsk-toast&#45;&#45;right wsk-toast&#45;&#45;top">-->
-    <!--<span class="wsk-toast__flex">Hallo</span><wsk-button ripple="off">OK</wsk-button>-->
+<!--<span class="wsk-toast__flex">Hallo</span><wsk-button ripple="off">OK</wsk-button>-->
 <!--</wsk-toast>-->
 
 <script type="application/dart" src="main.dart"></script>

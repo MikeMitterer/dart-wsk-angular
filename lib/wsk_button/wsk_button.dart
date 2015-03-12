@@ -64,7 +64,7 @@ class WskButtonComponent extends WskAngularComponent implements AttachAware {
 
     dynamic _disabled;
     @NgOneWay('ng-disabled')
-    dynamic get disabled => _disabled == null ? _component.attributes['disabled'] : _disabled;
+    dynamic get disabled => _disabled == null ? WskAngularUtils.hasAttributeOrClass(_component,[ "disabled", "is-disabled"]) : _disabled;
     set disabled(dynamic value) => _disabled = value;
 
     /// Template-Helper to find out if Control is disabled
@@ -80,9 +80,11 @@ class WskButtonComponent extends WskAngularComponent implements AttachAware {
      *     <button id="sendButton" name="sendButton" ng-click="handleEvent($event)">Send</button>
      */
     void handleEvent(final html.Event e) {
-        final bool currentValue = WskAngularUtils.asBool(model);
-        _logger.fine("Event: handleEvent, currentValue: $currentValue");
-        model = !currentValue;
+        if(!isDisabled) {
+            final bool currentValue = WskAngularUtils.asBool(model);
+            _logger.fine("Event: handleEvent, currentValue: $currentValue");
+            model = !currentValue;
+        }
     }
 
     void attach() {

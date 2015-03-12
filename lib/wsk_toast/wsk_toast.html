@@ -1,4 +1,12 @@
-<wsk-toast class="wsk-toast wsk-toast--right wsk-toast--top">
+<wsk-toast class="wsk-toast"
+                            ng-class="{
+                            'wsk-toast--top' : position.top,
+                            'wsk-toast--right' : position.right,
+                            'wsk-toast--left' : position.left,
+                            'wsk-toast--bottom' : position.bottom,
+
+                            'waiting-for-confirmation' : waitingForConfirmation
+                            }">
     <span class="wsk-toast__flex">{{text}}</span>
-    <wsk-button ripple="off" ng-if="hasConfirmButton" ng-click="onClose()">{{confirmButton}}</wsk-button>
+    <wsk-button ripple="off" colored ng-if="hasConfirmButton" ng-click="onClose()">{{confirmButton}}</wsk-button>
 </wsk-toast>

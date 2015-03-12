@@ -9,9 +9,11 @@ import 'package:angular/application_factory.dart';
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
-import 'package:wsk_angular/wsk_dialog/wsk_dialog.dart';
+// only for sample
 import 'package:wsk_angular/wsk_button/wsk_button.dart';
+import 'package:wsk_angular/wsk_checkbox/wsk_checkbox.dart';
 
+import 'package:wsk_angular/wsk_dialog/wsk_dialog.dart';
 import 'package:wsk_angular_dialog_sample/custom_dialog/custom_dialog.dart';
 
 
@@ -25,6 +27,8 @@ class AppController {
 
     int mangoCounter = 0;
     String statusMessage = "";
+    bool enableEsc = true;
+    bool enableBackDropClick = true;
 
     AppController(this._alert,this._confirm,this._customDialog) {
         _logger.fine("AppController");
@@ -33,15 +37,18 @@ class AppController {
     void openAlertDialog() {
         _logger.info("openAlertDialog");
 
+        _alert.config.acceptEscToClose = enableEsc;
+        _alert.config.closeOnBackDropClick = enableBackDropClick;
         _alert("This is your message!").show().then((final WskDialogStatus status) {
             statusMessage = "closed AlertDialog with status: ${status}";
         });
     }
 
     void openAlertDialogWithTitle() {
-
         _logger.info("openAlertDialogWithTitle");
 
+        _alert.config.acceptEscToClose = enableEsc;
+        _alert.config.closeOnBackDropClick = enableBackDropClick;
         _alert("You can specify some description text in here.",
             title: "This is an alert title", okButton: "Got it!").show().then((final WskDialogStatus status) {
             statusMessage = "closed AlertDialog with status: ${status}";
@@ -49,9 +56,10 @@ class AppController {
     }
 
     void openConfirmDialog() {
-
         _logger.info("openConfirmDialog");
 
+        _confirm.config.acceptEscToClose = enableEsc;
+        _confirm.config.closeOnBackDropClick = enableBackDropClick;
         _confirm("All of the banks have agreed to forgive you your debts.",
             title: "Would you like to delete your debt?",
             yesButton: "Please do it!", noButton: "Sounds like a scam").show().then((final WskDialogStatus status) {
@@ -60,13 +68,14 @@ class AppController {
     }
 
     void openCustomDialog() {
-
         _logger.info("openCustomDialog");
 
+        _customDialog.config.acceptEscToClose = enableEsc;
+        _customDialog.config.closeOnBackDropClick = enableBackDropClick;
         _customDialog("3All of the banks have agreed to forgive you your debts.",
         title: "Mango #${mangoCounter} (Fruit)",
         yesButton: "Please do it!", noButton: "Sounds like a scam").show().then((final WskDialogStatus status) {
-            statusMessage = "closed ConfirmDialog with status: ${status}";
+            statusMessage = "closed CustomDialog with status: ${status}";
             mangoCounter++;
         });
     }
@@ -76,8 +85,10 @@ class AppController {
  /// Demo Module
 class SampleModule extends Module {
     SampleModule() {
-        install(new WskDialogModule());
+        install(new WskCheckboxModule());
         install(new WskButtonModule());
+
+        install(new WskDialogModule());
 
         install(new CustomDialogModule());
 

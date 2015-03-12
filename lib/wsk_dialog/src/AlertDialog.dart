@@ -6,6 +6,7 @@ class WskAlertDialog extends WskDialog {
 
     static const String _DEFAULT_OK_BUTTON = "OK";
 
+
     String title = "";
     String text = "";
     String okButton = _DEFAULT_OK_BUTTON;

@@ -25,94 +25,118 @@ $toast-z-index: 90 !default;
 $toast-layout-breakpoint-sm:     600px !default;
 
 $toast-color: $text-color-primary-inverse !default;
+$toast-button-color: nth($palette-accent, 5) !default;
 $toast-background: nth($palette-grey, 9) !default;
 
-.wsk-toast {
-    display: flex;
-    position:absolute;
-    box-sizing: border-box;
-    align-items: center;
+.wsk-toast-container {
+    &.is-visible {
+        //background-color: rgba(0, 0, 0, 0.25);
+        //visibility: visible;
 
-    min-height: 48px;
-    padding-left: 24px;
-    padding-right: 24px;
-
-    border-radius: 2px;
-    font-size: 14px;
-    cursor: default;
-
-    max-width: 879px;
-    max-height: 40px;
-
-    height: $toast-height;
-    z-index: $toast-z-index;
-
-    color: $toast-color;
-    background-color: $toast-background;
-
-    @include shadow-z2();
-
-    &.wsk-capsule {
-        border-radius: 24px;
-    }
-
-    opacity: 1;
-    transform: translate3d(0,0,0) rotateZ(0deg);
-    transition: $toast-swift-ease-out;
-
-    &.ng-leave-active {
-        transition: $toast-swift-ease-in;
-    }
-
-    /* Transition differently when swiping */
-    &.wsk-swipeleft,
-    &.wsk-swiperight,
-    &.wsk-swipeup,
-    &.wsk-swipedown {
-        transition: $toast-swift-ease-out;
-    }
-
-    &.ng-enter {
-        transform: translate3d(0, 100%, 0);
-        &.wsk-top {
-            transform: translate3d(0, -100%, 0);
-        }
-        opacity: 0;
-        &.ng-enter-active {
-            transform: translate3d(0, 0, 0);
-            opacity: 1;
-        }
-    }
-    &.ng-leave.ng-leave-active {
-        opacity: 0;
-        transform: translate3d(0, 100%, 0);
-        &.wsk-toast--top {
-            transform: translate3d(0, -100%, 0);
-        }
-        &.wsk-swipeleft {
-            transform: translate3d(-100%, 0%, 0);
-        }
-        &.wsk-swiperight {
-            transform: translate3d(100%, 0%, 0);
+        .wsk-toast {
+            opacity    : 1;
+            transition : $toast-swift-ease-in;
+            //transform  : translate3d(0, 0, 0) scale(1.0);
         }
     }
 
-    .wsk-button {
+    &.is-hidden {
+        .wsk-toast {
+            // hidden
+            opacity    : 0;
+            transition     : $toast-swift-ease-out;
+            //transform      : translate3d(0, 100%, 0) scale(0.2);
+        }
+    }
+
+    .wsk-toast {
+        display: flex;
+        position:absolute;
+        box-sizing: border-box;
+        align-items: center;
+
+        min-height: 48px;
+        padding-left: 24px;
+        padding-right: 24px;
+
+        border-radius: 2px;
+        font-size: 14px;
+        cursor: default;
+
+        max-width: 879px;
+        max-height: 40px;
+
+        height: $toast-height;
+        z-index: $toast-z-index;
+
         color: $toast-color;
-    }
+        background-color: $toast-background;
 
-    &.wsk-toast--left { left: 0; }
+        @include shadow-z2();
 
-    &.wsk-toast--top { top: 0; }
+        &.wsk-capsule {
+            border-radius: 24px;
+        }
 
-    &.wsk-toast--right { right: 0; }
+        opacity: 1;
+        transform: translate3d(0,0,0) rotateZ(0deg);
+        transition: $toast-swift-ease-out;
 
-    &.wsk-toast--bottom { bottom: 0; }
+        &.ng-leave-active {
+            transition: $toast-swift-ease-in;
+        }
 
-    .wsk-toast__flex {
-        flex-grow: 1;
+        /* Transition differently when swiping */
+        &.wsk-swipeleft,
+        &.wsk-swiperight,
+        &.wsk-swipeup,
+        &.wsk-swipedown {
+            transition: $toast-swift-ease-out;
+        }
+
+        &.ng-enter {
+            transform: translate3d(0, 100%, 0);
+            &.wsk-top {
+                transform: translate3d(0, -100%, 0);
+            }
+            opacity: 0;
+            &.ng-enter-active {
+                transform: translate3d(0, 0, 0);
+                opacity: 1;
+            }
+        }
+        &.ng-leave.ng-leave-active {
+            opacity: 0;
+            transform: translate3d(0, 100%, 0);
+            &.wsk-toast--top {
+                transform: translate3d(0, -100%, 0);
+            }
+            &.wsk-swipeleft {
+                transform: translate3d(-100%, 0%, 0);
+            }
+            &.wsk-swiperight {
+                transform: translate3d(100%, 0%, 0);
+            }
+        }
+
+        .wsk-button {
+            color: $toast-button-color;
+        }
+
+        &.wsk-toast--left { left: 0; }
+
+        &.wsk-toast--top { top: 0; }
+
+        &.wsk-toast--right { right: 0; }
+
+        &.wsk-toast--bottom { bottom: 0; }
+
+        .wsk-toast__flex {
+            flex-grow: 1;
+        }
     }
 }
+
 
 
 @media (max-width: $toast-layout-breakpoint-sm) {

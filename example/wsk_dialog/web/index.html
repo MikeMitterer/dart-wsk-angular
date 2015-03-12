@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>wsk-textfield</title>
+    <title>wsk-dialog</title>
 
     <link rel="stylesheet" href="demo.css">
 
@@ -15,15 +15,23 @@
   <div class="angular-controlled">
     <div class="preview-block dialog sample">
       <h5>Dialog</h5>
+        <p>Open a dialog over the app's content.</p>
 
-        <div class="center">
-            <wsk-button ng-click="openAlertDialog()">Alert Dialog</wsk-button>
-            <wsk-button ng-click="openAlertDialogWithTitle()">Alert with title</wsk-button>
-            <wsk-button ng-click="openConfirmDialog()">Confirm Dialog</wsk-button>
-            <wsk-button ng-click="openCustomDialog()">Custom Dialog</wsk-button>
+        <div class="cols">
+            <div class="center">
+                <wsk-button ng-click="openAlertDialog()">Alert Dialog</wsk-button>
+                <wsk-button ng-click="openAlertDialogWithTitle()">Alert with title</wsk-button>
+                <wsk-button ng-click="openConfirmDialog()">Confirm Dialog</wsk-button>
+                <wsk-button ng-click="openCustomDialog()">Custom Dialog</wsk-button>
+            </div>
+            <div>
+                <wsk-checkbox ng-model="enableEsc">Enable ESC</wsk-checkbox>
+                <wsk-checkbox ng-model="enableBackDropClick">Enable "BackDropClick"</wsk-checkbox>
+            </div>
         </div>
+
         <div class="status">Status:<br>
-            {{statusMessage}}</div>
+            <span>{{statusMessage}}</span></div>
     </div>
   </div>
 
