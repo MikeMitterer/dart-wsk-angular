@@ -1,6 +1,14 @@
 #Change Log for wsk_angular#
 Material Design for Angular App! Based on Googles Web Starter Kit - Material version
 
+##[v0.7.8](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.7.7...v0.7.8) - 2015-03-12##
+
+###Feature###
+* wsk-toast works, sample for wsk-dialog improved [e9efaff](http://github.com/mikemitterer/dart-wsk-angular/commit/e9efaff63759ce17203be7c20427b2f9caa51a93)
+
+###Docs###
+* mini-footer-flex added to Styleguide [51b3e79](http://github.com/mikemitterer/dart-wsk-angular/commit/51b3e7927d89d1759cc110ac9f4a0a363e06d838)
+
 ##[v0.7.7](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.7.6...v0.7.7) - 2015-03-10##
 
 ###Docs###
