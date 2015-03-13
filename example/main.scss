@@ -86,27 +86,37 @@ html, body {
 
     }
 
-    .components > article ul {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center; // ⇾
-        align-content: space-between; // ||
-        align-items: flex-start; // ↓
-
-        li {
-            width: 200px;
+    .components {
+        .highlight {
+            margin: 12px;
+            padding: 12px;
+            background-color: nth($palette-primary,1);
+            border: 1px solid nth($palette-primary,5);
+            border-radius: 5px;
         }
 
+        > article ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center; // ⇾
+            align-content: space-between; // ||
+            align-items: flex-start; // ↓
 
-        .wsk-list-view--avatar.component {
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            background-position: 50% 50%;
-            background-image: svgShapeComponent(nth($palette-primary, 2));
+            li {
+                width: 200px;
+            }
 
-            &.script {
-                background-image: svgShapeComponent(nth($palette-primary, 4));
+
+            .wsk-list-view--avatar.component {
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-position: 50% 50%;
+                background-image: svgShapeComponent(nth($palette-primary, 2));
+
+                &.script {
+                    background-image: svgShapeComponent(nth($palette-primary, 4));
+                }
             }
         }
     }

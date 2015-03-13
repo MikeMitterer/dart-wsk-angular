@@ -18,7 +18,10 @@
 <div class="wsk-layout wsk-layout--fixed-header">
     <div class="wsk-layout__header addscrollshadow">
         <!-- Icon -->
-        <svg class="wsk-layout-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#ffffff" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        <svg class="wsk-layout-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path fill="#ffffff"
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+        </svg>
 
         <!-- Title -->
         <span class="wsk-layout-title">Material style for Angular Dart</span>
@@ -53,16 +56,24 @@
                 <strong>Delete-key friendly</strong><br>
                 Create a tailored starter kit by taking only what you need, and easily deleting anything you don't.
             </p>
+
             <p>The source code is hosted on
                 <a href="https://github.com/MikeMitterer/dart-wsk-angular" target="_blank">GitHub.</a>
-                Issues, ideas: <a href="https://github.com/MikeMitterer/dart-wsk-angular/issues">Issue-Tracker on GitHub</a>
+                Issues, ideas: <a href="https://github.com/MikeMitterer/dart-wsk-angular/issues">Issue-Tracker on
+                    GitHub</a>
             </p>
 
             <section class="components" id="components">
                 <article>
                     <h4>Styleguide</h4>
-                    <p>The <a href="styleguide/index.html">Styleguide</a> shows all samples on one page.</p>
-                    <p>If you are not sure - this is your main entry point.</p>
+                    <div class="highlight">
+                        <p>The <a href="styleguide/index.html">Styleguide</a> shows all samples on one page. It also
+                            tells
+                            you more about wsk_angular, <a href="/styleguide/index.html#/gettingstarted">how to get
+                                startet</a> and how to use the components.</p>
+
+                        <p>If you are not sure - this is your main entry point.</p>
+                    </div>
                 </article>
 
                 <article>
@@ -187,7 +198,8 @@
                 <article>
                     <div class="wsk-card wsk-shadow--z1">
                         <div class="wsk-card--img-container">
-                            <a href="layout-header-drawer/index.html"><img src="_images/card-headerfooter-330.jpg" alt=""/></a>
+                            <a href="layout-header-drawer/index.html"><img src="_images/card-headerfooter-330.jpg"
+                                                                           alt=""/></a>
                         </div>
                         <div class="wsk-card--heading">
                             <span class="wsk-card--heading-text">Fixed header, collapsible drawer for smaller screens, footer scrolls</span>
@@ -207,7 +219,8 @@
 
                     <div class="wsk-card wsk-shadow--z1">
                         <div class="wsk-card--img-container">
-                            <a href="layout-header-drawer-footer/index.html"><img src="_images/card-bottombar-330.jpg" alt=""/></a>
+                            <a href="layout-header-drawer-footer/index.html"><img src="_images/card-bottombar-330.jpg"
+                                                                                  alt=""/></a>
                         </div>
                         <div class="wsk-card--heading">
                             <span class="wsk-card--heading-text">
@@ -230,6 +243,7 @@
 
             <section class="theming" id="theming">
                 <h4>Theming</h4>
+
                 <p>Theming is very easy. This is your basic SCSS file:<br><br>
                     main.scss:
                     <pre>
@@ -259,26 +273,31 @@
     8.  $palette-disabled: $palette-grey !default;
     9.  $palette-page: $palette-grey !default;
         ...</pre>
-                Now <span class="important">change the <a href="/styleguide/index.html#/pallet">pallets-name</a></span><br>
+                Now <span class="important">change the <a
+                    href="/styleguide/index.html#/pallet">pallets-name</a></span><br>
                 Yes - <span class="important">that's it!</span> Compile your sass-file and you are done!
                 </p>
 
                 <p>If you want to know how to theme your SVG-Icons - check out this files
-                    <a href="https://github.com/MikeMitterer/dart-wsk-material/blob/master/example/main.scss" target="_blank">main.scss</a> (svgShapeComponent)</p>
+                    <a href="https://github.com/MikeMitterer/dart-wsk-material/blob/master/example/main.scss"
+                       target="_blank">main.scss</a> (svgShapeComponent)</p>
 
             </section>
 
             <section class="links" id="links">
                 <h6>Base-Project</h6>
+
                 <p>If you don't need Angular there is a pure Dart version for you. Check it out:
                     <a href="http://wsk.mikemitterer.at">http://wsk.mikemitterer.at</a>
                 </p>
 
                 <h6>More links</h6>
                 <ul>
-                    <li><a href="http://google.github.io/material-design-icons/">Googles Material Design Icons - SVG preview</a></li>
+                    <li><a href="http://google.github.io/material-design-icons/">Googles Material Design Icons - SVG
+                        preview</a></li>
                     <li><a href="https://developers.google.com/web/starter-kit/">Web Starter Kit</a></li>
-                    <li><a href="http://www.google.com/design/spec/material-design/">Material design - specifications</a></li>
+                    <li><a href="http://www.google.com/design/spec/material-design/">Material design -
+                        specifications</a></li>
                 </ul>
             </section>
         </section>
@@ -286,10 +305,10 @@
             <div class="wsk-mini-footer--left-section">
                 <div>Last update: <strong>{{lastupdate}}</strong></div>
                 <!--<div class="wsk-logo">-->
-                    <!--<strong>Sample layout</strong>-->
+                <!--<strong>Sample layout</strong>-->
                 <!--</div>-->
                 <!--<ul class="wsk-mini-footer&#45;&#45;link-list">-->
-                    <!--<li><a href="#" target="_blank" class="hide-on-mobile">Link</a></li>-->
+                <!--<li><a href="#" target="_blank" class="hide-on-mobile">Link</a></li>-->
                 <!--</ul>-->
             </div>
             <div class="wsk-mini-footer--right-section">
