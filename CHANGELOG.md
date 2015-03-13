@@ -1,6 +1,11 @@
 #Change Log for wsk_angular#
 Material Design for Angular App! Based on Googles Web Starter Kit - Material version
 
+##[v0.7.9](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.7.8...v0.7.9) - 2015-03-13##
+
+###Feature###
+* directive for scrollshadow added, made styleguide look nicer [2bb4680](http://github.com/mikemitterer/dart-wsk-angular/commit/2bb46804fdbec3beefe8d9d4d58341dff8e0b1c8)
+
 ##[v0.7.8](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.7.7...v0.7.8) - 2015-03-12##
 
 ###Feature###
