@@ -128,10 +128,26 @@
     }
 }
 
-.demo-palette-group {
-    margin-top: 15px;
-    width: 360px;
-    float: left;
+.pallet.sample .preview-block {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; // ⇾
+    align-content: space-between; // ||
+    align-items: flex-start; // ↓
+
+    .demo-palette-group {
+        margin-top: 15px;
+
+        width: 312px;
+        margin-right: 24px;
+        &:last-child {
+            margin-right: 0;
+        }
+        @media screen and (max-width: (360px)) {
+            margin-right: 0;
+        }
+    }
 }
 
 .demo-palette-group--color, .demo-palette-group--heading {

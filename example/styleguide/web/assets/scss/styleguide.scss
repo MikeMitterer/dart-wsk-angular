@@ -88,6 +88,8 @@ $card-width: 310px;
 // Styleguide
 @import "_demo/styleguide";
 @import "_demo/source";
+@import "_demo/home";
+@import "_demo/gettingstarted";
 
 // Necessary for demo-Views
 @import "_demo/typography";
@@ -153,6 +155,23 @@ body {
 
         .content {
             padding: 0 $padding;
+
+            a {
+                text-decoration: none;
+                color: nth($palette-primary,5);
+
+                &:visited {
+                    color: nth($palette-primary,5);
+                }
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            h1,h2,h3,h4,h5,h6 {
+                color: $layout-header-bg-color;
+            }
         }
     }
 

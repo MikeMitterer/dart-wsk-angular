@@ -15,8 +15,12 @@ import 'package:console_log_handler/console_log_handler.dart';
 // Activates menu
 import 'package:wsk_angular/decorators/navactivator.dart';
 
+// Add scroll-shadow
+import 'package:wsk_angular/decorators/scrollshadow.dart';
+
 // Services
 import 'package:wsk_angular/services/LoadChecker.dart';
+
 
 // Components
 import 'package:wsk_angular/wsk_layout/wsk_layout.dart';
@@ -381,7 +385,7 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
         )
 
         // Getting started
-        ..addRoute(name: "gettingstarted", path: "/gettingstarted", enter: view("views/gettingstarted.html"))
+        ..addRoute(name: "getting started", path: "/gettingstarted", enter: view("views/gettingstarted.html"))
 
 
         // Components
@@ -431,6 +435,9 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
 
         ..addRoute(name: "typography", path: "/typography", enter: view("views/typography.html"))
 
+        // Directives
+        ..addRoute(name: "scrollshadow", path: "/scrollshadow", enter: view("views/directives/scrollshadow.html"))
+
         // Theming
         ..addRoute(name: "theming", path: "/theming", enter: view("views/theming.html")
 
@@ -447,6 +454,9 @@ class SampleModule extends Module {
 
         // Activate / deactivate menu
         bind(NavActivator);
+
+        // Add Scroll shadow
+        bind(ScrollShadow);
 
         // Components
         install(new WskLayoutModule());

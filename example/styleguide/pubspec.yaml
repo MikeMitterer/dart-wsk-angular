@@ -57,6 +57,9 @@ transformers:
       'web/views/tooltip.html',
       'web/views/typography.html',
 
+      'web/views/directives/scrollshadow.html',
+      'web/views/directives/usage/scrollshadow.html',
+
       'web/views/theming.html',
 
       'web/views/usage/toast.html'

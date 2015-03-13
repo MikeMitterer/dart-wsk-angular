@@ -1,0 +1,18 @@
+.home.sample {
+    .video {
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start; // ↓
+        align-content: space-between; // =
+        align-items: center; // ⇾
+
+        margin: 12px 0;
+
+        iframe, object, embed {
+            width: 100%;
+            max-width: 560px;
+        }
+    }
+}

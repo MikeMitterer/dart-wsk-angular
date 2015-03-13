@@ -78,8 +78,8 @@ abstract class WskDialog {
 
     Future close(final WskDialogStatus status) {
         return _destroy(status);
-
     }
+
     // - EventHandler -----------------------------------------------------------------------------
 
     // - private ----------------------------------------------------------------------------------

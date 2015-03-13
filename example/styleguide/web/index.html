@@ -32,13 +32,24 @@
 <!--<header>Header</header>-->
 <main>
     <wsk-layout drawer="fix" header="fix" class="wsk-styleguide">
-        <wsk-layout-header>
+        <wsk-layout-header class="wsk-add-scrollshadow-here">
             <span class="wsk-layout-title">{{name}}</span>
         </wsk-layout-header>
         <wsk-drawer>
-            <span class=wsk-layout-title><a href="/">WSK <strong>Style Guide</strong></a></span>
+            <span class=wsk-layout-title><a href="/">
+                <span class="logo">
+                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" style="
+                      width: 40px; height: 40px;">
+                    <path d="M 50 0 L 100 14 L 92 80 L 50 100 L 8 80 L 0 14 Z" fill="#b2b2b2"></path>
+                    <path d="M 50 5 L 6 18 L 13.5 77 L 50 94 Z" fill="#E42939"></path>
+                    <path d="M 50 5 L 94 18 L 86.5 77 L 50 94 Z" fill="#B72833"></path>
+                    <path d="M 50 7 L 83 75 L 72 75 L 65 59 L 50 59 L 50 50 L 61 50 L 50 26 Z" fill="#b2b2b2"></path>
+                    <path d="M 50 7 L 17 75 L 28 75 L 35 59 L 50 59 L 50 50 L 39 50 L 50 26 Z" fill="#fff"></path>
+                  </svg>
+                </span>
+                WSK Material</a></span>
             <nav id="main-navigation" class="wsk-navigation nav">
-                <a navactivator class="wsk-navigation__link no-border" href="#/home">Home</a>
+                <a navactivator class="wsk-navigation__link no-border" href="#/gettingstarted">Getting started</a>
                 <!--<a navactivator class="wsk-navigation__link no-border" href="#/gettingstarted">Getting started</a>-->
 
                 <wsk-accordion-group>
@@ -69,11 +80,17 @@
                             <a navactivator class="wsk-navigation__link" href="#/typography">Typography</a>
                         </div>
                     </wsk-accordion>
+
+                    <wsk-accordion label="Directives">
+                        <div class="wsk-navigation nav">
+                            <a navactivator class="wsk-navigation__link" href="#/scrollshadow">Scrollshadow</a>
+                        </div>
+                    </wsk-accordion>
                 </wsk-accordion-group>
                 <a navactivator class="wsk-navigation__link" href="#/theming">Theming</a>
             </nav>
         </wsk-drawer>
-        <wsk-layout-content class="angular-controlled">
+        <wsk-layout-content class="angular-controlled" scrollshadow>
             <ng-view id="main"></ng-view>
         </wsk-layout-content>
     </wsk-layout>

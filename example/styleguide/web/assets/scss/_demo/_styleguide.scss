@@ -4,11 +4,11 @@
 .styleguide-demo {
 
     wsk-layout-header .wsk-layout-title {
-        text-transform: capitalize;
+        text-transform: uppercase;
         font-weight: 200;
 
         @media screen and (max-width: $layout-screen-size-threshold) {
-            padding-left: 30px;
+            //padding-left: 30px;
         }
     }
 
@@ -20,6 +20,11 @@
             a {
                 color: white;
                 text-decoration: none;
+                font-weight: 100;
+            }
+            
+            .logo {
+                margin-right: 10px;
             }
         }
 
@@ -48,7 +53,7 @@
 
 
         .wsk-navigation__link {
-            padding: 2px 24px;
+            padding: 5px 24px;
             font-weight: 500;
         }
 

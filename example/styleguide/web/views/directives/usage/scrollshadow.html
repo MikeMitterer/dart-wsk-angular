@@ -1,0 +1,69 @@
+<wsk-accordion-group class="source">
+    <wsk-accordion >
+        <wsk-accordion-label>
+            <span class="custom-label">Basic Usage</span>
+            <i class="fa fa-eye" ></i>
+            <i class="fa fa-chevron-right indicator"></i>
+        </wsk-accordion-label>
+        <wsk-tabs>
+            <wsk-tab-bar>
+                <wsk-tab href="#scrollshadow-html">Html</wsk-tab>
+                <wsk-tab href="#scrollshadow-css">CSS</wsk-tab>
+            </wsk-tab-bar>
+
+            <wsk-tabs-panel id="scrollshadow-html" class="is-active">
+                Place the attribute <strong>"scrollshadow"</strong> on the element that scrolls. Add the class <strong>wsk-add-scrollshadow-here</strong> to the element that should
+                have the shadow. Usually this is <strong>wsk-layout-header</strong>. The "element that scrolls" is in most cases either
+                wsk-layout-content...
+                <pre class="prettyprint linenums lang-html">
+&lt;wsk-layout header=&quot;fixed&quot;&gt;
+    &lt;wsk-layout-header class=&quot;wsk-add-scrollshadow-here&quot;&gt;
+        ...
+    &lt;/wsk-layout-header&gt;
+    &lt;wsk-drawer&gt;
+        ...
+    &lt;/wsk-drawer&gt;
+    &lt;wsk-layout-content scrollshadow&gt;
+        &lt;section&gt;
+            ...
+        &lt;/section&gt;
+        &lt;footer class=&quot;wsk-mini-footer-flex&quot;&gt;
+            ...
+        &lt;/footer&gt;
+    &lt;/wsk-layout-content&gt;
+&lt;/wsk-layout&gt;
+                </pre>
+                ... but can also be the first element within <strong>wsk-layout-content</strong> - like it is in the layout-header-drawer-footer sample.
+                The "layout-header-drawer-footer" sample uses a flexbox based layout with fixed header + fixed footer
+
+                <pre class="prettyprint linenums lang-html">
+&lt;wsk-layout header=&quot;fixed&quot;&gt;
+    &lt;wsk-layout-header class=&quot;wsk-add-scrollshadow-here&quot;&gt;
+        ...
+    &lt;/wsk-layout-header&gt;
+    &lt;wsk-drawer&gt;
+        ...
+    &lt;/wsk-drawer&gt;
+    &lt;wsk-layout-content &gt;
+        &lt;!-- scrollshadow - section ist set to overflow: scroll --&gt;
+        &lt;section scrollshadow&gt;
+            ...
+        &lt;/section&gt;
+        &lt;footer class=&quot;wsk-mini-footer-flex&quot;&gt;
+            ...
+        &lt;/footer&gt;
+    &lt;/wsk-layout-content&gt;
+    &lt;footer class=&quot;wsk-bottom-bar&quot;&gt;
+        ...
+    &lt;/footer&gt;
+&lt;/wsk-layout&gt;
+                </pre>
+
+            </wsk-tabs-panel>
+
+            <wsk-tabs-panel id="scrollshadow-css">
+                <p>Nothing to do here. <strong>wsk-shadow--z2</strong> is automatically added for you.</p>
+            </wsk-tabs-panel>
+        </wsk-tabs>
+    </wsk-accordion>
+</wsk-accordion-group>

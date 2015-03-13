@@ -1,7 +1,91 @@
 <section class="content">
     <article class="gettingstarted sample">
         <div class="preview-block">
-            Comes asap!
+            <h5>New to AngularDart?</h5>
+
+            <p>Before getting into wsk_material, it might be helpful to
+                <a href="https://angulardart.org/" target="_blank">read about the framework</a>. You might also be
+                interested
+                to read a bit about the <a href="http://www.google.com/design/spec/material-design/" target="_blank">Material
+                    Design</a> specs.</p>
+
+            <p>wsk_material is using Google's <a href="https://developers.google.com/web/starter-kit/" target="_blank">Web
+                Starter Kit</a>(WSK) as base CSS framework. At the moment WSKs version is 5.x but wsk_material is using
+                the <a href="https://github.com/google/web-starter-kit/tree/0.6.0" target="_blank">upcoming</a> 6.x
+                version</p>
+
+            <h5>Web Starter Kit vs. Bootstrap</h5>
+
+            <p>You all know these arguments - Bootstrap is <strong>heavy!</strong>, you have no SASS-support and so
+                forth.<br>
+                <strong>Google’s Web Starter Kit</strong> is a little bit different. Instead of providing you with every
+                CSS
+                element that you could ever use, the WSK takes an exclusionary approach, providing you with a fairly
+                simple base on which to build. If you are familiar with Foundation, what you get CSS-wise is similar to
+                their ‘Essentials’<br>
+                If you want to read further - I found a good comparison on <a
+                        href="http://oompt.me/blog/2014/12/16/comparing-bootstrap-web-starter-kit/"
+                        target="_blank">this</a> page</p>
+
+            <h5>How do I start?</h5>
+            <ol>
+                <li><a href="https://github.com/MikeMitterer/dart-wsk-angular/tree/master/example" target="_blank">Fork
+                    one of these samples</a></li>
+                <li>Update your <span class="filename">pubspec.yaml</span>
+<pre class="prettyprint linenums lang-yaml" pretty-print>
+name: wsk_angular_layout_header_drawer_sample
+version: 0.0.1
+description: An absolute bare-bones web app.
+
+environment:
+    sdk: '&gt;=1.0.0 &lt;2.0.0'
+
+dependencies:
+    browser: any
+
+    angular: &quot;&gt;=1.0.0 &lt;2.0.0&quot;
+
+    # Change this to ANY
+    wsk_angular: any
+
+dev_dependencies:
+    unittest: any
+
+#------------------------------------------------
+transformers:
+    - angular:
+
+    # List is necessary because of this bug: http://goo.gl/4Rb3wr
+    html_files: [
+        'web/index.html'
+    ]
+</pre>
+                </li>
+                <li>pub update</li>
+                <li>pub build</li>
+            </ol>
+
+            <h5>Contributing to WSK Angular Material</h5>
+            <ul>
+                <li>To contribute, fork our <a href="https://github.com/MikeMitterer/dart-wsk-angular">GitHub</a>
+                    repository.
+                </li>
+                <li>For problems, search the <a href="https://github.com/MikeMitterer/dart-wsk-angular/issues"
+                                                target="_blank">issue</a> and/or create a new one.
+                </li>
+            </ul>
         </div>
+
+        <section class="links" id="links">
+
+            <h6>Links</h6>
+            <ul>
+                <li><a href="http://google.github.io/material-design-icons/">Googles Material Design Icons - SVG
+                    preview</a></li>
+                <li><a href="https://developers.google.com/web/starter-kit/">Web Starter Kit</a></li>
+                <li><a href="http://www.google.com/design/spec/material-design/">Material design - specifications</a>
+                </li>
+            </ul>
+        </section>
     </article>
 </section>

@@ -2,79 +2,97 @@
     <article class="button sample">
         <div class="preview-block">
 
-            <h5>Simple <i class="fa fa-lightbulb-o light" ng-class="{'on':model['btn1']}"></i></h5>
-            <div class="button-block">Flat:
-                <wsk-button ripple="off" ng-click="toggle('btn1')">Flat</wsk-button>
-            </div>
-            <div class="button-block">Raised:
-                <wsk-button ripple="off" raised ng-click="toggle('btn1')">Raised</wsk-button>
-            </div>
-            <div class="button-block">FAB:
-                <wsk-button ripple="off" fab ng-click="toggle('btn1')">♥</wsk-button>
-            </div>
-            <div class="button-block">Icon:
-                <wsk-button ripple="off" icon ng-click="toggle('btn1')">♥</wsk-button>
-            </div>
+            <section class="basic">
+                <h6>Default <i class="fa fa-lightbulb-o light" ng-class="{'on':model['btn1']}"></i></h6>
+                <div class="button-block">
+                    <wsk-button ripple="off" ng-click="toggle('btn1')">Button</wsk-button>
+                </div>
+                <div class="button-block">
+                    <wsk-button ng-click="toggle('btn1')">Ripples</wsk-button>
+                </div>
+                <div class="button-block">
+                    <wsk-button colored ripple="off" ng-model="model['btn1']">Colored</wsk-button>
+                </div>
+                <div class="button-block">
+                    <wsk-button colored ng-model="model['btn1']">Ripples</wsk-button>
+                </div>
+                <div class="button-block">
+                    <wsk-button ng-disabled="!model['btnDisable']" ng-model="model['btn1']">Disabled</wsk-button>
+                </div>
 
-            <h6>with Ripples</h6>
-            <div class="button-block">Flat:
-                <wsk-button ng-click="toggle('btn1')">Flat</wsk-button>
-            </div>
-            <div class="button-block">Raised:
-                <wsk-button raised ng-click="toggle('btn1')">Raised</wsk-button>
-            </div>
-            <div class="button-block">FAB:
-                <wsk-button raised fab ng-click="toggle('btn1')">♥</wsk-button>
-                <!--<wsk-button raised fab ripple ng-click="handleEvent($event)">♥</wsk-button>-->
-            </div>
-            <div class="button-block">Icon:
-                <wsk-button icon ng-click="toggle('btn1')">♥</wsk-button>
-            </div>
+            </section>
 
-            <h5>Colored <i class="fa fa-lightbulb-o light" ng-class="{'on':model['btn2']}"></i></h5>
-            <div class="button-block">Flat:
-                <wsk-button colored ripple="off" ng-model="model['btn2']">Flat</wsk-button>
-            </div>
-            <div class="button-block">Raised:
-                <wsk-button raised colored ripple="off" ng-model="model['btn2']">Raised</wsk-button>
-            </div>
-            <div class="button-block">FAB:
-                <wsk-button fab colored ripple="off" ng-model="model['btn2']">♥</wsk-button>
-            </div>
-            <div class="button-block">Mini FAB:
-                <wsk-button minifab colored ripple="off" ng-model="model['btn2']">♥</wsk-button>
-            </div>
+            <section class="raised">
+                <h6>Raised</h6>
+                <div class="button-block">
+                    <wsk-button ripple="off" raised ng-click="toggle('btn1')">Raised</wsk-button>
+                </div>
+                <div class="button-block">
+                    <wsk-button raised ng-click="toggle('btn1')">Ripples</wsk-button>
+                </div>
+                <div class="button-block">
+                    <wsk-button raised colored ripple="off" ng-model="model['btn1']">Colored</wsk-button>
+                </div>
+                <div class="button-block">
+                    <wsk-button raised colored ng-model="model['btn1']">
+                        Ripples
+                    </wsk-button>
+                </div>
+                <div class="button-block">
+                    <wsk-button raised ng-disabled="!model['btnDisable']" ng-model="model['btn1']">Disabled</wsk-button>
+                </div>
 
-            <h6>with Ripples</h6>
-            <div class="button-block">Flat:
-                <wsk-button colored ng-model="model['btn2']">Flat</wsk-button>
-            </div>
-            <div class="button-block">Raised:
-                <wsk-button raised colored ng-model="model['btn2']">
-                    Raised
-                </wsk-button>
-            </div>
-            <div class="button-block">FAB:
-                <wsk-button fab colored ng-model="model['btn2']">♥</wsk-button>
-            </div>
-            <div class="button-block">Mini FAB:
-                <wsk-button minifab colored ng-model="model['btn2']">♥</wsk-button>
-            </div>
+            </section>
 
-            <h5 ng-class="{'disabled':model['btnDisable']}">Disabled</h5>
-            <div class="button-block">Flat:
-                <wsk-button ng-disabled="!model['btnDisable']" ng-model="model['btn2']">Flat</wsk-button>
-            </div>
-            <div class="button-block">Raised:
-                <wsk-button raised ng-disabled="!model['btnDisable']" ng-model="model['btn2']">Raised</wsk-button>
-            </div>
-            <div class="button-block">FAB:
-                <wsk-button fab ng-disabled="!model['btnDisable']" ng-model="model['btn2']">♥</wsk-button>
-            </div>
-            <div class="button-block">Icon:
-                <wsk-button icon ng-disabled="!model['btnDisable']" ng-model="model['btn2']">♥</wsk-button>
-            </div>
-            <wsk-checkbox ng-model="model['btnDisable']" ng-true-value="0" ng-false-value="1">Last row is disabled</wsk-checkbox>
+            <section class="fab">
+                <h6>FAB <i class="fa fa-lightbulb-o light" ng-class="{'on':model['btn2']}"></i></h6>
+                <div class="button-block">
+                    <wsk-button ripple="off" fab ng-click="toggle('btn2')">♥</wsk-button>
+                </div>
+                <div class="button-block">
+                    <wsk-button fab colored ripple="off" ng-model="model['btn2']">♥</wsk-button>
+                </div>
+                <div class="button-block">Mini 
+                    <wsk-button minifab colored ripple="off" ng-model="model['btn2']">♥</wsk-button>
+                </div>
+                <h6>with Ripples</h6>
+                <div class="button-block">
+                    <wsk-button raised fab ng-click="toggle('btn2')">♥</wsk-button>
+                    <!--<wsk-button raised fab ripple ng-click="handleEvent($event)">♥</wsk-button>-->
+                </div>
+                <div class="button-block">
+                    <wsk-button fab colored ng-model="model['btn2']">♥</wsk-button>
+                </div>
+                <div class="button-block">Mini 
+                    <wsk-button minifab colored ng-model="model['btn2']">♥</wsk-button>
+                </div>
+                <h6>Disabled</h6>
+                <div class="button-block">
+                    <wsk-button fab ng-disabled="!model['btnDisable']" ng-model="model['btn2']">♥</wsk-button>
+                </div>
+                <div class="button-block">Mini 
+                    <wsk-button minifab ng-disabled="!model['btnDisable']" colored ng-model="model['btn2']">♥</wsk-button>
+                </div>
+
+            </section>
+
+            <section class="icons">
+                <h6>Icons</h6>
+                <div class="button-block">Icon:
+                    <wsk-button ripple="off" icon ng-click="toggle('btn2')">♥</wsk-button>
+                </div>
+                <div class="button-block">Icon:
+                    <wsk-button icon ng-click="toggle('btn2')">♥</wsk-button>
+                </div>
+                <div class="button-block">Icon:
+                    <wsk-button icon ng-disabled="!model['btnDisable']" ng-model="model['btn2']">♥</wsk-button>
+                </div>
+
+            </section>
+
+            <wsk-checkbox ng-model="model['btnDisable']" ng-true-value="0" ng-false-value="1">Last col is
+                <span ng-class="{'disabled':model['btnDisable']}">disabled</span>
+            </wsk-checkbox>
           <p>
           "Colored" and "Disabled" use ng-model instead of ng-click because ng-click does not work with a disabled wsk-button.
           </p>

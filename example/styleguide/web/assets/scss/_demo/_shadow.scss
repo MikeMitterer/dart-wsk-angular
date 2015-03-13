@@ -1,12 +1,33 @@
 .shadow.sample {
-    .demo-paper-card {
-        background-color    : #fff;
-        border-radius       : 2px;
-        display             : block;
-        height              : 300px;
-        margin              : 20px;
-        transition-property : opacity, transform;
-        @include material-animation-default(300ms);
-        width               : 300px;
+
+    .preview-block {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; // ⇾
+        align-content: space-between; // ||
+        align-items: flex-start; // ↓
+
+        .demo-paper-card {
+            background-color    : #fff;
+            border-radius       : 2px;
+            display             : block;
+            height              : 300px;
+            margin              : 20px 0;
+            transition-property : opacity, transform;
+            @include material-animation-default(300ms);
+            width               : 312px;
+
+            margin-right: 24px;
+            &:last-child {
+                margin-right: 0;
+            }
+            @media screen and (max-width: (360px)) {
+                margin-right: 0;
+            }
+
+        }
+
     }
+
 }

@@ -6,6 +6,7 @@ import 'package:angular/application_factory.dart';
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
+import 'package:wsk_angular/decorators/scrollshadow.dart';
 import 'package:wsk_angular/wsk_layout/wsk_layout.dart';
 
 
@@ -22,6 +23,8 @@ main() {
  */
 class SampleModule extends Module {
     SampleModule() {
+        bind(ScrollShadow);
+
         install(new WskLayoutModule());
 
         // -- controllers
