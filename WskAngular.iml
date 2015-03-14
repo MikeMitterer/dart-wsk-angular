@@ -24,6 +24,8 @@
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/lib/custom_dialog/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/lib/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/lib/pretty_print/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/styleguide/packages/wsk_angular" />
+      <excludeFolder url="file://$MODULE_DIR$/example/styleguide/packages/wsk_angular_styleguide" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/assets/css/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/assets/css/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/assets/images/packages" />
