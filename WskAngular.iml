@@ -24,8 +24,6 @@
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/lib/custom_dialog/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/lib/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/lib/pretty_print/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/example/styleguide/packages/wsk_angular" />
-      <excludeFolder url="file://$MODULE_DIR$/example/styleguide/packages/wsk_angular_styleguide" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/assets/css/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/assets/css/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/assets/images/packages" />
@@ -33,8 +31,9 @@
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/assets/scss/_demo/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/assets/scss/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/views/directives/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/views/directives/usage/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/views/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/views/source/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/styleguide/web/views/usage/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_accordion/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_accordion/build" />
@@ -44,6 +43,10 @@
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_animation/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_animation/packages/wsk_angular" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_animation/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_badge/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_badge/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_badge/packages/wsk_angular" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_badge/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_button/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_button/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_button/packages/wsk_angular" />

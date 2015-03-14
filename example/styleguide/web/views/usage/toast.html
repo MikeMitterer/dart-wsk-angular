@@ -14,6 +14,8 @@
 
             <wsk-tabs-panel id="toast-dart" class="is-active" >
                 <pre class="prettyprint linenums lang-dart">
+import 'package:wsk_angular/wsk_toast/wsk_toast.dart';
+
 @Injectable()
 class AppController {
     final _logger = new Logger('wsk_toast.AppController');
@@ -36,11 +38,11 @@ class AppController {
 class SampleModule extends Module {
     SampleModule() {
         install(new WskToastModule());
+        bind(AppController);
     }
 }
 
 main() {
-    configLogger();
     applicationFactory().addModule(new SampleModule()).rootContextType(AppController).run();
 }
                 </pre>

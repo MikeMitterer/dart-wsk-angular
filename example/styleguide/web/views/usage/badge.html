@@ -1,0 +1,63 @@
+<wsk-accordion-group class="source">
+    <wsk-accordion >
+        <wsk-accordion-label>
+            <span class="custom-label">Basic Usage</span>
+            <i class="fa fa-eye" ></i>
+            <i class="fa fa-chevron-right indicator"></i>
+        </wsk-accordion-label>
+        <wsk-tabs>
+            <wsk-tab-bar>
+                <wsk-tab href="#badge-dart">Dart</wsk-tab>
+                <wsk-tab href="#badge-html">Html</wsk-tab>
+                <wsk-tab href="#badge-sass">SASS</wsk-tab>
+            </wsk-tab-bar>
+
+            <wsk-tabs-panel id="badge-dart" class="is-active" >
+                <pre class="prettyprint linenums lang-dart">
+import 'package:wsk_angular/wsk_badge/wsk_badge.dart';
+
+@Injectable()
+class AppController {
+    AppController() {
+    }
+}
+
+class SampleModule extends Module {
+    SampleModule() {
+        install(new WskBadgeModule());
+        bind(AppController);
+    }
+}
+
+main() {
+    applicationFactory()
+        .addModule(new SampleModule())
+        .rootContextType(AppController).run();
+}
+                </pre>
+            </wsk-tabs-panel>
+
+            <wsk-tabs-panel id="badge-html">
+                <pre class="prettyprint linenums lang-html">
+&lt;wsk-badge data-badge=&quot;42&quot;&gt;
+    I am in wsk-badge
+&lt;/wsk-badge&gt;
+
+&lt;wsk-badge data-badge=&quot;13&quot;&gt;
+    &lt;a href=&quot;#&quot;&gt;a-tag in wsk-badge&lt;/a&gt;
+&lt;/wsk-badge&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;wsk-badge&quot; data-badge=&quot;7&quot;&gt;
+ Class only
+&lt;/a&gt;
+                </pre>
+            </wsk-tabs-panel>
+
+            <wsk-tabs-panel id="badge-sass">
+                <pre class="prettyprint linenums lang-css">
+@import &quot;packages/wsk_angular/sass/wsk_badge/wsk_badge&quot;;
+                </pre>
+            </wsk-tabs-panel>
+        </wsk-tabs>
+    </wsk-accordion>
+</wsk-accordion-group>

@@ -85,11 +85,15 @@ $card-width: 310px;
 // Toast
 @import "packages/wsk_angular/sass/wsk_toast/wsk_toast";
 
+// Badge
+@import "packages/wsk_angular/sass/wsk_badge/wsk_badge";
+
 // Styleguide
 @import "_demo/styleguide";
 @import "_demo/source";
 @import "_demo/home";
 @import "_demo/gettingstarted";
+@import "_demo/prettyprint";
 
 // Necessary for demo-Views
 @import "_demo/typography";
@@ -110,6 +114,7 @@ $card-width: 310px;
 @import "_demo/accordion";
 @import "_demo/draganddrop";
 @import "_demo/toast";
+@import "_demo/badge";
 
 $padding: 24px;
 

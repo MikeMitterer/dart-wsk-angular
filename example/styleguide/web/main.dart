@@ -44,6 +44,7 @@ import 'package:wsk_angular_styleguide/pretty_print/pretty_print.dart';
 import 'package:wsk_angular/wsk_accordion/wsk_accordion.dart';
 import 'package:wsk_angular/wsk_dragdrop/wsk_dragdrop.dart';
 import 'package:wsk_angular/wsk_toast/wsk_toast.dart';
+import 'package:wsk_angular/wsk_badge/wsk_badge.dart';
 
 class _SimpleModel {
     final Map<String,dynamic> _model = new Map<String,dynamic>();
@@ -393,6 +394,8 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
 
         ..addRoute(name: "animation", path: "/animation", enter: view("views/animation.html"))
 
+        ..addRoute(name: "badge", path: "/badge", enter: view("views/badge.html"))
+
         ..addRoute(name: "button", path: "/button", enter: view("views/button.html"))
 
         ..addRoute(name: "cards", path: "/cards", enter: view("views/cards.html"))
@@ -479,6 +482,7 @@ class SampleModule extends Module {
         install(new WskAccordionModule());
         install(new WskDragDropModule());
         install(new WskToastModule());
+        install(new WskBadgeModule());
 
         install(new PrettyPrintModule());
 

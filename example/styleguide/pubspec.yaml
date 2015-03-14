@@ -33,6 +33,7 @@ transformers:
 
       'web/views/accordion.html',
       'web/views/animation.html',
+      'web/views/badge.html',
       'web/views/button.html',
       'web/views/cards.html',
       'web/views/checkbox.html',
@@ -62,7 +63,8 @@ transformers:
 
       'web/views/theming.html',
 
-      'web/views/usage/toast.html'
+      'web/views/usage/toast.html',
+      'web/views/usage/badge.html'
       ]
 
 - $dart2js:
