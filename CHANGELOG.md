@@ -1,6 +1,11 @@
 #Change Log for wsk_angular#
 Material Design for Angular App! Based on Googles Web Starter Kit - Material version
 
+##[v0.8.0](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.7.9...v0.8.0) - 2015-03-14##
+
+###Feature###
+* Badge added [6edfa80](http://github.com/mikemitterer/dart-wsk-angular/commit/6edfa801e4e87903b8f108c6848a331de0439b69)
+
 ##[v0.7.9](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.7.8...v0.7.9) - 2015-03-13##
 
 ###Feature###
