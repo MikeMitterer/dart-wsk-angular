@@ -241,7 +241,7 @@ class AppController {
         _confirm.config.closeOnBackDropClick = enableBackDropClick;
         _confirm("All of the banks have agreed to forgive you your debts.",
         title: "Would you like to delete your debt?",
-        yesButton: "Please do it!", noButton: "Sounds like a scam").show().then((final WskDialogStatus status) {
+        yesButton: "Do it!", noButton: "No, it's a scam").show().then((final WskDialogStatus status) {
             statusMessage = "closed ConfirmDialog with status: ${status}";
         });
     }
@@ -254,7 +254,7 @@ class AppController {
         _customDialog.config.closeOnBackDropClick = enableBackDropClick;
         _customDialog("3All of the banks have agreed to forgive you your debts.",
         title: "Mango #${mangoCounter} (Fruit)",
-        yesButton: "Please do it!", noButton: "Sounds like a scam").show().then((final WskDialogStatus status) {
+        yesButton: "I buy it!", noButton: "Not now").show().then((final WskDialogStatus status) {
             statusMessage = "closed ConfirmDialog with status: ${status}";
             mangoCounter++;
         });

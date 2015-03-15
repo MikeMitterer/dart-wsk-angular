@@ -37,22 +37,17 @@ class AppController {
     bool get waitingForConfirmation => wskToast.waitingForConfirmation;
 
     void showSimpleToast() {
-        wskToast.close(WskDialogStatus.CLOSED_VIA_NEXT_SHOW).then((_) {
             wskToast("Message #${_messageCounter++}").show().then((final WskDialogStatus status) {
                 _logger.info("Status: $status");
                 this.status = status.toString();
             });
-
-        });
     }
 
     void showWithAction() {
-        wskToast.close(WskDialogStatus.CLOSED_VIA_NEXT_SHOW).then((_) {
             wskToast("And... action! #${_messageCounter++}",confirmButton: "OK").show().then((final WskDialogStatus status) {
                 _logger.info("Status: $status");
                 this.status = status.toString();
             });
-        });
     }
 
     //-----------------------------------------------------------------------------

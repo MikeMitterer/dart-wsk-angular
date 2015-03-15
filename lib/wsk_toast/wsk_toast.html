@@ -8,5 +8,5 @@
                             'waiting-for-confirmation' : waitingForConfirmation
                             }">
     <span class="wsk-toast__flex">{{text}}</span>
-    <wsk-button ripple="off" colored ng-if="hasConfirmButton" ng-click="onClose()">{{confirmButton}}</wsk-button>
+    <wsk-button ripple="off" colored ng-if="hasConfirmButton" ng-click="onClose()" autofocus >{{confirmButton}}</wsk-button>
 </wsk-toast>

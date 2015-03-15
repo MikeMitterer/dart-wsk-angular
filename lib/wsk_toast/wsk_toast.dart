@@ -42,7 +42,9 @@ class _WskToastCssClasses {
 }
 
 class _ToastConfig extends DialogConfig {
-    _ToastConfig() : super(rootTagInTemplate: "wsk-toast", closeOnBackDropClick: false);
+    _ToastConfig() : super(rootTagInTemplate: "wsk-toast",
+        closeOnBackDropClick: false,
+        autoClosePossible: true);
 }
 
 /// Position on Screen or in container
@@ -72,10 +74,8 @@ class WskToast extends WskDialog {
     static const int LONG_DELAY = 3500;
     static const int SHORT_DELAY = 2000;
 
-    /// If Toast has a confirmButton this goes to true
-    bool _needsConfirmation = false;
-
-    Timer _timer = null;
+    /// If Toast has a confirmButton this is set to a valid dialog-ID
+    String _confirmationID = "";
 
     /// Position on Screen or in container
     final ToastPosition position = new ToastPosition();
@@ -89,13 +89,13 @@ class WskToast extends WskDialog {
         Validate.notNull(injector);
         this.injector = injector;
 
-        config.onCloseCallbacks.add(_onCloseViaEscOrClickOnBackDrop);
+        config.onCloseCallbacks.add(_onCloseCallback);
     }
 
     WskToast call(final String text, { final String confirmButton: "" }) {
         Validate.notBlank(text);
         Validate.notNull(confirmButton);
-        Validate.isTrue(!_needsConfirmation,"One Toast waits for confirmation, but the next one is already in the queue!");
+        Validate.isTrue(_confirmationID.isEmpty,"One Toast waits for confirmation, but the next one is already in the queue! ($_confirmationID)");
 
         this.text = text;
         this.confirmButton = confirmButton;
@@ -104,52 +104,54 @@ class WskToast extends WskDialog {
         return this;
     }
 
+    /// The current Toast waits for user interaction
+    bool get waitingForConfirmation => _confirmationID.isNotEmpty;
+
+    /// The template checks it it should show a button or not
     bool get hasConfirmButton => confirmButton != null && confirmButton.isNotEmpty;
 
-    /// set in show, removed in close and in onClose
-    bool get waitingForConfirmation => _needsConfirmation;
-
     @override
-    /// Closes previous Toast if there is one
+    /// if there is already a Toast open - it will be closed
     Future<WskDialogStatus> show() {
-        _needsConfirmation = hasConfirmButton;
-        _resetTimer();
+        Validate.isTrue(!waitingForConfirmation,"There is alread a Toast waiting for confirmation!!!!");
+
         return close(WskDialogStatus.CLOSED_VIA_NEXT_SHOW).then( (_) {
+
             if(!hasConfirmButton) {
-                _startTimer();
+                return super.show(timeout: new Duration(milliseconds: timeout));
             }
-            return super.show();
+
+            return super.show(dialogIDCallback: _setConfirmationID );
         });
     }
 
     // - EventHandler -----------------------------------------------------------------------------
 
     void onClose() {
-        _logger.info("onClose");
-        _needsConfirmation = false;
+        Validate.notBlank(_confirmationID, "onClose must have a _confirmationID set - but was blank");
 
-        close(WskDialogStatus.CONFIRMED);
+        _logger.info("onClose");
+        close(WskDialogStatus.CONFIRMED,dialogID: _confirmationID);
     }
 
     // - private ----------------------------------------------------------------------------------
 
-    void _onCloseViaEscOrClickOnBackDrop(final DialogElement dialogElement, final WskDialogStatus status) {
-        _needsConfirmation = false;
-    }
-
-    void _startTimer() {
-        _timer = new Timer(new Duration(milliseconds: timeout), () {
-            close(WskDialogStatus.CLOSED_ON_TIMEOUT);
-            _resetTimer();
-        });
-    }
-
-    void _resetTimer() {
-        if(_timer != null) {
-            _timer.cancel();
-            _timer = null;
+    void _onCloseCallback(final DialogElement dialogElement, final WskDialogStatus status) {
+        _logger.info("onCloseCallback, ID: ${dialogElement.id}, $status, ConfirmationID: $_confirmationID");
+        if(_confirmationID.isNotEmpty && dialogElement.id == _confirmationID) {
+            _clearConfirmationCheck();
         }
     }
 
+    /// Its important to know the ID of the dialog that needs a confirmation - otherwise another
+    /// dialog could reset the {_needsConfirmation} flag
+    void _setConfirmationID(final String id) {
+        Validate.notBlank(id);
+        _confirmationID = id;
+    }
+
+    void _clearConfirmationCheck() {
+        _confirmationID = "";
+    }
 }
         

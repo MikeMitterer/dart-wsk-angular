@@ -51,15 +51,20 @@ class DialogConfig {
 
     final String parentSelector;
 
+    /// A Toast-Message for example can have a Timer and closes automatically, not so an AlertDialog
+    final bool autoClosePossible;
+
     DialogConfig({ final String rootTagInTemplate: "wsk-dialog",
                    final bool closeOnBackDropClick: true,
                    final bool acceptEscToClose: true,
-                   final String parentSelector: _DEFAULT_PARENT_SELECTOR })
+                   final String parentSelector: _DEFAULT_PARENT_SELECTOR,
+                   final bool autoClosePossible: false })
 
     : this.rootTagInTemplate = rootTagInTemplate,
       this.closeOnBackDropClick = closeOnBackDropClick,
       this.acceptEscToClose = acceptEscToClose,
-      this.parentSelector = parentSelector {
+      this.parentSelector = parentSelector,
+      this.autoClosePossible = autoClosePossible {
 
         Validate.notBlank(rootTagInTemplate);
     }
@@ -71,11 +76,17 @@ class DialogElement {
 
     static const _DialogElementCssClasses _cssClasses = const _DialogElementCssClasses();
 
+    /// Scope for this node!
+    Scope _scope;
+
+    /// AutoClose-Timer
+    Timer _autoCloseTimer = null;
+
     /// usually the html body
     html.Element _parent;
 
     /// represents the <wsk-dialog> tag
-    html.Element _wskDialogElement;
+    html.Element _htmlWskDialogNode;
 
     /// Wraps wskDialogElement. Darkens the background and
     /// is used for backdrop click
@@ -98,8 +109,8 @@ class DialogElement {
 
         _parent = html.document.querySelector(_config.parentSelector);
 
-        _wskDialogElement = _createDialogElementFromString(htmlString,rootTag: _config.rootTagInTemplate);
-        _wskDialogElement.attributes["id"] = _elementID;
+        _htmlWskDialogNode = _createDialogElementFromString(htmlString,rootTag: _config.rootTagInTemplate);
+        _htmlWskDialogNode.attributes["id"] = _elementID;
 
         _wskDialogContainer = _prepareContainer();
 
@@ -108,7 +119,7 @@ class DialogElement {
         }
     }
 
-    void show(final Completer<WskDialogStatus> completer) {
+    void show(final Completer<WskDialogStatus> completer,{ final Duration timeout }) {
         Validate.notNull(completer);
         Validate.isTrue(!completer.isCompleted);
         Validate.isTrue(_completer == null || _completer.isCompleted);
@@ -123,7 +134,7 @@ class DialogElement {
         }
 
         _waitForComponentToLoad(_containerSelector).then((_) {
-            _wskDialogContainer.append(_wskDialogElement);
+            _wskDialogContainer.append(_htmlWskDialogNode);
 
             _waitForComponentToLoad(_elementSelector).then((_) {
                 _wskDialogContainer.classes.remove(_cssClasses.IS_HIDDEN);
@@ -135,18 +146,44 @@ class DialogElement {
         if(_config.acceptEscToClose) {
             _addEscListener();
         }
+        if(timeout != null) {
+            _startTimeoutTimer(timeout);
+        }
         _logger.info("show end");
     }
 
     Future close(final WskDialogStatus status) {
         _removeEscListener();
 
+        void _resetTimer() {
+            if(_autoCloseTimer != null) {
+                _autoCloseTimer.cancel();
+                _autoCloseTimer = null;
+            }
+        }
+        _resetTimer();
+
         // Hide makes it possible to fade out the dialog
         return _hide(status);
     }
 
+    String get id => hashCode.toString();
+
+    bool get hasTimer => _autoCloseTimer != null && _autoCloseTimer.isActive;
+    bool get hasNoTimer => !hasTimer;
+    bool get isAutoCloseEnabled => hasTimer;
 
     // - private ----------------------------------------------------------------------------------
+
+    /// This timer is used to close automatically this dialog (Toast, Growl)
+    void _startTimeoutTimer(final Duration timeout) {
+        Validate.notNull(timeout);
+
+        _autoCloseTimer = new Timer(timeout,() {
+            close(WskDialogStatus.CLOSED_ON_TIMEOUT);
+        });
+    }
+
     html.HtmlElement get _container => html.document.querySelector(".${_containerClass}");
 
     html.Element get _element => html.document.querySelector(_elementSelector);
@@ -181,23 +218,36 @@ class DialogElement {
     void _destroy(final WskDialogStatus status) {
         _logger.info("_destroy - selector ${_containerSelector} brought: $_container");
 
-        if(_element != null) {
+        void _cleanupScope() {
+            if (_scope != null) {
+                _scope.destroy();
+                _scope = null;
+            }
+        }
+
+        if (_element != null) {
             _element.remove();
         }
 
         html.document.querySelectorAll(".${_containerClass}").forEach((final html.Element container) {
-            container.querySelectorAll(_config.rootTagInTemplate).forEach((final html.Element element) {
-                _logger.info("Element ${element} removed!");
-                if(! element.classes.contains(_cssClasses.WAITING_FOR_CONFIRMATION)) {
-
-                }
-            });
+//            container.querySelectorAll(_config.rootTagInTemplate).forEach((final html.Element element) {
+//                _logger.info("Element ${element} removed!");
+//                if (!element.classes.contains(_cssClasses.WAITING_FOR_CONFIRMATION)) {
+//
+//                }
+//            });
 
             if (!container.classes.contains(_cssClasses.APPENDING) && container.classes.contains(_cssClasses.IS_DELETABLE)) {
                 container.remove();
                 _logger.info("Container removed!");
             }
 
+        });
+
+        _cleanupScope();
+
+        _config.onCloseCallbacks.forEach((final OnCloseCallback callback) {
+            callback(this,status);
         });
 
         _complete(status);
@@ -230,9 +280,7 @@ class DialogElement {
             event.stopPropagation();
 
             if (event.target == container) {
-                _config.onCloseCallbacks.forEach((final OnCloseCallback callback) {
-                    callback(this,WskDialogStatus.CLOSED_BY_BACKDROPCLICK);
-                });
+                close(WskDialogStatus.CLOSED_BY_BACKDROPCLICK);
             }
         });
     }
@@ -243,9 +291,7 @@ class DialogElement {
             event.stopPropagation();
 
             if(event.keyCode == 27) {
-                _config.onCloseCallbacks.forEach((final OnCloseCallback callback) {
-                    callback(this,WskDialogStatus.CLOSED_BY_ESC);
-                });
+                close(WskDialogStatus.CLOSED_BY_ESC);
             }
         });
     }
