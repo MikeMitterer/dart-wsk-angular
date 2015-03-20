@@ -86,6 +86,10 @@
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_layout/packages/wsk_angular" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_layout/web/images/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_layout/web/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_panel/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_panel/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_panel/packages/wsk_angular" />
+      <excludeFolder url="file://$MODULE_DIR$/example/wsk_panel/web/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_radio/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_radio/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/wsk_radio/packages/wsk_angular" />

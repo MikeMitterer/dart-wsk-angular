@@ -1,4 +1,4 @@
-library wsk_angular.example.wsk_badge;
+library wsk_angular.example.wsk_panel;
 
 import 'dart:html' as html;
 import "dart:math" as Math;
@@ -9,11 +9,11 @@ import 'package:angular/application_factory.dart';
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
-import 'package:wsk_angular/wsk_badge/wsk_badge.dart';
+import 'package:wsk_angular/wsk_panel/wsk_panel.dart';
 
 @Injectable()
 class AppController {
-    final _logger = new Logger('wsk_angular.example.wsk_badge.AppController');
+    final _logger = new Logger('wsk_angular.example.wsk_panel.AppController');
 
     AppController() {
         _logger.fine("AppController");
@@ -26,7 +26,7 @@ class AppController {
  /// Demo Module
 class SampleModule extends Module {
     SampleModule() {
-        install(new WskBadgeModule());
+        install(new WskPanelModule());
 
         bind(AppController);
 

@@ -88,6 +88,9 @@ $card-width: 310px;
 // Badge
 @import "packages/wsk_angular/sass/wsk_badge/wsk_badge";
 
+// Panel
+@import "packages/wsk_angular/sass/wsk_panel/wsk_panel";
+
 // Styleguide
 @import "_demo/styleguide";
 @import "_demo/source";
@@ -115,6 +118,7 @@ $card-width: 310px;
 @import "_demo/draganddrop";
 @import "_demo/toast";
 @import "_demo/badge";
+@import "_demo/panel";
 
 $padding: 24px;
 

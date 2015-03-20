@@ -31,6 +31,8 @@ dev_dependencies:
 
   args: any
 
+  material_icons: any
+
 #------------------------------------------------
 # Kann mit dart-ptransformers generiert werden.
 #

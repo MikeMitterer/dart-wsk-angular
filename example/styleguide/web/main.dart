@@ -45,6 +45,7 @@ import 'package:wsk_angular/wsk_accordion/wsk_accordion.dart';
 import 'package:wsk_angular/wsk_dragdrop/wsk_dragdrop.dart';
 import 'package:wsk_angular/wsk_toast/wsk_toast.dart';
 import 'package:wsk_angular/wsk_badge/wsk_badge.dart';
+import 'package:wsk_angular/wsk_panel/wsk_panel.dart';
 
 class _SimpleModel {
     final Map<String,dynamic> _model = new Map<String,dynamic>();
@@ -418,6 +419,8 @@ void myRouteInitializer(Router router, RouteViewFactory view) {
 
         ..addRoute(name: "pallet", path: "/pallet", enter: view("views/pallet.html"))
 
+        ..addRoute(name: "panel", path: "/panel", enter: view("views/panel.html"))
+
         ..addRoute(name: "radio", path: "/radio", enter: view("views/radio.html"))
 
         ..addRoute(name: "shadow", path: "/shadow", enter: view("views/shadow.html"))
@@ -483,6 +486,7 @@ class SampleModule extends Module {
         install(new WskDragDropModule());
         install(new WskToastModule());
         install(new WskBadgeModule());
+        install(new WskPanelModule());
 
         install(new PrettyPrintModule());
 

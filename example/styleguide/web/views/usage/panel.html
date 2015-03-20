@@ -1,0 +1,84 @@
+<wsk-accordion-group class="source">
+    <wsk-accordion >
+        <wsk-accordion-label>
+            <span class="custom-label">Basic Usage</span>
+            <i class="fa fa-eye" ></i>
+            <i class="fa fa-chevron-right indicator"></i>
+        </wsk-accordion-label>
+        <wsk-tabs>
+            <wsk-tab-bar>
+                <wsk-tab href="#panel-dart">Dart</wsk-tab>
+                <wsk-tab href="#panel-html">Html</wsk-tab>
+                <wsk-tab href="#panel-sass">SASS</wsk-tab>
+            </wsk-tab-bar>
+
+            <wsk-tabs-panel id="panel-dart" class="is-active" >
+                <pre class="prettyprint linenums lang-dart">
+import 'package:wsk_angular/wsk_panel/wsk_panel.dart';
+
+@Injectable()
+class AppController {
+    AppController() {
+    }
+}
+
+class SampleModule extends Module {
+    SampleModule() {
+        install(new WskPanelModule());
+        bind(AppController);
+    }
+}
+
+main() {
+    applicationFactory()
+        .addModule(new SampleModule())
+        .rootContextType(AppController).run();
+}
+                </pre>
+            </wsk-tabs-panel>
+
+            <wsk-tabs-panel id="panel-html">
+                <pre class="prettyprint linenums lang-html">
+
+&lt;wsk-panel&gt;Simple panel&lt;/wsk-panel&gt;
+
+&lt;wsk-panel class=&quot;wsk-panel--shadow&quot;&gt;With shadow&lt;/wsk-panel&gt;
+
+&lt;wsk-panel class=&quot;wsk-panel--light wsk-panel--light-text&quot;&gt;Light panel, light text&lt;/wsk-panel&gt;
+
+&lt;wsk-panel class=&quot;wsk-panel--lighter&quot;&gt;Lighter panel&lt;/wsk-panel&gt;
+
+&lt;wsk-panel class=&quot;wsk-panel--dark&quot;&gt;Dark panel&lt;/wsk-panel&gt;
+
+&lt;wsk-panel class=&quot;wsk-panel--dark wsk-panel--light-text&quot;&gt;Dark panel, light text&lt;/wsk-panel&gt;
+
+&lt;wsk-panel class=&quot;wsk-panel--darker wsk-panel--light-text&quot;&gt;Darker panel, light text&lt;/wsk-panel&gt;
+
+&lt;wsk-panel class=&quot;wsk-panel--darker wsk-panel--light-text wsk-panel--shadow&quot;&gt;Darker panel, light text + shadow&lt;/wsk-panel&gt;
+
+&lt;wsk-panel class=&quot;wsk-panel--accent wsk-panel--light-text&quot;&gt;Accent panel, light text&lt;/wsk-panel&gt;
+
+&lt;wsk-panel class=&quot;wsk-panel--accent wsk-panel--light-text wsk-panel--shadow&quot;&gt;Accent panel, light text + shadow&lt;/wsk-panel&gt;
+
+&lt;wsk-panel class=&quot;wsk-panel--with-heading wsk-panel--dark wsk-panel--light-text&quot;&gt;
+    &lt;div class=&quot;wsk-panel__heading&quot;&gt;Panel heading&lt;/div&gt;
+    &lt;div class=&quot;wsk-panel__content&quot;&gt;Panel content&lt;/div&gt;
+&lt;/wsk-panel&gt;
+
+&lt;wsk-panel class=&quot;wsk-panel--with-heading wsk-panel--accent wsk-panel--light-text wsk-panel--shadow&quot;&gt;
+    &lt;div class=&quot;wsk-panel__heading&quot;&gt;Panel heading&lt;/div&gt;
+    &lt;div class=&quot;wsk-panel__content&quot;&gt;Panel content + shadow&lt;/div&gt;
+&lt;/wsk-panel&gt;
+
+
+</pre>
+            </wsk-tabs-panel>
+
+            <wsk-tabs-panel id="panel-sass">
+                <pre class="prettyprint linenums lang-css">
+@import &quot;packages/wsk_angular/sass/wsk_panel/wsk_panel&quot;;
+                </pre>
+            </wsk-tabs-panel>
+        </wsk-tabs>
+    </wsk-accordion>
+</wsk-accordion-group>
