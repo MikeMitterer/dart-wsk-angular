@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Single Page Application - Sample</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/demo.css">
+
+    <link rel="shortcut icon" href="assets/icons/favicon.ico"/>
+    <style>
+        body[ng-cloak] {
+            display : none;
+        }
+    </style>
+</head>
+
+<body ng-cloak>
+<wsk-layout header="fixed">
+    <wsk-layout-header class="wsk-add-scrollshadow-here">
+        <!-- Icon -->
+        <img class="wsk-layout-icon" src="images/app-icon.png"/>
+        <a href="#/home">
+            <!-- Title -->
+            <span class="wsk-layout-title">SPA Sample</span>
+        </a>
+        <!-- Add spacer, to align navigation to the right -->
+        <div class="wsk-layout-spacer"></div>
+        <!-- Navigation -->
+        <nav class="wsk-navigation">
+            <a class="wsk-navigation__link hide-on-mobile" href="#/page1">Page 1</a>
+            <a class="wsk-navigation__link hide-on-mobile" href="#/page2">Page 2</a>
+            <wsk-button class="bg-ic_more_vert_24px more-button" ng-click="isDropDownVisible = !isDropDownVisible"></wsk-button>
+        </nav>
+    </wsk-layout-header>
+    <wsk-drawer class="wsk-layout__drawer">
+        <span class="wsk-layout-title">Sample layout</span>
+        <nav class="wsk-navigation">
+            <a class="wsk-navigation__link" href="#/page1">Page 1</a>
+            <a class="wsk-navigation__link" href="#/page2">Page 2</a>
+        </nav>
+    </wsk-drawer>
+    <wsk-layout-content id="top" ng-click="isDropDownVisible = false" scrollshadow>
+        <ng-view id="main-content"></ng-view>
+    </wsk-layout-content>
+    <footer class="wsk-bottom-bar">
+        <div class="wsk-bottom-bar--btn">I</div>
+        <div class="wsk-bottom-bar--btn">II</div>
+        <div class="wsk-bottom-bar--btn">II</div>
+        <div class="wsk-bottom-bar--btn">IV</div>
+    </footer>
+    <footer class="wsk-mini-footer-flex">
+        <div class="wsk-mini-footer--left-section">
+            <div class="wsk-logo">
+                <strong>SPA Sample</strong>
+            </div>
+            <ul class="wsk-mini-footer--link-list">
+                <li><a href="#" target="_blank">Link I</a></li>
+                <li><a href="#" target="_blank">Link II</a></li>
+            </ul>
+        </div>
+        <div class="wsk-mini-footer--right-section">
+            <ul class="wsk-mini-footer--link-list">
+                <li><a href="http://www.mikemitterer.at">www.MikeMitterer.at</a></li>
+            </ul>
+
+            <button class="wsk-mini-footer--social-btn"></button>
+            <button class="wsk-mini-footer--social-btn"></button>
+        </div>
+    </footer>
+</wsk-layout>
+
+<div class="back-to-top">
+    <button id="totop" class="wsk-button wsk-js-button wsk-button--fab wsk-js-ripple-effect wsk-button--colored">
+        <i class="fa fa-angle-up"></i>
+    </button>
+</div>
+</div>
+
+<ul class="wsk-dropdown-menu" ng-class="{'is-visible' : isDropDownVisible }">
+    <button class="wsk-item wsk-js-ripple-effect">Sample 1</button>
+    <button class="wsk-item wsk-js-ripple-effect">Sample 2</button>
+    <button disabled class="wsk-item wsk-js-ripple-effect">Sample 3</button>
+    <a href="#/about" class="wsk-item wsk-js-ripple-effect" ng-click="isDropDownVisible = false">About</a>
+</ul>
+<script type="application/dart" src="main.dart"></script>
+<script data-pub-inline src="packages/browser/dart.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+name: wsk_angular_layout_single_page_application_sample
+version: 0.0.1
+description: An absolute bare-bones web Single-Page-App.
+#author: <your name> <email@example.com>
+#homepage: https://www.example.com
+
+environment:
+  sdk: '>=1.0.0 <2.0.0'
+
+dependencies:
+  browser: any
+
+  angular: ">=1.0.0 <2.0.0"
+
+  wsk_angular:
+    path: ../../
+
+  material_icons: any
+
+dev_dependencies:
+  unittest: any
+
+#------------------------------------------------
+transformers:
+- angular:
+    # dart_sdk:   "/Developer/dart-1.8.5/dart-sdk"
+
+    # List is necessary because of this bug: http://goo.gl/4Rb3wr
+    html_files: [
+      'web/index.html',
+
+      'web/views/home.html',
+      'web/views/page1.html',
+      'web/views/page2.html',
+
+      'web/views/about.html'
+      ]
+
+- $dart2js:
+    minify: false
+    sourceMaps: true
+
+

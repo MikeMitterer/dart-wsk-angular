@@ -1,0 +1,13 @@
+@import "colors";
+
+//  sass demo.scss demo.css -r packages/material_icons/sassext/urlencode.rb
+$icon-color: nth($palette-primary, 2);
+@import "packages/material_icons/sass/svg-utils";
+
+@import 'packages/material_icons/sass/navigation/svg/production/ic_more_vert_24px';
+.bg-ic_more_vert_24px {
+    @include svg-background("24");
+    @include svg-fallback("navigation/svg/production/ic_more_vert_24px.svg","navigation/2x_web/ic_more_vert_black_24dp.png","navigation/2x_web/ic_more_vert_white_24dp.png","navigation/2x_web/ic_more_vert_grey600_24dp.png");
+    background-image: svg-ic_more_vert_24px($icon-color);
+}
+

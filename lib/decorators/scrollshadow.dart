@@ -49,13 +49,14 @@ class ScrollShadow {
         element.onScroll.listen((final dom.Event event) {
             final int top = element.scrollTop;
 
-            _logger.info("scrollTop: $top");
+            _logger.fine("scrollTop: $top");
             if(top >= _nrOfPixels) {
                 _elementWithShadow.classes.add(_cssClasses.SHADOW);
             } else {
                 _elementWithShadow.classes.remove(_cssClasses.SHADOW);
             }
         });
+        _logger.info("Listener for 'scrollshadow' added! ($element)");
     }
 
     int get _nrOfPixels {
