@@ -91,6 +91,10 @@ $card-width: 310px;
 // Panel
 @import "packages/wsk_angular/sass/wsk_panel/wsk_panel";
 
+// Nav-Pills
+@import "packages/wsk_angular/sass/wsk_nav-pills/wsk_nav-pills";
+
+
 // Styleguide
 @import "_demo/styleguide";
 @import "_demo/source";
@@ -119,6 +123,7 @@ $card-width: 310px;
 @import "_demo/toast";
 @import "_demo/badge";
 @import "_demo/panel";
+@import "_demo/nav-pills";
 
 $padding: 24px;
 

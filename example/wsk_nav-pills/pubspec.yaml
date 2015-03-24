@@ -1,0 +1,30 @@
+name: wsk_angular_nav_pills_sample
+description: WSK Angular Nav-Pills sample
+version: 0.1.0
+author: Mike Mitterer <office@mikemitterer.at>
+homepage: https://github.com/MikeMitterer/dart-wsk-angular
+
+dependencies:
+  browser: any
+
+  angular: ">=1.0.0 <2.0.0"
+
+  wsk_angular:
+    path: ../../
+
+dev_dependencies:
+  unittest: any
+
+#------------------------------------------------
+transformers:
+- angular:
+    # dart_sdk:   "/Developer/dart-1.8.5/dart-sdk"
+
+    # List is necessary because of this bug: http://goo.gl/4Rb3wr
+    html_files: [
+      'web/index.html'
+      ]
+
+- $dart2js:
+    minify: false
+    sourceMaps: true

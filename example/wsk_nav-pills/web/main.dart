@@ -9,7 +9,7 @@ import 'package:angular/application_factory.dart';
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
-import 'package:wsk_angular/wsk_panel/wsk_panel.dart';
+import 'package:wsk_angular/wsk_nav-pills/wsk_nav-pills.dart';
 
 @Injectable()
 class AppController {
@@ -25,7 +25,7 @@ class AppController {
  /// Demo Module
 class SampleModule extends Module {
     SampleModule() {
-        install(new WskPanelModule());
+        install(new WskNavPillsModule());
 
         bind(AppController);
 

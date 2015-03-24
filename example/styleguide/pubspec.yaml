@@ -46,6 +46,7 @@ transformers:
       'web/views/icon-toggle.html',
       'web/views/item.html',
       'web/views/list.html',
+      'web/views/nav-pills.html',
       'web/views/pallet.html',
       'web/views/panel.html',
       'web/views/radio.html',
@@ -66,7 +67,8 @@ transformers:
 
       'web/views/usage/toast.html',
       'web/views/usage/badge.html',
-      'web/views/usage/panel.html'
+      'web/views/usage/panel.html',
+      'web/views/usage/nav-pills.html'
       ]
 
 - $dart2js:

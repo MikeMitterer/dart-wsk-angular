@@ -1,0 +1,16 @@
+@import "packages/wsk_angular/sass/wsk_styleguide_demo_bp";
+@import "packages/wsk_angular/sass/wsk_demo/wsk_demo";
+@import "packages/wsk_angular/sass/wsk_nav-pills/wsk_nav-pills";
+
+.nav-pills.sample {
+    .testblock {
+        background-color: whitesmoke;
+        border: 1px solid darkgrey;
+        padding: 8px 16px;
+        margin: 4px 0;
+    }
+
+    ul {
+        margin-bottom: 8px;
+    }
+}

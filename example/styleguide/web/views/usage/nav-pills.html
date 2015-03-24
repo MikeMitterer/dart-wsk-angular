@@ -1,0 +1,99 @@
+<wsk-accordion-group class="source">
+    <wsk-accordion >
+        <wsk-accordion-label>
+            <span class="custom-label">Basic Usage</span>
+            <i class="fa fa-eye" ></i>
+            <i class="fa fa-chevron-right indicator"></i>
+        </wsk-accordion-label>
+        <wsk-tabs>
+            <wsk-tab-bar>
+                <wsk-tab href="#nav-pills-dart">Dart</wsk-tab>
+                <wsk-tab href="#nav-pills-html">Html</wsk-tab>
+                <wsk-tab href="#nav-pills-sass">SASS</wsk-tab>
+            </wsk-tab-bar>
+
+            <wsk-tabs-panel id="nav-pills-dart" class="is-active" >
+                <pre class="prettyprint linenums lang-dart">
+import 'package:wsk_angular/wsk_nav-pills/wsk_nav-pills.dart';
+
+@Injectable()
+class AppController {
+    AppController() {
+    }
+}
+
+class SampleModule extends Module {
+    SampleModule() {
+        install(new WskNavPillsModule());
+
+        bind(AppController);
+    }
+}
+
+main() {
+    applicationFactory()
+        .addModule(new SampleModule())
+        .rootContextType(AppController).run();
+}
+                </pre>
+            </wsk-tabs-panel>
+
+            <wsk-tabs-panel id="nav-pills-html">
+                <pre class="prettyprint linenums lang-html">
+&lt;ul class=&quot;wsk-nav-pills&quot;&gt;
+    &lt;li&gt;Test1&lt;/li&gt;
+    &lt;li class=&quot;wsk-nav-pill--accent wsk-nav-pill--light-text&quot;&gt;Test2&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;wsk-nav-pill&gt;Test 4&lt;/wsk-nav-pill&gt;
+&lt;wsk-nav-pill&gt;&lt;a href=&quot;#&quot;&gt;Test5&lt;/a&gt;&lt;/wsk-nav-pill&gt;
+
+&lt;ul class=&quot;wsk-nav-pills wsk-nav-pills--as-row wsk-nav-pill--light wsk-nav--light-text&quot;&gt;
+    &lt;li&gt;Test1&lt;/li&gt;
+    &lt;li&gt;Test2&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test3&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Test4&lt;/li&gt;
+    &lt;li&gt;Test5&lt;/li&gt;
+    &lt;li&gt;Test6&lt;/li&gt;
+    &lt;li class=&quot;wsk-nav-pill--lighter&quot;&gt;&lt;a href=&quot;#&quot;&gt;Test7&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Test8&lt;/li&gt;
+    &lt;li&gt;Test9&lt;/li&gt;
+    &lt;li&gt;Test10&lt;/li&gt;
+    &lt;li&gt;Test11&lt;/li&gt;
+    &lt;li&gt;Test12&lt;/li&gt;
+    &lt;li&gt;Test13&lt;/li&gt;
+
+&lt;/ul&gt;
+&lt;wsk-nav-pill&gt;Test 6&lt;/wsk-nav-pill&gt;
+&lt;wsk-nav-pill&gt;Test 7&lt;/wsk-nav-pill&gt;
+&lt;div class=&quot;testblock&quot;&gt;Testblock - should stay in place&lt;/div&gt;
+
+&lt;ul class=&quot;wsk-nav-pills wsk-nav-pill--dark wsk-nav--light-text&quot;&gt;
+    &lt;li&gt;Test1&lt;/li&gt;
+    &lt;li class=&quot;wsk-nav-pill--darker&quot;&gt;Test2 - darker&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;wsk-nav-pill&gt;Test 4&lt;/wsk-nav-pill&gt;
+&lt;wsk-nav-pill class=&quot;wsk-nav-pill--accent wsk-nav-pill--light-text&quot;&gt;Test 5 - accent&lt;/wsk-nav-pill&gt;
+
+&lt;ul class=&quot;wsk-nav-pills wsk-nav-pills--as-row wsk-nav-pill--accent&quot;&gt;
+    &lt;li&gt;Test1&lt;/li&gt;
+    &lt;li class=&quot;wsk-nav-pill--darker wsk-nav-pill--light-text&quot;&gt;Test2 darker&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Test3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;wsk-nav-pill&gt;Test 6&lt;/wsk-nav-pill&gt;
+&lt;wsk-nav-pill class=&quot;wsk-nav-pill--darker wsk-nav-pill--light-text&quot;&gt;Test 7&lt;/wsk-nav-pill&gt;
+&lt;div class=&quot;testblock&quot;&gt;Testblock - should stay in place&lt;/div&gt;
+    </pre>
+            </wsk-tabs-panel>
+
+            <wsk-tabs-panel id="nav-pills-sass">
+                <pre class="prettyprint linenums lang-css">
+@import "packages/wsk_angular/sass/wsk_nav-pills/wsk_nav-pills";
+                </pre>
+            </wsk-tabs-panel>
+        </wsk-tabs>
+    </wsk-accordion>
+</wsk-accordion-group>

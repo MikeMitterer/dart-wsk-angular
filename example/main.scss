@@ -11,6 +11,9 @@
 @import "packages/wsk_material/sass/footer/mini_footer-flex";
 @import "packages/wsk_material/sass/list/list";
 
+// Panel
+@import "packages/wsk_angular/sass/wsk_panel/wsk_panel";
+
 //  sass main.scss main.css -r packages/material_icons/sassext/urlencode.rb
 $icon-color: nth($palette-primary, 2);
 @import "packages/material_icons/sass/svg-utils";
