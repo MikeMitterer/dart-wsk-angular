@@ -1,6 +1,11 @@
 #Change Log for wsk_angular#
 Material Design for Angular App! Based on Googles Web Starter Kit - Material version
 
+##[v0.8.3](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.8.2...v0.8.3) - 2015-03-24##
+
+###Docs###
+* Nav-Pills added [47c917d](http://github.com/mikemitterer/dart-wsk-angular/commit/47c917dece15b0dc79ffcb298835f0fa9319c920)
+
 ##[v0.8.2](http://github.com/mikemitterer/dart-wsk-angular/compare/v0.8.1...v0.8.2) - 2015-03-23##
 
 ###Docs###
